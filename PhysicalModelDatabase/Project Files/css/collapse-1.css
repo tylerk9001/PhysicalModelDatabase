@@ -71,7 +71,7 @@ label{
 /* Access Button */
 .access-btns {
     float: right;
-    margin-right: 4%;
+    margin-right: 5%;
     line-height: 60px;
 }
 
@@ -241,6 +241,7 @@ h3 {
         height: 50px;
         line-height: 50px;
         border-bottom: 1px solid #EAEAEB;
+        border-radius: 0px;
         margin: 0;
         padding: 0;
     }
@@ -273,6 +274,14 @@ h3 {
         padding-right: 38%;
     }
     
+    .showcase {
+        max-width: 100%;
+        height: auto;
+        background: url(../img/welcome.jpg);
+        background-size: cover;
+        padding-bottom: 40px; 
+    }
+
     /* Content */
     
     .categories-box-1, .categories-box-2 {
@@ -299,8 +308,13 @@ h3 {
         margin: 0 5% 0 5%;
     }
     
-    #showcase #welcome {
+    .showcase {
         margin-top: -19px;
+        max-width: 100%;
+        height: auto;
+        background: url(../img/welcome.jpg);
+        background-size: cover;
+        padding-bottom: 40px; 
     }
     
     .boxes ul {
@@ -308,14 +322,20 @@ h3 {
     }
 }
 
-@media only screen and (max-width: 480px){
-     .search-bar-input {
+@media only screen and (max-width: 480px){ 
+    
+    .search-bar-input {
         padding-right: 8%;
         padding-bottom: 3.5%;
     }
     
     .showcase {
         margin-top: -19px;
+        max-width: 100%;
+        height: auto;
+        background: url(../img/welcome.jpg);
+        background-size: cover;
+        padding-bottom: 40px; 
     }
     
     .content {
