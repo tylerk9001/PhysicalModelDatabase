@@ -18,7 +18,9 @@
             <input type="checkbox" id="toggle">
             <div class="menu">
                 <div class="logo"><a><i class="fa fa-cog" ></i></a></div>
-                <a href="index.html" classs="border-nav">Home</a>
+                <form action="${pageContext.servletContext.contextPath}/index" method="post">
+                	<input type="submit" class="border-nav">Home</input>
+                </form>
                 <a href="#construction">Construction</a>
                 <a href="#dynamics">Dynamics</a>
                 <a href="#fluids">Fluids</a>

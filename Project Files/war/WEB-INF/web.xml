@@ -8,11 +8,7 @@
   <!-- Servlets -->
   <servlet>
     <servlet-name>IndexServlet</servlet-name>
-    <servlet-class>edu.ycp.cs320.lab02.servlet.IndexServlet</servlet-class>
-  </servlet>
-  <servlet>
-    <servlet-name>GuessingGameServlet</servlet-name>
-    <servlet-class>edu.ycp.cs320.lab02.servlet.GuessingGameServlet</servlet-class>
+    <servlet-class>servlet.IndexServlet</servlet-class>
   </servlet>
 
   <!-- Servlet mappings -->
@@ -20,13 +16,10 @@
     <servlet-name>IndexServlet</servlet-name>
     <url-pattern>/index</url-pattern>
   </servlet-mapping>
-  <servlet-mapping>
-    <servlet-name>GuessingGameServlet</servlet-name>
-    <url-pattern>/guessingGame</url-pattern>
-  </servlet-mapping>
+ 
 
 
   <welcome-file-list>
-    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
   </welcome-file-list>
 </web-app>
