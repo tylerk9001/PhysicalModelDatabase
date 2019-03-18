@@ -30,56 +30,6 @@ public class GuessingGameServlet extends HttpServlet {
 		
 		System.out.println("GuessingGame Servlet: doPost");
 		
-		// create GuessingGame model - model does not persist between requests
-		// must recreate it each time a Post comes in 
-		GuessingGame model = new GuessingGame();
-
-		// create GuessingGame controller - controller does not persist between requests
-		// must recreate it each time a Post comes in
-		GuessingGameController controller = new GuessingGameController();
-		
-		// assign model reference to controller so that controller can access model
-		controller.setModel(model);
-		
-		// check if user is starting a new game and call controller method
-		if (req.getParameter("startGame") != null) {
-			controller.startGame();
-		}
-		// otherwise, user is already playing the game - get the old min and max
-		// from the posted form
-		// without persistence, we must pass the values back and forth between the
-		// client and the server every time in order to remember them
-		else {
-			// get min and max from the Posted form data
-			Integer curMin = getInteger(req, "min");
-			Integer curMax = getInteger(req, "max");
-			
-			// initialize model with the old min, max values
-			// since the data does not persist between posts, we need to 
-			// recreate and re-initialize the model each time
-			model.setMin(curMin);
-			model.setMax(curMax);
-
-			// now check to see which button the user pressed
-			// and adjust min, max, and guess accordingly
-			// must call controller methods to do this since the
-			// view only reads the model data, it never changes
-			// the model - only the controller can change the model
-			if (req.getParameter("gotIt") != null) {
-				controller.setNumberFound();
-			} else if (req.getParameter("less") != null) {
-				controller.setNumberIsLessThanGuess();
-			} else if (req.getParameter("more") != null) {
-				controller.setNumberIsGreaterThanGuess();
-			} else {
-				throw new ServletException("Unknown command");
-			}
-		}
-		
-		// set "game" attribute to the model reference
-		// the JSP will reference the model elements through "game"
-		req.setAttribute("game", model);
-		
 		// now call the JSP to render the new page
 		req.getRequestDispatcher("/_view/guessingGame.jsp").forward(req, resp);
 	}
