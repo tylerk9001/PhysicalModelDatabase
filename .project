@@ -3,6 +3,7 @@
 	<name>PhysicalModelDatabase</name>
 	<comment></comment>
 	<projects>
+		<project>CS320_Jetty9</project>
 	</projects>
 	<buildSpec>
 	</buildSpec>
