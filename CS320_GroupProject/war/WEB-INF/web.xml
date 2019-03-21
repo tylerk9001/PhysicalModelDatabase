@@ -70,6 +70,50 @@
   <servlet-name>ThermAServlet</servlet-name>
     <servlet-class>edu.ycp.320.lab02.servlet.ThermAServlet</servlet-class>
   </servlet>
+  <servlet>
+  <servlet-name>ThermBServlet</servlet-name>
+    <servlet-class>edu.ycp.320.lab02.servlet.ThermBServlet</servlet-class>
+  </servlet>
+  <servlet>
+  <servlet-name>ThermCServlet</servlet-name>
+    <servlet-class>edu.ycp.320.lab02.servlet.ThermCServlet</servlet-class>
+  </servlet>
+  <servlet>
+  <servlet-name>ThermDServlet</servlet-name>
+    <servlet-class>edu.ycp.320.lab02.servlet.ThermDServlet</servlet-class>
+  </servlet>
+  <servlet>
+  <servlet-name>ThermEServlet</servlet-name>
+    <servlet-class>edu.ycp.320.lab02.servlet.ThermEServlet</servlet-class>
+  </servlet>
+  <servlet>
+  <servlet-name>ThermFServlet</servlet-name>
+    <servlet-class>edu.ycp.320.lab02.servlet.ThermFServlet</servlet-class>
+  </servlet>
+  <servlet>
+  <servlet-name>ThermGServlet</servlet-name>
+    <servlet-class>edu.ycp.320.lab02.servlet.ThermGServlet</servlet-class>
+  </servlet>
+  <servlet>
+  <servlet-name>ThermHServlet</servlet-name>
+    <servlet-class>edu.ycp.320.lab02.servlet.ThermHServlet</servlet-class>
+  </servlet>
+  <servlet>
+  <servlet-name>ThermIServlet</servlet-name>
+    <servlet-class>edu.ycp.320.lab02.servlet.ThermIServlet</servlet-class>
+  </servlet>
+  <servlet>
+  <servlet-name>ThermJServlet</servlet-name>
+    <servlet-class>edu.ycp.320.lab02.servlet.ThermJServlet</servlet-class>
+  </servlet>
+  <servlet>
+  <servlet-name>ThermKServlet</servlet-name>
+    <servlet-class>edu.ycp.320.lab02.servlet.ThermKServlet</servlet-class>
+  </servlet>
+  <servlet>
+  <servlet-name>ThermLServlet</servlet-name>
+    <servlet-class>edu.ycp.320.lab02.servlet.ThermLServlet</servlet-class>
+  </servlet>
 	
 	
 
@@ -133,6 +177,54 @@
   <servlet-mapping>
     <servlet-name>DynKServlet</servlet-name>
     <url-pattern>/dyn-l</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>ThermAServlet</servlet-name>
+  	<url-pattern>/therm-a</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>ThermBServlet</servlet-name>
+  	<url-pattern>/therm-b</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>ThermCServlet</servlet-name>
+  	<url-pattern>/therm-c</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>ThermDServlet</servlet-name>
+  	<url-pattern>/therm-d</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>ThermEServlet</servlet-name>
+  	<url-pattern>/therm-e</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>ThermFServlet</servlet-name>
+  	<url-pattern>/therm-f</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>ThermGServlet</servlet-name>
+  	<url-pattern>/therm-a</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>ThermHServlet</servlet-name>
+  	<url-pattern>/therm-a</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>ThermIServlet</servlet-name>
+  	<url-pattern>/therm-a</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>ThermJServlet</servlet-name>
+  	<url-pattern>/therm-a</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>ThermKServlet</servlet-name>
+  	<url-pattern>/therm-a</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>ThermLServlet</servlet-name>
+  	<url-pattern>/therm-a</url-pattern>
   </servlet-mapping>
 
 
