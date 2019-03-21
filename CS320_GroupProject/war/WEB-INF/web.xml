@@ -8,18 +8,132 @@
   <!-- Servlets -->
   <servlet>
     <servlet-name>IndexServlet</servlet-name>
-    <servlet-class>edu.ycp.cs320.lab02.servlet.IndexServlet</servlet-class>
+    <servlet-class>servlet.IndexServlet</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>ConstAServlet</servlet-name>
+    <servlet-class>servlet.ConstAServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>ConstBServlet</servlet-name>
+    <servlet-class>servlet.ConstBServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>DynAServlet</servlet-name>
+    <servlet-class>servlet.DynAServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>DynBServlet</servlet-name>
+    <servlet-class>servlet.DynBServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>DynCServlet</servlet-name>
+    <servlet-class>servlet.DynCServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>DynDServlet</servlet-name>
+    <servlet-class>servlet.DynDServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>DynEServlet</servlet-name>
+    <servlet-class>servlet.DynEServlet</servlet-class>
+  </servlet>
+  <servlet>
+  <servlet-name>DynFServlet</servlet-name>
+    <servlet-class>servlet.DynFServlet</servlet-class>
+  </servlet>
+  <servlet>
+  <servlet-name>DynGServlet</servlet-name>
+    <servlet-class>servlet.DynGServlet</servlet-class>
+  </servlet>
+  <servlet>
+  <servlet-name>DynHServlet</servlet-name>
+    <servlet-class>servlet.DynHServlet</servlet-class>
+  </servlet>
+  <servlet>
+  <servlet-name>DynIServlet</servlet-name>
+    <servlet-class>servlet.DynIServlet</servlet-class>
+  </servlet>
+  <servlet>
+  <servlet-name>DynJServlet</servlet-name>
+    <servlet-class>servlet.DynJServlet</servlet-class>
+  </servlet>
+  <servlet>
+  <servlet-name>DynKServlet</servlet-name>
+    <servlet-class>servlet.DynKServlet</servlet-class>
+  </servlet>
+  <servlet>
+  <servlet-name>DynLServlet</servlet-name>
+    <servlet-class>servlet.DynLServlet</servlet-class>
+  </servlet>
+	
+	
 
   <!-- Servlet mappings -->
   <servlet-mapping>
     <servlet-name>IndexServlet</servlet-name>
     <url-pattern>/index</url-pattern>
   </servlet-mapping>
- 
+  <servlet-mapping>
+    <servlet-name>ConstAServlet</servlet-name>
+    <url-pattern>/const-a</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ConstBServlet</servlet-name>
+    <url-pattern>/const-b</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>DynAServlet</servlet-name>
+    <url-pattern>/dyn-a</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>DynBServlet</servlet-name>
+    <url-pattern>/dyn-b</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>DynCServlet</servlet-name>
+    <url-pattern>/dyn-c</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>DynDServlet</servlet-name>
+    <url-pattern>/dyn-d</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>DynEServlet</servlet-name>
+    <url-pattern>/dyn-e</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>DynFServlet</servlet-name>
+    <url-pattern>/dyn-f</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>DynGServlet</servlet-name>
+    <url-pattern>/dyn-g</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>DynHServlet</servlet-name>
+    <url-pattern>/dyn-h</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>DynIServlet</servlet-name>
+    <url-pattern>/dyn-i</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>DynJServlet</servlet-name>
+    <url-pattern>/dyn-j</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>DynKServlet</servlet-name>
+    <url-pattern>/dyn-k</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>DynKServlet</servlet-name>
+    <url-pattern>/dyn-l</url-pattern>
+  </servlet-mapping>
 
 
-  <welcome-file-list>
-    <welcome-file>index.html</welcome-file>
+  <!-- Welcome files -->
+<welcome-file-list>
+  <welcome-file>index.html</welcome-file>
   </welcome-file-list>
 </web-app>
