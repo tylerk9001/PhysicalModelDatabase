@@ -1,0 +1,57 @@
+
+.title-container {
+    width: 100%;
+}
+
+.title {
+    font-size: 24px;
+    text-align: center;
+}
+
+.eng-principle, keywords, author {
+    padding: 0;
+    margin: 0;
+    font-size: 18px;
+}
+
+.project-content {
+    width: 80%;
+    padding-left: 10%;
+    padding-right: 10%;
+}
+
+.project-content .title {
+    border-top: 1px solid gray;
+    border-bottom: 1px solid gray;
+    margin: 0px 40% 0px 40%;
+    width: 20%;
+}
+
+.description, .principle, .application {
+    line-height: 30px;
+}
+
+/* Required Items Table */
+table {
+    border-collapse: collapse;
+    width: 100%;
+    height: auto;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+
+/* Images */
+.const-img {
+    padding-left: 30%;
+    padding-right: 30%;
+    max-width: 40%;
+    height: auto;
+}
