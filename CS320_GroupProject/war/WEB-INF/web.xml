@@ -66,6 +66,10 @@
   <servlet-name>DynLServlet</servlet-name>
     <servlet-class>servlet.DynLServlet</servlet-class>
   </servlet>
+  <servlet>
+  <servlet-name>ThermAServlet</servlet-name>
+    <servlet-class>edu.ycp.320.lab02.servlet.ThermAServlet</servlet-class>
+  </servlet>
 	
 	
 
