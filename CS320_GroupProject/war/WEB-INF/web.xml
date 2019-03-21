@@ -10,6 +10,8 @@
     <servlet-name>IndexServlet</servlet-name>
     <servlet-class>edu.ycp.cs320.lab02.servlet.IndexServlet</servlet-class>
   </servlet>
+  
+  
   <servlet>
     <servlet-name>ConstAServlet</servlet-name>
     <servlet-class>edu.ycp.cs320.lab02.servlet.ConstAServlet</servlet-class>
@@ -18,6 +20,8 @@
     <servlet-name>ConstBServlet</servlet-name>
     <servlet-class>edu.ycp.cs320.lab02.servlet.ConstBServlet</servlet-class>
   </servlet>
+  
+  
   <servlet>
     <servlet-name>DynAServlet</servlet-name>
     <servlet-class>edu.ycp.cs320.lab02.servlet.DynAServlet</servlet-class>
@@ -68,6 +72,7 @@
   </servlet>
   <servlet>
 
+
   <servlet-name>FluAServlet</servlet-name>
     <servlet-class>edu.ycp.cs320.lab02.servlet.FluAServlet</servlet-class>
   </servlet>
@@ -99,6 +104,21 @@
   <servlet-name>FluBServlet</servlet-name>
     <servlet-class>edu.ycp.cs320.lab02.servlet.FluBServlet</servlet-class>
   </servlet>
+	
+	
+  <servlet>
+    <servlet-name>MatSciAServlet</servlet-name>
+    <servlet-class>edu.ycp.cs320.lab02.servlet.MatSciAServlet</servlet-class>
+  </servlet>
+  <servlet>
+  <servlet-name>MatSciBServlet</servlet-name>
+    <servlet-class>edu.ycp.cs320.lab02.servlet.MatSciBServlet</servlet-class>
+  </servlet>
+  <servlet>
+  <servlet-name>MatSciCServlet</servlet-name>
+    <servlet-class>edu.ycp.cs320.lab02.servlet.MatSciCServlet</servlet-class>
+  </servlet>
+	
 	
   <servlet>
   <servlet-name>ThermAServlet</servlet-name>
@@ -251,6 +271,20 @@
   <servlet-mapping>
     <servlet-name>HeatBServlet</servlet-name>
     <url-pattern>/heat-b</url-pattern>
+  </servlet-mapping>
+  
+  
+   <servlet-mapping>
+    <servlet-name>MatSciAServlet</servlet-name>
+    <url-pattern>/matsci-a</url-pattern>
+  </servlet-mapping>
+     <servlet-mapping>
+    <servlet-name>MatSciBServlet</servlet-name>
+    <url-pattern>/matsci-b</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>MatSciCServlet</servlet-name>
+    <url-pattern>/matsci-c</url-pattern>
   </servlet-mapping>
   
   
