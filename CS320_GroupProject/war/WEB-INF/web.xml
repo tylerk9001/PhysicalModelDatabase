@@ -10,6 +10,8 @@
     <servlet-name>IndexServlet</servlet-name>
     <servlet-class>edu.ycp.cs320.lab02.servlet.IndexServlet</servlet-class>
   </servlet>
+  
+  
   <servlet>
     <servlet-name>ConstAServlet</servlet-name>
     <servlet-class>edu.ycp.cs320.lab02.servlet.ConstAServlet</servlet-class>
@@ -18,6 +20,8 @@
     <servlet-name>ConstBServlet</servlet-name>
     <servlet-class>edu.ycp.cs320.lab02.servlet.ConstBServlet</servlet-class>
   </servlet>
+  
+  
   <servlet>
     <servlet-name>DynAServlet</servlet-name>
     <servlet-class>edu.ycp.cs320.lab02.servlet.DynAServlet</servlet-class>
@@ -67,6 +71,12 @@
     <servlet-class>edu.ycp.cs320.lab02.servlet.DynLServlet</servlet-class>
   </servlet>
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+  <servlet>
+
+
+>>>>>>> branch 'master' of https://github.com/tylerk9001/PhysicalModelDatabase.git
   <servlet-name>FluAServlet</servlet-name>
     <servlet-class>edu.ycp.cs320.lab02.servlet.FluAServlet</servlet-class>
   </servlet>
@@ -90,6 +100,7 @@
   <servlet-name>FluFServlet</servlet-name>
     <servlet-class>edu.ycp.cs320.lab02.servlet.FluFServlet</servlet-class>
   </servlet>
+<<<<<<< HEAD
 
 ======
   <servlet>  
@@ -169,8 +180,94 @@
     <servlet-class>edu.ycp.320.lab02.servlet.StatSServlet</servlet-class>
   </servlet>
     
-	
 =======
+  <servlet>
+  <servlet-name>HeatAServlet</servlet-name>
+    <servlet-class>edu.ycp.cs320.lab02.servlet.HeatAServlet</servlet-class>
+  </servlet>
+  <servlet>
+  <servlet-name>FluBServlet</servlet-name>
+    <servlet-class>edu.ycp.cs320.lab02.servlet.FluBServlet</servlet-class>
+  </servlet>
+>>>>>>> branch 'master' of https://github.com/tylerk9001/PhysicalModelDatabase.git
+	
+<<<<<<< HEAD
+=======
+=======
+	
+  <servlet>
+    <servlet-name>MatSciAServlet</servlet-name>
+    <servlet-class>edu.ycp.cs320.lab02.servlet.MatSciAServlet</servlet-class>
+  </servlet>
+  <servlet>
+  <servlet-name>MatSciBServlet</servlet-name>
+    <servlet-class>edu.ycp.cs320.lab02.servlet.MatSciBServlet</servlet-class>
+  </servlet>
+  <servlet>
+  <servlet-name>MatSciCServlet</servlet-name>
+    <servlet-class>edu.ycp.cs320.lab02.servlet.MatSciCServlet</servlet-class>
+  </servlet>
+	
+	
+  <servlet>
+    <servlet-name>MechAServlet</servlet-name>
+    <servlet-class>edu.ycp.cs320.lab02.servlet.MechAServlet</servlet-class>
+  </servlet>
+  <servlet>
+  <servlet-name>MechBServlet</servlet-name>
+    <servlet-class>edu.ycp.cs320.lab02.servlet.MechBServlet</servlet-class>
+  </servlet>
+  <servlet>
+  <servlet-name>MechCServlet</servlet-name>
+    <servlet-class>edu.ycp.cs320.lab02.servlet.MechCServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>MechDServlet</servlet-name>
+    <servlet-class>edu.ycp.cs320.lab02.servlet.MechDServlet</servlet-class>
+  </servlet>
+  <servlet>
+  <servlet-name>MechEServlet</servlet-name>
+    <servlet-class>edu.ycp.cs320.lab02.servlet.MechEServlet</servlet-class>
+  </servlet>
+  <servlet>
+  <servlet-name>MechFServlet</servlet-name>
+    <servlet-class>edu.ycp.cs320.lab02.servlet.MechFServlet</servlet-class>
+  </servlet>
+    <servlet>
+    <servlet-name>MechGServlet</servlet-name>
+    <servlet-class>edu.ycp.cs320.lab02.servlet.MechGServlet</servlet-class>
+  </servlet>
+  <servlet>
+  <servlet-name>MechHServlet</servlet-name>
+    <servlet-class>edu.ycp.cs320.lab02.servlet.MechHServlet</servlet-class>
+  </servlet>
+  <servlet>
+  <servlet-name>MechIServlet</servlet-name>
+    <servlet-class>edu.ycp.cs320.lab02.servlet.MechIServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>MechJServlet</servlet-name>
+    <servlet-class>edu.ycp.cs320.lab02.servlet.MechJServlet</servlet-class>
+  </servlet>
+  <servlet>
+  <servlet-name>MechKServlet</servlet-name>
+    <servlet-class>edu.ycp.cs320.lab02.servlet.MechKServlet</servlet-class>
+  </servlet>
+  <servlet>
+  <servlet-name>MechLServlet</servlet-name>
+    <servlet-class>edu.ycp.cs320.lab02.servlet.MechLServlet</servlet-class>
+  </servlet>	
+    <servlet>
+  <servlet-name>MechMServlet</servlet-name>
+    <servlet-class>edu.ycp.cs320.lab02.servlet.MechMServlet</servlet-class>
+  </servlet>
+  <servlet>
+  <servlet-name>MechNServlet</servlet-name>
+    <servlet-class>edu.ycp.cs320.lab02.servlet.MechNServlet</servlet-class>
+  </servlet>	
+	
+	
+>>>>>>> branch 'master' of https://github.com/tylerk9001/PhysicalModelDatabase.git
   <servlet>
   <servlet-name>ThermAServlet</servlet-name>
     <servlet-class>edu.ycp.320.lab02.servlet.ThermAServlet</servlet-class>
@@ -219,7 +316,7 @@
   <servlet-name>ThermLServlet</servlet-name>
     <servlet-class>edu.ycp.320.lab02.servlet.ThermLServlet</servlet-class>
   </servlet>
->>>>>>> branch 'master' of https://github.com/tylerk9001/PhysicalModelDatabase.git
+
 	
 	
 
@@ -228,6 +325,8 @@
     <servlet-name>IndexServlet</servlet-name>
     <url-pattern>/index</url-pattern>
   </servlet-mapping>
+  
+  
   <servlet-mapping>
     <servlet-name>ConstAServlet</servlet-name>
     <url-pattern>/const-a</url-pattern>
@@ -236,6 +335,8 @@
     <servlet-name>ConstBServlet</servlet-name>
     <url-pattern>/const-b</url-pattern>
   </servlet-mapping>
+  
+  
   <servlet-mapping>
     <servlet-name>DynAServlet</servlet-name>
     <url-pattern>/dyn-a</url-pattern>
@@ -284,9 +385,14 @@
     <servlet-name>DynKServlet</servlet-name>
     <url-pattern>/dyn-l</url-pattern>
   </servlet-mapping>
+  
+  
   <servlet-mapping>
+<<<<<<< HEAD
   
 <<<<<<< HEAD
+=======
+>>>>>>> branch 'master' of https://github.com/tylerk9001/PhysicalModelDatabase.git
     <servlet-name>FluAServlet</servlet-name>
     <url-pattern>/flu-a</url-pattern>
   </servlet-mapping>
@@ -310,6 +416,7 @@
     <servlet-name>FluFServlet</servlet-name>
     <url-pattern>/flu-f</url-pattern>
   </servlet-mapping>
+<<<<<<< HEAD
 ======= 
   <servlet-mapping>
     <servlet-name>StatAServlet</servlet-name>
@@ -388,6 +495,93 @@
     <url-pattern>/stat-s</url-pattern>
   </servlet-mapping>
 =======
+=======
+  
+  
+   <servlet-mapping>
+    <servlet-name>HeatAServlet</servlet-name>
+    <url-pattern>/heat-a</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>HeatBServlet</servlet-name>
+    <url-pattern>/heat-b</url-pattern>
+  </servlet-mapping>
+  
+  
+   <servlet-mapping>
+    <servlet-name>MatSciAServlet</servlet-name>
+    <url-pattern>/matsci-a</url-pattern>
+  </servlet-mapping>
+     <servlet-mapping>
+    <servlet-name>MatSciBServlet</servlet-name>
+    <url-pattern>/matsci-b</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>MatSciCServlet</servlet-name>
+    <url-pattern>/matsci-c</url-pattern>
+  </servlet-mapping>
+  
+  
+  <servlet-mapping>
+    <servlet-name>MechAServlet</servlet-name>
+    <url-pattern>/mech-a</url-pattern>
+  </servlet-mapping>
+     <servlet-mapping>
+    <servlet-name>MechBServlet</servlet-name>
+    <url-pattern>/mech-b</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>MechCServlet</servlet-name>
+    <url-pattern>/mech-c</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>MechDServlet</servlet-name>
+    <url-pattern>/mech-d</url-pattern>
+  </servlet-mapping>
+     <servlet-mapping>
+    <servlet-name>MechEServlet</servlet-name>
+    <url-pattern>/mech-e</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  <servlet-name>MechFServlet</servlet-name>
+    <url-pattern>/mech-f</url-pattern>
+  </servlet-mapping>
+      <servlet-mapping>
+    <servlet-name>MechGServlet</servlet-name>
+    <url-pattern>/mech-g</url-pattern>
+  </servlet-mapping>
+     <servlet-mapping>
+    <servlet-name>MechHServlet</servlet-name>
+    <url-pattern>/mech-h</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>MechIServlet</servlet-name>
+    <url-pattern>/mech-i</url-pattern>
+  </servlet-mapping>
+       <servlet-mapping>
+    <servlet-name>MechJServlet</servlet-name>
+    <url-pattern>/mech-j</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  <servlet-name>MechKServlet</servlet-name>
+    <url-pattern>/mech-k</url-pattern>
+  </servlet-mapping>
+      <servlet-mapping>
+    <servlet-name>MechLServlet</servlet-name>
+    <url-pattern>/mech-l</url-pattern>
+  </servlet-mapping>
+     <servlet-mapping>
+    <servlet-name>MechMServlet</servlet-name>
+    <url-pattern>/mech-m</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>MechNServlet</servlet-name>
+    <url-pattern>/mech-n</url-pattern>
+  </servlet-mapping>
+  
+  
+  <servlet-mapping>
+>>>>>>> branch 'master' of https://github.com/tylerk9001/PhysicalModelDatabase.git
   	<servlet-name>ThermAServlet</servlet-name>
   	<url-pattern>/therm-a</url-pattern>
   </servlet-mapping>
@@ -435,7 +629,7 @@
   	<servlet-name>ThermLServlet</servlet-name>
   	<url-pattern>/therm-a</url-pattern>
   </servlet-mapping>
->>>>>>> branch 'master' of https://github.com/tylerk9001/PhysicalModelDatabase.git
+
 
 
   <!-- Welcome files -->
