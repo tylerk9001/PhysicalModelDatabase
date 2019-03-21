@@ -70,13 +70,9 @@
   <servlet-name>DynLServlet</servlet-name>
     <servlet-class>edu.ycp.cs320.lab02.servlet.DynLServlet</servlet-class>
   </servlet>
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
+  
+  
   <servlet>
-
-
->>>>>>> branch 'master' of https://github.com/tylerk9001/PhysicalModelDatabase.git
   <servlet-name>FluAServlet</servlet-name>
     <servlet-class>edu.ycp.cs320.lab02.servlet.FluAServlet</servlet-class>
   </servlet>
@@ -100,9 +96,8 @@
   <servlet-name>FluFServlet</servlet-name>
     <servlet-class>edu.ycp.cs320.lab02.servlet.FluFServlet</servlet-class>
   </servlet>
-<<<<<<< HEAD
 
-======
+
   <servlet>  
   <servlet-name>StatAServlet</servlet-name>
     <servlet-class>edu.ycp.320.lab02.servlet.StatAServlet</servlet-class>
@@ -180,7 +175,7 @@
     <servlet-class>edu.ycp.320.lab02.servlet.StatSServlet</servlet-class>
   </servlet>
     
-=======
+    
   <servlet>
   <servlet-name>HeatAServlet</servlet-name>
     <servlet-class>edu.ycp.cs320.lab02.servlet.HeatAServlet</servlet-class>
@@ -189,11 +184,7 @@
   <servlet-name>FluBServlet</servlet-name>
     <servlet-class>edu.ycp.cs320.lab02.servlet.FluBServlet</servlet-class>
   </servlet>
->>>>>>> branch 'master' of https://github.com/tylerk9001/PhysicalModelDatabase.git
-	
-<<<<<<< HEAD
-=======
-=======
+
 	
   <servlet>
     <servlet-name>MatSciAServlet</servlet-name>
@@ -267,7 +258,6 @@
   </servlet>	
 	
 	
->>>>>>> branch 'master' of https://github.com/tylerk9001/PhysicalModelDatabase.git
   <servlet>
   <servlet-name>ThermAServlet</servlet-name>
     <servlet-class>edu.ycp.320.lab02.servlet.ThermAServlet</servlet-class>
@@ -319,7 +309,6 @@
 
 	
 	
-
   <!-- Servlet mappings -->
   <servlet-mapping>
     <servlet-name>IndexServlet</servlet-name>
@@ -388,11 +377,6 @@
   
   
   <servlet-mapping>
-<<<<<<< HEAD
-  
-<<<<<<< HEAD
-=======
->>>>>>> branch 'master' of https://github.com/tylerk9001/PhysicalModelDatabase.git
     <servlet-name>FluAServlet</servlet-name>
     <url-pattern>/flu-a</url-pattern>
   </servlet-mapping>
@@ -416,8 +400,8 @@
     <servlet-name>FluFServlet</servlet-name>
     <url-pattern>/flu-f</url-pattern>
   </servlet-mapping>
-<<<<<<< HEAD
-======= 
+
+
   <servlet-mapping>
     <servlet-name>StatAServlet</servlet-name>
     <url-pattern>/stat-a</url-pattern>
@@ -494,8 +478,6 @@
     <servlet-name>StatSServlet</servlet-name>
     <url-pattern>/stat-s</url-pattern>
   </servlet-mapping>
-=======
-=======
   
   
    <servlet-mapping>
@@ -581,7 +563,6 @@
   
   
   <servlet-mapping>
->>>>>>> branch 'master' of https://github.com/tylerk9001/PhysicalModelDatabase.git
   	<servlet-name>ThermAServlet</servlet-name>
   	<url-pattern>/therm-a</url-pattern>
   </servlet-mapping>
