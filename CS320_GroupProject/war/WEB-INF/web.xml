@@ -121,6 +121,64 @@
 	
 	
   <servlet>
+    <servlet-name>MechAServlet</servlet-name>
+    <servlet-class>edu.ycp.cs320.lab02.servlet.MechAServlet</servlet-class>
+  </servlet>
+  <servlet>
+  <servlet-name>MechBServlet</servlet-name>
+    <servlet-class>edu.ycp.cs320.lab02.servlet.MechBServlet</servlet-class>
+  </servlet>
+  <servlet>
+  <servlet-name>MechCServlet</servlet-name>
+    <servlet-class>edu.ycp.cs320.lab02.servlet.MechCServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>MechDServlet</servlet-name>
+    <servlet-class>edu.ycp.cs320.lab02.servlet.MechDServlet</servlet-class>
+  </servlet>
+  <servlet>
+  <servlet-name>MechEServlet</servlet-name>
+    <servlet-class>edu.ycp.cs320.lab02.servlet.MechEServlet</servlet-class>
+  </servlet>
+  <servlet>
+  <servlet-name>MechFServlet</servlet-name>
+    <servlet-class>edu.ycp.cs320.lab02.servlet.MechFServlet</servlet-class>
+  </servlet>
+    <servlet>
+    <servlet-name>MechGServlet</servlet-name>
+    <servlet-class>edu.ycp.cs320.lab02.servlet.MechGServlet</servlet-class>
+  </servlet>
+  <servlet>
+  <servlet-name>MechHServlet</servlet-name>
+    <servlet-class>edu.ycp.cs320.lab02.servlet.MechHServlet</servlet-class>
+  </servlet>
+  <servlet>
+  <servlet-name>MechIServlet</servlet-name>
+    <servlet-class>edu.ycp.cs320.lab02.servlet.MechIServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>MechJServlet</servlet-name>
+    <servlet-class>edu.ycp.cs320.lab02.servlet.MechJServlet</servlet-class>
+  </servlet>
+  <servlet>
+  <servlet-name>MechKServlet</servlet-name>
+    <servlet-class>edu.ycp.cs320.lab02.servlet.MechKServlet</servlet-class>
+  </servlet>
+  <servlet>
+  <servlet-name>MechLServlet</servlet-name>
+    <servlet-class>edu.ycp.cs320.lab02.servlet.MechLServlet</servlet-class>
+  </servlet>	
+    <servlet>
+  <servlet-name>MechMServlet</servlet-name>
+    <servlet-class>edu.ycp.cs320.lab02.servlet.MechMServlet</servlet-class>
+  </servlet>
+  <servlet>
+  <servlet-name>MechNServlet</servlet-name>
+    <servlet-class>edu.ycp.cs320.lab02.servlet.MechNServlet</servlet-class>
+  </servlet>	
+	
+	
+  <servlet>
   <servlet-name>ThermAServlet</servlet-name>
     <servlet-class>edu.ycp.320.lab02.servlet.ThermAServlet</servlet-class>
   </servlet>
@@ -264,6 +322,7 @@
     <url-pattern>/flu-f</url-pattern>
   </servlet-mapping>
   
+  
    <servlet-mapping>
     <servlet-name>HeatAServlet</servlet-name>
     <url-pattern>/heat-a</url-pattern>
@@ -285,6 +344,64 @@
   <servlet-mapping>
     <servlet-name>MatSciCServlet</servlet-name>
     <url-pattern>/matsci-c</url-pattern>
+  </servlet-mapping>
+  
+  
+  <servlet-mapping>
+    <servlet-name>MechAServlet</servlet-name>
+    <url-pattern>/mech-a</url-pattern>
+  </servlet-mapping>
+     <servlet-mapping>
+    <servlet-name>MechBServlet</servlet-name>
+    <url-pattern>/mech-b</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>MechCServlet</servlet-name>
+    <url-pattern>/mech-c</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>MechDServlet</servlet-name>
+    <url-pattern>/mech-d</url-pattern>
+  </servlet-mapping>
+     <servlet-mapping>
+    <servlet-name>MechEServlet</servlet-name>
+    <url-pattern>/mech-e</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  <servlet-name>MechFServlet</servlet-name>
+    <url-pattern>/mech-f</url-pattern>
+  </servlet-mapping>
+      <servlet-mapping>
+    <servlet-name>MechGServlet</servlet-name>
+    <url-pattern>/mech-g</url-pattern>
+  </servlet-mapping>
+     <servlet-mapping>
+    <servlet-name>MechHServlet</servlet-name>
+    <url-pattern>/mech-h</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>MechIServlet</servlet-name>
+    <url-pattern>/mech-i</url-pattern>
+  </servlet-mapping>
+       <servlet-mapping>
+    <servlet-name>MechJServlet</servlet-name>
+    <url-pattern>/mech-j</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  <servlet-name>MechKServlet</servlet-name>
+    <url-pattern>/mech-k</url-pattern>
+  </servlet-mapping>
+      <servlet-mapping>
+    <servlet-name>MechLServlet</servlet-name>
+    <url-pattern>/mech-l</url-pattern>
+  </servlet-mapping>
+     <servlet-mapping>
+    <servlet-name>MechMServlet</servlet-name>
+    <url-pattern>/mech-m</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>MechNServlet</servlet-name>
+    <url-pattern>/mech-n</url-pattern>
   </servlet-mapping>
   
   
