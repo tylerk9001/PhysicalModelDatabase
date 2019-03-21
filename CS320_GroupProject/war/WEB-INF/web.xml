@@ -8,64 +8,89 @@
   <!-- Servlets -->
   <servlet>
     <servlet-name>IndexServlet</servlet-name>
-    <servlet-class>servlet.IndexServlet</servlet-class>
+    <servlet-class>edu.ycp.cs320.lab02.servlet.IndexServlet</servlet-class>
   </servlet>
   <servlet>
     <servlet-name>ConstAServlet</servlet-name>
-    <servlet-class>servlet.ConstAServlet</servlet-class>
+    <servlet-class>edu.ycp.cs320.lab02.servlet.ConstAServlet</servlet-class>
   </servlet>
   <servlet>
     <servlet-name>ConstBServlet</servlet-name>
-    <servlet-class>servlet.ConstBServlet</servlet-class>
+    <servlet-class>edu.ycp.cs320.lab02.servlet.ConstBServlet</servlet-class>
   </servlet>
   <servlet>
     <servlet-name>DynAServlet</servlet-name>
-    <servlet-class>servlet.DynAServlet</servlet-class>
+    <servlet-class>edu.ycp.cs320.lab02.servlet.DynAServlet</servlet-class>
   </servlet>
   <servlet>
     <servlet-name>DynBServlet</servlet-name>
-    <servlet-class>servlet.DynBServlet</servlet-class>
+    <servlet-class>edu.ycp.cs320.lab02.servlet.DynBServlet</servlet-class>
   </servlet>
   <servlet>
     <servlet-name>DynCServlet</servlet-name>
-    <servlet-class>servlet.DynCServlet</servlet-class>
+    <servlet-class>edu.ycp.cs320.lab02.servlet.DynCServlet</servlet-class>
   </servlet>
   <servlet>
     <servlet-name>DynDServlet</servlet-name>
-    <servlet-class>servlet.DynDServlet</servlet-class>
+    <servlet-class>edu.ycp.cs320.lab02.servlet.DynDServlet</servlet-class>
   </servlet>
   <servlet>
     <servlet-name>DynEServlet</servlet-name>
-    <servlet-class>servlet.DynEServlet</servlet-class>
+    <servlet-class>edu.ycp.cs320.lab02.servlet.DynEServlet</servlet-class>
   </servlet>
   <servlet>
   <servlet-name>DynFServlet</servlet-name>
-    <servlet-class>servlet.DynFServlet</servlet-class>
+    <servlet-class>edu.ycp.cs320.lab02.servlet.DynFServlet</servlet-class>
   </servlet>
   <servlet>
   <servlet-name>DynGServlet</servlet-name>
-    <servlet-class>servlet.DynGServlet</servlet-class>
+    <servlet-class>edu.ycp.cs320.lab02.servlet.DynGServlet</servlet-class>
   </servlet>
   <servlet>
   <servlet-name>DynHServlet</servlet-name>
-    <servlet-class>servlet.DynHServlet</servlet-class>
+    <servlet-class>edu.ycp.cs320.lab02.servlet.DynHServlet</servlet-class>
   </servlet>
   <servlet>
   <servlet-name>DynIServlet</servlet-name>
-    <servlet-class>servlet.DynIServlet</servlet-class>
+    <servlet-class>edu.ycp.cs320.lab02.servlet.DynIServlet</servlet-class>
   </servlet>
   <servlet>
   <servlet-name>DynJServlet</servlet-name>
-    <servlet-class>servlet.DynJServlet</servlet-class>
+    <servlet-class>edu.ycp.cs320.lab02.servlet.DynJServlet</servlet-class>
   </servlet>
   <servlet>
   <servlet-name>DynKServlet</servlet-name>
-    <servlet-class>servlet.DynKServlet</servlet-class>
+    <servlet-class>edu.ycp.cs320.lab02.servlet.DynKServlet</servlet-class>
   </servlet>
   <servlet>
   <servlet-name>DynLServlet</servlet-name>
-    <servlet-class>servlet.DynLServlet</servlet-class>
+    <servlet-class>edu.ycp.cs320.lab02.servlet.DynLServlet</servlet-class>
   </servlet>
+  <servlet>
+  <servlet-name>FluAServlet</servlet-name>
+    <servlet-class>edu.ycp.cs320.lab02.servlet.FluAServlet</servlet-class>
+  </servlet>
+  <servlet>
+  <servlet-name>FluBServlet</servlet-name>
+    <servlet-class>edu.ycp.cs320.lab02.servlet.FluBServlet</servlet-class>
+  </servlet>
+  <servlet>
+  <servlet-name>FluCServlet</servlet-name>
+    <servlet-class>edu.ycp.cs320.lab02.servlet.FluCServlet</servlet-class>
+  </servlet>
+  <servlet>
+  <servlet-name>FluDServlet</servlet-name>
+    <servlet-class>edu.ycp.cs320.lab02.servlet.FluDServlet</servlet-class>
+  </servlet>
+  <servlet>
+  <servlet-name>FluEServlet</servlet-name>
+    <servlet-class>edu.ycp.cs320.lab02.servlet.FluEServlet</servlet-class>
+  </servlet>
+  <servlet>
+  <servlet-name>FluFServlet</servlet-name>
+    <servlet-class>edu.ycp.cs320.lab02.servlet.FluFServlet</servlet-class>
+  </servlet>
+	
 	
 	
 
@@ -130,6 +155,31 @@
     <servlet-name>DynKServlet</servlet-name>
     <url-pattern>/dyn-l</url-pattern>
   </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>FluAServlet</servlet-name>
+    <url-pattern>/flu-a</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>FluBServlet</servlet-name>
+    <url-pattern>/flu-b</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>FluCServlet</servlet-name>
+    <url-pattern>/flu-c</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>FluDServlet</servlet-name>
+    <url-pattern>/flu-d</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>FluEServlet</servlet-name>
+    <url-pattern>/flu-e</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>FluFServlet</servlet-name>
+    <url-pattern>/flu-f</url-pattern>
+  </servlet-mapping>
+  
 
 
   <!-- Welcome files -->
