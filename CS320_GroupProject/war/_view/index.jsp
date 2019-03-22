@@ -61,8 +61,8 @@
 	                    <section id="construction">
 	                        <h3>Construction</h3>
 	                        <ul>
-	                            <li><a href="/const-a">Crane Rigging Angles</a></li>
-	                            <li><a href="html_categories/construction/const-b.html">Excavation and Earthwork Pressure</a></li>
+	                            <li><a href="${pageContext.request.contextPath}/const-a">Crane Rigging Angles</a></li>
+	                            <li><a href="${pageContext.request.contextPath}/const-b">Excavation and Earthwork Pressure</a></li>
 	                        </ul>
 	                    </section>
 	                </div>
@@ -70,17 +70,17 @@
 	                    <section id="dynamics">
 	                        <h3>Dynamics</h3>
 	                        <ul>
-	                            <li><a href="html_categories/dynamics/dyn-a.html">Collision and Deformation: When Worlds Collide</a></li>
-	                            <li><a href="html_categories/dynamics/dyn-b.html">General Planar Motion: Armor Attack</a></li>
-	                            <li><a href="html_categories/dynamics/dyn-c.html">General Planar Motion: The Helicopter</a></li>
-	                            <li><a href="html_categories/dynamics/dyn-d.html">General Planar Motion: The Oil Rig</a></li>
-	                            <li><a href="html_categories/dynamics/dyn-e.html">General Planar Motion: The Slider</a></li>
-	                            <li><a href="html_categories/dynamics/dyn-f.html">General Planar Motion: The Tank</a></li>
-	                            <li><a href="html_categories/dynamics/dyn-g.html">Projectile Motion</a></li>
-	                            <li><a href="html_categories/dynamics/dyn-h.html">Rectilinear Motion</a></li>
-	                            <li><a href="html_categories/dynamics/dyn-i.html">Relative Motion: Choo Choo Train</a></li>
-	                            <li><a href="html_categories/dynamics/dyn-j.html">Rotation: No Slip Wheel</a></li>
-	                            <li><a href="html_categories/dynamics/dyn-k.html">Rotation and Moment of Inertia: A Day at the Races</a></li>
+	                            <li><a href="${pageContext.request.contextPath}/dyn-a">Collision and Deformation: When Worlds Collide</a></li>
+	                            <li><a href="${pageContext.request.contextPath}/dyn-b">General Planar Motion: Armor Attack</a></li>
+	                            <li><a href="${pageContext.request.contextPath}/dyn-c">General Planar Motion: The Helicopter</a></li>
+	                            <li><a href="html_categories/dynamics/dyn-d">General Planar Motion: The Oil Rig</a></li>
+	                            <li><a href="html_categories/dynamics/dyn-e">General Planar Motion: The Slider</a></li>
+	                            <li><a href="html_categories/dynamics/dyn-f">General Planar Motion: The Tank</a></li>
+	                            <li><a href="html_categories/dynamics/dyn-g">Projectile Motion</a></li>
+	                            <li><a href="html_categories/dynamics/dyn-h">Rectilinear Motion</a></li>
+	                            <li><a href="html_categories/dynamics/dyn-i">Relative Motion: Choo Choo Train</a></li>
+	                            <li><a href="html_categories/dynamics/dyn-j">Rotation: No Slip Wheel</a></li>
+	                            <li><a href="html_categories/dynamics/dyn-k">Rotation and Moment of Inertia: A Day at the Races</a></li>
 	                            <li><a href="html_categories/dynamics/dyn-l.html">Rotational Kinematics: The Ferris Wheel</a></li>
 	                        </ul>
 	                    </section>
