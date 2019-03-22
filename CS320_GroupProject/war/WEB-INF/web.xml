@@ -147,7 +147,7 @@
     <servlet-class>edu.ycp.320.lab02.servlet.StatLServlet</servlet-class>
   </servlet>
   <servlet>  
-  <servlet-name>StatM<Servlet</servlet-name>
+  <servlet-name>StatMServlet</servlet-name>
     <servlet-class>edu.ycp.320.lab02.servlet.StatMServlet</servlet-class>
   </servlet>
   <servlet>  
@@ -181,8 +181,8 @@
     <servlet-class>edu.ycp.cs320.lab02.servlet.HeatAServlet</servlet-class>
   </servlet>
   <servlet>
-  <servlet-name>FluBServlet</servlet-name>
-    <servlet-class>edu.ycp.cs320.lab02.servlet.FluBServlet</servlet-class>
+  <servlet-name>HeatBServlet</servlet-name>
+    <servlet-class>edu.ycp.cs320.lab02.servlet.HeatBServlet</servlet-class>
   </servlet>
 
 	
@@ -588,27 +588,27 @@
   </servlet-mapping>
   <servlet-mapping>
   	<servlet-name>ThermGServlet</servlet-name>
-  	<url-pattern>/therm-a</url-pattern>
+  	<url-pattern>/therm-g</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
   	<servlet-name>ThermHServlet</servlet-name>
-  	<url-pattern>/therm-a</url-pattern>
+  	<url-pattern>/therm-h</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
   	<servlet-name>ThermIServlet</servlet-name>
-  	<url-pattern>/therm-a</url-pattern>
+  	<url-pattern>/therm-i</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
   	<servlet-name>ThermJServlet</servlet-name>
-  	<url-pattern>/therm-a</url-pattern>
+  	<url-pattern>/therm-j</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
   	<servlet-name>ThermKServlet</servlet-name>
-  	<url-pattern>/therm-a</url-pattern>
+  	<url-pattern>/therm-k</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
   	<servlet-name>ThermLServlet</servlet-name>
-  	<url-pattern>/therm-a</url-pattern>
+  	<url-pattern>/therm-l</url-pattern>
   </servlet-mapping>
 
 
