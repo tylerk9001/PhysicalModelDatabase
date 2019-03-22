@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import edu.ycp.cs320.lab02.controller.GuessingGameController;
 import edu.ycp.cs320.lab02.model.GuessingGame;
 
-public class ThermEServlet extends HttpServlet {
+public class StatEServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
 	
