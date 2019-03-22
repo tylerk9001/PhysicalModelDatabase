@@ -7,7 +7,7 @@
     <title>Home | Physical Model </title>
     <!--Website CSS-->
     <link rel="icon" href="../_view/img/tab.png">
-    <link href="./Users/tylerkautz/git/PhysicalModelDatabase/CS320_GroupProject/war/_view/css/collapse-1.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/_view/css/collapse-1.css" rel="stylesheet">
     <!-- Icon CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" 
@@ -61,7 +61,7 @@
 	                    <section id="construction">
 	                        <h3>Construction</h3>
 	                        <ul>
-	                            <li><a href="html_categories/construction/const-a.jsp">Crane Rigging Angles</a></li>
+	                            <li><a href="/const-a">Crane Rigging Angles</a></li>
 	                            <li><a href="html_categories/construction/const-b.html">Excavation and Earthwork Pressure</a></li>
 	                        </ul>
 	                    </section>
