@@ -98,81 +98,81 @@
   </servlet>
 
 
-  <servlet>  
+  <servlet>
   <servlet-name>StatAServlet</servlet-name>
-    <servlet-class>edu.ycp.320.lab02.servlet.StatAServlet</servlet-class>
+    <servlet-class>edu.ycp.cs320.lab02.servlet.StatAServlet</servlet-class>
   </servlet>
-  <servlet>  
+  <servlet>
   <servlet-name>StatBServlet</servlet-name>
-    <servlet-class>edu.ycp.320.lab02.servlet.StatBServlet</servlet-class>
+    <servlet-class>edu.ycp.cs320.lab02.servlet.StatBServlet</servlet-class>
   </servlet>
   <servlet>  
   <servlet-name>StatCServlet</servlet-name>
-    <servlet-class>edu.ycp.320.lab02.servlet.StatCServlet</servlet-class>
+    <servlet-class>edu.ycp.cs320.lab02.servlet.StatCServlet</servlet-class>
   </servlet>
   <servlet>  
   <servlet-name>StatDServlet</servlet-name>
-    <servlet-class>edu.ycp.320.lab02.servlet.StatDServlet</servlet-class>
+    <servlet-class>edu.ycp.cs320.lab02.servlet.StatDServlet</servlet-class>
   </servlet>
   <servlet>  
   <servlet-name>StatEServlet</servlet-name>
-    <servlet-class>edu.ycp.320.lab02.servlet.StatEServlet</servlet-class>
+    <servlet-class>edu.ycp.cs320.lab02.servlet.StatEServlet</servlet-class>
   </servlet>
   <servlet>  
   <servlet-name>StatFServlet</servlet-name>
-    <servlet-class>edu.ycp.320.lab02.servlet.StatFServlet</servlet-class>
+    <servlet-class>edu.ycp.cs320.lab02.servlet.StatFServlet</servlet-class>
   </servlet>
   <servlet>  
   <servlet-name>StatGServlet</servlet-name>
-    <servlet-class>edu.ycp.320.lab02.servlet.StatGServlet</servlet-class>
+    <servlet-class>edu.ycp.cs320.lab02.servlet.StatGServlet</servlet-class>
   </servlet>
   <servlet>  
   <servlet-name>StatHServlet</servlet-name>
-    <servlet-class>edu.ycp.320.lab02.servlet.StatHServlet</servlet-class>
+    <servlet-class>edu.ycp.cs320.lab02.servlet.StatHServlet</servlet-class>
   </servlet>
   <servlet>  
   <servlet-name>StatIServlet</servlet-name>
-    <servlet-class>edu.ycp.320.lab02.servlet.StatIServlet</servlet-class>
+    <servlet-class>edu.ycp.cs320.lab02.servlet.StatIServlet</servlet-class>
   </servlet>
   <servlet>  
   <servlet-name>StatJServlet</servlet-name>
-    <servlet-class>edu.ycp.320.lab02.servlet.StatJServlet</servlet-class>
+    <servlet-class>edu.ycp.cs320.lab02.servlet.StatJServlet</servlet-class>
   </servlet>
   <servlet>  
   <servlet-name>StatKServlet</servlet-name>
-    <servlet-class>edu.ycp.320.lab02.servlet.StatKServlet</servlet-class>
+    <servlet-class>edu.ycp.cs320.lab02.servlet.StatKServlet</servlet-class>
   </servlet>
   <servlet>  
   <servlet-name>StatLServlet</servlet-name>
-    <servlet-class>edu.ycp.320.lab02.servlet.StatLServlet</servlet-class>
+    <servlet-class>edu.ycp.cs320.lab02.servlet.StatLServlet</servlet-class>
   </servlet>
   <servlet>  
   <servlet-name>StatMServlet</servlet-name>
-    <servlet-class>edu.ycp.320.lab02.servlet.StatMServlet</servlet-class>
+    <servlet-class>edu.ycp.cs320.lab02.servlet.StatMServlet</servlet-class>
   </servlet>
   <servlet>  
   <servlet-name>StatNServlet</servlet-name>
-    <servlet-class>edu.ycp.320.lab02.servlet.StatNServlet</servlet-class>
+    <servlet-class>edu.ycp.cs320.lab02.servlet.StatNServlet</servlet-class>
   </servlet>
   <servlet>  
   <servlet-name>StatOServlet</servlet-name>
-    <servlet-class>edu.ycp.320.lab02.servlet.StatOServlet</servlet-class>
+    <servlet-class>edu.ycp.cs320.lab02.servlet.StatOServlet</servlet-class>
   </servlet>
   <servlet>  
   <servlet-name>StatPServlet</servlet-name>
-    <servlet-class>edu.ycp.320.lab02.servlet.StatPServlet</servlet-class>
+    <servlet-class>edu.ycp.cs320.lab02.servlet.StatPServlet</servlet-class>
   </servlet>
   <servlet>  
   <servlet-name>StatQServlet</servlet-name>
-    <servlet-class>edu.ycp.320.lab02.servlet.StatQServlet</servlet-class>
+    <servlet-class>edu.ycp.cs320.lab02.servlet.StatQServlet</servlet-class>
   </servlet>
   <servlet>  
   <servlet-name>StatRServlet</servlet-name>
-    <servlet-class>edu.ycp.320.lab02.servlet.StatRServlet</servlet-class>
+    <servlet-class>edu.ycp.cs320.lab02.servlet.StatRServlet</servlet-class>
   </servlet>
   <servlet>  
   <servlet-name>StatSServlet</servlet-name>
-    <servlet-class>edu.ycp.320.lab02.servlet.StatSServlet</servlet-class>
+    <servlet-class>edu.ycp.cs320.lab02.servlet.StatSServlet</servlet-class>
   </servlet>
     
     
@@ -260,51 +260,51 @@
 	
   <servlet>
   <servlet-name>ThermAServlet</servlet-name>
-    <servlet-class>edu.ycp.320.lab02.servlet.ThermAServlet</servlet-class>
+    <servlet-class>edu.ycp.cs320.lab02.servlet.ThermAServlet</servlet-class>
   </servlet>
   <servlet>
   <servlet-name>ThermBServlet</servlet-name>
-    <servlet-class>edu.ycp.320.lab02.servlet.ThermBServlet</servlet-class>
+    <servlet-class>edu.ycp.cs320.lab02.servlet.ThermBServlet</servlet-class>
   </servlet>
   <servlet>
   <servlet-name>ThermCServlet</servlet-name>
-    <servlet-class>edu.ycp.320.lab02.servlet.ThermCServlet</servlet-class>
+    <servlet-class>edu.ycp.cs320.lab02.servlet.ThermCServlet</servlet-class>
   </servlet>
   <servlet>
   <servlet-name>ThermDServlet</servlet-name>
-    <servlet-class>edu.ycp.320.lab02.servlet.ThermDServlet</servlet-class>
+    <servlet-class>edu.ycp.cs320.lab02.servlet.ThermDServlet</servlet-class>
   </servlet>
   <servlet>
   <servlet-name>ThermEServlet</servlet-name>
-    <servlet-class>edu.ycp.320.lab02.servlet.ThermEServlet</servlet-class>
+    <servlet-class>edu.ycp.cs320.lab02.servlet.ThermEServlet</servlet-class>
   </servlet>
   <servlet>
   <servlet-name>ThermFServlet</servlet-name>
-    <servlet-class>edu.ycp.320.lab02.servlet.ThermFServlet</servlet-class>
+    <servlet-class>edu.ycp.cs320.lab02.servlet.ThermFServlet</servlet-class>
   </servlet>
   <servlet>
   <servlet-name>ThermGServlet</servlet-name>
-    <servlet-class>edu.ycp.320.lab02.servlet.ThermGServlet</servlet-class>
+    <servlet-class>edu.ycp.cs320.lab02.servlet.ThermGServlet</servlet-class>
   </servlet>
   <servlet>
   <servlet-name>ThermHServlet</servlet-name>
-    <servlet-class>edu.ycp.320.lab02.servlet.ThermHServlet</servlet-class>
+    <servlet-class>edu.ycp.cs320.lab02.servlet.ThermHServlet</servlet-class>
   </servlet>
   <servlet>
   <servlet-name>ThermIServlet</servlet-name>
-    <servlet-class>edu.ycp.320.lab02.servlet.ThermIServlet</servlet-class>
+    <servlet-class>edu.ycp.cs320.lab02.servlet.ThermIServlet</servlet-class>
   </servlet>
   <servlet>
   <servlet-name>ThermJServlet</servlet-name>
-    <servlet-class>edu.ycp.320.lab02.servlet.ThermJServlet</servlet-class>
+    <servlet-class>edu.ycp.cs320.lab02.servlet.ThermJServlet</servlet-class>
   </servlet>
   <servlet>
   <servlet-name>ThermKServlet</servlet-name>
-    <servlet-class>edu.ycp.320.lab02.servlet.ThermKServlet</servlet-class>
+    <servlet-class>edu.ycp.cs320.lab02.servlet.ThermKServlet</servlet-class>
   </servlet>
   <servlet>
   <servlet-name>ThermLServlet</servlet-name>
-    <servlet-class>edu.ycp.320.lab02.servlet.ThermLServlet</servlet-class>
+    <servlet-class>edu.ycp.cs320.lab02.servlet.ThermLServlet</servlet-class>
   </servlet>
 
 	
