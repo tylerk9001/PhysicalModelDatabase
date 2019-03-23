@@ -21,7 +21,7 @@ public class HeatBServlet extends HttpServlet {
 		System.out.println("Heat_B Servlet: doGet");	
 		
 		// call JSP to generate empty form
-		req.getRequestDispatcher("/_view/categories/construction/heat-b.jsp").forward(req, resp);
+		req.getRequestDispatcher("/_view/categories/heat_transfer/heat-b.jsp").forward(req, resp);
 	}
 	
 	@Override
@@ -31,6 +31,6 @@ public class HeatBServlet extends HttpServlet {
 		System.out.println("Heat_B Servlet: doPost");
 		
 		// now call the JSP to render the new page
-		req.getRequestDispatcher("/_view/categories/construction/heat-b.jsp").forward(req, resp);
+		req.getRequestDispatcher("/_view/categories/heat_transfer/heat-b.jsp").forward(req, resp);
 	}
 }

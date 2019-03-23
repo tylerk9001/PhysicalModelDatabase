@@ -21,7 +21,7 @@ public class StatRServlet extends HttpServlet {
 		System.out.println("Stat_R Servlet: doGet");	
 		
 		// call JSP to generate empty form
-		req.getRequestDispatcher("/_view/categories/construction/stat-r.jsp").forward(req, resp);
+		req.getRequestDispatcher("/_view/categories/statics/stat-r.jsp").forward(req, resp);
 	}
 	
 	@Override
@@ -31,6 +31,6 @@ public class StatRServlet extends HttpServlet {
 		System.out.println("Stat_R Servlet: doPost");
 		
 		// now call the JSP to render the new page
-		req.getRequestDispatcher("/_view/categories/construction/stat-r.jsp").forward(req, resp);
+		req.getRequestDispatcher("/_view/categories/statics/stat-r.jsp").forward(req, resp);
 	}
 }

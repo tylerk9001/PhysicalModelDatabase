@@ -21,7 +21,7 @@ public class MechNServlet extends HttpServlet {
 		System.out.println("Mech_N Servlet: doGet");	
 		
 		// call JSP to generate empty form
-		req.getRequestDispatcher("/_view/categories/construction/mech-n.jsp").forward(req, resp);
+		req.getRequestDispatcher("/_view/categories/mechanics/mech-n.jsp").forward(req, resp);
 	}
 	
 	@Override
@@ -31,6 +31,6 @@ public class MechNServlet extends HttpServlet {
 		System.out.println("Mech_N Servlet: doPost");
 		
 		// now call the JSP to render the new page
-		req.getRequestDispatcher("/_view/categories/construction/mech-n.jsp").forward(req, resp);
+		req.getRequestDispatcher("/_view/categories/mechanics/mech-n.jsp").forward(req, resp);
 	}
 }

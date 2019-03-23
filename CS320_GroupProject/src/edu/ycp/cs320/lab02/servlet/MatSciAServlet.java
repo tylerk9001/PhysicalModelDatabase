@@ -21,7 +21,7 @@ public class MatSciAServlet extends HttpServlet {
 		System.out.println("MatSci_A Servlet: doGet");	
 		
 		// call JSP to generate empty form
-		req.getRequestDispatcher("/_view/categories/construction/matsci-a.jsp").forward(req, resp);
+		req.getRequestDispatcher("/_view/categories/material_science/matsci-a.jsp").forward(req, resp);
 	}
 	
 	@Override
@@ -31,6 +31,6 @@ public class MatSciAServlet extends HttpServlet {
 		System.out.println("MatSci_A Servlet: doPost");
 		
 		// now call the JSP to render the new page
-		req.getRequestDispatcher("/_view/categories/construction/matsci-a.jsp").forward(req, resp);
+		req.getRequestDispatcher("/_view/categories/material_science/matsci-a.jsp").forward(req, resp);
 	}
 }

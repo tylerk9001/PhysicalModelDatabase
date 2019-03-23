@@ -21,7 +21,7 @@ public class ThermIServlet extends HttpServlet {
 		System.out.println("Therm_I Servlet: doGet");	
 		
 		// call JSP to generate empty form
-		req.getRequestDispatcher("/_view/categories/construction/therm-i.jsp").forward(req, resp);
+		req.getRequestDispatcher("/_view/categories/thermodynamics/therm-i.jsp").forward(req, resp);
 	}
 	
 	@Override
@@ -31,6 +31,6 @@ public class ThermIServlet extends HttpServlet {
 		System.out.println("Therm_I Servlet: doPost");
 		
 		// now call the JSP to render the new page
-		req.getRequestDispatcher("/_view/categories/construction/therm-i.jsp").forward(req, resp);
+		req.getRequestDispatcher("/_view/categories/thermodynamics/therm-i.jsp").forward(req, resp);
 	}
 }

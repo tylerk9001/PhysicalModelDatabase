@@ -21,7 +21,7 @@ public class FluFServlet extends HttpServlet {
 		System.out.println("Flu_F Servlet: doGet");	
 		
 		// call JSP to generate empty form
-		req.getRequestDispatcher("/_view/categories/construction/flu-f.jsp").forward(req, resp);
+		req.getRequestDispatcher("/_view/categories/fluids/flu-f.jsp").forward(req, resp);
 	}
 	
 	@Override
@@ -31,6 +31,6 @@ public class FluFServlet extends HttpServlet {
 		System.out.println("Flu_F Servlet: doPost");
 		
 		// now call the JSP to render the new page
-		req.getRequestDispatcher("/_view/categories/construction/flu-f.jsp").forward(req, resp);
+		req.getRequestDispatcher("/_view/categories/fluids/flu-f.jsp").forward(req, resp);
 	}
 }

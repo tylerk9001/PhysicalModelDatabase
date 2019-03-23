@@ -18,19 +18,19 @@ public class StatOServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
 		
-		System.out.println("Stat_O) Servlet: doGet");	
+		System.out.println("Stat_O Servlet: doGet");	
 		
 		// call JSP to generate empty form
-		req.getRequestDispatcher("/_view/categories/construction/stat-o.jsp").forward(req, resp);
+		req.getRequestDispatcher("/_view/categories/statics/stat-o.jsp").forward(req, resp);
 	}
 	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
 		
-		System.out.println("Stat_O) Servlet: doPost");
+		System.out.println("Stat_O Servlet: doPost");
 		
 		// now call the JSP to render the new page
-		req.getRequestDispatcher("/_view/categories/construction/stat-o.jsp").forward(req, resp);
+		req.getRequestDispatcher("/_view/categories/statics/stat-o.jsp").forward(req, resp);
 	}
 }

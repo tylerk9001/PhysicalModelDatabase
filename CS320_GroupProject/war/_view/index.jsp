@@ -34,7 +34,7 @@
 	                <a href="#thermodynamics">Thermodynamics</a>
 	                
 	                <div class="access-btns">
-	                    <a href="/login/login.php" class="button">Login</a>
+	                    <a href="${pageContext.request.contextPath}/_view/google/login" class="button">Login</a>
 	                    <a href="/login/register.php" class="button">Sign Up</a>
 	                </div>
 	            </div>            
@@ -73,15 +73,15 @@
 	                            <li><a href="${pageContext.request.contextPath}/dyn-a">Collision and Deformation: When Worlds Collide</a></li>
 	                            <li><a href="${pageContext.request.contextPath}/dyn-b">General Planar Motion: Armor Attack</a></li>
 	                            <li><a href="${pageContext.request.contextPath}/dyn-c">General Planar Motion: The Helicopter</a></li>
-	                            <li><a href="html_categories/dynamics/dyn-d">General Planar Motion: The Oil Rig</a></li>
-	                            <li><a href="html_categories/dynamics/dyn-e">General Planar Motion: The Slider</a></li>
-	                            <li><a href="html_categories/dynamics/dyn-f">General Planar Motion: The Tank</a></li>
-	                            <li><a href="html_categories/dynamics/dyn-g">Projectile Motion</a></li>
-	                            <li><a href="html_categories/dynamics/dyn-h">Rectilinear Motion</a></li>
-	                            <li><a href="html_categories/dynamics/dyn-i">Relative Motion: Choo Choo Train</a></li>
-	                            <li><a href="html_categories/dynamics/dyn-j">Rotation: No Slip Wheel</a></li>
-	                            <li><a href="html_categories/dynamics/dyn-k">Rotation and Moment of Inertia: A Day at the Races</a></li>
-	                            <li><a href="html_categories/dynamics/dyn-l.html">Rotational Kinematics: The Ferris Wheel</a></li>
+	                            <li><a href="${pageContext.request.contextPath}/dyn-d">General Planar Motion: The Oil Rig</a></li>
+	                            <li><a href="${pageContext.request.contextPath}/dyn-e">General Planar Motion: The Slider</a></li>
+	                            <li><a href="${pageContext.request.contextPath}/dyn-f">General Planar Motion: The Tank</a></li>
+	                            <li><a href="${pageContext.request.contextPath}/dyn-g">Projectile Motion</a></li>
+	                            <li><a href="${pageContext.request.contextPath}/dyn-h">Rectilinear Motion</a></li>
+	                            <li><a href="${pageContext.request.contextPath}/dyn-i">Relative Motion: Choo Choo Train</a></li>
+	                            <li><a href="${pageContext.request.contextPath}/dyn-j">Rotation: No Slip Wheel</a></li>
+	                            <li><a href="${pageContext.request.contextPath}/dyn-k">Rotation and Moment of Inertia: A Day at the Races</a></li>
+	                            <li><a href="${pageContext.request.contextPath}/dyn-l">Rotational Kinematics: The Ferris Wheel</a></li>
 	                        </ul>
 	                    </section>
 	                </div>
@@ -89,11 +89,11 @@
 	                    <section id="fluids">
 	                    <h3>Fluids</h3>
 	                        <ul>
-	                            <li><a href="html_categories/fluids/flu-a.html">Fluid Properties</a></li>
-	                            <li><a href="html_categories/fluids/flu-b.html">Head Loss</a></li>
-	                            <li><a href="html_categories/fluids/flu-c.html">Hydrostatics</a></li>
-	                            <li><a href="html_categories/fluids/flu-d.html">Internal Flow and Losses</a></li>
-	                            <li><a href="html_categories/fluids/flu-e.html">Laminar and Turbulent Flow: Smoke Tunnel</a></li>
+	                            <li><a href="${pageContext.request.contextPath}/flu-a">Fluid Properties</a></li>
+	                            <li><a href="${pageContext.request.contextPath}/flu-b">Head Loss</a></li>
+	                            <li><a href="${pageContext.request.contextPath}/flu-c">Hydrostatics</a></li>
+	                            <li><a href="${pageContext.request.contextPath}/flu-d">Internal Flow and Losses</a></li>
+	                            <li><a href="${pageContext.request.contextPath}/flu-e">Laminar and Turbulent Flow: Smoke Tunnel</a></li>
 	                        </ul>
 	                    </section>
 	                </div>
@@ -101,8 +101,8 @@
 	                    <section id="heattran">
 	                        <h3>Heat Transfer</h3>
 	                        <ul>
-	                            <li><a href="html_categories/heat_transfer/heat-a.html">Conservation of Energy: Ice Melting Blocks</a></li>
-	                            <li><a href="html_categories/heat_transfer/heat-b.html">Radiant Energy: Parabolic Concentrator</a></li>
+	                            <li><a href="${pageContext.request.contextPath}/heat-a">Conservation of Energy: Ice Melting Blocks</a></li>
+	                            <li><a href="${pageContext.request.contextPath}/heat-b">Radiant Energy: Parabolic Concentrator</a></li>
 	                        </ul>
 	                    </section>
 	                </div>
@@ -113,9 +113,9 @@
 	                <section id="matsci">
 	                    <h3>Material Science</h3>
 	                    <ul>
-	                        <li><a href="html_categories/material_science/matsci-a.html">Deformation: Bending a Knife Blade</a></li>
-	                        <li><a href="html_categories/material_science/matsci-b.html">Deformation: Shape Memory Alloys</a></li>
-	                        <li><a href="html_categories/material_science/matsci-c.html">Primary and Secondary Creep: Creepy Plastic</a></li>
+	                        <li><a href="${pageContext.request.contextPath}/matsci-a">Deformation: Bending a Knife Blade</a></li>
+	                        <li><a href="${pageContext.request.contextPath}/matsci-b">Deformation: Shape Memory Alloys</a></li>
+	                        <li><a href="${pageContext.request.contextPath}/matsci-c">Primary and Secondary Creep: Creepy Plastic</a></li>
 	                    </ul>
 	                </section>
 	            </div>
@@ -123,20 +123,20 @@
 	                <section id="mechanics">
 	                    <h3>Mechanics</h3>
 	                    <ul>
-	                        <li><a href="html_categories/mechanics/mech-a.html">Axial Strain</a></li>
-	                        <li><a href="html_categories/mechanics/mech-b.html">Beam Bending: Foam Beam</a></li>
-	                        <li><a href="html_categories/mechanics/mech-c.html">Design of Axial Members</a></li>
-	                        <li><a href="html_categories/mechanics/mech-d.html">Elastic vs. Plastic</a></li>
-	                        <li><a href="html_categories/mechanics/mech-e.html">Load Conditions: Rubber Shapes</a></li>
-	                        <li><a href="html_categories/mechanics/mech-f.html">Paper Stress Concentrations</a></li>
-	                        <li><a href="html_categories/mechanics/mech-g.html">Shear Demonstrator</a></li>
-	                        <li><a href="html_categories/mechanics/mech-h.html">Stress/Strain: A Strainge Transformation</a></li>
-	                        <li><a href="html_categories/mechanics/mech-i.html">Stress/Strain Transformation: The Big Book of Shear</a></li>
-	                        <li><a href="html_categories/mechanics/mech-j.html">Thermal Expansion</a></li>
-	                        <li><a href="html_categories/mechanics/mech-k.html">Thin Wall Pressure Vessels - Balloons</a></li>
-	                        <li><a href="html_categories/mechanics/mech-l.html">Thin Wall Pressure Vessels - Hot Dogs</a></li>
-	                        <li><a href="html_categories/mechanics/mech-m.html">Thin Wall Pressure Vessels</a>
-	                        <li><a href="html_categories/mechanics/mech-n.html">Torsion: Tower of Torque</a></li>
+	                        <li><a href="${pageContext.request.contextPath}/mech-a">Axial Strain</a></li>
+	                        <li><a href="${pageContext.request.contextPath}/mech-b">Beam Bending: Foam Beam</a></li>
+	                        <li><a href="${pageContext.request.contextPath}/mech-c">Design of Axial Members</a></li>
+	                        <li><a href="${pageContext.request.contextPath}/mech-d">Elastic vs. Plastic</a></li>
+	                        <li><a href="${pageContext.request.contextPath}/mech-e">Load Conditions: Rubber Shapes</a></li>
+	                        <li><a href="${pageContext.request.contextPath}/mech-f">Paper Stress Concentrations</a></li>
+	                        <li><a href="${pageContext.request.contextPath}/mech-g">Shear Demonstrator</a></li>
+	                        <li><a href="${pageContext.request.contextPath}/mech-h">Stress/Strain: A Strainge Transformation</a></li>
+	                        <li><a href="${pageContext.request.contextPath}/mech-i">Stress/Strain Transformation: The Big Book of Shear</a></li>
+	                        <li><a href="${pageContext.request.contextPath}/mech-j">Thermal Expansion</a></li>
+	                        <li><a href="${pageContext.request.contextPath}/mech-k">Thin Wall Pressure Vessels - Balloons</a></li>
+	                        <li><a href="${pageContext.request.contextPath}/mech-l">Thin Wall Pressure Vessels - Hot Dogs</a></li>
+	                        <li><a href="${pageContext.request.contextPath}/mech-m">Thin Wall Pressure Vessels</a>
+	                        <li><a href="${pageContext.request.contextPath}/mech-n">Torsion: Tower of Torque</a></li>
 	                    </ul>
 	                </section>
 	            </div>
@@ -144,25 +144,25 @@
 	                <section id="statics">
 	                    <h3>Statics</h3>
 	                    <ul>
-	                        <li><a href="html_categories/statics/stat-a.html">Concentrated Cable Loads: The Ski Gondola</a></li>
-	                        <li><a href="html_categories/statics/stat-b.html">Coulomb Friction: Fun with Friction</a></li>
-	                        <li><a href="html_categories/statics/stat-c.html">Force Vector: Amazing Weight Loss Program</a></li>
-	                        <li><a href="html_categories/statics/stat-d.html">Frame Demos</a></li>
-	                        <li><a href="html_categories/statics/stat-e.html">Friction: Belt Friction</a></li>
-	                        <li><a href="html_categories/statics/stat-f.html">Loading: Distributed Student Loading</a></li>
-	                        <li><a href="html_categories/statics/stat-g.html">Mechanical Advantage: Pulleys - Equilibrator Challenge</a></li>
-	                        <li><a href="html_categories/statics/stat-h.html">Mechanical Advantage: The Torque Tester</a></li>
-	                        <li><a href="html_categories/statics/stat-i.html">Moments: Lug Wrench vs. Breaker Bar</a></li>
-	                        <li><a href="html_categories/statics/stat-j.html">Moments: Moments and Couples</a></li>
-	                        <li><a href="html_categories/statics/stat-k.html">Moments: The Persuader</a></li>
-	                        <li><a href="html_categories/statics/stat-l.html">Moments: Varignon's I-Beam</a></li>
-	                        <li><a href="html_categories/statics/stat-m.html">Truss Design: K'NEX Trusses</a></li>
-	                        <li><a href="html_categories/statics/stat-n.html">Truss Design: Ruler Truss</a></li>
-	                        <li><a href="html_categories/statics/stat-o.html">Truss Design: Wacky Fun Noodle</a></li>
-	                        <li><a href="html_categories/statics/stat-p.html">Truss Design: Wooden Truss 2D</a></li>
-	                        <li><a href="html_categories/statics/stat-q.html">Truss Design: Wooden Truss 3D</a></li>
-	                        <li><a href="html_categories/statics/stat-r.html">Uniformly Loaded Cables</a></li>
-	                        <li><a href="html_categories/statics/stat-s.html">Zero Force Members</a></li>
+	                        <li><a href="${pageContext.request.contextPath}/stat-a">Concentrated Cable Loads: The Ski Gondola</a></li>
+	                        <li><a href="${pageContext.request.contextPath}/stat-b">Coulomb Friction: Fun with Friction</a></li>
+	                        <li><a href="${pageContext.request.contextPath}/stat-c">Force Vector: Amazing Weight Loss Program</a></li>
+	                        <li><a href="${pageContext.request.contextPath}/stat-d">Frame Demos</a></li>
+	                        <li><a href="${pageContext.request.contextPath}/stat-e">Friction: Belt Friction</a></li>
+	                        <li><a href="${pageContext.request.contextPath}/stat-f">Loading: Distributed Student Loading</a></li>
+	                        <li><a href="${pageContext.request.contextPath}/stat-g">Mechanical Advantage: Pulleys - Equilibrator Challenge</a></li>
+	                        <li><a href="${pageContext.request.contextPath}/stat-h">Mechanical Advantage: The Torque Tester</a></li>
+	                        <li><a href="${pageContext.request.contextPath}/stat-i">Moments: Lug Wrench vs. Breaker Bar</a></li>
+	                        <li><a href="${pageContext.request.contextPath}/stat-j">Moments: Moments and Couples</a></li>
+	                        <li><a href="${pageContext.request.contextPath}/stat-k">Moments: The Persuader</a></li>
+	                        <li><a href="${pageContext.request.contextPath}/stat-l">Moments: Varignon's I-Beam</a></li>
+	                        <li><a href="${pageContext.request.contextPath}/stat-m">Truss Design: K'NEX Trusses</a></li>
+	                        <li><a href="${pageContext.request.contextPath}/stat-n">Truss Design: Ruler Truss</a></li>
+	                        <li><a href="${pageContext.request.contextPath}/stat-o">Truss Design: Wacky Fun Noodle</a></li>
+	                        <li><a href="${pageContext.request.contextPath}/stat-p">Truss Design: Wooden Truss 2D</a></li>
+	                        <li><a href="${pageContext.request.contextPath}/stat-q">Truss Design: Wooden Truss 3D</a></li>
+	                        <li><a href="${pageContext.request.contextPath}/stat-r">Uniformly Loaded Cables</a></li>
+	                        <li><a href="${pageContext.request.contextPath}/stat-s">Zero Force Members</a></li>
 	                    </ul>
 	                </section>
 	            </div>
@@ -170,18 +170,18 @@
 	                <div id="box-8" class="boxes">
 	                    <h3>Thermodynamics</h3>
 	                    <ul>
-	                        <li><a href="html_categories/thermodynamics/therm-a.html">2nd Law - Direction</a></li>
-	                        <li><a href="html_categories/thermodynamics/therm-b.html">2nd Law - Losses</a></li>
-	                        <li><a href="html_categories/thermodynamics/therm-c.html">Boiling Point: The Hand Boiler</a></li>
-	                        <li><a href="html_categories/thermodynamics/therm-d.html">Boiling Properties</a></li>
-	                        <li><a href="html_categories/thermodynamics/therm-e.html">Closed vs. Open Systems</a></li>
-	                        <li><a href="html_categories/thermodynamics/therm-f.html">Conservation of Mass: Molasses Madness</a></li>
-	                        <li><a href="html_categories/thermodynamics/therm-g.html">Density and Buoyancy: The Lava Lamp</a></li>
-	                        <li><a href="html_categories/thermodynamics/therm-h.html">Otto Cycle: Engine Knock</a></li>
-	                        <li><a href="html_categories/thermodynamics/therm-i.html">Psychrometry</a></li>
-	                        <li><a href="html_categories/thermodynamics/therm-j.html">Total Energy - Fan Box</a></li>
-	                        <li><a href="html_categories/thermodynamics/therm-k.html">Total Energy</a></li>
-	                        <li><a href="html_categories/thermodynamics/therm-l.html">Vapor Power Cycle: The Little Engine That Could</a></li>
+	                        <li><a href="${pageContext.request.contextPath}/therm-a">2nd Law - Direction</a></li>
+	                        <li><a href="${pageContext.request.contextPath}/therm-b">2nd Law - Losses</a></li>
+	                        <li><a href="${pageContext.request.contextPath}/therm-c">Boiling Point: The Hand Boiler</a></li>
+	                        <li><a href="${pageContext.request.contextPath}/therm-d">Boiling Properties</a></li>
+	                        <li><a href="${pageContext.request.contextPath}/therm-e">Closed vs. Open Systems</a></li>
+	                        <li><a href="${pageContext.request.contextPath}/therm-f">Conservation of Mass: Molasses Madness</a></li>
+	                        <li><a href="${pageContext.request.contextPath}/therm-g">Density and Buoyancy: The Lava Lamp</a></li>
+	                        <li><a href="${pageContext.request.contextPath}/therm-h">Otto Cycle: Engine Knock</a></li>
+	                        <li><a href="${pageContext.request.contextPath}/therm-i">Psychrometry</a></li>
+	                        <li><a href="${pageContext.request.contextPath}/therm-j">Total Energy - Fan Box</a></li>
+	                        <li><a href="${pageContext.request.contextPath}/therm-k">Total Energy</a></li>
+	                        <li><a href="${pageContext.request.contextPath}/therm-l">Vapor Power Cycle: The Little Engine That Could</a></li>
 	                    </ul>
 	                </div>
 	            </section>
