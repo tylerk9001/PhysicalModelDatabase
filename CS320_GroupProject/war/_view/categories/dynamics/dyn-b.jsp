@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Home | Physical Model </title>
+    <title>Dynamics | Physical Model </title>
     <!--Website CSS-->
-    <link href="/css/collapse-1.css" type="text/css" rel="stylesheet">
-    <link href="/css/application.css" type="text/css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/_view/css/collapse-1.css" type="text/css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/_view/css/application.css" type="text/css" rel="stylesheet">
     <!-- Icon CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
@@ -18,15 +18,15 @@
             <input type="checkbox" id="toggle">
             <div class="menu">
                 <div class="logo"><a><i class="fa fa-cog" ></i></a></div>
-                <a href="/index.html" class="border-nav">Home</a>
-                <a href="/index.html#construction">Construction</a>
-                <a href="/index.html#dynamics">Dynamics</a>
-                <a href="/index.html#fluids">Fluids</a>
-                <a href="/index.html#heattran">Heat Transfer</a>
-                <a href="/index.html#matsci">Material Science</a>
-                <a href="/index.html#mechanics">Mechanics</a>
-                <a href="/index.html#statics">Statics</a>
-                <a href="/index.html#thermodynamics">Thermodynamics</a>
+                <a href="${pageContext.request.contextPath}/index" class="border-nav">Home</a>
+                <a href="${pageContext.request.contextPath}/index#construction">Construction</a>
+                <a href="${pageContext.request.contextPath}/index#dynamics">Dynamics</a>
+                <a href="${pageContext.request.contextPath}/index#fluids">Fluids</a>
+                <a href="${pageContext.request.contextPath}/index#heattran">Heat Transfer</a>
+                <a href="${pageContext.request.contextPath}/index#matsci">Material Science</a>
+                <a href="${pageContext.request.contextPath}/index#mechanics">Mechanics</a>
+                <a href="${pageContext.request.contextPath}/index#statics">Statics</a>
+                <a href="${pageContext.request.contextPath}/index#thermodynamics">Thermodynamics</a>
             </div>
         </div>
     </nav>
@@ -47,7 +47,7 @@
         <div class="project-content">
             <p class="description"><strong><u>Model Description:</u></strong> This training aid demonstrates a practical application of the kinematic relationship for a translating and rotating frame of reference. This demonstration should take 10-15 minutes.</p>
             
-            <img src="dyn-b(a).png" class="const-img">
+            <img src="${pageContext.request.contextPath}/_view/categories/dynamics/dyn-b(a).png" class="const-img">
             
             <p class="principle"><strong><u>Engineering Principle:</u></strong> This lesson is an application of the previously developed vector equations for velocity and acceleration in a translating and rotating frame of reference.
 
@@ -85,10 +85,10 @@
             
             <p class="application"><strong><u>In Class:</u></strong> This training aid is meant to fill the classroom to develop the spatial aspect of the problem. The cannons(artillery) are positioned at one corner, the helicopter is hung from the ceiling in the middle, and the tanks are on a moving cart on the other side of the classroom. Of note, the cannons pictured are catapults we utilize during the kinetics block of the course. The situation is developed that the scout helicopter (translating and rotating) uses a laser designator and "sees" the approaching tanks moving at a relative velocity at an instant in time. The question to be answered is to determine the absolute velocity of the approaching tank column (relative to the stationary artillery unit) and then to determine how many minutes are left before the advancing tanks are within range of the artillery.</p><br>
             
-            <img src="dyn-b(b).png" class="const-img">
-            <img src="dyn-b(c).png" class="const-img">
-            <img src="dyn-b(d).png" class="const-img">
-            <img src="dyn-b(e).png" class="const-img">
+            <img src="${pageContext.request.contextPath}/_view/categories/dynamics/dyn-b(b).png" class="const-img">
+            <img src="${pageContext.request.contextPath}/_view/categories/dynamics/dyn-b(c).png" class="const-img">
+            <img src="${pageContext.request.contextPath}/_view/categories/dynamics/dyn-b(d).png" class="const-img">
+            <img src="${pageContext.request.contextPath}/_view/categories/dynamics/dyn-b(e).png" class="const-img">
             
         </div>
     </div>

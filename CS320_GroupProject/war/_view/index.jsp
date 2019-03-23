@@ -6,7 +6,7 @@
 <head>
     <title>Home | Physical Model </title>
     <!--Website CSS-->
-    <link rel="icon" href="../_view/img/tab.png">
+    <link rel="icon" href="${pageContext.request.contextPath}/_view/img/tab.png">
     <link href="${pageContext.request.contextPath}/_view/css/collapse-1.css" rel="stylesheet">
     <!-- Icon CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">

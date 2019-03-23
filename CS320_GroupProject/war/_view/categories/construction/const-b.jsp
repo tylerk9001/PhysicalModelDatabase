@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Home | Physical Model </title>
+    <title>Construction | Physical Model </title>
     <!--Website CSS-->
-    <link href="/css/collapse-1.css" type="text/css" rel="stylesheet">
-    <link href="/css/application.css" type="text/css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/_view/css/collapse-1.css" type="text/css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/_view/css/application.css" type="text/css" rel="stylesheet">
     <!-- Icon CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
@@ -18,15 +18,15 @@
             <input type="checkbox" id="toggle">
             <div class="menu">
                 <div class="logo"><a><i class="fa fa-cog" ></i></a></div>
-                <a href="/index.html" class="border-nav">Home</a>
-                <a href="/index.html#construction">Construction</a>
-                <a href="/index.html#dynamics">Dynamics</a>
-                <a href="/index.html#fluids">Fluids</a>
-                <a href="/index.html#heattran">Heat Transfer</a>
-                <a href="/index.html#matsci">Material Science</a>
-                <a href="/index.html#mechanics">Mechanics</a>
-                <a href="/index.html#statics">Statics</a>
-                <a href="/index.html#thermodynamics">Thermodynamics</a>
+                <a href="${pageContext.request.contextPath}/index" class="border-nav">Home</a>
+                <a href="${pageContext.request.contextPath}/index#construction">Construction</a>
+                <a href="${pageContext.request.contextPath}/index#dynamics">Dynamics</a>
+                <a href="${pageContext.request.contextPath}/index#fluids">Fluids</a>
+                <a href="${pageContext.request.contextPath}/index#heattran">Heat Transfer</a>
+                <a href="${pageContext.request.contextPath}/index#matsci">Material Science</a>
+                <a href="${pageContext.request.contextPath}/index#mechanics">Mechanics</a>
+                <a href="${pageContext.request.contextPath}/index#statics">Statics</a>
+                <a href="${pageContext.request.contextPath}/index#thermodynamics">Thermodynamics</a>
             </div>
         </div>
     </nav>
@@ -47,7 +47,7 @@
         <div class="project-content">
             <p class="description"><strong><u>Model Description:</u></strong> This in-class activity provides students the opportunity to participate in an interactive demonstration to visualize the concepts of soil pressure and potential effects on construction excavation support systems. In this demo, students are able to interact directly with small-scale models to exhibit the concepts of at rest (equilibrium) soil conditions, active soil pressure, and passive soil pressure. This demonstration should take 10 minutes.</p>
             
-            <img src="mod-desc(b).JPG" class="const-img">
+            <img src="${pageContext.request.contextPath}/_view/categories/construction/mod-desc(b).JPG" class="const-img">
             
             <p class="principle"><strong><u>Engineering Principle:</u></strong> The overall objectives of this demonstration focus on the concepts of soil pressure and potential interactions with construction excavation support systems. Multiple soil pressure conditions can be seen throughout the different stages of the demonstration, including at rest condition (equilibrium), active soil pressure, and passive soil pressure. Through these pressure conditions, students are able to witness the concepts of pressure first hand, while also providing visualizations of the plane of soil failure and effects on earth support systems. The concept of soil pressure is essential within construction engineering; as a proper understanding of soil behavior is necessary for the design and construction of excavation support systems on a large scale.<br><br>  
                 
@@ -59,7 +59,7 @@
                 
             In this circumstance, the soil is passively pushed until slippage occurs along the natural plane.</p>
             
-            <img src="eng-principle(b).JPG" class="const-img"><br>
+            <img src="${pageContext.request.contextPath}/_view/categories/construction/eng-principle(b).JPG" class="const-img"><br>
             
             <br><p class="title">Required Items</p><br><br>
             
@@ -92,7 +92,7 @@
                 </table><br>
             </div>
             
-            <img src="req-items(b).JPG" class="const-img"><br><br>
+            <img src="${pageContext.request.contextPath}/_view/categories/construction/req-items(b).JPG" class="const-img"><br><br>
             
             <p class="title">Application</p>
             
@@ -100,7 +100,7 @@
             
             <p class="application"><strong><u>In Class:</u></strong> Start the demonstration by dividing participants into groups of four or less. After the groups have been divided, instruct students to begin transferring the sand from one side of the excavation support system to the opposite site. This step represents the actual excavation of earth in construction. Repeat the process of excavating materials until the effects of pressure can be seen on the support wall i.e. when the excavation support system, which is sheet pile in this case, fails. The movement of soil will eventually lead to conditions of active pressure, passive pressure, and shear failure. The model will allow students to feel the pressures on the aluminum sheet and understand how forces act on a sheet pile.</p><br>
             
-            <img src="app-last(b).JPG" class="const-img"><br>
+            <img src="${pageContext.request.contextPath}/_view/categories/construction/app-last(b).JPG" class="const-img"><br>
         </div>
     </div>
 </content>

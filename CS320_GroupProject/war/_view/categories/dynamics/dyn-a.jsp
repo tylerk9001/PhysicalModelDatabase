@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Home | Physical Model </title>
+    <title>Dynamics | Physical Model </title>
     <!--Website CSS-->
-    <link href="/css/collapse-1.css" type="text/css" rel="stylesheet">
-    <link href="/css/application.css" type="text/css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/_view/css/collapse-1.css" type="text/css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/_view/css/application.css" type="text/css" rel="stylesheet">
     <!-- Icon CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
@@ -18,15 +18,15 @@
             <input type="checkbox" id="toggle">
             <div class="menu">
                 <div class="logo"><a><i class="fa fa-cog" ></i></a></div>
-                <a href="/index.html" class="border-nav">Home</a>
-                <a href="/index.html#construction">Construction</a>
-                <a href="/index.html#dynamics">Dynamics</a>
-                <a href="/index.html#fluids">Fluids</a>
-                <a href="/index.html#heattran">Heat Transfer</a>
-                <a href="/index.html#matsci">Material Science</a>
-                <a href="/index.html#mechanics">Mechanics</a>
-                <a href="/index.html#statics">Statics</a>
-                <a href="/index.html#thermodynamics">Thermodynamics</a>
+                <a href="${pageContext.request.contextPath}/index" class="border-nav">Home</a>
+                <a href="${pageContext.request.contextPath}/index#construction">Construction</a>
+                <a href="${pageContext.request.contextPath}/index#dynamics">Dynamics</a>
+                <a href="${pageContext.request.contextPath}/index#fluids">Fluids</a>
+                <a href="${pageContext.request.contextPath}/index#heattran">Heat Transfer</a>
+                <a href="${pageContext.request.contextPath}/index#matsci">Material Science</a>
+                <a href="${pageContext.request.contextPath}/index#mechanics">Mechanics</a>
+                <a href="${pageContext.request.contextPath}/index#statics">Statics</a>
+                <a href="${pageContext.request.contextPath}/index#thermodynamics">Thermodynamics</a>
             </div>
         </div>
     </nav>
@@ -47,7 +47,7 @@
         <div class="project-content">
             <p class="description"><strong><u>Model Description:</u></strong> This is a simple demonstration of the phases of a collision for central impact. Two squeeze balls are used to show the phases. This demonstration should take 3-5 minutes.</p>
             
-            <img src="dyn-a-pic(a).png" class="const-img">
+            <img src="${pageContext.request.contextPath}/_view/categories/dynamics/dyn-a-pic(a).png" class="const-img">
             
             <p class="principle"><strong><u>Engineering Principle:</u></strong>  Two objects in a head-on or rear-end collision (“centralimpact”) will deform as they collide. At the time of maximum deformation, they will have reached the same velocity. The period of deformation will typically be followed by a period of restitution, at the end of which the two objects will either have regained their original shapes or will have retained some degree of permanent deformation.</p>
             
@@ -83,12 +83,12 @@
             
             <p class="application"><strong><u>Observations:</u></strong> The students should observe that the balls start to deform upon contact, that there is a finite period of time during which both balls deform, and that there is also a finite period during which the balls return to their original respective shapes (the deformation and restitution periods are not necessarily ofthe same duration). Students should also recognize that a force exists between the balls once they start to deform. This force can be demonstrated by rapidly releasing one ball while the other one is held stationary—the released ball rolls rapidly away from the one held stationary. Additional Application: Two clay balls of roughly the same diameter as the squeeze balls could also be used to emphasize that the period of restitution need not equal the period of deformation. Follow the same procedure as before, pressing the balls slowly together, then releasing one while holding the other. The period of restitution is clearly smaller than the period of deformation. Next, drop a clay ball on the floor along with a ping-pong ball, to show what happens in terms of rebound velocity. Ask what happened to the earth during the collision, and why the rebound speed never equals that of the speed just before impact. </p>
             
-            <img src="dyn-a-pic(b).png" class="const-img">
+            <img src="${pageContext.request.contextPath}/_view/categories/dynamics/dyn-a-pic(b).png" class="const-img">
 
-            <img src="dyn-a-pic(c).png" class="const-img">
+            <img src="${pageContext.request.contextPath}/_view/categories/dynamics/dyn-a-pic(c).png" class="const-img">
 
             
-            <p class="application"><strong><u>Additional Application </u></strong>  Two clay balls of roughly the same diameter as the squeeze balls could also be used to emphasize that the period of restitution need not equal the period of deformation. Follow the same procedure as before, pressing the balls slowly together, then releasing one while holding the other. The period of restitution is clearly smaller than the period of deformation. Next, drop a clay ball on the floor along with a ping-pong ball, to show what happens in terms of rebound velocity. Ask what happened to the earth during the collision, and why the rebound speed never equals that of the speed just before impact. </p><br>
+            <p class="application"><strong><u>Additional Application:</u></strong>  Two clay balls of roughly the same diameter as the squeeze balls could also be used to emphasize that the period of restitution need not equal the period of deformation. Follow the same procedure as before, pressing the balls slowly together, then releasing one while holding the other. The period of restitution is clearly smaller than the period of deformation. Next, drop a clay ball on the floor along with a ping-pong ball, to show what happens in terms of rebound velocity. Ask what happened to the earth during the collision, and why the rebound speed never equals that of the speed just before impact. </p><br>
         </div>
     </div>
 </content>

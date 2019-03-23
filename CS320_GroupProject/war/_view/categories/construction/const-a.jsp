@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Home | Physical Model </title>
+    <title>Construction | Physical Model </title>
     <!--Website CSS-->
     <link href="${pageContext.request.contextPath}/_view/css/collapse-1.css" type="text/css" rel="stylesheet">
     <link href="${pageContext.request.contextPath}/_view/css/application.css" type="text/css" rel="stylesheet">
@@ -18,15 +18,15 @@
             <input type="checkbox" id="toggle">
             <div class="menu">
                 <div class="logo"><a><i class="fa fa-cog" ></i></a></div>
-                <a href="/index.html" class="border-nav">Home</a>
-                <a href="/index.html#construction">Construction</a>
-                <a href="/index.html#dynamics">Dynamics</a>
-                <a href="/index.html#fluids">Fluids</a>
-                <a href="/index.html#heattran">Heat Transfer</a>
-                <a href="/index.html#matsci">Material Science</a>
-                <a href="/index.html#mechanics">Mechanics</a>
-                <a href="/index.html#statics">Statics</a>
-                <a href="/index.html#thermodynamics">Thermodynamics</a>
+                <a href="${pageContext.request.contextPath}/index" class="border-nav">Home</a>
+                <a href="${pageContext.request.contextPath}/index#construction">Construction</a>
+                <a href="${pageContext.request.contextPath}/index#dynamics">Dynamics</a>
+                <a href="${pageContext.request.contextPath}/index#fluids">Fluids</a>
+                <a href="${pageContext.request.contextPath}/index#heattran">Heat Transfer</a>
+                <a href="${pageContext.request.contextPath}/index#matsci">Material Science</a>
+                <a href="${pageContext.request.contextPath}/index#mechanics">Mechanics</a>
+                <a href="${pageContext.request.contextPath}/index#statics">Statics</a>
+                <a href="${pageContext.request.contextPath}/index#thermodynamics">Thermodynamics</a>
             </div>
         </div>
     </nav>
@@ -47,11 +47,11 @@
         <div class="project-content">
             <p class="description"><strong><u>Model Description:</u></strong> This demonstration depicts the importance of rigging angles during crane lift operations on a construction site. Reducing rigging angles results in a significant amplification of forces in the rigging, potentially <strong>leading to failure</strong>. By varying the connection points and sling length, students will be able to calculate the predicted forces and analyze the best combination of connection points and sling lengths to successfully complete the critical lift. The demonstration should take 15-20 minutes.</p>
             
-            <img src="mod-desc(a).JPG" class="const-img">
+            <img src="${pageContext.request.contextPath}/_view/categories/construction/mod-desc(a).JPG" class="const-img">
             
             <p class="principle"><strong><u>Engineering Principle:</u></strong> A sling’s working load limit (WLL) is based on a crane lift performed at a straight (90°) angle. The forces in rigging (sling, chain, wire rope, webbing, shackles, etc.) increase substantially as the angle formed by the sling leg and the horizontal becomes smaller. The following chart shows the increased force applied to the rigging when the rigging angle is reduced. The key engineering principle with this demonstration is related to an understanding of statics. Students must comprehend that decreasing the angle creates a horizontal force component that in turn increases the tension in the rigging. This can be derived using the figure below.</p>
             
-            <img src="eng-principle(a).JPG" class="const-img">
+            <img src="${pageContext.request.contextPath}/_view/categories/construction/eng-principle(a).JPG" class="const-img">
             
             <p class="principle">While increasing the connection angle of a two-point lift may be required to
             increase the stability of the lift, careful consideration must be taken in regards to
@@ -118,19 +118,19 @@
                 </table><br>
             </div>
             
-            <img src="req-items(a).JPG" class="const-img"><br><br>
+            <img src="${pageContext.request.contextPath}/_view/categories/construction/req-items(a).JPG" class="const-img"><br><br>
             
             <p class="title">Application</p>
             
             <p class="application"><strong><u>Before Class:</u></strong> Build and verify your model. The imperfect connections at the screw eyes and the variation in the spring scale as a load is applied make predicting the exact angle difficult. The placement of the screw eyes and the length of the chain are intended to replicate scenarios with the connections at 30°, 45°, and 60°.</p><br>
             
-            <img src="before-class(a).JPG" class="const-img"><br>
+            <img src="${pageContext.request.contextPath}/_view/categories/construction/before-class(a).JPG" class="const-img"><br>
             
             <p class="application">After cutting the 2x6 to 3ft. length, install the screw eyes along the centerline at the distances shown above. To ensure the spring scale hook remains centered during the lift (and creates an equal force in both scales), use wire or duct tape to prevent its movement. Display the 2x6 at the front of the class, but do not have anything connected to it. Let the students build their answer as they work to solve the problem.</p>
             
             <p class="application"><strong><u>In Class:</u></strong> Build and verify your model. The imperfect connections at the screw eyes and the variation in the spring scale as a load is applied make predicting the exact angle difficult. The placement of the screw eyes and the length of the chain are intended to replicate scenarios with the connections at 30°, 45°, and 60°.</p><br>
             
-            <img src="in-class(a).JPG" class="const-img"><br>
+            <img src="${pageContext.request.contextPath}/_view/categories/construction/in-class(a).JPG" class="const-img"><br>
             
             <p class="application"><strong><u>Theory:</u></strong> Given the fixed connection options, have the students calculate the tensile forces in the sling using the farthest connection (12 inches from center). Ask them what angle they would recommend if they didn’t have time for calculations, and why? By adjusting the basic equation to 𝐹 𝑠𝑙𝑖𝑛𝑔 = 𝐹 𝑙𝑜𝑎𝑑 / 𝑠𝑖𝑛(𝜃), the students can calculate the tension in the sling at any angle. If the students are using their computers, remind them of the need to convert the answer to degrees from radians if their output is not making sense to them.</p>
             
@@ -177,7 +177,7 @@
             
             Finally, ask the students if they have ever heard of the American Death Triangle. If a student has, have them explain its meaning to the class. This refers to a common source of fatalities in rock climbing and the principles are quite similar to equipment rigging.</p><br>
             
-            <img src="app-last(a).JPG" class="const-img"><br>
+            <img src="${pageContext.request.contextPath}/_view/categories/construction/app-last(a).JPG" class="const-img"><br>
             
             <p class="application"><strong><u>Additional Application</u></strong> This makes for a good discussion on Factors of Safety. Ask the students about their tolerance for safety and how close to the sling’s capacity would they execute the lift. Did they inspect the slings? The sling’s rating is accurate when it leaves the manufacturer, but how have they been maintained? Are they rusty, worn, or frayed?<br><br>
                 
