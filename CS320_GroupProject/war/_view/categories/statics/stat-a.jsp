@@ -45,7 +45,7 @@
             <p class="author"><strong>Submitted By: </strong>Tom Messervey</p><hr>
         </div>
         <div class="project-content">
-            <p class="description"><strong><u>Model Description:</u></strong>  This physical model demonstrates how cables subjected to
+            <p class="description"><strong><u>Model Description:</u></strong> This physical model demonstrates how cables subjected to
 				concentrated point loads establish equilibrium through geometry – i.e., the slope
 				of each cable segment will change (as will the support reactions) as different
 				loads are placed on the cable. This demonstration should take 10-20 minutes</p>
@@ -103,7 +103,7 @@
 				allow the students to manipulate the weight values and locations within the
 				system.</p><br>
                                     
-            <p class="application"><strong><u>In Class:</u></strong>  Keep a measuring stick nearby so that the students can measure the
+            <p class="application"><strong><u>In Class:</u></strong> Keep a measuring stick nearby so that the students can measure the
 				geometry of the system. (1) This can be used as an in-class problem where the
 				students solve for the tension in the various segments of the rope, thereby
 				realizing that when the loads are tied off, the tension varies in the rope. (2) It
