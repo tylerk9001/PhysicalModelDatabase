@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import edu.ycp.cs320.lab02.controller.UserAccountController;
 import edu.ycp.cs320.lab02.model.UserAccount;
 
-public class ThermJServlet extends HttpServlet {
+public class LoginGoogleServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
 	
@@ -18,19 +18,19 @@ public class ThermJServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
 		
-		System.out.println("Therm_J Servlet: doGet");	
+		System.out.println("Google Login Servlet: doGet");	
 		
 		// call JSP to generate empty form
-		req.getRequestDispatcher("/_view/categories/thermodynamics/therm-j.jsp").forward(req, resp);
+		req.getRequestDispatcher("/_view/google/login.jsp").forward(req, resp);
 	}
 	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
 		
-		System.out.println("Therm_J Servlet: doPost");
+		System.out.println("Google Login Servlet: doPost");
 		
 		// now call the JSP to render the new page
-		req.getRequestDispatcher("/_view/categories/thermodynamics/therm-j.jsp").forward(req, resp);
+		req.getRequestDispatcher("/_view/google/index.jsp").forward(req, resp);
 	}
 }

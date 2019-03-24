@@ -7,8 +7,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import edu.ycp.cs320.lab02.controller.GuessingGameController;
-import edu.ycp.cs320.lab02.model.GuessingGame;
+import edu.ycp.cs320.lab02.controller.UserAccountController;
+import edu.ycp.cs320.lab02.model.UserAccount;
 
 public class ThermBServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
