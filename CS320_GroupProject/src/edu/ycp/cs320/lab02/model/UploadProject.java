@@ -10,8 +10,9 @@ public class UploadProject {
 	private String author;
 	private String modelDescription;
 	private String engineeringPrinciple;
-	private ArrayList<String[]> requiredItems = new ArrayList<String[]>();
-	private int numRequiredItems;
+	private ArrayList<ArrayList<String>> requiredItems = new ArrayList<ArrayList<String>>();
+	private ArrayList<String> items = new ArrayList<String>();
+	private int numRequiredItems = 10;
 	private String beforeClass;
 	private String inClass;
 	private String other;
@@ -66,6 +67,23 @@ public class UploadProject {
 	
 	public int getNumRequiredItems() {
 		return numRequiredItems;
+	}
+	
+	public void addToRequiredItems(String item, String qty, String cost, String description) {
+		items.add(item);
+		items.add(qty);
+		items.add(cost);
+		items.add(description);
+		
+		requiredItems.add(items);
+		}
+	
+	public ArrayList<String> pullFromRequiredItems() {
+		items.add(requiredItems.get(0).get(0));
+		items.add(requiredItems.get(0).get(1));
+		items.add(requiredItems.get(0).get(2));
+		items.add(requiredItems.get(0).get(3));
+		return items;
 	}
 	
 	public void setBeforeClass(String beforeClass) {
