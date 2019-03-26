@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 public class UploadProject {
 	private String projectName;
+	private String engineeringCategory;
 	private ArrayList<String> keywords = new ArrayList<String>();
 	private UserAccount account;
 	private String author;
@@ -34,6 +35,14 @@ public class UploadProject {
 	
 	public String getProjectName() {
 		return projectName;
+	}
+	
+	public void setEngineeringCategory(String engineeringCategory) {
+		this.engineeringCategory = engineeringCategory;
+	}
+	
+	public String getEngineeringCategory() {
+		return engineeringCategory;
 	}
 	
 	public void setAuthor (String author) {
