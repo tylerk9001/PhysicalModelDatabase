@@ -1,6 +1,6 @@
 package edu.ycp.cs320.lab02.model;
 
-import java.lang.reflect.Array;
+import java.awt.List;
 import java.util.ArrayList;
 
 public class UploadProject {
@@ -11,18 +11,15 @@ public class UploadProject {
 	private String author;
 	private String modelDescription;
 	private String engineeringPrinciple;
-	private String[][] requiredItems;
+	private ArrayList<String[]> requiredItems = new ArrayList<String[]>();
+	private String[] items = new String[4];
 	private int numRequiredItems = 10;
 	private String beforeClass;
 	private String inClass;
 	private String other;
 
 	public UploadProject() {
-		for (int i = 0; i < numRequiredItems; i++) {
-			requiredItems[i] = new String[4];
-		}
 	}
-	
 	
 	public void setProjectName(String projectName) {
 		this.projectName = projectName;
@@ -86,6 +83,20 @@ public class UploadProject {
 	
 	public int getNumRequiredItems() {
 		return numRequiredItems;
+	}
+	
+	public void addToRequiredItems(String item, String qty, String cost, String description) {
+		items[0] = item;
+		items[1] = qty;
+		items[2] = cost;
+		items[3] = description;
+		
+		requiredItems.add(items);
+		}
+	
+	public String[] pullFromRequiredItems() {
+		items = requiredItems.get(0);
+		return items;
 	}
 	
 	public void setBeforeClass(String beforeClass) {
