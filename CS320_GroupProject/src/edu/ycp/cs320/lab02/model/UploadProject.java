@@ -39,12 +39,19 @@ public class UploadProject {
 		return engineeringCategory;
 	}
 	
+	public void setAccount (UserAccount account) {
+		this.account = account;
+	}
+	
+	public UserAccount getAccount() {
+		return account;
+	}
+	
 	public void setAuthor (String author) {
 		this.author = author;
 	}
 	
 	public String getAuthor () {
-		author = account.getFirstName() + account.getLastName();
 		return author;
 	}
 	
