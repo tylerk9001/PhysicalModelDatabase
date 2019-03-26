@@ -1,5 +1,6 @@
 package edu.ycp.cs320.lab02.model;
 
+import java.awt.List;
 import java.util.ArrayList;
 
 public class UploadProject {
@@ -20,8 +21,6 @@ public class UploadProject {
 	public UploadProject() {
 	}
 	
-	
-	
 	public void setProjectName(String projectName) {
 		this.projectName = projectName;
 	}
@@ -38,12 +37,27 @@ public class UploadProject {
 		return engineeringCategory;
 	}
 	
+	public void addToKeywords(String keyword) {
+		keywords.add(keyword);
+	}
+	
+	public String pullFromKeywords() {
+		return keywords.get(0);
+	}
+	
+	public void setAccount (UserAccount account) {
+		this.account = account;
+	}
+	
+	public UserAccount getAccount() {
+		return account;
+	}
+	
 	public void setAuthor (String author) {
 		this.author = author;
 	}
 	
 	public String getAuthor () {
-		author = account.getFirstName() + account.getLastName();
 		return author;
 	}
 	
@@ -59,7 +73,7 @@ public class UploadProject {
 		this.engineeringPrinciple = engineeringPrinciple;
 	}
 	
-	public String getEngineeringPriciple() {
+	public String getEngineeringPrinciple() {
 		return engineeringPrinciple;
 	}
 	
