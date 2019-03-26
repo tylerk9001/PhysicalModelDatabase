@@ -11,8 +11,8 @@ public class UploadProject {
 	private String author;
 	private String modelDescription;
 	private String engineeringPrinciple;
-	private ArrayList<String[]> requiredItems = new ArrayList<String[]>();
-	private String[] items = new String[4];
+	private ArrayList<ArrayList<String>> requiredItems = new ArrayList<ArrayList<String>>();
+	private ArrayList<String> items = new ArrayList<String>();
 	private int numRequiredItems = 10;
 	private String beforeClass;
 	private String inClass;
@@ -86,16 +86,19 @@ public class UploadProject {
 	}
 	
 	public void addToRequiredItems(String item, String qty, String cost, String description) {
-		items[0] = item;
-		items[1] = qty;
-		items[2] = cost;
-		items[3] = description;
+		items.add(item);
+		items.add(qty);
+		items.add(cost);
+		items.add(description);
 		
 		requiredItems.add(items);
 		}
 	
-	public String[] pullFromRequiredItems() {
-		items = requiredItems.get(0);
+	public ArrayList<String> pullFromRequiredItems() {
+		items.add(requiredItems.get(0).get(0));
+		items.add(requiredItems.get(0).get(1));
+		items.add(requiredItems.get(0).get(2));
+		items.add(requiredItems.get(0).get(3));
 		return items;
 	}
 	
