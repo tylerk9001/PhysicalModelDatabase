@@ -1,6 +1,5 @@
 package edu.ycp.cs320.lab02.model;
 
-import java.awt.List;
 import java.util.ArrayList;
 
 public class UploadProject {
@@ -12,8 +11,7 @@ public class UploadProject {
 	private String modelDescription;
 	private String engineeringPrinciple;
 	private ArrayList<String[]> requiredItems = new ArrayList<String[]>();
-	private String[] items = new String[4];
-	private int numRequiredItems = 10;
+	private int numRequiredItems;
 	private String beforeClass;
 	private String inClass;
 	private String other;
@@ -37,27 +35,12 @@ public class UploadProject {
 		return engineeringCategory;
 	}
 	
-	public void addToKeywords(String keyword) {
-		keywords.add(keyword);
-	}
-	
-	public String pullFromKeywords() {
-		return keywords.get(0);
-	}
-	
-	public void setAccount (UserAccount account) {
-		this.account = account;
-	}
-	
-	public UserAccount getAccount() {
-		return account;
-	}
-	
 	public void setAuthor (String author) {
 		this.author = author;
 	}
 	
 	public String getAuthor () {
+		author = account.getFirstName() + account.getLastName();
 		return author;
 	}
 	
@@ -73,7 +56,7 @@ public class UploadProject {
 		this.engineeringPrinciple = engineeringPrinciple;
 	}
 	
-	public String getEngineeringPrinciple() {
+	public String getEngineeringPriciple() {
 		return engineeringPrinciple;
 	}
 	
@@ -83,20 +66,6 @@ public class UploadProject {
 	
 	public int getNumRequiredItems() {
 		return numRequiredItems;
-	}
-	
-	public void addToRequiredItems(String item, String qty, String cost, String description) {
-		items[0] = item;
-		items[1] = qty;
-		items[2] = cost;
-		items[3] = description;
-		
-		requiredItems.add(items);
-		}
-	
-	public String[] pullFromRequiredItems() {
-		items = requiredItems.get(0);
-		return items;
 	}
 	
 	public void setBeforeClass(String beforeClass) {
