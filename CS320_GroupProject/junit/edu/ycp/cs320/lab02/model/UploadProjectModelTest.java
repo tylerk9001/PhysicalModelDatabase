@@ -82,13 +82,21 @@ public class UploadProjectModelTest {
 	
 	@Test
 	public void testSetGetRequiredItems() {
-		String[] items = new String[4];
-		items[0] = item;
-		items[1] = qty;
-		items[2] = cost;
-		items[3] = description;
+		ArrayList<String> items = new ArrayList<String>();
+		items.add(item);
+		items.add(qty);
+		items.add(cost);
+		items.add(description);
 		model.addToRequiredItems(item, qty, cost, description);
-		assertTrue(model.pullFromRequiredItems().equals(items));
+		
+		ArrayList<String> temp, testList = new ArrayList<String>();
+		temp = model.pullFromRequiredItems();
+		testList.add(temp.get(0));
+		testList.add(temp.get(1));
+		testList.add(temp.get(2));
+		testList.add(temp.get(3));
+		
+		assertTrue(items.equals(testList));
 	}
 	
 	@Test
