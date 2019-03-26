@@ -1,5 +1,6 @@
 package edu.ycp.cs320.lab02.model;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class UploadProject {
@@ -10,23 +11,16 @@ public class UploadProject {
 	private String author;
 	private String modelDescription;
 	private String engineeringPrinciple;
-	private ArrayList<String[]> requiredItems = new ArrayList<String[]>();
+	private String[][] requiredItems;
 	private int numRequiredItems;
 	private String beforeClass;
 	private String inClass;
 	private String other;
 
 	public UploadProject() {
-		String[] req1 = new String[4];
-		String[] req2 = new String[4];
-		String[] req3 = new String[4];
-		String[] req4 = new String[4];
-		String[] req5 = new String[4];
-		requiredItems.add(req1);
-		requiredItems.add(req2);
-		requiredItems.add(req3);
-		requiredItems.add(req4);
-		requiredItems.add(req5);
+		for (int i = 0; i < numRequiredItems; i++) {
+			requiredItems[i] = new String[4];
+		}
 	}
 	
 	public void setProjectName(String projectName) {
@@ -66,7 +60,7 @@ public class UploadProject {
 		this.engineeringPrinciple = engineeringPrinciple;
 	}
 	
-	public String getEngineeringPriciple() {
+	public String getEngineeringPrinciple() {
 		return engineeringPrinciple;
 	}
 	
