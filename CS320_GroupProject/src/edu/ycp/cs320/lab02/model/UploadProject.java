@@ -20,6 +20,8 @@ public class UploadProject {
 	public UploadProject() {
 	}
 	
+	
+	
 	public void setProjectName(String projectName) {
 		this.projectName = projectName;
 	}
