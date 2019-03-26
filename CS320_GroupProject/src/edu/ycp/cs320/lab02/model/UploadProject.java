@@ -12,7 +12,7 @@ public class UploadProject {
 	private String modelDescription;
 	private String engineeringPrinciple;
 	private String[][] requiredItems;
-	private int numRequiredItems;
+	private int numRequiredItems = 10;
 	private String beforeClass;
 	private String inClass;
 	private String other;
@@ -22,6 +22,7 @@ public class UploadProject {
 			requiredItems[i] = new String[4];
 		}
 	}
+	
 	
 	public void setProjectName(String projectName) {
 		this.projectName = projectName;
@@ -37,6 +38,14 @@ public class UploadProject {
 	
 	public String getEngineeringCategory() {
 		return engineeringCategory;
+	}
+	
+	public void addToKeywords(String keyword) {
+		keywords.add(keyword);
+	}
+	
+	public String pullFromKeywords() {
+		return keywords.get(0);
 	}
 	
 	public void setAccount (UserAccount account) {
