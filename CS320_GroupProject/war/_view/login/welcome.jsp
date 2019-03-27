@@ -23,7 +23,7 @@
 	            <input type="checkbox" id="toggle">
 	            <div class="menu">
 	                <div class="logo"><a><i class="fa fa-cog" ></i></a></div>
-	                <a href="${pageContext.request.contextPath}/index" class="border-nav">Home</a>
+	                <a class="border-nav">Home</a>
 	                <a href="#construction">Construction</a>
 	                <a href="#dynamics">Dynamics</a>
 	                <a href="#fluids">Fluids</a>
@@ -32,7 +32,6 @@
 	                <a href="#mechanics">Mechanics</a>
 	                <a href="#statics">Statics</a>
 	                <a href="#thermodynamics">Thermodynamics</a>
-                    <a href="${pageContext.request.contextPath}/upload">Upload a Project</a>
 	                
 	                <div class="access-btns">
 	                    <a href="${pageContext.request.contextPath}/_view/google/login" class="button">Login</a>

@@ -55,7 +55,7 @@ html, body {
     background-color: #222629;
 }
 
-label{
+nav label{
     margin: 0 0 0 20px;
     font-size: 26px;
     line-height: 70px;
@@ -100,7 +100,7 @@ label{
 }
 
 
-.search-btn {
+.search-box .search-btn {
     color: #86C232;
     float: right;
     width: 30px;
@@ -114,7 +114,7 @@ label{
     text-decoration: none;
 }
 
-.search-txt {
+.search-box .search-txt {
     border: none;
     background: none;
     outline: none;
@@ -208,6 +208,8 @@ h3 {
 }
 
 
+
+
 /* Footer */
 .footer {
     color: white;
@@ -221,7 +223,7 @@ h3 {
 /* Media Query */
 @media only screen and (max-width: 1250px){
     /* Navigation */
-    label{
+    nav label{
         display: block;
         cursor: pointer;
     }
@@ -270,10 +272,6 @@ h3 {
         border: none;
     }
     
-    .search-bar-input {
-        padding-right: 38%;
-    }
-    
     .showcase {
         max-width: 100%;
         height: auto;
@@ -299,10 +297,6 @@ h3 {
 }
 
 @media only screen and (max-width: 680px){
-    .search-bar-input {
-        padding-right: 8%;
-        padding-bottom: 3.5%;
-    }
     
     content {
         margin: 0 5% 0 5%;
@@ -323,11 +317,6 @@ h3 {
 }
 
 @media only screen and (max-width: 480px){ 
-    
-    .search-bar-input {
-        padding-right: 8%;
-        padding-bottom: 3.5%;
-    }
     
     .showcase {
         margin-top: -19px;
