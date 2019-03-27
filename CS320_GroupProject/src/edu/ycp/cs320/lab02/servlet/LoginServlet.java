@@ -31,15 +31,17 @@ public class LoginServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
 		
-		doGet(req, resp);
-		
-		System.out.println("Login Servlet: doPost");
-		
+		boolean correct = false;
 		String username = req.getParameter("email");
 		String password = req.getParameter("password");
 		
-		if (username.equals("bkautz") && password.equals("12345")) {
-			resp.sendRedirect("/welcome.jsp");
+		System.out.println("Username: " + username);
+		System.out.println("Password: " + password);
+		correct = true;
+		
+		if (correct) {
+			resp.sendRedirect("/project/welcome");
+			System.out.println("Login Servlet: doPost");
 		}
 	
 	}

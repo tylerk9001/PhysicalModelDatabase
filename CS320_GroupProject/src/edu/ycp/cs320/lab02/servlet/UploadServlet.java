@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import edu.ycp.cs320.lab02.controller.UserAccountController;
+import edu.ycp.cs320.lab02.model.UploadProject;
 import edu.ycp.cs320.lab02.model.UserAccount;
 
 public class UploadServlet extends HttpServlet {
@@ -28,9 +29,46 @@ public class UploadServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
 		
+		UploadProject newProject = new UploadProject();
+		
+		String projectName = req.getParameter("projectName");
+		String categories = req.getParameter("categories");
+		String keywords = req.getParameter("keyword1");
+		String author = req.getParameter("author1");
+		String modelDesc = req.getParameter("modelDesc");
+		String engineeringPrinciple = req.getParameter("engineeringPrinciple");
+		String item1 = req.getParameter("item1");
+		String quantity1 = req.getParameter("quantity1");
+		String costAndBuild1 = req.getParameter("costAndBuild1");
+		String desc1 = req.getParameter("desc1");
+		String beforeClass = req.getParameter("beforeClass");
+		String inClass = req.getParameter("inClass");
+		String other = req.getParameter("other");
+		
+		
+		
+		System.out.println("");
+		System.out.println("Project name: " + projectName);
+		System.out.println("Engineering Principle: " + categories);
+		System.out.println("Keywords: " + keywords);
+		System.out.println("Submitted By: " + author);
+		System.out.println("Model Description: " + modelDesc);
+		System.out.println("Engineering Principle: " + engineeringPrinciple);
+		System.out.println("Item: " + item1);
+		System.out.println("Quantity: " + quantity1);
+		System.out.println("Cost and Build Time: " + costAndBuild1);
+		System.out.println("Description/Details: " + desc1);
+		System.out.println("Before Class: " + beforeClass);
+		System.out.println("In Class: " + inClass);
+		System.out.println("Other: " + other);
+		System.out.println("");
+		
+		
+		newProject.setProjectName(projectName);
+		
+		
 		System.out.println("Upload Servlet: doPost");
 		
-		// now call the JSP to render the new page
-		req.getRequestDispatcher("/_view/upload/upload.jsp").forward(req, resp);
+		
 	}
 }

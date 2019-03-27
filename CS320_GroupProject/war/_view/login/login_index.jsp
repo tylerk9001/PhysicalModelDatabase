@@ -41,7 +41,7 @@
         <div class="login-box">
             <h1>Login</h1>
            
-            <form action="${pageContext.servletContext.contextPath}/welcome" method="post">                
+            <form action="${pageContext.servletContext.contextPath}/login" method="post">                
                 <input type="text" placeholder="Username" name="email"/>
     
                 <input type="password" placeholder="Password" name="password"/>

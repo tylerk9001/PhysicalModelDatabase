@@ -39,7 +39,7 @@
     <content>
         
         <div class="container">
-          <form>
+          <form action="${pageContext.request.contextPath}/upload" method="post">
           <div class="row">
             <div class="col-25">
               <label class="upload" for="projectName">Project Name:</label>
@@ -55,14 +55,14 @@
             <div class="col-75">
               <select id="engPrinciple" name="categories">
                 <option value="">Select Principle...</option>
-                <option value="construction">Construction</option>
-                <option value="dynamics">Dynamics</option>
-                <option value="fluids">Fluids</option>
-                <option value="heatTransfer">Heat Transfer</option>
-                <option value="materialScience">Material Science</option>
-                <option value="mechanics">Mechanics</option>
-                <option value="statics">Statics</option>
-                <option value="thermodynamics">Thermodynamics</option>
+                <option value="Construction">Construction</option>
+                <option value="Dynamics">Dynamics</option>
+                <option value="Fluids">Fluids</option>
+                <option value="Heat Transfer">Heat Transfer</option>
+                <option value="Material Science">Material Science</option>
+                <option value="Mechanics">Mechanics</option>
+                <option value="Statics">Statics</option>
+                <option value="Thermodynamics">Thermodynamics</option>
                 </select>
             </div>
            </div>
@@ -83,11 +83,11 @@
               <label class="upload" for="author">Submitted By:</label>
             </div>
             <div class="col-75">
-                 <input type="text" class="author" name="submittedBy1" placeholder="Author name...">
-                 <input type="text" class="author" name="submittedBy2" placeholder="Author name...">
-                 <input type="text" class="author" name="submittedBy3" placeholder="Author name...">
-                 <input type="text" class="author" name="submittedBy4" placeholder="Author name...">
-                 <input type="text" class="author" name="submittedBy5" placeholder="Author name...">
+                 <input type="text" class="author" name="author1" placeholder="Author name...">
+                 <input type="text" class="author" name="author2" placeholder="Author name...">
+                 <input type="text" class="author" name="author3" placeholder="Author name...">
+                 <input type="text" class="author" name="author4" placeholder="Author name...">
+                 <input type="text" class="author" name="author5" placeholder="Author name...">
             </div>
            </div>
           <div class="row">
