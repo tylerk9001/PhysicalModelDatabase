@@ -99,6 +99,7 @@ public class UploadProject {
 		items.add(requiredItems.get(0).get(1));
 		items.add(requiredItems.get(0).get(2));
 		items.add(requiredItems.get(0).get(3));
+		requiredItems.remove(0);
 		return items;
 	}
 	
