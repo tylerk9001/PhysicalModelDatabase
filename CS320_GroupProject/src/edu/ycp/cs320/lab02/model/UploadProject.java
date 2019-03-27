@@ -8,7 +8,7 @@ public class UploadProject {
 	private String engineeringCategory;
 	private ArrayList<String> keywords = new ArrayList<String>();
 	private UserAccount account;
-	private String author;
+	private ArrayList<String> authors = new ArrayList<String>();
 	private String modelDescription;
 	private String engineeringPrinciple;
 	private ArrayList<ArrayList<String>> requiredItems = new ArrayList<ArrayList<String>>();
@@ -42,7 +42,9 @@ public class UploadProject {
 	}
 	
 	public String pullFromKeywords() {
-		return keywords.get(0);
+		String keyword = keywords.get(0);
+		keywords.remove(0);
+		return keyword;
 	}
 	
 	public void setAccount (UserAccount account) {
@@ -53,11 +55,13 @@ public class UploadProject {
 		return account;
 	}
 	
-	public void setAuthor (String author) {
-		this.author = author;
+	public void addToAuthors (String author) {
+		authors.add(author);
 	}
 	
-	public String getAuthor () {
+	public String pullFromAuthors () {
+		String author = authors.get(0);
+		authors.remove(0);
 		return author;
 	}
 	
