@@ -51,9 +51,9 @@ public class UploadProjectModelTest {
 	}
 	
 	@Test
-	public void testSetGetAuthor() {
-		model.setAuthor(author);
-		assertTrue(model.getAuthor().equals(author));
+	public void testSetGetAuthors() {
+		model.addToAuthors(author);
+		assertTrue(model.pullFromAuthors().equals(author));
 	}
 	
 	@Test

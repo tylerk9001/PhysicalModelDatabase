@@ -22,7 +22,7 @@ public class UploadProjectController {
 	public void setHeader() {
 		model.setProjectName(projectName);
 		model.setEngineeringCategory(engineeringCategory);
-		model.setAuthor(author);
+		model.addToAuthors(author);
 	}
 	
 	public void setBody() {
