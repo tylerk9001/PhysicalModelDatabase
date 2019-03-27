@@ -23,7 +23,7 @@
 	            <input type="checkbox" id="toggle">
 	            <div class="menu">
 	                <div class="logo"><a><i class="fa fa-cog" ></i></a></div>
-	                <a class="border-nav">Home</a>
+	                <a href="${pageContext.request.contextPath}/index" class="border-nav">Home</a>
 	                <a href="#construction">Construction</a>
 	                <a href="#dynamics">Dynamics</a>
 	                <a href="#fluids">Fluids</a>
