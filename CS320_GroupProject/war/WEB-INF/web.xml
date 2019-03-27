@@ -23,6 +23,10 @@
   	<servlet-name>WelcomeServlet</servlet-name>
     <servlet-class>edu.ycp.cs320.lab02.servlet.WelcomeServlet</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>UploadServlet</servlet-name>
+    <servlet-class>edu.ycp.cs320.lab02.servlet.UploadServlet</servlet-class>
+  </servlet>
   
   
   <servlet>
@@ -339,6 +343,10 @@
   <servlet-mapping>
     <servlet-name>WelcomeServlet</servlet-name>
     <url-pattern>/welcome</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>UploadServlet</servlet-name>
+    <url-pattern>/upload</url-pattern>
   </servlet-mapping>
   
   <servlet-mapping>
