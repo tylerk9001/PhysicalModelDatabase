@@ -1,7 +1,15 @@
 <!DOCTYPE html>
 <html>
+
+<style>
+	td, th, tr {
+		border: 1px #dddddd solid;
+	}
+</style>
+
 <head>
     <title>Upload | Physical Model </title>
+    <link rel="icon" href="${pageContext.request.contextPath}/_view/img/tab.png">
     <!--Website CSS-->
     <link href="${pageContext.request.contextPath}/_view/css/collapse-1.css" type="text/css" rel="stylesheet">
     <link href="${pageContext.request.contextPath}/_view/css/form.css" type="text/css" rel="stylesheet">
@@ -42,19 +50,19 @@
           <form action="${pageContext.request.contextPath}/upload" method="post">
           <div class="row">
             <div class="col-25">
-              <label class="upload" for="projectName">Project Name:</label>
+              <strong><label class="upload" for="projectName">Project Name:</label></strong>
             </div>
             <div class="col-75">
-              <input type="text" id="projectName" name="projectName" placeholder="Enter project name...">
+              <input type="text" class="gen-form-input" id="projectName" name="projectName" placeholder="Enter project name..." required>
             </div>
           </div>
            <div class="row">
             <div class="col-25">
-              <label class="upload" for="engPrinciple">Engineering Principle:</label>
+              <strong><label class="upload" for="engPrinciple">Engineering Principle:</label></strong>
             </div>
             <div class="col-75">
-              <select id="engPrinciple" name="categories">
-                <option value="">Select Principle...</option>
+              <select id="engPrinciple" name="categories" required>
+                <option selected disabled>Select Principle...</option>
                 <option value="Construction">Construction</option>
                 <option value="Dynamics">Dynamics</option>
                 <option value="Fluids">Fluids</option>
@@ -68,47 +76,47 @@
            </div>
            <div class="row">
             <div class="col-25">
-              <label class="upload" for="keywords">Keywords:</label>
+              <strong><label class="upload" for="keywords">Keywords:</label></strong>
             </div>
             <div class="col-75">
-                <input type="text" class="keywords" name="keyword1" placeholder="Keyword...">
-                <input type="text" class="keywords" name="keyword2" placeholder="Keyword...">
-                <input type="text" class="keywords" name="keyword3" placeholder="Keyword...">
-                <input type="text" class="keywords" name="keyword4" placeholder="Keyword...">
-                <input type="text" class="keywords" name="keyword5" placeholder="Keyword...">
+                <input type="text" class="keywords gen-form-input" name="keyword1" placeholder="Keyword..." required>
+                <input type="text" class="keywords gen-form-input" name="keyword2" placeholder="Keyword...">
+                <input type="text" class="keywords gen-form-input" name="keyword3" placeholder="Keyword...">
+                <input type="text" class="keywords gen-form-input" name="keyword4" placeholder="Keyword...">
+                <input type="text" class="keywords gen-form-input" name="keyword5" placeholder="Keyword...">
             </div>
           </div>  
           <div class="row">
             <div class="col-25">
-              <label class="upload" for="author">Submitted By:</label>
+              <strong><label class="upload" for="author">Submitted By:</label></strong>
             </div>
             <div class="col-75">
-                 <input type="text" class="author" name="author1" placeholder="Author name...">
-                 <input type="text" class="author" name="author2" placeholder="Author name...">
-                 <input type="text" class="author" name="author3" placeholder="Author name...">
-                 <input type="text" class="author" name="author4" placeholder="Author name...">
-                 <input type="text" class="author" name="author5" placeholder="Author name...">
+                 <input type="text" class="author gen-form-input" name="author1" placeholder="Author name..." required>
+                 <input type="text" class="author gen-form-input" name="author2" placeholder="Author name...">
+                 <input type="text" class="author gen-form-input" name="author3" placeholder="Author name...">
+                 <input type="text" class="author gen-form-input" name="author4" placeholder="Author name...">
+                 <input type="text" class="author gen-form-input upload" name="author5" placeholder="Author name...">
             </div>
            </div>
           <div class="row">
             <div class="col-25">
-              <label class="upload" for="modelDesc">Model Description:</label>
+              <strong><label class="upload" for="modelDesc">Model Description:</label></strong>
             </div>
             <div class="col-75">
-              <textarea id="modelDesc" name="modelDesc" placeholder="Model description..." style="height:200px"></textarea>
+              <textarea id="modelDesc" name="modelDesc" class="upload" placeholder="Model description..." style="height:200px" required></textarea>
             </div>
           </div>
            <div class="row">
             <div class="col-25">
-              <label class="upload" for="engineeringPrinciple">Engineering Principle:</label>
+              <strong><label class="upload" for="engineeringPrinciple">Engineering Principle:</label></strong>
             </div>
            <div class="col-75">
-              <textarea id="engineeringPrinciple" name="engineeringPrinciple" placeholder="Engineering principle..." style="height:200px"></textarea>
+              <textarea id="engineeringPrinciple" name="engineeringPrinciple" placeholder="Engineering principle..." style="height:200px" required></textarea>
            </div>
           </div>
            <div class="row">
             <div class="col-25">
-              <label class="upload" for="reqItems">Required Items:</label>
+              <strong><label class="upload" for="reqItems">Required Items:</label></strong>
             </div>
            <div class="col-75">
                 <table style="overflow-x: auto;">
@@ -119,10 +127,10 @@
                       <th>Description/Details</th>
                     </tr>
                     <tr>
-                      <td><input type="text" class="itemName input-size" name="item1" placeholder="Item name..."></td>
-                      <td><input type="text" class="qty input-size" name="quantity1" placeholder="Quantity..."></td>
-                      <td><input type="text" class="costAndBuild input-size" name="costAndBuild1" placeholder="Cost and Build time..."></td>
-                      <td><input type="text" class="desc input-size" name="desc1" placeholder="Description/details..."></td>
+                      <td><input type="text" class="itemName input-size" name="item1" placeholder="Item name..." required></td>
+                      <td><input type="text" class="qty input-size" name="quantity1" placeholder="Quantity..." required></td>
+                      <td><input type="text" class="costAndBuild input-size" name="costAndBuild1" placeholder="Cost and Build time..." required></td>
+                      <td><input type="text" class="desc input-size" name="desc1" placeholder="Description/details..." required></td>
                     </tr>
                     <tr>
                       <td><input type="text" class="itemName input-size" name="item1" placeholder="Item name..."></td>
@@ -173,10 +181,10 @@
                       <td><input type="text" class="desc input-size" name="desc1" placeholder="Description/details..."></td>
                     </tr>
                     <tr>
-                      <td><input type="text" class="itemName input-size upload" name="item1" placeholder="Item name..."></td>
-                      <td><input type="text" class="qty input-size upload" name="quantity1" placeholder="Quantity..."></td>
-                      <td><input type="text" class="costAndBuild input-size upload" name="costAndBuild1" placeholder="Cost and Build time..."></td>
-                      <td><input type="text" class="desc input-size upload" name="desc1" placeholder="Description/details..."></td>
+                      <td><input type="text" class="itemName input-size" name="item1" placeholder="Item name..."></td>
+                      <td><input type="text" class="qty input-size" name="quantity1" placeholder="Quantity..."></td>
+                      <td><input type="text" class="costAndBuild input-size" name="costAndBuild1" placeholder="Cost and Build time..."></td>
+                      <td><input type="text" class="desc input-size" name="desc1" placeholder="Description/details..."></td>
                     </tr>
                     
                  </table>
@@ -184,23 +192,23 @@
           </div>
           <div class="row">
             <div class="col-25">
-              <label class="upload" for="beforeClass">Before Class:</label>
+              <strong><label class="upload" for="beforeClass">Before Class:</label></strong>
             </div>
            <div class="col-75">
-              <textarea id="beforeClass" name="beforeClass" placeholder="Before class..." style="height:200px"></textarea>
+              <textarea id="beforeClass" name="beforeClass" placeholder="Before class..." style="height:200px" required></textarea>
            </div>
           </div>
           <div class="row">
             <div class="col-25">
-              <label class="upload" for="inClass">In Class:</label>
+              <strong><label class="upload" for="inClass">In Class:</label></strong>
             </div>
            <div class="col-75">
-              <textarea id="inClass" name="inClass" placeholder="In class..." style="height:200px"></textarea>
+              <textarea id="inClass" name="inClass" placeholder="In class..." style="height:200px" required></textarea>
            </div>
           </div>
           <div class="row">
             <div class="col-25">
-              <label class="upload" for="other">Other:</label>
+              <strong><label class="upload" for="other">Other:</label></strong>
             </div>
            <div class="col-75">
               <textarea id="other" name="other" placeholder="Any additional information..." style="height:200px"></textarea>

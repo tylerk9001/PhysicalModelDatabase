@@ -1,26 +1,26 @@
 /* Upload Form */
-.container input[type=text], textarea {
+.gen-form-input, textarea {
   font-family: 'Gotham';
   color: black;
   font-size: 15px;
   width: 97.5%;
-  padding: 12px;  
+  padding: 12px;
   border: 1px solid #ccc;
   border-radius: 4px;
   resize: vertical;
 }
 
 .author, .keywords {
-    margin-bottom: 4px;   
+    margin-bottom: 4px;
 }
 
-input[name=keyword5], input[name=submittedBy5], .upload, textarea {
+input[name=keyword5], input[name=submittedBy5], .upload, textarea, table {
     margin-bottom: 20px;
 }
 
 select {
   font-family: 'Gotham';
-  font-size: 15px;    
+  font-size: 15px;
   width: 99.3%;
   padding: 12px;
   border: 1px solid #ccc;
@@ -37,6 +37,7 @@ input[type=submit] {
   background-color: #4CAF50;
   color: white;
   padding: 12px 20px;
+  margin-right: 5px;
   border: none;
   border-radius: 4px;
   cursor: pointer;
@@ -96,6 +97,18 @@ td, th {
 th {
     background-color: #dddddd;
 }
+
+tr {
+    border: 1px #dddddd solid;
+}
+
 .input-size {
-    padding-right: 20px;
+  font-family: 'Gotham';
+  color: black;
+  font-size: 15px;
+  width: 93%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
 }

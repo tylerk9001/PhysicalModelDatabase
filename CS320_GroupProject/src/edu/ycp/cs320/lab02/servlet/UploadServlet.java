@@ -7,9 +7,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import edu.ycp.cs320.lab02.controller.UserAccountController;
 import edu.ycp.cs320.lab02.model.UploadProject;
-import edu.ycp.cs320.lab02.model.UserAccount;
 
 public class UploadServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -32,9 +30,9 @@ public class UploadServlet extends HttpServlet {
 		UploadProject newProject = new UploadProject();
 		
 		String projectName = req.getParameter("projectName");
-		String categories = req.getParameter("categories");
+		String category = req.getParameter("categories");
 		String keywords = req.getParameter("keyword1");
-		String author = req.getParameter("author1");
+		String authors = req.getParameter("author1");
 		String modelDesc = req.getParameter("modelDesc");
 		String engineeringPrinciple = req.getParameter("engineeringPrinciple");
 		String item1 = req.getParameter("item1");
@@ -49,9 +47,9 @@ public class UploadServlet extends HttpServlet {
 		
 		System.out.println("");
 		System.out.println("Project name: " + projectName);
-		System.out.println("Engineering Principle: " + categories);
+		System.out.println("Engineering Principle: " + category);
 		System.out.println("Keywords: " + keywords);
-		System.out.println("Submitted By: " + author);
+		System.out.println("Submitted By: " + authors);
 		System.out.println("Model Description: " + modelDesc);
 		System.out.println("Engineering Principle: " + engineeringPrinciple);
 		System.out.println("Item: " + item1);
@@ -64,11 +62,21 @@ public class UploadServlet extends HttpServlet {
 		System.out.println("");
 		
 		
-		newProject.setProjectName(projectName);
-		
-		
+		req.setAttribute("projectName", projectName);
+		req.setAttribute("category", category);
+		req.setAttribute("keywords", keywords);
+		req.setAttribute("authors", authors);
+		req.setAttribute("modelDesc", modelDesc);
+		req.setAttribute("engineeringPrinciple", engineeringPrinciple);
+		req.setAttribute("item", item1);
+		req.setAttribute("quantity", quantity1);
+		req.setAttribute("costAndBuild", costAndBuild1);
+		req.setAttribute("desc", desc1);
+		req.setAttribute("beforeClass", beforeClass);
+		req.setAttribute("inClass", inClass);
+		req.setAttribute("other", other);
+		req.getRequestDispatcher("/_view/upload/uploadConfirm.jsp").forward(req, resp);
 		System.out.println("Upload Servlet: doPost");
-		
 		
 	}
 }

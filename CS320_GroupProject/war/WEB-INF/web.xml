@@ -27,6 +27,10 @@
   	<servlet-name>UploadServlet</servlet-name>
     <servlet-class>edu.ycp.cs320.lab02.servlet.UploadServlet</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>UploadConfirmServlet</servlet-name>
+    <servlet-class>edu.ycp.cs320.lab02.servlet.UploadConfirmServlet</servlet-class>
+  </servlet>
   
   
   <servlet>
@@ -347,6 +351,10 @@
   <servlet-mapping>
     <servlet-name>UploadServlet</servlet-name>
     <url-pattern>/upload</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>UploadConfirmServlet</servlet-name>
+    <url-pattern>/uploadConfirm</url-pattern>
   </servlet-mapping>
   
   <servlet-mapping>
