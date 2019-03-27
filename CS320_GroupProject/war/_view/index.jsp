@@ -32,6 +32,7 @@
 	                <a href="#mechanics">Mechanics</a>
 	                <a href="#statics">Statics</a>
 	                <a href="#thermodynamics">Thermodynamics</a>
+                    <a href="${pageContext.request.contextPath}/upload">Upload a Project</a>
 	                
 	                <div class="access-btns">
 	                    <a href="${pageContext.request.contextPath}/_view/google/login" class="button">Login</a>
