@@ -3,6 +3,7 @@
 
 <style>
 	td, th, tr {
+		border: 1px #dddddd solid;
 	}
 </style>
 
@@ -115,58 +116,31 @@
                       <td><p>${desc}</p></td>
                     </tr>
                     <tr>
-                      <td><input type="text" class="itemName input-size" name="item1" placeholder="Item name..."></td>
-                      <td><input type="text" class="qty input-size" name="quantity1" placeholder="Quantity..."></td>
-                      <td><input type="text" class="costAndBuild input-size" name="costAndBuild1" placeholder="Cost and Build time..."></td>
-                      <td><input type="text" class="desc input-size" name="desc1" placeholder="Description/details..."></td>
+                     
                     </tr>
                     <tr>
-                      <td><input type="text" class="itemName input-size" name="item1" placeholder="Item name..."></td>
-                      <td><input type="text" class="qty input-size" name="quantity1" placeholder="Quantity..."></td>
-                      <td><input type="text" class="costAndBuild input-size" name="costAndBuild1" placeholder="Cost and Build time..."></td>
-                      <td><input type="text" class="desc input-size" name="desc1" placeholder="Description/details..."></td>
+                      
                     </tr>
                     <tr>
-                      <td><input type="text" class="itemName input-size" name="item1" placeholder="Item name..."></td>
-                      <td><input type="text" class="qty input-size" name="quantity1" placeholder="Quantity..."></td>
-                      <td><input type="text" class="costAndBuild input-size" name="costAndBuild1" placeholder="Cost and Build time..."></td>
-                      <td><input type="text" class="desc input-size" name="desc1" placeholder="Description/details..."></td>
+                      
                     </tr>
                     <tr>
-                      <td><input type="text" class="itemName input-size" name="item1" placeholder="Item name..."></td>
-                      <td><input type="text" class="qty input-size" name="quantity1" placeholder="Quantity..."></td>
-                      <td><input type="text" class="costAndBuild input-size" name="costAndBuild1" placeholder="Cost and Build time..."></td>
-                      <td><input type="text" class="desc input-size" name="desc1" placeholder="Description/details..."></td>
+                      
                     </tr>
                     <tr>
-                      <td><input type="text" class="itemName input-size" name="item1" placeholder="Item name..."></td>
-                      <td><input type="text" class="qty input-size" name="quantity1" placeholder="Quantity..."></td>
-                      <td><input type="text" class="costAndBuild input-size" name="costAndBuild1" placeholder="Cost and Build time..."></td>
-                      <td><input type="text" class="desc input-size" name="desc1" placeholder="Description/details..."></td>
+                      
                     </tr>
                     <tr>
-                      <td><input type="text" class="itemName input-size" name="item1" placeholder="Item name..."></td>
-                      <td><input type="text" class="qty input-size" name="quantity1" placeholder="Quantity..."></td>
-                      <td><input type="text" class="costAndBuild input-size" name="costAndBuild1" placeholder="Cost and Build time..."></td>
-                      <td><input type="text" class="desc input-size" name="desc1" placeholder="Description/details..."></td>
+                      
                     </tr>
                     <tr>
-                      <td><input type="text" class="itemName input-size" name="item1" placeholder="Item name..."></td>
-                      <td><input type="text" class="qty input-size" name="quantity1" placeholder="Quantity..."></td>
-                      <td><input type="text" class="costAndBuild input-size" name="costAndBuild1" placeholder="Cost and Build time..."></td>
-                      <td><input type="text" class="desc input-size" name="desc1" placeholder="Description/details..."></td>
+                      
                     </tr>
                     <tr>
-                      <td><input type="text" class="itemName input-size" name="item1" placeholder="Item name..."></td>
-                      <td><input type="text" class="qty input-size" name="quantity1" placeholder="Quantity..."></td>
-                      <td><input type="text" class="costAndBuild input-size" name="costAndBuild1" placeholder="Cost and Build time..."></td>
-                      <td><input type="text" class="desc input-size" name="desc1" placeholder="Description/details..."></td>
+                      
                     </tr>
                     <tr>
-                      <td><input type="text" class="itemName input-size upload" name="item1" placeholder="Item name..."></td>
-                      <td><input type="text" class="qty input-size upload" name="quantity1" placeholder="Quantity..."></td>
-                      <td><input type="text" class="costAndBuild input-size upload" name="costAndBuild1" placeholder="Cost and Build time..."></td>
-                      <td><input type="text" class="desc input-size upload" name="desc1" placeholder="Description/details..."></td>
+                      
                     </tr>
                     
                  </table>
