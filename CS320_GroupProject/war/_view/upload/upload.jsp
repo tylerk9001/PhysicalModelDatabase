@@ -91,11 +91,11 @@
               <strong><label class="upload" for="author">Submitted By:</label></strong>
             </div>
             <div class="col-75">
-                 <input type="text" class="author gen-form-input" name="author1" placeholder="Author name..." required>
-                 <input type="text" class="author gen-form-input" name="author2" placeholder="Author name...">
-                 <input type="text" class="author gen-form-input" name="author3" placeholder="Author name...">
-                 <input type="text" class="author gen-form-input" name="author4" placeholder="Author name...">
-                 <input type="text" class="author gen-form-input upload" name="author5" placeholder="Author name...">
+                 <input type="text" class="author gen-form-input" name="author" placeholder="Author name..." required>
+                 <input type="text" class="author gen-form-input" name="author" placeholder="Author name...">
+                 <input type="text" class="author gen-form-input" name="author" placeholder="Author name...">
+                 <input type="text" class="author gen-form-input" name="author" placeholder="Author name...">
+                 <input type="text" class="author gen-form-input upload" name="author" placeholder="Author name...">
             </div>
            </div>
           <div class="row">

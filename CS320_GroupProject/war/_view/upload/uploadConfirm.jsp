@@ -83,7 +83,12 @@
               <strong><label class="upload" for="author">Submitted By:</label></strong>
             </div>
             <div class="col-75">
-                 <p>${authors}</p>
+                 <%
+				  String[] author = request.getParameterValues("author");
+				   for (int i = 0; i < author.length; i++) {
+				      out.print("<P>" + author[i] + "</p>");
+				   }
+				%>
             </div>
            </div>
           <div class="row">

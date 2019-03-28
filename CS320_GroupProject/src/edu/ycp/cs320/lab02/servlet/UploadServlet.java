@@ -30,10 +30,11 @@ public class UploadServlet extends HttpServlet {
 		
 		UploadProject newProject = new UploadProject();
 		
+		// Grab the data from the form on the upload.jsp
 		String projectName = req.getParameter("projectName");
 		String category = req.getParameter("categories");
-		String keyword = req.getParameter("keyword");
-		String author = req.getParameter("author1");
+		String[] keywords = req.getParameterValues("keyword");
+		String[] authors = req.getParameterValues("author");
 		String modelDesc = req.getParameter("modelDesc");
 		String engineeringPrinciple = req.getParameter("engineeringPrinciple");
 		String item1 = req.getParameter("item1");
@@ -44,30 +45,11 @@ public class UploadServlet extends HttpServlet {
 		String inClass = req.getParameter("inClass");
 		String other = req.getParameter("other");
 		
-		
-		
-		System.out.println("");
-		System.out.println("Project name: " + projectName);
-		System.out.println("Engineering Principle: " + category);
-		System.out.println("Keywords: " + keyword);
-		System.out.println("Submitted By: " + author);
-		System.out.println("Model Description: " + modelDesc);
-		System.out.println("Engineering Principle: " + engineeringPrinciple);
-		System.out.println("Item: " + item1);
-		System.out.println("Quantity: " + quantity1);
-		System.out.println("Cost and Build Time: " + costAndBuild1);
-		System.out.println("Description/Details: " + desc1);
-		System.out.println("Before Class: " + beforeClass);
-		System.out.println("In Class: " + inClass);
-		System.out.println("Other: " + other);
-		System.out.println("");
-		
-		
+		// Used to push the data from the form to the uploadConfirm page.
 		req.setAttribute("projectName", projectName);
 		req.setAttribute("category", category);
-		String[] string = req.getParameterValues("keyword");
-		req.setAttribute("keyword", string);
-		req.setAttribute("authors", author);
+		req.setAttribute("keyword", keywords);
+		req.setAttribute("author", authors);
 		req.setAttribute("modelDesc", modelDesc);
 		req.setAttribute("engineeringPrinciple", engineeringPrinciple);
 		req.setAttribute("item", item1);
@@ -77,7 +59,9 @@ public class UploadServlet extends HttpServlet {
 		req.setAttribute("beforeClass", beforeClass);
 		req.setAttribute("inClass", inClass);
 		req.setAttribute("other", other);
+		
 		req.getRequestDispatcher("/_view/upload/uploadConfirm.jsp").forward(req, resp);
+		
 		System.out.println("Upload Servlet: doPost");
 		
 	}
