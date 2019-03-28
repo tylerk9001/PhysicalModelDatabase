@@ -1,4 +1,6 @@
 <!DOCTYPE html>
+<%@ page import= "javax.servlet.http.*,javax.servlet.*" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <html>
 
 <style>
@@ -70,7 +72,7 @@
               <strong><label class="upload" for="keywords">Keywords:</label></strong>
             </div>
             <div class="col-75">
-                <p>${keywords}</p>
+				<%= request.getParameterValues("keyword") %>
             </div>
           </div>  
           <div class="row">

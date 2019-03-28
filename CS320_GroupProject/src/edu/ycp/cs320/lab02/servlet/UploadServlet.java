@@ -1,6 +1,7 @@
 package edu.ycp.cs320.lab02.servlet;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -31,8 +32,8 @@ public class UploadServlet extends HttpServlet {
 		
 		String projectName = req.getParameter("projectName");
 		String category = req.getParameter("categories");
-		String keywords = req.getParameter("keyword1");
-		String authors = req.getParameter("author1");
+		String keyword = req.getParameter("keyword");
+		String author = req.getParameter("author1");
 		String modelDesc = req.getParameter("modelDesc");
 		String engineeringPrinciple = req.getParameter("engineeringPrinciple");
 		String item1 = req.getParameter("item1");
@@ -48,8 +49,8 @@ public class UploadServlet extends HttpServlet {
 		System.out.println("");
 		System.out.println("Project name: " + projectName);
 		System.out.println("Engineering Principle: " + category);
-		System.out.println("Keywords: " + keywords);
-		System.out.println("Submitted By: " + authors);
+		System.out.println("Keywords: " + keyword);
+		System.out.println("Submitted By: " + author);
 		System.out.println("Model Description: " + modelDesc);
 		System.out.println("Engineering Principle: " + engineeringPrinciple);
 		System.out.println("Item: " + item1);
@@ -64,8 +65,10 @@ public class UploadServlet extends HttpServlet {
 		
 		req.setAttribute("projectName", projectName);
 		req.setAttribute("category", category);
-		req.setAttribute("keywords", keywords);
-		req.setAttribute("authors", authors);
+		String[] string = new String[5];
+		string = req.getParameterValues("keyword");
+		req.setAttribute("keyword", string);
+		req.setAttribute("authors", author);
 		req.setAttribute("modelDesc", modelDesc);
 		req.setAttribute("engineeringPrinciple", engineeringPrinciple);
 		req.setAttribute("item", item1);

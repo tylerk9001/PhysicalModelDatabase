@@ -79,11 +79,11 @@
               <strong><label class="upload" for="keywords">Keywords:</label></strong>
             </div>
             <div class="col-75">
-                <input type="text" class="keywords gen-form-input" name="keyword1" placeholder="Keyword..." required>
-                <input type="text" class="keywords gen-form-input" name="keyword2" placeholder="Keyword...">
-                <input type="text" class="keywords gen-form-input" name="keyword3" placeholder="Keyword...">
-                <input type="text" class="keywords gen-form-input" name="keyword4" placeholder="Keyword...">
-                <input type="text" class="keywords gen-form-input" name="keyword5" placeholder="Keyword...">
+                <input type="text" class="keywords gen-form-input" name="keyword" placeholder="Keyword..." required>
+                <input type="text" class="keywords gen-form-input" name="keyword" placeholder="Keyword...">
+                <input type="text" class="keywords gen-form-input" name="keyword" placeholder="Keyword...">
+                <input type="text" class="keywords gen-form-input" name="keyword" placeholder="Keyword...">
+                <input type="text" class="keywords gen-form-input" name="keyword" placeholder="Keyword...">
             </div>
           </div>  
           <div class="row">
