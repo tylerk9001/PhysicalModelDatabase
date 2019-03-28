@@ -65,8 +65,7 @@ public class UploadServlet extends HttpServlet {
 		
 		req.setAttribute("projectName", projectName);
 		req.setAttribute("category", category);
-		String[] string = new String[5];
-		string = req.getParameterValues("keyword");
+		String[] string = req.getParameterValues("keyword");
 		req.setAttribute("keyword", string);
 		req.setAttribute("authors", author);
 		req.setAttribute("modelDesc", modelDesc);

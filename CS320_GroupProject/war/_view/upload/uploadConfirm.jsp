@@ -1,6 +1,4 @@
 <!DOCTYPE html>
-<%@ page import= "javax.servlet.http.*,javax.servlet.*" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <html>
 
 <style>
@@ -72,7 +70,12 @@
               <strong><label class="upload" for="keywords">Keywords:</label></strong>
             </div>
             <div class="col-75">
-				<%= request.getParameterValues("keyword") %>
+				 <%
+				  String[] keyword = request.getParameterValues("keyword");
+				   for (int i = 0; i < keyword.length; i++) {
+				      out.print("<P>" + keyword[i] + "</p>");
+				   }
+				%>
             </div>
           </div>  
           <div class="row">
