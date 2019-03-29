@@ -9,9 +9,9 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import edu.ycp.cs320.booksdb.model.Author;
-import edu.ycp.cs320.booksdb.model.Book;
-import edu.ycp.cs320.booksdb.model.Pair;
+import edu.ycp.cs320.lab02.model.CurrentProject;
+import edu.ycp.cs320.lab02.model.UserAccount;
+import edu.ycp.cs320.sqldemo.DBUtil;
 
 public class DerbyDatabase implements IDatabase {
 	static {
@@ -28,6 +28,104 @@ public class DerbyDatabase implements IDatabase {
 
 	private static final int MAX_ATTEMPTS = 10;
 
+	
+	@Override
+	public List<CurrentProject> InsertProjectsFromPDF (String projectName, String engineeringCategory, String keywords, String authors) {
+		return executeTransaction(new Transaction<List<CurrentProject>>() {
+			@Override
+			public List<CurrentProject> execute(Connection conn) throws SQLException {
+				PreparedStatement stmt = null;
+				ResultSet resultSet = null;
+				
+				try {
+					// insert a new project from the pdf file
+					stmt = conn.prepareStatement(
+							"insert into projects (projectName, category, keywords, author)" 
+							+ "values (?, ?, ?, ?)"
+					);
+					stmt.setString(1, projectName);
+					stmt.setString(2, engineeringCategory);
+					stmt.setString(3, keywords);
+					stmt.setString(4, authors);
+					
+					List<CurrentProject> currentProjectResult = new ArrayList<CurrentProject>();
+					
+					resultSet = stmt.executeQuery();
+					
+					// for testing that a result was returned
+					Boolean found = false;
+					
+					while (resultSet.next()) {
+						found = true;
+						
+						// create new CurrentProject object
+						// retrieve attributes from resultSet starting with index 1
+						CurrentProject project = new CurrentProject();
+						loadProject(project, resultSet, 1);
+					
+						currentProjectResult.add(project);
+					}
+					
+					System.out.println("Project successfully added to the projects table in SQL Database.");
+					
+					return currentProjectResult;
+				} finally {
+					DBUtil.closeQuietly(resultSet);
+					DBUtil.closeQuietly(stmt);
+				}
+				
+			}
+		});
+	}
+	
+	
+	@Override
+	public List<UserAccount> InsertAccounts (String firstname, String lastname) {
+		return executeTransaction(new Transaction<List<UserAccount>>() {
+			@Override
+			public List<UserAccount> execute(Connection conn) throws SQLException {
+				PreparedStatement stmt = null;
+				ResultSet resultSet = null;
+				
+				try {
+					// insert a new account based on author name from a pdf project
+					stmt = conn.prepareStatement(
+							"insert into accounts (firstName, lastName)" 
+							+ "values (?, ?)"
+					);
+					stmt.setString(1, firstname);
+					stmt.setString(2, lastname);
+					
+					List<UserAccount> userAccounts = new ArrayList<UserAccount>();
+					
+					resultSet = stmt.executeQuery();
+					
+					// for testing that a result was returned
+					Boolean found = false;
+					
+					while (resultSet.next()) {
+						found = true;
+						
+						// create new CurrentProject object
+						// retrieve attributes from resultSet starting with index 1
+						UserAccount account = new UserAccount();
+						loadAccount(account, resultSet, 1);
+					
+						userAccounts.add(account);
+					}
+					
+					System.out.println("Project successfully added to the projects table in SQL Database.");
+					
+					return userAccounts;
+				} finally {
+					DBUtil.closeQuietly(resultSet);
+					DBUtil.closeQuietly(stmt);
+				}
+				
+			}
+		});
+	}
+	
 	
 	public<ResultType> ResultType executeTransaction(Transaction<ResultType> txn) {
 		try {
@@ -82,6 +180,18 @@ public class DerbyDatabase implements IDatabase {
 		return conn;
 	}
 	
+	private void loadProject(CurrentProject project, ResultSet resultSet, int index) throws SQLException {
+		project.setProjectName(resultSet.getString(index++));
+		project.setEngineeringCategory(resultSet.getString(index++));
+		project.addToKeywords(resultSet.getString(index++));
+		project.addToAuthors(resultSet.getString(index++));
+	}
+	
+	
+	private void loadAccount(UserAccount account, ResultSet resultSet, int index) throws SQLException {
+		account.setFirstName(resultSet.getString(index++));
+		account.setLastName(resultSet.getString(index++));
+	}	
 	
 	
 	public void createTables() {
