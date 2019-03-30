@@ -69,7 +69,6 @@
             <div class="col-25">
               <strong><label class="upload" for="keywords">Keywords:</label></strong>
             </div>
-            <div class="col-75">
 				 <%
 				  String[] keyword = request.getParameterValues("keyword");
 				   for (int i = 0; i < keyword.length; i++) {
