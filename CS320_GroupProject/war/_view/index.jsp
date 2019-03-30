@@ -95,6 +95,7 @@
 	                            <li><a href="${pageContext.request.contextPath}/flu-c">Hydrostatics</a></li>
 	                            <li><a href="${pageContext.request.contextPath}/flu-d">Internal Flow and Losses</a></li>
 	                            <li><a href="${pageContext.request.contextPath}/flu-e">Laminar and Turbulent Flow: Smoke Tunnel</a></li>
+	                            <li><a href="${pageContext.request.contextPath}/flu-f">The Fish Tank</a></li>
 	                        </ul>
 	                    </section>
 	                </div>
