@@ -217,7 +217,7 @@ public class DerbyDatabase implements IDatabase {
 							"	account_id integer constraint account_id references accounts, " +
 							"	fileName varchar(70)," +
 							"	projectName varchar(70)," +
-							"   category varchar(15), " +
+							"   category varchar(40), " +
 							"   keywords varchar(150), " +
 							"   authors varchar(150) " +
 							")"
@@ -242,7 +242,7 @@ public class DerbyDatabase implements IDatabase {
 				
 				try {
 					projectList = InitialData.getProjects();
-					accountList = InitialData.getUser();
+					//accountList = InitialData.getUser();
 				} catch (IOException e) {
 					throw new SQLException("Couldn't read initial data", e);
 				}
@@ -252,7 +252,7 @@ public class DerbyDatabase implements IDatabase {
 
 				try {
 					// populate authors table (do authors first, since author_id is foreign key in books table)
-					insertProject = conn.prepareStatement("insert into projects (projectName, category, keywords, author) values (?, ?, ?, ?)");
+					insertProject = conn.prepareStatement("insert into projects (projectName, category, keywords, authors) values (?, ?, ?, ?)");
 					for (CurrentProject project : projectList) {
 //						insertAuthor.setInt(1, author.getAuthorId());	// auto-generated primary key, don't insert this
 						insertProject.setString(1, project.getProjectName());
@@ -265,14 +265,14 @@ public class DerbyDatabase implements IDatabase {
 					
 					// populate books table (do this after authors table,
 					// since author_id must exist in authors table before inserting book)
-					insertAccount = conn.prepareStatement("insert into accounts (firstName, lastName) values (?, ?)");
-					for (UserAccount account : accountList) {
-						insertAccount.setString(1, account.getFirstName());
-						insertAccount.setString(2, account.getLastName());
-						insertAccount.addBatch();
-					}
-					insertAccount.executeBatch();
-					
+//					insertAccount = conn.prepareStatement("insert into accounts (firstName, lastName) values (?, ?)");
+//					for (UserAccount account : accountList) {
+//						insertAccount.setString(1, account.getFirstName());
+//						insertAccount.setString(2, account.getLastName());
+//						insertAccount.addBatch();
+//					}
+//					insertAccount.executeBatch();
+//					
 					return true;
 				} finally {
 					DBUtil.closeQuietly(insertProject);
