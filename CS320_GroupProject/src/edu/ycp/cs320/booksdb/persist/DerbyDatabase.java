@@ -9,9 +9,9 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import edu.ycp.cs320.booksdb.model.Author;
-import edu.ycp.cs320.booksdb.model.Book;
-import edu.ycp.cs320.booksdb.model.Pair;
+import edu.ycp.cs320.lab02.model.CurrentProject;
+import edu.ycp.cs320.lab02.model.UserAccount;
+import edu.ycp.cs320.sqldemo.DBUtil;
 
 public class DerbyDatabase implements IDatabase {
 	static {
@@ -28,6 +28,100 @@ public class DerbyDatabase implements IDatabase {
 
 	private static final int MAX_ATTEMPTS = 10;
 
+	
+	@Override
+	public List<CurrentProject> InsertProjectsFromPDF (String projectName, String engineeringCategory, String keywords, String authors) {
+		return executeTransaction(new Transaction<List<CurrentProject>>() {
+			@Override
+			public List<CurrentProject> execute(Connection conn) throws SQLException {
+				PreparedStatement stmt = null;
+				ResultSet resultSet = null;
+				
+				try {
+					// insert a new project from the pdf file
+					stmt = conn.prepareStatement(
+							"insert into projects (projectName, category, keywords, authors)" 
+							+ "values (?, ?, ?, ?)"
+					);
+					stmt.setString(1, projectName);
+					stmt.setString(2, engineeringCategory);
+					stmt.setString(3, keywords);
+					stmt.setString(4, authors);
+					
+					List<CurrentProject> currentProjectResult = new ArrayList<CurrentProject>();
+					
+					resultSet = stmt.executeQuery();
+
+					
+					while (resultSet.next()) {
+						// create new CurrentProject object
+						// retrieve attributes from resultSet starting with index 1
+						CurrentProject project = new CurrentProject();
+						loadProject(project, resultSet, 1);
+					
+						currentProjectResult.add(project);
+					}
+					
+					System.out.println("Project successfully added to the projects table in SQL Database.");
+					
+					return currentProjectResult;
+				} finally {
+					DBUtil.closeQuietly(resultSet);
+					DBUtil.closeQuietly(stmt);
+				}
+				
+			}
+		});
+	}
+	
+	
+	@Override
+	public List<UserAccount> InsertAccounts (String firstname, String lastname) {
+		return executeTransaction(new Transaction<List<UserAccount>>() {
+			@Override
+			public List<UserAccount> execute(Connection conn) throws SQLException {
+				PreparedStatement stmt = null;
+				ResultSet resultSet = null;
+				
+				try {
+					// insert a new account based on author name from a pdf project
+					stmt = conn.prepareStatement(
+							"insert into accounts (firstName, lastName)" 
+							+ "values (?, ?)"
+					);
+					stmt.setString(1, firstname);
+					stmt.setString(2, lastname);
+					
+					List<UserAccount> userAccounts = new ArrayList<UserAccount>();
+					
+					resultSet = stmt.executeQuery();
+					
+					// for testing that a result was returned
+					Boolean found = false;
+					
+					while (resultSet.next()) {
+						found = true;
+						
+						// create new CurrentProject object
+						// retrieve attributes from resultSet starting with index 1
+						UserAccount account = new UserAccount();
+						loadAccount(account, resultSet, 1);
+					
+						userAccounts.add(account);
+					}
+					
+					System.out.println("Project successfully added to the projects table in SQL Database.");
+					
+					return userAccounts;
+				} finally {
+					DBUtil.closeQuietly(resultSet);
+					DBUtil.closeQuietly(stmt);
+				}
+				
+			}
+		});
+	}
+	
 	
 	public<ResultType> ResultType executeTransaction(Transaction<ResultType> txn) {
 		try {
@@ -82,6 +176,18 @@ public class DerbyDatabase implements IDatabase {
 		return conn;
 	}
 	
+	private void loadProject(CurrentProject project, ResultSet resultSet, int index) throws SQLException {
+		project.setProjectName(resultSet.getString(index++));
+		project.setEngineeringCategory(resultSet.getString(index++));
+		project.addToKeywords(resultSet.getString(index++));
+		project.addToAuthors(resultSet.getString(index++));
+	}
+	
+	
+	private void loadAccount(UserAccount account, ResultSet resultSet, int index) throws SQLException {
+		account.setFirstName(resultSet.getString(index++));
+		account.setLastName(resultSet.getString(index++));
+	}	
 	
 	
 	public void createTables() {
@@ -93,23 +199,27 @@ public class DerbyDatabase implements IDatabase {
 				
 				try {
 					stmt1 = conn.prepareStatement(
-						"create table authors (" +
-						"	author_id integer primary key " +
+						"create table accounts (" +
+						"	account_id integer primary key " +
 						"		generated always as identity (start with 1, increment by 1), " +									
 						"	lastname varchar(40)," +
-						"	firstname varchar(40)" +
+						"	firstname varchar(40)," +
+						"   email varchar(40)," +
+						"   password varchar(40)" +
 						")"
 					);	
 					stmt1.executeUpdate();
 					
 					stmt2 = conn.prepareStatement(
-							"create table books (" +
-							"	book_id integer primary key " +
-							"		generated always as identity (start with 1, increment by 1), " +
-							"	author_id integer constraint author_id references authors, " +
-							"	title varchar(70)," +
-							"	isbn varchar(15)," +
-							"   published integer " +
+							"create table projects (" +
+							"	project_id integer primary key " +
+							"       generated always as identity (start with 1, increment by 1), " +			
+							"	account_id integer constraint account_id references accounts, " +
+							"	fileName varchar(70)," +
+							"	projectName varchar(70)," +
+							"   category varchar(15), " +
+							"   keywords varchar(150), " +
+							"   authors varchar(150) " +
 							")"
 					);
 					stmt2.executeUpdate();
@@ -127,47 +237,46 @@ public class DerbyDatabase implements IDatabase {
 		executeTransaction(new Transaction<Boolean>() {
 			@Override
 			public Boolean execute(Connection conn) throws SQLException {
-				List<Author> authorList;
-				List<Book> bookList;
+				List<CurrentProject> projectList;
+				List<UserAccount> accountList;
 				
 				try {
-					authorList = InitialData.getAuthors();
-					bookList = InitialData.getBooks();
+					projectList = InitialData.getProjects();
+					accountList = InitialData.getUser();
 				} catch (IOException e) {
 					throw new SQLException("Couldn't read initial data", e);
 				}
 
-				PreparedStatement insertAuthor = null;
-				PreparedStatement insertBook   = null;
+				PreparedStatement insertProject = null;
+				PreparedStatement insertAccount = null;
 
 				try {
 					// populate authors table (do authors first, since author_id is foreign key in books table)
-					insertAuthor = conn.prepareStatement("insert into authors (lastname, firstname) values (?, ?)");
-					for (Author author : authorList) {
+					insertProject = conn.prepareStatement("insert into projects (projectName, category, keywords, author) values (?, ?, ?, ?)");
+					for (CurrentProject project : projectList) {
 //						insertAuthor.setInt(1, author.getAuthorId());	// auto-generated primary key, don't insert this
-						insertAuthor.setString(1, author.getLastname());
-						insertAuthor.setString(2, author.getFirstname());
-						insertAuthor.addBatch();
+						insertProject.setString(1, project.getProjectName());
+						insertProject.setString(2, project.getEngineeringCategory());
+						insertProject.setString(3, project.pullFromKeywords());
+						insertProject.setString(4, project.pullFromAuthors());
+						insertProject.addBatch();
 					}
-					insertAuthor.executeBatch();
+					insertProject.executeBatch();
 					
 					// populate books table (do this after authors table,
 					// since author_id must exist in authors table before inserting book)
-					insertBook = conn.prepareStatement("insert into books (author_id, title, isbn, published) values (?, ?, ?, ?)");
-					for (Book book : bookList) {
-//						insertBook.setInt(1, book.getBookId());		// auto-generated primary key, don't insert this
-						insertBook.setInt(1, book.getAuthorId());
-						insertBook.setString(2, book.getTitle());
-						insertBook.setString(3, book.getIsbn());
-						insertBook.setInt(4,  book.getPublished());
-						insertBook.addBatch();
+					insertAccount = conn.prepareStatement("insert into accounts (firstName, lastName) values (?, ?)");
+					for (UserAccount account : accountList) {
+						insertAccount.setString(1, account.getFirstName());
+						insertAccount.setString(2, account.getLastName());
+						insertAccount.addBatch();
 					}
-					insertBook.executeBatch();
+					insertAccount.executeBatch();
 					
 					return true;
 				} finally {
-					DBUtil.closeQuietly(insertBook);
-					DBUtil.closeQuietly(insertAuthor);
+					DBUtil.closeQuietly(insertProject);
+					DBUtil.closeQuietly(insertAccount);
 				}
 			}
 		});
