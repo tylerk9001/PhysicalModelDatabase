@@ -203,9 +203,9 @@ public class DerbyDatabase implements IDatabase {
 						"	account_id integer primary key " +
 						"		generated always as identity (start with 1, increment by 1), " +									
 						"	lastname varchar(70)," +
-						"	firstname varchar(70)," +
-						"   email varchar(70)," +
-						"   password varchar(70)" +
+						"	firstname varchar(70)" +
+						//"   email varchar(70)," +
+						//"   password varchar(70)" +
 						")"
 					);	
 					stmt1.executeUpdate();
@@ -214,12 +214,12 @@ public class DerbyDatabase implements IDatabase {
 							"create table projects (" +
 							"	project_id integer primary key " +
 							"       generated always as identity (start with 1, increment by 1), " +			
-							"	account_id integer constraint account_id references accounts, " +
-							"	fileName varchar(70)," +
+							//"	account_id integer constraint account_id references accounts, " +
+							//"	fileName varchar(70)," +
 							"	projectName varchar(70)," +
-							"   category varchar(70), " +
-							"   keywords varchar(150), " +
-							"   authors varchar(150) " +
+							"   category varchar(70) " +
+							//"   keywords varchar(150), " +
+							//"   authors varchar(150) " +
 							")"
 					);
 					stmt2.executeUpdate();
@@ -241,7 +241,7 @@ public class DerbyDatabase implements IDatabase {
 				List<UserAccount> accountList;
 				
 				try {
-					//projectList = InitialData.getProjects();
+					projectList = InitialData.getProjects();
 					accountList = InitialData.getUser();
 				} catch (IOException e) {
 					throw new SQLException("Couldn't read initial data", e);
@@ -252,16 +252,16 @@ public class DerbyDatabase implements IDatabase {
 
 				try {
 					// populate authors table (do authors first, since author_id is foreign key in books table)
-//					insertProject = conn.prepareStatement("insert into projects (projectName, category, keywords) values (?, ?, ?)");
-//					for (CurrentProject project : projectList) {
-////						insertAuthor.setInt(1, author.getAuthorId());	// auto-generated primary key, don't insert this
-//						insertProject.setString(1, project.getProjectName());
-//						insertProject.setString(2, project.getEngineeringCategory());
-//						insertProject.setString(3, project.pullFromKeywords());
-//						//insertProject.setString(4, project.pullFromAuthors());
-//						insertProject.addBatch();
-//					}
-//					insertProject.executeBatch();
+					insertProject = conn.prepareStatement("insert into projects (projectName, category) values (?, ?)");
+					for (CurrentProject project : projectList) {
+//						insertAuthor.setInt(1, author.getAuthorId());	// auto-generated primary key, don't insert this
+						insertProject.setString(1, project.getProjectName());
+						insertProject.setString(2, project.getEngineeringCategory());
+						//insertProject.setString(3, project.pullFromKeywords());
+						//insertProject.setString(4, project.pullFromAuthors());
+						insertProject.addBatch();
+					}
+					insertProject.executeBatch();
 					
 					// populate books table (do this after authors table,
 					// since author_id must exist in authors table before inserting book)
@@ -286,7 +286,7 @@ public class DerbyDatabase implements IDatabase {
 	public static void main(String[] args) throws IOException {
 		System.out.println("Creating tables...");
 		DerbyDatabase db = new DerbyDatabase();
-		//db.createTables();
+		db.createTables();
 		
 		System.out.println("Loading initial data...");
 		db.loadInitialData();
