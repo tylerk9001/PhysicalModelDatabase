@@ -61,9 +61,8 @@ public class CurrentProject {
 	}
 	
 	public String pullFromAuthors () {
-		//String author = authors.get(0);
-		String author = "hi";
-		//authors.remove(0);
+		String author = authors.get(0);
+		authors.remove(0);
 		return author;
 	}
 }
