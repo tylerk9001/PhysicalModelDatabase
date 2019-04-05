@@ -11,6 +11,7 @@ import java.util.List;
 
 import edu.ycp.cs320.lab02.model.CurrentProject;
 import edu.ycp.cs320.lab02.model.UserAccount;
+import edu.ycp.cs320.lab02.model.ProjectsAuthors;
 import edu.ycp.cs320.sqldemo.DBUtil;
 
 public class DerbyDatabase implements IDatabase {
@@ -261,16 +262,19 @@ public class DerbyDatabase implements IDatabase {
 			public Boolean execute(Connection conn) throws SQLException {
 				List<CurrentProject> projectList;
 				List<UserAccount> accountList;
+				List<ProjectsAuthors> projectsAuthorsList;
 				
 				try {
 					projectList = InitialData.getProjects();
 					accountList = InitialData.getUser();
+					projectsAuthorsList = InitialData.getProjectsAuthors();
 				} catch (IOException e) {
 					throw new SQLException("Couldn't read initial data", e);
 				}
 
 				PreparedStatement insertProject = null;
 				PreparedStatement insertAuthor = null;
+				PreparedStatement insertProjectsAuthors = null;
 
 				try {
 					// populate authors table (do authors first, since author_id is foreign key in books table)
@@ -295,10 +299,19 @@ public class DerbyDatabase implements IDatabase {
 					}
 					insertAuthor.executeBatch();
 //					
+					insertProjectsAuthors = conn.prepareStatement("insert into projectAuthors (project_id, author_id) values (?, ?)");
+					for (ProjectsAuthors projectAuthor : projectsAuthorsList) {
+						insertProjectsAuthors.setInt(1, projectAuthor.getProjectID());
+						insertProjectsAuthors.setInt(2, projectAuthor.getAuthorID());
+						insertProjectsAuthors.addBatch();
+					}
+					insertProjectsAuthors.executeBatch();
+					
 					return true;
 				} finally {
 					DBUtil.closeQuietly(insertProject);
 					DBUtil.closeQuietly(insertAuthor);
+					DBUtil.closeQuietly(insertProjectsAuthors);
 				}
 			}
 		});

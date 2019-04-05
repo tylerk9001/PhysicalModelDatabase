@@ -7,6 +7,7 @@ import java.util.List;
 
 import edu.ycp.cs320.lab02.model.CurrentProject;
 import edu.ycp.cs320.lab02.model.UserAccount;
+import edu.ycp.cs320.lab02.model.ProjectsAuthors;
 
 public class InitialData {
 	public static List<CurrentProject> getProjects() throws IOException {
@@ -62,6 +63,24 @@ public class InitialData {
 			return userList;
 		} finally {
 			readUsers.close();
+		}
+	}
+	public static List<ProjectsAuthors> getProjectsAuthors() throws IOException {
+		List<ProjectsAuthors> projectsAuthorsList = new ArrayList<ProjectsAuthors>();
+		ReadCSV readProjectsAuthors = new ReadCSV("projectsAuthors.csv");
+		try {
+			while (true) {
+				List<String> tuple = readProjectsAuthors.next();
+				if (tuple == null) {
+					break;
+				}
+				Iterator<String> i = tuple.iterator();
+				ProjectsAuthors projectsAuthor = new ProjectsAuthors();
+				projectsAuthorsList.add(projectsAuthor);
+			}
+			return projectsAuthorsList;
+		} finally {
+			readProjectsAuthors.close();
 		}
 	}
 }
