@@ -197,6 +197,7 @@ public class DerbyDatabase implements IDatabase {
 				PreparedStatement stmt1 = null;
 				PreparedStatement stmt2 = null;
 				PreparedStatement stmt3 = null;
+				PreparedStatement stmt4 = null;
 				
 				try {
 					stmt1 = conn.prepareStatement(
@@ -234,12 +235,21 @@ public class DerbyDatabase implements IDatabase {
 							")"
 						);	
 						stmt3.executeUpdate();
+						
+					stmt4 = conn.prepareStatement(
+							"create table projectAuthors (" +
+							"	project_id integer primary key, " +
+							"   author_id integer" +
+							")"
+						);	
+						stmt4.executeUpdate();
 					
 					return true;
 				} finally {
 					DBUtil.closeQuietly(stmt1);
 					DBUtil.closeQuietly(stmt2);
 					DBUtil.closeQuietly(stmt3);
+					DBUtil.closeQuietly(stmt4);
 				}
 			}
 		});
