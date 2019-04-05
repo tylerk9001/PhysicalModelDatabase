@@ -239,8 +239,8 @@ public class DerbyDatabase implements IDatabase {
 						
 					stmt4 = conn.prepareStatement(
 							"create table projectAuthors (" +
-							"	project_id integer primary key, " +
-							"   author_id integer" +
+							"	project_id varchar(70), " +
+							"   author_id varchar(70)" +
 							")"
 						);	
 						stmt4.executeUpdate();
@@ -284,7 +284,6 @@ public class DerbyDatabase implements IDatabase {
 						insertProject.setString(1, project.getProjectName());
 						insertProject.setString(2, project.getEngineeringCategory());
 						//insertProject.setString(3, project.pullFromKeywords());
-						//insertProject.setString(4, project.pullFromAuthors());
 						insertProject.addBatch();
 					}
 					insertProject.executeBatch();
@@ -301,8 +300,8 @@ public class DerbyDatabase implements IDatabase {
 //					
 					insertProjectsAuthors = conn.prepareStatement("insert into projectAuthors (project_id, author_id) values (?, ?)");
 					for (ProjectsAuthors projectAuthor : projectsAuthorsList) {
-						insertProjectsAuthors.setInt(1, projectAuthor.getProjectID());
-						insertProjectsAuthors.setInt(2, projectAuthor.getAuthorID());
+						insertProjectsAuthors.setString(1, projectAuthor.getProjectID());
+						insertProjectsAuthors.setString(2, projectAuthor.getAuthorID());
 						insertProjectsAuthors.addBatch();
 					}
 					insertProjectsAuthors.executeBatch();
