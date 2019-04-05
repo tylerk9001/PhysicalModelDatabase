@@ -67,7 +67,7 @@ public class InitialData {
 	}
 	public static List<ProjectsAuthors> getProjectsAuthors() throws IOException {
 		List<ProjectsAuthors> projectsAuthorsList = new ArrayList<ProjectsAuthors>();
-		ReadCSV readProjectsAuthors = new ReadCSV("projectsAuthors.csv");
+		ReadCSV readProjectsAuthors = new ReadCSV("projectAuthors.csv");
 		try {
 			while (true) {
 				List<String> tuple = readProjectsAuthors.next();
@@ -76,6 +76,8 @@ public class InitialData {
 				}
 				Iterator<String> i = tuple.iterator();
 				ProjectsAuthors projectsAuthor = new ProjectsAuthors();
+				projectsAuthor.setProjectID(i.next());
+				projectsAuthor.setAuthorID(i.next());
 				projectsAuthorsList.add(projectsAuthor);
 			}
 			return projectsAuthorsList;
