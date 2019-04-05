@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import edu.ycp.cs320.lab02.model.CurrentProject;
+import edu.ycp.cs320.lab02.model.Keywords;
 import edu.ycp.cs320.lab02.model.UserAccount;
 import edu.ycp.cs320.lab02.model.ProjectsAuthors;
 import edu.ycp.cs320.sqldemo.DBUtil;
@@ -180,8 +181,8 @@ public class DerbyDatabase implements IDatabase {
 	private void loadProject(CurrentProject project, ResultSet resultSet, int index) throws SQLException {
 		project.setProjectName(resultSet.getString(index++));
 		project.setEngineeringCategory(resultSet.getString(index++));
-		project.addToKeywords(resultSet.getString(index++));
-		project.addToAuthors(resultSet.getString(index++));
+//		project.addToKeywords(resultSet.getString(index++));
+//		project.addToAuthors(resultSet.getString(index++));
 	}
 	
 	
@@ -199,6 +200,7 @@ public class DerbyDatabase implements IDatabase {
 				PreparedStatement stmt2 = null;
 				PreparedStatement stmt3 = null;
 				PreparedStatement stmt4 = null;
+				PreparedStatement stmt5 = null;
 				
 				try {
 					stmt1 = conn.prepareStatement(
@@ -244,6 +246,14 @@ public class DerbyDatabase implements IDatabase {
 							")"
 						);	
 						stmt4.executeUpdate();
+						
+					stmt5 = conn.prepareStatement(
+							"create table keywords (" +
+							"	project_id varchar(70), " +
+							"   keyword varchar(150)" +
+							")"
+						);	
+						stmt5.executeUpdate();
 					
 					return true;
 				} finally {
@@ -251,6 +261,7 @@ public class DerbyDatabase implements IDatabase {
 					DBUtil.closeQuietly(stmt2);
 					DBUtil.closeQuietly(stmt3);
 					DBUtil.closeQuietly(stmt4);
+					DBUtil.closeQuietly(stmt5);
 				}
 			}
 		});
@@ -263,11 +274,13 @@ public class DerbyDatabase implements IDatabase {
 				List<CurrentProject> projectList;
 				List<UserAccount> accountList;
 				List<ProjectsAuthors> projectsAuthorsList;
+				List<Keywords> keywordList;
 				
 				try {
 					projectList = InitialData.getProjects();
 					accountList = InitialData.getUser();
 					projectsAuthorsList = InitialData.getProjectsAuthors();
+					keywordList = InitialData.getKeywords();
 				} catch (IOException e) {
 					throw new SQLException("Couldn't read initial data", e);
 				}
@@ -275,6 +288,7 @@ public class DerbyDatabase implements IDatabase {
 				PreparedStatement insertProject = null;
 				PreparedStatement insertAuthor = null;
 				PreparedStatement insertProjectsAuthors = null;
+				PreparedStatement insertKeywords = null;
 
 				try {
 					// populate authors table (do authors first, since author_id is foreign key in books table)
@@ -306,11 +320,21 @@ public class DerbyDatabase implements IDatabase {
 					}
 					insertProjectsAuthors.executeBatch();
 					
+					
+					insertKeywords = conn.prepareStatement("insert into keywords (project_id, keyword) values (?, ?)");
+					for (Keywords keyword : keywordList) {
+						insertKeywords.setString(1, keyword.getProjectID());
+						insertKeywords.setString(2, keyword.pullFromKeywords());
+						insertKeywords.addBatch();
+					}
+					insertKeywords.executeBatch();
+					
 					return true;
 				} finally {
 					DBUtil.closeQuietly(insertProject);
 					DBUtil.closeQuietly(insertAuthor);
 					DBUtil.closeQuietly(insertProjectsAuthors);
+					DBUtil.closeQuietly(insertKeywords);					
 				}
 			}
 		});

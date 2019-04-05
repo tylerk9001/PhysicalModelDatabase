@@ -6,6 +6,7 @@ import java.util.Iterator;
 import java.util.List;
 
 import edu.ycp.cs320.lab02.model.CurrentProject;
+import edu.ycp.cs320.lab02.model.Keywords;
 import edu.ycp.cs320.lab02.model.UserAccount;
 import edu.ycp.cs320.lab02.model.ProjectsAuthors;
 
@@ -83,6 +84,35 @@ public class InitialData {
 			return projectsAuthorsList;
 		} finally {
 			readProjectsAuthors.close();
+		}
+	}
+	
+	public static List<Keywords> getKeywords() throws IOException {
+		List<Keywords> keywordList = new ArrayList<Keywords>();
+		ReadCSV readKeywords = new ReadCSV("keywords.csv");
+		try {
+			while (true) {
+				List<String> tuple = readKeywords.next();
+				if (tuple == null) {
+					break;
+				}
+				Iterator<String> i = tuple.iterator();
+				Keywords keywords = new Keywords();
+				keywords.setProjectID(i.next());
+//				for (int j = 0; j < 5; j++) {
+//					String next = i.next();
+//					if (next != "null") {
+//						keywords.addToKeywords(next);
+//					}
+//				}
+				while (i.hasNext()) {
+					keywords.addToKeywords(i.next());
+				}
+				keywordList.add(keywords);
+			}
+			return keywordList;
+		} finally {
+			readKeywords.close();
 		}
 	}
 }
