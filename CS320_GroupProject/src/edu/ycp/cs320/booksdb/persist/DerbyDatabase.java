@@ -196,16 +196,15 @@ public class DerbyDatabase implements IDatabase {
 			public Boolean execute(Connection conn) throws SQLException {
 				PreparedStatement stmt1 = null;
 				PreparedStatement stmt2 = null;
+				PreparedStatement stmt3 = null;
 				
 				try {
 					stmt1 = conn.prepareStatement(
-						"create table accounts (" +
+						"create table authors (" +
 						"	account_id integer primary key " +
 						"		generated always as identity (start with 1, increment by 1), " +									
-						"	lastname varchar(70)," +
-						"	firstname varchar(70)" +
-						//"   email varchar(70)," +
-						//"   password varchar(70)" +
+						"	firstname varchar(70)," +
+						"	lastname varchar(70)" +
 						")"
 					);	
 					stmt1.executeUpdate();
@@ -224,10 +223,23 @@ public class DerbyDatabase implements IDatabase {
 					);
 					stmt2.executeUpdate();
 					
+					stmt3 = conn.prepareStatement(
+							"create table accounts (" +
+							"	account_id integer primary key " +
+							"		generated always as identity (start with 1, increment by 1), " +									
+							"	lastname varchar(70)," +
+							"	firstname varchar(70)," +
+							"   email varchar(70)," +
+							"   password varchar(70)" +
+							")"
+						);	
+						stmt3.executeUpdate();
+					
 					return true;
 				} finally {
 					DBUtil.closeQuietly(stmt1);
 					DBUtil.closeQuietly(stmt2);
+					DBUtil.closeQuietly(stmt3);
 				}
 			}
 		});
@@ -248,7 +260,7 @@ public class DerbyDatabase implements IDatabase {
 				}
 
 				PreparedStatement insertProject = null;
-				PreparedStatement insertAccount = null;
+				PreparedStatement insertAuthor = null;
 
 				try {
 					// populate authors table (do authors first, since author_id is foreign key in books table)
@@ -265,18 +277,18 @@ public class DerbyDatabase implements IDatabase {
 					
 					// populate books table (do this after authors table,
 					// since author_id must exist in authors table before inserting book)
-					insertAccount = conn.prepareStatement("insert into accounts (firstName, lastName) values (?, ?)");
+					insertAuthor = conn.prepareStatement("insert into authors (firstName, lastName) values (?, ?)");
 					for (UserAccount account : accountList) {
-						insertAccount.setString(1, account.getFirstName());
-						insertAccount.setString(2, account.getLastName());
-						insertAccount.addBatch();
+						insertAuthor.setString(1, account.getFirstName());
+						insertAuthor.setString(2, account.getLastName());
+						insertAuthor.addBatch();
 					}
-					insertAccount.executeBatch();
+					insertAuthor.executeBatch();
 //					
 					return true;
 				} finally {
 					DBUtil.closeQuietly(insertProject);
-					DBUtil.closeQuietly(insertAccount);
+					DBUtil.closeQuietly(insertAuthor);
 				}
 			}
 		});
