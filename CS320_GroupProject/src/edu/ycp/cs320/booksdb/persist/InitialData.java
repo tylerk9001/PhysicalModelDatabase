@@ -43,7 +43,7 @@ public class InitialData {
 	
 	public static List<UserAccount> getUser() throws IOException {
 		List<UserAccount> userList = new ArrayList<UserAccount>();
-		ReadCSV readUsers = new ReadCSV("authors.csv");
+		ReadCSV readUsers = new ReadCSV("author.csv");
 		try {
 			// auto-generated primary key for books table
 			Integer userAccountId = 1;
