@@ -23,7 +23,4 @@ public class ProjectsAuthors {
 	public int getProjectID() {
 		return projectID;
 	}
-	/////
-	/////
-	/////
 }
