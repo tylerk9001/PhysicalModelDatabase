@@ -102,7 +102,6 @@ public class InitialData {
 
 				while (i.hasNext()) {
 					keywords.addToKeywords(i.next());
-					System.out.println(keywords.pullFromKeywords());
 				}
 				keywordList.add(keywords);
 			}

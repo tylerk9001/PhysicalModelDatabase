@@ -14,9 +14,12 @@ public class Keywords {
 	}
 	
 	public String pullFromKeywords() {
-		String keyword = keywords.get(0);
-		keywords.remove(0);
-		return keyword;
+		if (keywords.size() == 0) {
+			return null;
+		} else {
+			String keyword = keywords.remove(0);
+			return keyword;
+		}
 	}
 	
 	public void setProjectID(String projectID) {

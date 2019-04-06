@@ -1,11 +1,11 @@
-Crane Rigging Angles|Construction|Angle|Crane Pick|Force|Lift|Load|David Flaherty|Matt Morris
-Excavation and Earthwork Pressure|Construction|Equilibrium|Pressure|Shoring|Soil|null|Dr. Matthew Hallowell
-When Worlds Collide|Dynamics|Collision|Deformation|Rebound Velocity|Restitution|null|Charles Packard
-Armor Attack|Dynamics|Absolute Velocity|General Planar Motion|null|null|null|Tom Messervey
-The Helicopters|Dynamics|General Planar Motion|Non-Rotational|Rigid|Rotational|Translational|Tom Messervey
-The Oil Rig|Dynamics|General Planar Motion|Rotational|Translation|null|null|Tom Messervey
+Crane Rigging Angles|Construction
+Excavation and Earthwork Pressure|Construction
+When Worlds Collide|Dynamics
+Armor Attack|Dynamics
+The Helicopters|Dynamics
+The Oil Rig|Dynamics
 The Slider|Dynamics|Angular Acceleration|General Planar Motion|Rotational|Translational|null|Tom Messervey
-The Tank|Dynamics|General Planar Motion|Rotational|Translational|null|null|Tom Messervey
+The Tank|Dynamics
 Protectile Motion|Dynamics|Acceleration|Protectile Motion|Velocity|null|null|Charles Packard
 Rectilinear Motion|Dynamics|Coordinate|Displacement|Position|Total Distance Traveled|null|David Hampton
 Choo Choo Train|Dynamics|Acceleration|Engine Cycle|Relative Motion|Velocity|null|Thomas Messervey
