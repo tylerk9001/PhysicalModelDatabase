@@ -99,14 +99,10 @@ public class InitialData {
 				Iterator<String> i = tuple.iterator();
 				Keywords keywords = new Keywords();
 				keywords.setProjectID(i.next());
-//				for (int j = 0; j < 5; j++) {
-//					String next = i.next();
-//					if (next != "null") {
-//						keywords.addToKeywords(next);
-//					}
-//				}
+
 				while (i.hasNext()) {
 					keywords.addToKeywords(i.next());
+					System.out.println(keywords.pullFromKeywords());
 				}
 				keywordList.add(keywords);
 			}

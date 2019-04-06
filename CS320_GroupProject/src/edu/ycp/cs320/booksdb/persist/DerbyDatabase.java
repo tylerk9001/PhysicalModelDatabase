@@ -292,33 +292,33 @@ public class DerbyDatabase implements IDatabase {
 
 				try {
 					// populate authors table (do authors first, since author_id is foreign key in books table)
-					insertProject = conn.prepareStatement("insert into projects (projectName, category) values (?, ?)");
-					for (CurrentProject project : projectList) {
-//						insertAuthor.setInt(1, author.getAuthorId());	// auto-generated primary key, don't insert this
-						insertProject.setString(1, project.getProjectName());
-						insertProject.setString(2, project.getEngineeringCategory());
-						//insertProject.setString(3, project.pullFromKeywords());
-						insertProject.addBatch();
-					}
-					insertProject.executeBatch();
-					
-					// populate books table (do this after authors table,
-					// since author_id must exist in authors table before inserting book)
-					insertAuthor = conn.prepareStatement("insert into authors (firstName, lastName) values (?, ?)");
-					for (UserAccount account : accountList) {
-						insertAuthor.setString(1, account.getFirstName());
-						insertAuthor.setString(2, account.getLastName());
-						insertAuthor.addBatch();
-					}
-					insertAuthor.executeBatch();
+//					insertProject = conn.prepareStatement("insert into projects (projectName, category) values (?, ?)");
+//					for (CurrentProject project : projectList) {
+////						insertAuthor.setInt(1, author.getAuthorId());	// auto-generated primary key, don't insert this
+//						insertProject.setString(1, project.getProjectName());
+//						insertProject.setString(2, project.getEngineeringCategory());
+//						//insertProject.setString(3, project.pullFromKeywords());
+//						insertProject.addBatch();
+//					}
+//					insertProject.executeBatch();
 //					
-					insertProjectsAuthors = conn.prepareStatement("insert into projectAuthors (project_id, author_id) values (?, ?)");
-					for (ProjectsAuthors projectAuthor : projectsAuthorsList) {
-						insertProjectsAuthors.setString(1, projectAuthor.getProjectID());
-						insertProjectsAuthors.setString(2, projectAuthor.getAuthorID());
-						insertProjectsAuthors.addBatch();
-					}
-					insertProjectsAuthors.executeBatch();
+//					// populate books table (do this after authors table,
+//					// since author_id must exist in authors table before inserting book)
+//					insertAuthor = conn.prepareStatement("insert into authors (firstName, lastName) values (?, ?)");
+//					for (UserAccount account : accountList) {
+//						insertAuthor.setString(1, account.getFirstName());
+//						insertAuthor.setString(2, account.getLastName());
+//						insertAuthor.addBatch();
+//					}
+//					insertAuthor.executeBatch();
+////					
+//					insertProjectsAuthors = conn.prepareStatement("insert into projectAuthors (project_id, author_id) values (?, ?)");
+//					for (ProjectsAuthors projectAuthor : projectsAuthorsList) {
+//						insertProjectsAuthors.setString(1, projectAuthor.getProjectID());
+//						insertProjectsAuthors.setString(2, projectAuthor.getAuthorID());
+//						insertProjectsAuthors.addBatch();
+//					}
+//					insertProjectsAuthors.executeBatch();
 					
 					
 					insertKeywords = conn.prepareStatement("insert into keywords (project_id, keyword) values (?, ?)");
