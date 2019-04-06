@@ -218,11 +218,9 @@ public class DerbyDatabase implements IDatabase {
 							"	project_id integer primary key " +
 							"       generated always as identity (start with 1, increment by 1), " +			
 							//"	account_id integer constraint account_id references accounts, " +
-							//"	fileName varchar(70)," +
 							"	projectName varchar(70)," +
-							"   category varchar(70) " +
-							//"   keywords varchar(150), " +
-							//"   authors varchar(150) " +
+							"   category varchar(70), " +
+							"	fileName varchar(70)" +
 							")"
 					);
 					stmt2.executeUpdate();
@@ -292,12 +290,11 @@ public class DerbyDatabase implements IDatabase {
 
 				try {
 					// populate authors table (do authors first, since author_id is foreign key in books table)
-					insertProject = conn.prepareStatement("insert into projects (projectName, category) values (?, ?)");
+					insertProject = conn.prepareStatement("insert into projects (projectName, category, fileName) values (?, ?, ?)");
 					for (CurrentProject project : projectList) {
-						//insertAuthor.setInt(1, author.getAuthorId());	// auto-generated primary key, don't insert this
 						insertProject.setString(1, project.getProjectName());
 						insertProject.setString(2, project.getEngineeringCategory());
-						//insertProject.setString(3, project.pullFromKeywords());
+						insertProject.setString(3, project.getFileName());
 						insertProject.addBatch();
 					}
 					insertProject.executeBatch();

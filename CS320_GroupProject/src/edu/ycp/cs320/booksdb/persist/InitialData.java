@@ -16,7 +16,6 @@ public class InitialData {
 		ReadCSV readProjects = new ReadCSV("projects.csv");
 		try {
 			// auto-generated primary key for authors table
-			Integer userAccountId = 1;
 			while (true) {
 				List<String> tuple = readProjects.next();
 				if (tuple == null) {
@@ -24,17 +23,9 @@ public class InitialData {
 				}
 				Iterator<String> i = tuple.iterator();
 				CurrentProject project = new CurrentProject();
-				//project.setUserAccountId(userAccountId++);	
-				//project.setFileName(i.next());
 				project.setProjectName(i.next());
 				project.setEngineeringCategory(i.next());
-//				for(int j = 0; j < 5; j++) {
-//					project.addToKeywords(i.next());
-//				}
-//				for(int k = 4; k < 5; k++) {
-//					project.addToAuthors(i.next());
-//				}
-				//project.addToAuthors(i.next());
+				project.setFileName(i.next());
 				projectList.add(project);
 			}
 			return projectList;
@@ -48,7 +39,6 @@ public class InitialData {
 		ReadCSV readUsers = new ReadCSV("author.csv");
 		try {
 			// auto-generated primary key for books table
-			Integer userAccountId = 1;
 			while (true) {
 				List<String> tuple = readUsers.next();
 				if (tuple == null) {
@@ -56,7 +46,6 @@ public class InitialData {
 				}
 				Iterator<String> i = tuple.iterator();
 				UserAccount user = new UserAccount();
-				//user.setUserAccountId(userAccountId++);
 				user.setFirstName(i.next());
 				user.setLastName(i.next());
 				userList.add(user);
