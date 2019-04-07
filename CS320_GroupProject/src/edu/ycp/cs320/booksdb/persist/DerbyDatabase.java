@@ -203,15 +203,15 @@ public class DerbyDatabase implements IDatabase {
 				PreparedStatement stmt5 = null;
 				
 				try {
-//					stmt1 = conn.prepareStatement(
-//						"create table authors (" +
-//						"	account_id integer primary key " +
-//						"		generated always as identity (start with 1, increment by 1), " +									
-//						"	firstname varchar(70)," +
-//						"	lastname varchar(70)" +
-//						")"
-//					);	
-//					stmt1.executeUpdate();
+					stmt1 = conn.prepareStatement(
+						"create table authors (" +
+						"	account_id integer primary key " +
+						"		generated always as identity (start with 1, increment by 1), " +									
+						"	firstname varchar(70)," +
+						"	lastname varchar(70)" +
+						")"
+					);	
+					stmt1.executeUpdate();
 					
 					stmt2 = conn.prepareStatement(
 							"create table projects (" +
@@ -223,35 +223,35 @@ public class DerbyDatabase implements IDatabase {
 							")"
 					);
 					stmt2.executeUpdate();
-//					
-//					stmt3 = conn.prepareStatement(
-//							"create table accounts (" +
-//							"	account_id integer primary key " +
-//							"		generated always as identity (start with 1, increment by 1), " +									
-//							"	lastname varchar(70)," +
-//							"	firstname varchar(70)," +
-//							"   email varchar(70)," +
-//							"   password varchar(70)" +
-//							")"
-//						);	
-//						stmt3.executeUpdate();
-//						
-//					stmt4 = conn.prepareStatement(
-//							"create table projectAuthors (" +
-//							"	project_id varchar(70), " +
-//							"   author_id varchar(70)" +
-//							")"
-//						);	
-//						stmt4.executeUpdate();
-//						
-//					stmt5 = conn.prepareStatement(
-//							"create table keywords (" +
-//							"	project_id varchar(70), " +
-//							"   keyword varchar(500)" +
-//							")"
-//						);	
-//						stmt5.executeUpdate();
-//					
+					
+					stmt3 = conn.prepareStatement(
+							"create table accounts (" +
+							"	account_id integer primary key " +
+							"		generated always as identity (start with 1, increment by 1), " +									
+							"	lastname varchar(70)," +
+							"	firstname varchar(70)," +
+							"   email varchar(70)," +
+							"   password varchar(70)" +
+							")"
+						);	
+						stmt3.executeUpdate();
+						
+					stmt4 = conn.prepareStatement(
+							"create table projectAuthors (" +
+							"	project_id varchar(70), " +
+							"   author_id varchar(70)" +
+							")"
+						);	
+						stmt4.executeUpdate();
+						
+					stmt5 = conn.prepareStatement(
+							"create table keywords (" +
+							"	project_id varchar(70), " +
+							"   keyword varchar(500)" +
+							")"
+						);	
+						stmt5.executeUpdate();
+					
 					return true;
 				} finally {
 					DBUtil.closeQuietly(stmt1);
@@ -298,40 +298,40 @@ public class DerbyDatabase implements IDatabase {
 					}
 					insertProject.executeBatch();
 					
-//					// populate books table (do this after authors table,
-//					// since author_id must exist in authors table before inserting book)
-//					insertAuthor = conn.prepareStatement("insert into authors (firstName, lastName) values (?, ?)");
-//					for (UserAccount account : accountList) {
-//						insertAuthor.setString(1, account.getFirstName());
-//						insertAuthor.setString(2, account.getLastName());
-//						insertAuthor.addBatch();
-//					}
-//					insertAuthor.executeBatch();
-//					
-//					insertProjectsAuthors = conn.prepareStatement("insert into projectAuthors (project_id, author_id) values (?, ?)");
-//					for (ProjectsAuthors projectAuthor : projectsAuthorsList) {
-//						insertProjectsAuthors.setString(1, projectAuthor.getProjectID());
-//						insertProjectsAuthors.setString(2, projectAuthor.getAuthorID());
-//						insertProjectsAuthors.addBatch();
-//					}
-//					insertProjectsAuthors.executeBatch();
-//					
-//					
-//					insertKeywords = conn.prepareStatement("insert into keywords (project_id, keyword) values (?, ?)");
-//					for (Keywords keyword : keywordList) {
-//						insertKeywords.setString(1, keyword.getProjectID());
-//						String words = keyword.pullFromKeywords();
-//						for (int i = 0; i < 4; i++) {
-//							String temp = keyword.pullFromKeywords();
-//							if (temp != null) {
-//								 words += ", " + temp;
-//							}
-//						}
-//						insertKeywords.setString(2, words);
-//						insertKeywords.addBatch();
-//					}
-//					insertKeywords.executeBatch();
-//					
+					// populate books table (do this after authors table,
+					// since author_id must exist in authors table before inserting book)
+					insertAuthor = conn.prepareStatement("insert into authors (firstName, lastName) values (?, ?)");
+					for (UserAccount account : accountList) {
+						insertAuthor.setString(1, account.getFirstName());
+						insertAuthor.setString(2, account.getLastName());
+						insertAuthor.addBatch();
+					}
+					insertAuthor.executeBatch();
+					
+					insertProjectsAuthors = conn.prepareStatement("insert into projectAuthors (project_id, author_id) values (?, ?)");
+					for (ProjectsAuthors projectAuthor : projectsAuthorsList) {
+						insertProjectsAuthors.setString(1, projectAuthor.getProjectID());
+						insertProjectsAuthors.setString(2, projectAuthor.getAuthorID());
+						insertProjectsAuthors.addBatch();
+					}
+					insertProjectsAuthors.executeBatch();
+					
+					
+					insertKeywords = conn.prepareStatement("insert into keywords (project_id, keyword) values (?, ?)");
+					for (Keywords keyword : keywordList) {
+						insertKeywords.setString(1, keyword.getProjectID());
+						String words = keyword.pullFromKeywords();
+						for (int i = 0; i < 4; i++) {
+							String temp = keyword.pullFromKeywords();
+							if (temp != null) {
+								 words += ", " + temp;
+							}
+						}
+						insertKeywords.setString(2, words);
+						insertKeywords.addBatch();
+					}
+					insertKeywords.executeBatch();
+					
 					return true;
 				} finally {
 					DBUtil.closeQuietly(insertProject);
