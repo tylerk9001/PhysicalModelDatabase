@@ -1,4 +1,8 @@
 <!DOCTYPE html>
+
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
+
 <html>
 <head>
     <title>Login | Physical Model </title>
@@ -35,22 +39,25 @@
         <input class="search-txt" type="text" placeholder="Search..." name="">
         <a class="search-btn" href="#"><i class="fas fa-search"></i></a>
     </div>
-
-    
-    <div class="login-container">
-        <div class="login-box">
-            <h1>Login</h1>
-           
-            <form action="${pageContext.servletContext.contextPath}/login" method="post">                
-                <input type="text" placeholder="Username" name="email"/>
-    
-                <input type="password" placeholder="Password" name="password"/>
-
-                <input class="btn" type="submit" name="" value="Sign in">
-            </form>
-        </div>
-    </div>    
         
+	<c:if test="${! empty errorMessage}">
+		<div class="error">${errorMessage}</div>
+	</c:if>
+
+	  <div class="login-container">
+	        <div class="login-box">
+	            <h1>Login</h1>
+	            
+					<form action="${pageContext.servletContext.contextPath}/login" method="post">
+						<h4>User Name:</h4>
+						<input type="text" name="username" size="12" value="${username}" />
+						<h4>Password:</h4>
+						<input type="password" name="password" size="12" value="${password}" /><br>
+						<input type="Submit" name="submit" value="Login">
+					</form>
+	      		</div>
+	    	</div>
+	        
     <footer>
         <div class="footer login-footer">
             <p>Tyler Kautz, Trevor Swann, Jacob Stambaugh. Copyright &copy; 2019. Some Rights Reserved.</p>

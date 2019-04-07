@@ -35,7 +35,7 @@
                     <a href="${pageContext.request.contextPath}/upload">Upload a Project</a>
 	                
 	                <div class="access-btns">
-	                    <a href="${pageContext.request.contextPath}/_view/google/login" class="button">Login</a>
+	                    <a href="${pageContext.request.contextPath}/login" class="button">Login</a>
 	                    <a href="/login/register.php" class="button">Sign Up</a>
 	                </div>
 	            </div>            
