@@ -6,9 +6,11 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import edu.ycp.cs320.lab02.controller.LoginController;
 import edu.ycp.cs320.lab02.model.Login;
+import edu.ycp.cs320.lab02.model.UserAccount;
 
 public class LoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -34,55 +36,38 @@ public class LoginServlet extends HttpServlet {
 		
 		System.out.println("Login Servlet: doPost");	
 		
-		String errorMessage = null;
-		String name = null;
-		String password = null;
-		boolean validLogin = false;
+		UserAccount model = new UserAccount();
+		LoginController controller = new LoginController();
+		
 
-		// Decode form parameters and dispatch to controller
-		name = req.getParameter("username");
-		password = req.getParameter("password");
-
-		System.out.println("   Name: <" + name + ">");
-		System.out.println("   Password: <" + password + ">");
-
-		if (name == null || password == null || name.equals("") || password.equals("")) {
-			errorMessage = "Please specify both user name and password";
-		} else {
-			model = new Login();
-			controller = new LoginController(model);
-			validLogin = controller.validateCredentials(name, password);
-
-			if (!validLogin) {
-				errorMessage = "Username and/or password invalid";
+		String email = req.getParameter("email");
+		String password = req.getParameter("password");
+		
+		
+		if (email != null && password != null) {
+			model.setEmail(email);
+			model.setPassword(password);
+		}
+		controller.setModel(model);
+		
+		if (controller.loginSuccess() == true) {
+			model = controller.getModel();
+			HttpSession session = req.getSession(true);
+			session.setAttribute("login", true);
+			session.setAttribute("email", model.getEmail());
+			session.setAttribute("firstname", model.getFirstName());
+			session.setAttribute("lastname", model.getLastName());
+			
+			if (session.getAttribute("login_failed") != null) {
+				session.removeAttribute("login_failed");
 			}
+			resp.sendRedirect("/project/welcome");
 		}
-
-		// Add parameters as request attributes
-		req.setAttribute("username", req.getParameter("username"));
-		req.setAttribute("password", req.getParameter("password"));
-
-		// Add result objects as request attributes
-		req.setAttribute("errorMessage", errorMessage);
-		req.setAttribute("login", validLogin);
-
-		// if login is valid, start a session
-		if (validLogin) {
-			System.out.println("   Valid login - starting session, redirecting to welcome.jsp");
-
-			// store user object in session
-			req.getSession().setAttribute("user", name);
-
-			// redirect to /index page
-			resp.sendRedirect(req.getContextPath() + "/welcome");
-
-			return;
+		else {
+			HttpSession session = req.getSession(true);
+			session.setAttribute("login_failed", true);
+			resp.sendRedirect("/project/login");
+			
 		}
-
-		System.out.println("   Invalid login - returning to login_index.jsp");
-
-		// Forward to view to render the result HTML document
-		req.getRequestDispatcher("/_view/login/login_index.jsp").forward(req, resp);
-	
 	}
 }

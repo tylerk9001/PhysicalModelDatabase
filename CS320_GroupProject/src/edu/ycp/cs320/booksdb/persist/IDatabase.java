@@ -18,4 +18,6 @@ public interface IDatabase {
 	
 	public boolean InsertAccounts (String lastName, String firstName, String email, String password);
 	
+	public UserAccount getAccountInfo (String email, String password);
+	
 }

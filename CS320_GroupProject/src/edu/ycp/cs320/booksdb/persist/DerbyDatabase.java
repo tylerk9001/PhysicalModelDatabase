@@ -133,6 +133,46 @@ public class DerbyDatabase implements IDatabase {
 			}
 		});
 	}
+
+	
+	
+	@Override
+	public UserAccount getAccountInfo(final String email, final String password) {
+		return executeTransaction(new Transaction<UserAccount>() {
+			public UserAccount execute(Connection conn) throws SQLException {
+				PreparedStatement stmt = null;
+				ResultSet resultSet = null;
+				
+				try {
+					stmt = conn.prepareStatement("select * from accounts " + "where email = ?");
+					stmt.setString(1, email);
+					
+					UserAccount account = new UserAccount();
+					
+					resultSet = stmt.executeQuery();
+					
+					// for testing that a result was returned
+					Boolean found = false;
+					
+					while (resultSet.next()) {
+						found = true;
+						loadAccount(account, resultSet, 1);
+					}
+					
+					if (!found) {
+						System.out.println("No accounts were found in the database with Email: " + email);
+					}
+					
+					return account;
+
+				} finally {
+					DBUtil.closeQuietly(resultSet);
+					DBUtil.closeQuietly(stmt);
+				}
+				
+			}
+		});
+	}
 	
 	
 	public<ResultType> ResultType executeTransaction(Transaction<ResultType> txn) {
@@ -197,10 +237,11 @@ public class DerbyDatabase implements IDatabase {
 	
 	
 	private void loadAccount(UserAccount account, ResultSet resultSet, int index) throws SQLException {
-		account.setLastName(resultSet.getString(index++));
-		account.setFirstName(resultSet.getString(index++));
+		account.setUserAccountId(resultSet.getInt(index++));
 		account.setEmail(resultSet.getString(index++));
 		account.setPassword(resultSet.getString(index++));
+		account.setLastName(resultSet.getString(index++));
+		account.setFirstName(resultSet.getString(index++));
 	}	
 	
 	
@@ -240,10 +281,10 @@ public class DerbyDatabase implements IDatabase {
 							"create table accounts (" +
 							"	account_id integer primary key " +
 							"		generated always as identity (start with 1, increment by 1), " +									
-							"	lastname varchar(70)," +
-							"	firstname varchar(70)," +
 							"   email varchar(70)," +
-							"   password varchar(70)" +
+							"   password varchar(70)," +
+							"	lastname varchar(70)," +
+							"	firstname varchar(70)" +
 							")"
 						);	
 						stmt3.executeUpdate();

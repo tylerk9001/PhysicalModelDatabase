@@ -126,19 +126,18 @@
         <input class="search-txt" type="text" placeholder="Search..." name="">
         <a class="search-btn" href="#"><i class="fas fa-search"></i></a>
     </div>
-        
-	<c:if test="${! empty errorMessage}">
-		<div class="error">${errorMessage}</div>
-	</c:if>
+      
 
 	  <div class="login-container">
 	        <div class="login-box">
 	            <h1>Login</h1>
-					<form action="${pageContext.servletContext.contextPath}/login" class="login-form" method="post">						
-						<h2>User Name:</h2>
-						<i class="fa fa-user"></i><input type="text" class="textbox" name="username" size="12" value="${username}" />
+					<form action="${pageContext.servletContext.contextPath}/login" class="login-form" method="post">
+						<%Boolean invalidLogin = (Boolean)request.getSession().getAttribute("login_failed");
+							if (invalidLogin != null) {%> <p>Invalid email and/or password</p><%}%>						
+						<h2>Email:</h2>
+						<i class="fa fa-user"></i><input type="text" class="textbox" name="email" size="12" value="${model.email}" />
 						<h2>Password:</h2>
-						<i class="fa fa-lock"></i><input type="password" class="textbox" name="password" size="12" value="${password}" /><br>
+						<i class="fa fa-lock"></i><input type="password" class="textbox" name="password" size="12" value="${model.password}" /><br>
 						<input type="Submit" class="btn" name="submit" value="Login">
 					</form>
 	    	</div>
