@@ -1,7 +1,26 @@
 <!DOCTYPE html>
 <html>
 
+<style>
+	.content-container {
+		padding: 10px;
+	}
+	.container1-color {
+		background-color: lightgray;
+		padding: 10px;
+		padding-left: 15px;
+	}
+	
+	.access-btn {
+    float: right;
+    line-height: 60px;
+}
 
+	.button a {
+	    color: #86C232;
+	}
+	
+</style>
 
 <head>
     <title>Home | Physical Model </title>
@@ -23,30 +42,70 @@
 	            <input type="checkbox" id="toggle">
 	            <div class="menu">
 	                <div class="logo"><a><i class="fa fa-cog" ></i></a></div>
-	                <a class="border-nav">Home</a>
-	                <a href="#construction">Construction</a>
-	                <a href="#dynamics">Dynamics</a>
-	                <a href="#fluids">Fluids</a>
-	                <a href="#heattran">Heat Transfer</a>
-	                <a href="#matsci">Material Science</a>
-	                <a href="#mechanics">Mechanics</a>
-	                <a href="#statics">Statics</a>
-	                <a href="#thermodynamics">Thermodynamics</a>
-	                
-	                <div class="access-btns">
-	                    <a href="${pageContext.request.contextPath}/_view/google/login" class="button">Login</a>
-	                    <a href="/login/register.php" class="button">Sign Up</a>
-	                </div>
+	                <a href="${pageContext.request.contextPath}/index" class="border-nav"><i class="fas fa-home"></i> Home</a>
+	                <a href="#construction"><i class="fas fa-tachometer-alt"></i>  Dashboard</a>
+	                <a href="#dynamics"><i class="fas fa-file-alt"></i> Projects</a>
+	             
+	             
+	             	<div class="access-btn">
+                    	<a href="${pageContext.request.contextPath}/index">Log Out <i class="fas fa-sign-out-alt"></i></a>
+                	</div>
 	            </div>            
 	        </div>
+	        
+	        
 	    </nav>
 	    
-	
-	    <div class="search-box">
-	        <input class="search-txt" type="text" placeholder="Search..." name="">
-	        <a class="search-btn" href="#"><i class="fas fa-search"></i></a>
-	    </div>
 	    
+	     <div class="content-container">
+         <div class="container1-color">
+            <div class="user-info">
+                <div class="user-message">
+                    <h1>Welcome, Tyler</h1>
+                </div>
+          
+                  <div class="user-name">
+                      <p><i class="fas fa-users"></i> : Tyler Kautz</p>
+                      <p><i class="fas fa-envelope"></i> : bkautz@ycp.edu</p>
+                      <br>
+                  </div>
+                    
+                <div class="user-projects">
+                    <hr>
+                    <h2>My Projects</h2>
+                    <p><i>Currently, you do not have any projects created.</i></p>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                </div>
+                <div class="user-favorites">
+                    <hr>
+                    <h2>My Favorites</h2>
+                    <p><i>Currently, you do not have any projects favorited.</i></p>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                </div>
+                <div class="user-reviews">
+                    <hr>
+                    <h2>My Reviews</h2>
+                    <p><i>Currently, you have not given any reviews.</i></p>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                </div>
+            </div>
+        </div>
+    </div>
 	   
 	
 	    <footer>

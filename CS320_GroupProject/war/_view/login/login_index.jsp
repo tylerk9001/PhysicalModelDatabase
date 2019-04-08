@@ -4,6 +4,93 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 
 <html>
+
+<style>
+	
+	.login-container {
+    width: auto;
+    height: 100%;
+    background-color: #000000;
+	}	
+
+.login-form {
+	padding-left: 20px;
+}
+
+.login-box {
+    width: 280px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding-top: 10px;
+    padding-bottom: 10px;
+    color: white;
+    background-color: #222629;
+    box-shadow: 5px 5px 10px black;
+}
+
+.login-box h1 {
+    text-align: center;
+    font-size: 30px;
+    border-bottom: 4px solid #86C232;
+    margin-bottom: 15px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin-left: 15px;
+    margin-right: 15px;
+}
+
+.login-box h2 {
+    text-align: center;
+    font-size: 18px;
+    border-bottom: 2px solid #86C232;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin-left: 75px;
+    margin-right: 75px;
+}
+
+.textbox {
+    width: 80%;
+    overflow: hidden;
+    font-size: 12px;
+    padding: 2px;
+    margin: 8px;
+    border: 1px solid #86C232;
+}
+
+.textbox input {
+    border: none;
+    outline: none;
+    background: none;
+    color: white;
+    font-size: 12px;
+    width: 81%;
+    margin: 0 10px;
+}
+
+.btn {
+    width: 90%;
+    background: none;
+    border: 2px solid #86C232;
+    padding: 5px;
+    font-size: 18px;
+    margin: 12px;
+    cursor: pointer;
+    color: white;
+}
+
+.btn:hover {
+    background: #6B6E70;
+}
+
+.login-footer {
+    position: absolute;
+    top: 95%;
+}
+</style>
+
 <head>
     <title>Login | Physical Model </title>
     <!--Website CSS-->
@@ -47,16 +134,15 @@
 	  <div class="login-container">
 	        <div class="login-box">
 	            <h1>Login</h1>
-	            
-					<form action="${pageContext.servletContext.contextPath}/login" method="post">
-						<h4>User Name:</h4>
-						<input type="text" name="username" size="12" value="${username}" />
-						<h4>Password:</h4>
-						<input type="password" name="password" size="12" value="${password}" /><br>
-						<input type="Submit" name="submit" value="Login">
+					<form action="${pageContext.servletContext.contextPath}/login" class="login-form" method="post">						
+						<h2>User Name:</h2>
+						<i class="fa fa-user"></i><input type="text" class="textbox" name="username" size="12" value="${username}" />
+						<h2>Password:</h2>
+						<i class="fa fa-lock"></i><input type="password" class="textbox" name="password" size="12" value="${password}" /><br>
+						<input type="Submit" class="btn" name="submit" value="Login">
 					</form>
-	      		</div>
 	    	</div>
+	    </div>
 	        
     <footer>
         <div class="footer login-footer">
