@@ -16,5 +16,6 @@ public interface IDatabase {
 	
 	public List<CurrentProject> InsertProjectsFromPDF (String projectName, String engineeringCategory, String keywords, String authors);
 	
-	public List<UserAccount> InsertAccounts (String firstname, String lastname);
+	public boolean InsertAccounts (String lastName, String firstName, String email, String password);
+	
 }

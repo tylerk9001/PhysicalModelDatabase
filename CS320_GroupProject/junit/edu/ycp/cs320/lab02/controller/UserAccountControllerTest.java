@@ -17,17 +17,10 @@ public class UserAccountControllerTest {
 		model = new UserAccount();
 		controller = new UserAccountController();
 		
-		model.setEmail("testEmail@ycp.edu");
-		model.setPassword("testPassword");
-		model.setFirstName("testFirstName");
-		model.setLastName("testLastName");
-		model.setUserAccountId(0001);
-		
-		controller.setModel(model);
 	}
 	
-	@Test
-	public void testModel() {
-		assertTrue(model == controller.getModel());
-	}
+//	@Test
+//	public void testController() {
+//		
+//	}
 }

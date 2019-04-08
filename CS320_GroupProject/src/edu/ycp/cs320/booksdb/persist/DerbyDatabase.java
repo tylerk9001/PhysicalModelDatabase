@@ -78,21 +78,23 @@ public class DerbyDatabase implements IDatabase {
 	
 	
 	@Override
-	public List<UserAccount> InsertAccounts (String firstname, String lastname) {
-		return executeTransaction(new Transaction<List<UserAccount>>() {
+	public boolean InsertAccounts (String lastname, String firstname, String email, String password) {
+		return executeTransaction(new Transaction<Boolean>() {
 			@Override
-			public List<UserAccount> execute(Connection conn) throws SQLException {
+			public Boolean execute(Connection conn) throws SQLException {
 				PreparedStatement stmt = null;
 				ResultSet resultSet = null;
 				
 				try {
 					// insert a new account based on author name from a pdf project
 					stmt = conn.prepareStatement(
-							"insert into accounts (firstName, lastName)" 
-							+ "values (?, ?)"
+							"insert into accounts (lastName, firstName, email, password)" 
+							+ "values (?, ?, ?, ?)"
 					);
-					stmt.setString(1, firstname);
-					stmt.setString(2, lastname);
+					stmt.setString(1, lastname);
+					stmt.setString(2, firstname);
+					stmt.setString(3,  email);
+					stmt.setString(4, password);
 					
 					List<UserAccount> userAccounts = new ArrayList<UserAccount>();
 					
@@ -112,9 +114,17 @@ public class DerbyDatabase implements IDatabase {
 						userAccounts.add(account);
 					}
 					
-					System.out.println("Project successfully added to the projects table in SQL Database.");
+					// check if project was added to database
+					if (!found) {
+						System.out.println("Project not added to the projects table in SQL Database");
+						
+						return false;
+					} else {
+						System.out.println("Project successfully added to the projects table in SQL Database.");
 					
-					return userAccounts;
+						return true;
+					}
+
 				} finally {
 					DBUtil.closeQuietly(resultSet);
 					DBUtil.closeQuietly(stmt);
@@ -187,8 +197,10 @@ public class DerbyDatabase implements IDatabase {
 	
 	
 	private void loadAccount(UserAccount account, ResultSet resultSet, int index) throws SQLException {
-		account.setFirstName(resultSet.getString(index++));
 		account.setLastName(resultSet.getString(index++));
+		account.setFirstName(resultSet.getString(index++));
+		account.setEmail(resultSet.getString(index++));
+		account.setPassword(resultSet.getString(index++));
 	}	
 	
 	
