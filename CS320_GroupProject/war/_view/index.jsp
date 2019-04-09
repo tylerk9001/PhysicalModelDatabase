@@ -36,7 +36,7 @@
 	                
 	                <div class="access-btns">
 	                    <a href="${pageContext.request.contextPath}/login" class="button">Login</a>
-	                    <a href="/login/register.php" class="button">Sign Up</a>
+	                    <a href="${pageContext.request.contextPath}/signup" class="button">Sign Up</a>
 	                </div>
 	            </div>            
 	        </div>
@@ -44,7 +44,7 @@
 	    
 	
 	    <div class="search-box">
-	        <input class="search-txt" type="text" placeholder="Search..." name="">
+	        <input class="search-txt" type="text" placeholder="Search..." name="search">
 	        <a class="search-btn" href="#"><i class="fas fa-search"></i></a>
 	    </div>
 	    

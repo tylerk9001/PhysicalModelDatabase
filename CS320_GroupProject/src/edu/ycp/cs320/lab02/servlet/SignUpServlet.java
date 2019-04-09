@@ -32,7 +32,6 @@ public class SignUpServlet extends HttpServlet {
 		System.out.println("SignUp Servlet: doPost");	
 		
 		SignUpController controller = new SignUpController();
-		UserAccount model = new UserAccount();
 		UserAccount newAccount = new UserAccount();
 		
 		HttpSession session = req.getSession(true);
@@ -49,20 +48,18 @@ public class SignUpServlet extends HttpServlet {
 		if (firstName != "" && firstName != null && lastName != "" && lastName != null 
 				&& email != "" && email != null && password != "" && password != null 
 				&& retypePassword != "" && retypePassword != null) {
-			if (password == retypePassword) {
+			if (password.equals(retypePassword)) {
 				newAccount.setFirstName(firstName);
 				newAccount.setLastName(lastName);
 				newAccount.setEmail(email);
 				newAccount.setPassword(password);
 				controller.setModel(newAccount);
 				accountCreationSuccessful = controller.createAccount(newAccount);
-				model = newAccount;
 			}
 			
 			else {
 				noPasswordsMatch = true;
 			}
-			//accountCreationSuccessful = true;
 			
 		}
 		else {
@@ -72,7 +69,7 @@ public class SignUpServlet extends HttpServlet {
 		
 		if (accountCreationSuccessful == true) {
 			session.setAttribute("login", true);
-			session.setAttribute("firstname", model.getFirstName());
+			session.setAttribute("firstname", newAccount.getFirstName());
 			
 			resp.sendRedirect("/project/login");
 		}

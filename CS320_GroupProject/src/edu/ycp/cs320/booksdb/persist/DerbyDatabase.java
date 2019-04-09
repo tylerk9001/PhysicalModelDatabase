@@ -13,6 +13,7 @@ import edu.ycp.cs320.lab02.model.CurrentProject;
 import edu.ycp.cs320.lab02.model.Keywords;
 import edu.ycp.cs320.lab02.model.UserAccount;
 import edu.ycp.cs320.lab02.model.ProjectsAuthors;
+import edu.ycp.cs320.lab02.model.Search;
 import edu.ycp.cs320.sqldemo.DBUtil;
 
 public class DerbyDatabase implements IDatabase {
@@ -29,112 +30,6 @@ public class DerbyDatabase implements IDatabase {
 	}
 
 	private static final int MAX_ATTEMPTS = 10;
-
-	
-	@Override
-	public List<CurrentProject> InsertProjectsFromPDF (String projectName, String engineeringCategory, String keywords, String authors) {
-		return executeTransaction(new Transaction<List<CurrentProject>>() {
-			@Override
-			public List<CurrentProject> execute(Connection conn) throws SQLException {
-				PreparedStatement stmt = null;
-				ResultSet resultSet = null;
-				
-				try {
-					// insert a new project from the pdf file
-					stmt = conn.prepareStatement(
-							"insert into projects (projectName, category, keywords, authors)" 
-							+ "values (?, ?, ?, ?)"
-					);
-					stmt.setString(1, projectName);
-					stmt.setString(2, engineeringCategory);
-					stmt.setString(3, keywords);
-					stmt.setString(4, authors);
-					
-					List<CurrentProject> currentProjectResult = new ArrayList<CurrentProject>();
-					
-					resultSet = stmt.executeQuery();
-
-					
-					while (resultSet.next()) {
-						// create new CurrentProject object
-						// retrieve attributes from resultSet starting with index 1
-						CurrentProject project = new CurrentProject();
-						loadProject(project, resultSet, 1);
-					
-						currentProjectResult.add(project);
-					}
-					
-					System.out.println("Project successfully added to the projects table in SQL Database.");
-					
-					return currentProjectResult;
-				} finally {
-					DBUtil.closeQuietly(resultSet);
-					DBUtil.closeQuietly(stmt);
-				}
-				
-			}
-		});
-	}
-	
-	
-	@Override
-	public boolean InsertAccounts (String lastname, String firstname, String email, String password) {
-		return executeTransaction(new Transaction<Boolean>() {
-			@Override
-			public Boolean execute(Connection conn) throws SQLException {
-				PreparedStatement stmt = null;
-				ResultSet resultSet = null;
-				
-				try {
-					// insert a new account based on author name from a pdf project
-					stmt = conn.prepareStatement(
-							"insert into accounts (lastName, firstName, email, password)" 
-							+ "values (?, ?, ?, ?)"
-					);
-					stmt.setString(1, lastname);
-					stmt.setString(2, firstname);
-					stmt.setString(3,  email);
-					stmt.setString(4, password);
-					
-					List<UserAccount> userAccounts = new ArrayList<UserAccount>();
-					
-					resultSet = stmt.executeQuery();
-					
-					// for testing that a result was returned
-					Boolean found = false;
-					
-					while (resultSet.next()) {
-						found = true;
-						
-						// create new CurrentProject object
-						// retrieve attributes from resultSet starting with index 1
-						UserAccount account = new UserAccount();
-						loadAccount(account, resultSet, 1);
-					
-						userAccounts.add(account);
-					}
-					
-					// check if project was added to database
-					if (!found) {
-						System.out.println("Project not added to the projects table in SQL Database");
-						
-						return false;
-					} else {
-						System.out.println("Project successfully added to the projects table in SQL Database.");
-					
-						return true;
-					}
-
-				} finally {
-					DBUtil.closeQuietly(resultSet);
-					DBUtil.closeQuietly(stmt);
-				}
-				
-			}
-		});
-	}
-
-	
 	
 	@Override
 	public UserAccount getAccountInfo(final String email, final String password) {
@@ -183,11 +78,13 @@ public class DerbyDatabase implements IDatabase {
 				ResultSet resultSet = null;
 				
 				try {
-					stmt = conn.prepareStatement("select * from accounts " + "where email = ?");
+					stmt = conn.prepareStatement("select * from accounts where email = ?");
 					stmt.setString(1, email);
 					resultSet = stmt.executeQuery();
 					
+					// initialize boolean variable
 					boolean found = false;
+					
 					while (resultSet.next()) {
 						found = true;
 					}
@@ -268,21 +165,18 @@ public class DerbyDatabase implements IDatabase {
 		return conn;
 	}
 	
-	private void loadProject(CurrentProject project, ResultSet resultSet, int index) throws SQLException {
-		project.setProjectName(resultSet.getString(index++));
-		project.setEngineeringCategory(resultSet.getString(index++));
-//		project.addToKeywords(resultSet.getString(index++));
-//		project.addToAuthors(resultSet.getString(index++));
-	}
-	
-	
 	private void loadAccount(UserAccount account, ResultSet resultSet, int index) throws SQLException {
 		account.setUserAccountId(resultSet.getInt(index++));
 		account.setEmail(resultSet.getString(index++));
 		account.setPassword(resultSet.getString(index++));
 		account.setLastName(resultSet.getString(index++));
 		account.setFirstName(resultSet.getString(index++));
-	}	
+	}
+	
+	private void loadSearch(CurrentProject project, ResultSet resultSet, int index) throws SQLException {
+		project.setProjectName(resultSet.getString(index++));
+		project.setFileName(resultSet.getString(index++));
+	}
 	
 	
 	public void createTables() {
@@ -436,6 +330,48 @@ public class DerbyDatabase implements IDatabase {
 		});
 	}
 	
+	public ArrayList<CurrentProject> search(final String search) {
+		return executeTransaction(new Transaction<ArrayList<CurrentProject>>() {
+			@SuppressWarnings("resource")
+			@Override
+			public ArrayList<CurrentProject> execute(Connection conn) throws SQLException {
+				PreparedStatement stmt = null;
+				ResultSet resultSet = null;
+				
+				try {
+					stmt = conn.prepareStatement("select projectname, filename from projects like projectname = ?");
+					stmt.setString(1, search);
+					
+					ArrayList<CurrentProject> list = new ArrayList<CurrentProject>();
+					
+					// initialize boolean variable
+					Boolean found = false;
+					
+					resultSet = stmt.executeQuery();
+					
+					while (resultSet.next()) {
+						found = true;
+						
+						CurrentProject project = new CurrentProject();
+						loadSearch(project, resultSet, 1);
+
+						list.add(project);
+					}
+					
+//					if (!found) {
+//						something about no project found
+//					}
+					
+					return list;
+					
+				} finally {
+					DBUtil.closeQuietly(resultSet);
+					DBUtil.closeQuietly(stmt);
+				}
+			}
+		});
+	}
+		
 	// The main method creates the database tables and loads the initial data.
 	public static void main(String[] args) throws IOException {
 		System.out.println("Creating tables...");
