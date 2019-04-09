@@ -3,7 +3,6 @@ package edu.ycp.cs320.booksdb.persist;
 import java.util.List;
 
 import edu.ycp.cs320.lab02.model.CurrentProject;
-import edu.ycp.cs320.lab02.model.UploadProject;
 import edu.ycp.cs320.lab02.model.UserAccount;
 
 
@@ -15,9 +14,11 @@ public interface IDatabase {
 			//String beforeClass, String inClass, String other);
 	
 	public List<CurrentProject> InsertProjectsFromPDF (String projectName, String engineeringCategory, String keywords, String authors);
-	
 	public boolean InsertAccounts (String lastName, String firstName, String email, String password);
 	
+	// Logging in query
 	public UserAccount getAccountInfo (String email, String password);
+	// Creating account query
+	public boolean createAccount(String email, String password, String lastName, String firstName);
 	
 }

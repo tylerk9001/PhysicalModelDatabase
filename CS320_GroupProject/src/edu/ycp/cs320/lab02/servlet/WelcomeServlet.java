@@ -31,6 +31,7 @@ public class WelcomeServlet extends HttpServlet {
 		
 		System.out.println("Welcome Servlet: doPost");	
 		
+		
 		if (req.getParameter("logout") != null) {
 			HttpSession session = req.getSession(true);
 			session.invalidate();

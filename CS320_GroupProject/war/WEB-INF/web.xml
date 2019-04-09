@@ -20,6 +20,10 @@
     <servlet-class>edu.ycp.cs320.lab02.servlet.LoginServlet</servlet-class>
   </servlet>
   <servlet>
+    <servlet-name>SignUpServlet</servlet-name>
+    <servlet-class>edu.ycp.cs320.lab02.servlet.SignUpServlet</servlet-class>
+  </servlet>
+  <servlet>
   	<servlet-name>WelcomeServlet</servlet-name>
     <servlet-class>edu.ycp.cs320.lab02.servlet.WelcomeServlet</servlet-class>
   </servlet>
@@ -343,6 +347,10 @@
   <servlet-mapping>
     <servlet-name>LoginServlet</servlet-name>
     <url-pattern>/login</url-pattern>
+  </servlet-mapping>
+   <servlet-mapping>
+    <servlet-name>SignUpServlet</servlet-name>
+    <url-pattern>/signup</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
     <servlet-name>WelcomeServlet</servlet-name>

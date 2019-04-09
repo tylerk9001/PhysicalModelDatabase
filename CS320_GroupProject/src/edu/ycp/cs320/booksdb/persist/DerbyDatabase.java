@@ -174,6 +174,46 @@ public class DerbyDatabase implements IDatabase {
 		});
 	}
 	
+	public boolean createAccount(String email, String password, String lastName, String firstName) {
+		return executeTransaction(new Transaction<Boolean>() {
+			@SuppressWarnings("resource")
+			@Override
+			public Boolean execute(Connection conn) throws SQLException {
+				PreparedStatement stmt = null;
+				ResultSet resultSet = null;
+				
+				try {
+					stmt = conn.prepareStatement("select * from accounts " + "where email = ?");
+					stmt.setString(1, email);
+					resultSet = stmt.executeQuery();
+					
+					boolean found = false;
+					while (resultSet.next()) {
+						found = true;
+					}
+					
+					if (!found) {
+						stmt = conn.prepareStatement("insert into accounts (email, password, lastname, firstname) values (?, ?, ?, ?)");
+						stmt.setString(1, email);
+						stmt.setString(2, password);
+						stmt.setString(3, lastName);
+						stmt.setString(4, firstName);
+						stmt.executeUpdate();
+						
+						return true;
+					}
+					else {
+						return false;
+					}
+					
+				} finally {
+					DBUtil.closeQuietly(resultSet);
+					DBUtil.closeQuietly(stmt);
+				}
+				
+			}
+		});
+	}
 	
 	public<ResultType> ResultType executeTransaction(Transaction<ResultType> txn) {
 		try {
