@@ -18,4 +18,9 @@ public interface IDatabase {
 	// Search query
 	public ArrayList<CurrentProject> search(String search);
 	
+	// Retrieve Review
+	public boolean retrieveReview (String review_id);
+	
+	// Add review
+	public boolean addReview (String project_id, String account_id, String rating, String review);
 }

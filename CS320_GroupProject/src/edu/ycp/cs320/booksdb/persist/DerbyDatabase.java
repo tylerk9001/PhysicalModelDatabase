@@ -13,7 +13,7 @@ import edu.ycp.cs320.lab02.model.CurrentProject;
 import edu.ycp.cs320.lab02.model.Keywords;
 import edu.ycp.cs320.lab02.model.UserAccount;
 import edu.ycp.cs320.lab02.model.ProjectsAuthors;
-import edu.ycp.cs320.lab02.model.Search;
+//import edu.ycp.cs320.lab02.model.Search;
 import edu.ycp.cs320.sqldemo.DBUtil;
 
 public class DerbyDatabase implements IDatabase {
@@ -188,6 +188,7 @@ public class DerbyDatabase implements IDatabase {
 				PreparedStatement stmt3 = null;
 				PreparedStatement stmt4 = null;
 				PreparedStatement stmt5 = null;
+				PreparedStatement stmt6 = null;
 				
 				try {
 					stmt1 = conn.prepareStatement(
@@ -239,6 +240,18 @@ public class DerbyDatabase implements IDatabase {
 						);	
 						stmt5.executeUpdate();
 					
+					stmt6 = conn.prepareStatement(
+							"create table reviews (" +
+							" review_id integer primary key " +
+							" 	generated always as identity (start with 1, increment by 1), " +
+							" project_id varchar(70), " +
+							" account_id varchar(70), "+
+							" rating varchar(70), " +
+							" review varchar(500)" +
+							")"
+						);	
+						stmt6.executeUpdate();
+						
 					return true;
 				} finally {
 					DBUtil.closeQuietly(stmt1);
@@ -246,6 +259,7 @@ public class DerbyDatabase implements IDatabase {
 					DBUtil.closeQuietly(stmt3);
 					DBUtil.closeQuietly(stmt4);
 					DBUtil.closeQuietly(stmt5);
+					DBUtil.closeQuietly(stmt6);
 				}
 			}
 		});
