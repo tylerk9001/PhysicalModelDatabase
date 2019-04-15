@@ -1,8 +1,15 @@
 ----------------------------------------------------------------
+<<<<<<< HEAD
 Mon Apr 15 17:42:26 EDT 2019:
 Booting Derby version The Apache Software Foundation - Apache Derby - 10.10.2.0 - (1582446): instance a816c00e-016a-22f3-86b4-00000967a720 
 on database directory /Users/trevorswann/git/PhysicalModelDatabase/CS320_GroupProject/test.db with class loader sun.misc.Launcher$AppClassLoader@4e25154f 
 Loaded from file:/Users/trevorswann/CS320-Workspace/CS320_Derby/lib/derby.jar
+=======
+Mon Apr 15 16:53:10 EDT 2019:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.10.2.0 - (1582446): instance a816c00e-016a-22c6-6bdf-0000063dd5a0 
+on database directory /Users/tylerkautz/git/PhysicalModelDatabase/CS320_GroupProject/test.db with class loader sun.misc.Launcher$AppClassLoader@4e25154f 
+Loaded from file:/Users/tylerkautz/Desktop/CS320-Workspace/Archives/CS320_Derby/lib/derby.jar
+>>>>>>> branch 'master' of https://github.com/tylerk9001/PhysicalModelDatabase.git
 java.vendor=Oracle Corporation
 java.runtime.version=1.8.0_181-b13
 user.dir=/Users/trevorswann/git/PhysicalModelDatabase/CS320_GroupProject

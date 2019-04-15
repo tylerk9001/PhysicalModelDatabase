@@ -95,7 +95,11 @@
 	
 	<div id="searchResults">
 		<c:forEach items="${sessionScope.results}" var="projects">
+<<<<<<< HEAD
 			<c:out value="${projects.engineeringCategory}"></c:out>
+=======
+			<p><c:out value="${projects.category}"></c:out></p>
+>>>>>>> branch 'master' of https://github.com/tylerk9001/PhysicalModelDatabase.git
 		</c:forEach>
 	</div>
 	        
