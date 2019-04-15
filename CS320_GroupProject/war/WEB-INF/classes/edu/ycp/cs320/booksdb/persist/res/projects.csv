@@ -1,5 +1,5 @@
-Crane Rigging Angles|Construction|const-a.jsp
-Excavation and Earthwork Pressure|Construction|const-b.jsp
+Crane Rigging Angles|Construction|http://localhost:8081/project/const-a
+Excavation and Earthwork Pressure|Construction|http://localhost:8081/project/const-b
 When Worlds Collide|Dynamics|dyn-a.jsp
 Armor Attack|Dynamics|dyn-b.jsp
 The Helicopters|Dynamics|dyn-c.jsp

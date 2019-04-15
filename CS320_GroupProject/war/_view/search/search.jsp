@@ -95,8 +95,9 @@
 	
 	<div id="searchResults">
 		<c:forEach items="${sessionScope.results}" var="projects">
-			<c:out value="${projects.engineeringCategory}"></c:out><br>
-		</c:forEach>
+			<a href="${projects.fileName}"><c:out value="${projects.projectName}"></c:out></a><br>
+			
+		</c:forEach>		
 	</div>
 	        
     <footer>

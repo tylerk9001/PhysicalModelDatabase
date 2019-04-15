@@ -174,8 +174,8 @@ public class DerbyDatabase implements IDatabase {
 	}
 	
 	private void loadSearch(CurrentProject project, ResultSet resultSet, int index) throws SQLException {
-		project.setEngineeringCategory(resultSet.getString(index++));
-//		project.setFileName(resultSet.getString(index++));
+		project.setProjectName(resultSet.getString(index++));
+		project.setFileName(resultSet.getString(index++));
 	}
 	
 	
@@ -355,7 +355,7 @@ public class DerbyDatabase implements IDatabase {
 //				System.out.print(search);
 								
 				try {
-					stmt = conn.prepareStatement("select category from projects where category = ?");
+					stmt = conn.prepareStatement("select projectname, filename from projects where category = ?");
 					stmt.setString(1, search);
 					
 					ArrayList<CurrentProject> list = new ArrayList<CurrentProject>();
@@ -370,6 +370,9 @@ public class DerbyDatabase implements IDatabase {
 						
 						CurrentProject project = new CurrentProject();
 						loadSearch(project, resultSet, 1);
+						
+						// test output
+						System.out.print(project.getFileName());
 
 						list.add(project);
 					}
