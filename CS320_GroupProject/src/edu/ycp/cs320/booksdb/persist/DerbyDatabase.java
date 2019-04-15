@@ -175,7 +175,7 @@ public class DerbyDatabase implements IDatabase {
 	
 	private void loadSearch(CurrentProject project, ResultSet resultSet, int index) throws SQLException {
 		project.setEngineeringCategory(resultSet.getString(index++));
-		project.setFileName(resultSet.getString(index++));
+//		project.setFileName(resultSet.getString(index++));
 	}
 	
 	
