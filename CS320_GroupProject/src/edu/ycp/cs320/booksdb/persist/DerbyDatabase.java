@@ -353,7 +353,7 @@ public class DerbyDatabase implements IDatabase {
 				ResultSet resultSet = null;
 				
 				try {
-					stmt = conn.prepareStatement("select projectname, filename from projects like projectname = ?");
+					stmt = conn.prepareStatement("select category from projects where category = ?");
 					stmt.setString(1, search);
 					
 					ArrayList<CurrentProject> list = new ArrayList<CurrentProject>();

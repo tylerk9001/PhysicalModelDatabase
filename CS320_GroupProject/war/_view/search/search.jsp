@@ -94,7 +94,9 @@
 	</div>
 	
 	<div id="searchResults">
-		<p><c:out value="${sessionScope.results}"></c:out>
+		<c:forEach items="${sessionScope.results}" var="projects">
+			<p><c:out value="${projects.projectName}"></c:out></p>
+		</c:forEach>
 	</div>	
 	        
     <footer>
