@@ -95,7 +95,7 @@
 	
 	<div id="searchResults">
 		<c:forEach items="${sessionScope.results}" var="projects">
-			<p><c:out value="${projects.projectName}"></c:out></p>
+			<p><c:out value="${projects.category}"></c:out></p>
 		</c:forEach>
 	</div>	
 	        
