@@ -25,12 +25,12 @@ public class RatingReviewController {
 	}
 	
 	public boolean retrieveReview (RatingReviews model) {
-		retrieveReview = database.retrieveReview(model.getReview_ID());
+		//retrieveReview = database.retrieveReview(model.getReview_ID());
 		return retrieveReview;
 	}
 	
 	public boolean addReview (RatingReviews model) {
-		retrieveReview = database.addReview(model.getProject_ID(), model.getAccount_ID(), model.getRating(), model.getReview());
+		//retrieveReview = database.addReview(model.getProject_ID(), model.getAccount_ID(), model.getRating(), model.getReview());
 		return retrieveReview;
 	}
 }	 

@@ -25,8 +25,8 @@ public class SearchController {
 		return model;
 	}
 	
-	public ArrayList<CurrentProject> search(String search) {
-		ArrayList<CurrentProject> list = database.search(model.getSearch());
-		return list;
+	public ArrayList<CurrentProject> getProjectBySearchResult (String search) {
+		ArrayList<CurrentProject> projects = database.search(search);
+		return projects;
 	}
 }	 

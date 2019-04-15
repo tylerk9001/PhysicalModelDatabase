@@ -11,6 +11,11 @@
     <servlet-class>edu.ycp.cs320.lab02.servlet.IndexServlet</servlet-class>
   </servlet>
   
+  
+  <servlet>
+  <servlet-name>SearchServlet</servlet-name>
+    <servlet-class>edu.ycp.cs320.lab02.servlet.SearchServlet</servlet-class>
+  </servlet>
   <servlet>
   <servlet-name>LoginGoogleServlet</servlet-name>
     <servlet-class>edu.ycp.cs320.lab02.servlet.LoginGoogleServlet</servlet-class>
@@ -338,6 +343,10 @@
   <servlet-mapping>
     <servlet-name>IndexServlet</servlet-name>
     <url-pattern>/index</url-pattern>
+  </servlet-mapping>
+   <servlet-mapping>
+    <servlet-name>SearchServlet</servlet-name>
+    <url-pattern>/search</url-pattern>
   </servlet-mapping>
   
   <servlet-mapping>

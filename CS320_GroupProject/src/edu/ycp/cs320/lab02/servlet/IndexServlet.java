@@ -30,26 +30,6 @@ public class IndexServlet extends HttpServlet {
 		
 		System.out.println("Index Servlet: doPost");
 		
-		//Search model = new Search();
-		//SearchController controller = new SearchController();
-		
-		String search = req.getParameter("search");
-		
-		//model.setSearch(search);
-		
-//		if (model.getSearch() != "" && model.getSearch() != null) {
-//			controller.setModel(model);
-//			
-//			ArrayList<CurrentProject> projects = new ArrayList<CurrentProject>();
-//			
-//			projects = controller.search(search);
-//			for (CurrentProject project : projects) {
-//				ArrayList<CurrentProject> result = controller.search(search);
-//				//projects.add(result);
-//			}
-//			
-//		}
-//		
 		req.getRequestDispatcher("/_view/index.jsp").forward(req, resp);
 	}
 }
