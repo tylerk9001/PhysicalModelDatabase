@@ -39,13 +39,35 @@
 	}
 	
 	#searchBox button:hover {
-		
+		background: white;
+		border: 1px solid #2F3640;
+		transition: all 0.25s ease-in 0.25s;
 	}
 	
+	#searchResults {
+		padding: 0 595px 0 545px;
+	}
+	
+	.linkResult {
+		background-color: #86C232;
+		padding: 12px;
+		display: block;
+		color: #2F3640;
+		text-decoration: none;
+	}
+	
+	.linkResult:hover {
+		background-color: #2F3640;
+		color: white;
+		transition: all 0.25s ease-in 0.25s;
+	}
+	
+	
+	
 	.search-footer {
-    position: absolute;
-    top: 95%;
-}
+    	position: absolute;
+    	top: 125%;
+	}
 	
 </style>
 
@@ -82,21 +104,25 @@
     </nav>
     
     <div class="search-box">
-        <input class="search-txt" type="text" placeholder="Search..." name="">
-        <a class="search-btn" href="#"><i class="fas fa-search"></i></a>
+        <a class="search-btn" href="${pageContext.request.contextPath}/search"><i class="fas fa-search"></i></a>
     </div>
       
 	<div id="searchBox">
 		<form action="${pageContext.servletContext.contextPath}/search" method="post">
 			<input autocomplete="off" placeholder="Search..." type="text" name="search">
 			<button type="submit"><i class="fa fa-search"></i></button>
+			</form>
+	</div>
+	
+	<div style="text-align: center; font-size: 18px">
+		<form action="${pageContext.servletContext.contextPath}/search" method="post">
+			<i><p>${search}</p></i>
 		</form>
 	</div>
 	
 	<div id="searchResults">
 		<c:forEach items="${sessionScope.results}" var="projects">
-			<a href="${projects.fileName}"><c:out value="${projects.projectName}"></c:out></a><br>
-			
+			<a class="linkResult" href="${projects.fileName}"><c:out value="${projects.projectName}"></c:out></a><br>
 		</c:forEach>		
 	</div>
 	        

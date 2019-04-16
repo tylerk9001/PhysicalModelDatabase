@@ -44,6 +44,7 @@ public class SearchServlet extends HttpServlet {
 		projectsFound = controller.getProjectBySearchResult(search);
 		
 		HttpSession session = req.getSession();
+		req.setAttribute("search", "Search results for '" + search + "':");
 		session.setAttribute("results", projectsFound);
 		
 		// now call the JSP to render the new page

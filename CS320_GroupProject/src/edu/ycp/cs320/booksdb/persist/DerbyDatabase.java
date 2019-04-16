@@ -372,7 +372,7 @@ public class DerbyDatabase implements IDatabase {
 						loadSearch(project, resultSet, 1);
 						
 						// test output
-						System.out.print(project.getFileName());
+						System.out.println(project.getFileName());
 
 						list.add(project);
 					}
