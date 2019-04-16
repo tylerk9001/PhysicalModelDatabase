@@ -27,7 +27,6 @@
 	input[type=text]:focus {
 		background-color: #2F3640;
 	}
-	
 	#searchBox button {
 		height: 50px;
 		width: 50px;
@@ -43,7 +42,9 @@
 		border: 1px solid #2F3640;
 		transition: all 0.25s ease-in 0.25s;
 	}
-	
+
+	 
+	 
 	#searchResults {
 		padding: 0 595px 0 545px;
 	}
@@ -76,6 +77,13 @@
 		}
 	}
 	
+	@media (max-width: 480px) {
+		/* style="padding: 0 25% 0 22%" */
+		#searchResults {
+			padding: 0 25% 0 22%;
+		}
+	}
+	
 </style>
 
 <head>
@@ -87,6 +95,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="icon" href="${pageContext.request.contextPath}/_view/img/tab.png">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
@@ -116,18 +125,21 @@
       
 	<div id="searchBox">
 		<form action="${pageContext.servletContext.contextPath}/search" method="post">
-			<input autocomplete="off" placeholder="Search..." type="text" name="search">
-			<button type="submit"><i class="fa fa-search"></i></button>
+			<input autocomplete="off" placeholder="Search by author, keyword, category, or project name..." type="text" name="search">
+			
+			<button class="search-btn" type="submit"><i class="fa fa-search"></i></button> 
 			</form>
 	</div>
 	
 	<div style="text-align: center; font-size: 18px">
 		<form action="${pageContext.servletContext.contextPath}/search" method="post">
+			<%Boolean invalidSearch = (Boolean)request.getSession().getAttribute("search_failed");
+				if (invalidSearch != null) {%> <p>No search results found.</p><%}%>		
 			<i><p>${search}</p></i>
 		</form>
 	</div>
 	
-	<div id="searchResults">
+	<div id="searchResults" style="padding: 0 25% 0 22%">
 		<c:forEach items="${sessionScope.results}" var="projects">
 			<a class="linkResult" href="${projects.fileName}"><c:out value="${projects.projectName}"></c:out></a><br>
 		</c:forEach>		

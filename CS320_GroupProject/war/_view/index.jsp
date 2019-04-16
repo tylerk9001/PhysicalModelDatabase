@@ -44,8 +44,7 @@
 	    
 	
 	    <div class="search-box">
-	        <input class="search-txt" type="text" placeholder="Search..." name="search">
-	        <a class="search-btn" href="#"><i class="fas fa-search"></i></a>
+	        <a class="search-btn" href="${pageContext.request.contextPath}/search"><i class="fas fa-search"></i></a>
 	    </div>
 	    
 	    <content>
