@@ -355,8 +355,21 @@ public class DerbyDatabase implements IDatabase {
 //				System.out.print(search);
 								
 				try {
-					stmt = conn.prepareStatement("select projectname, filename from projects where category = ?");
-					stmt.setString(1, search);
+					String lower = search.toLowerCase();
+					String upper = search.toUpperCase();
+					stmt = conn.prepareStatement("select projectname, filename from projects, authors, keywords, projectauthors where lower(author) like ? or upper(author) like ?"
+							+ " or lower(keywords) like ? or upper(keywords) like ?"
+							+ " or lower(category) like ? or upper(category) like ?"
+							+ " or lower(projectname) like ? or upper(projectname) like ?"
+							+ " and projects.project_id = projectauthors.project_id and projectauthors.author_id = authors.author_id and projects.project_id = keywords.project_id");
+					stmt.setString(1, "%" + lower + "%");
+					stmt.setString(2, "%" + upper + "%");
+					stmt.setString(3, "%" + lower + "%");
+					stmt.setString(4, "%" + upper + "%");
+					stmt.setString(5, "%" + lower + "%");
+					stmt.setString(6, "%" + upper + "%");
+					stmt.setString(7, "%" + lower + "%");
+					stmt.setString(8, "%" + upper + "%");
 					
 					ArrayList<CurrentProject> list = new ArrayList<CurrentProject>();
 					
