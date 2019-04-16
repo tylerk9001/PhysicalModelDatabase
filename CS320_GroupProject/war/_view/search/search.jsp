@@ -63,10 +63,17 @@
 	}
 	
 	
-	
 	.search-footer {
-    	position: absolute;
-    	top: 125%;
+	    	position: fixed;
+	  		bottom: 0;
+		}
+	
+	@media print {
+		.search-footer {
+			display: block;
+	    	position: fixed;
+	  		bottom: 0;
+		}
 	}
 	
 </style>
@@ -127,6 +134,7 @@
 	</div>
 	        
     <footer>
+    	<br><br><br>
         <div class="footer search-footer">
             <p>Tyler Kautz, Trevor Swann, Jacob Stambaugh. Copyright &copy; 2019. Some Rights Reserved.</p>
         </div>
