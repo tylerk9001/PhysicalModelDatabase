@@ -35,16 +35,27 @@ public class SearchServlet extends HttpServlet {
 		
 		Search model = new Search();
 		SearchController controller = new SearchController();
+		HttpSession session = req.getSession();
 		
 		String search = req.getParameter("search");
 		model.setSearch(search);
 		controller.setModel(model);
 		
 		ArrayList<CurrentProject> projectsFound = new ArrayList<CurrentProject>();
-		projectsFound = controller.getProjectBySearchResult(search);
-		
-		HttpSession session = req.getSession();
-		session.setAttribute("results", projectsFound);
+	
+		try {
+			projectsFound = controller.getProjectBySearchResult(search);
+			req.setAttribute("search", "Search results for '" + search + "':");
+			session.setAttribute("results", projectsFound);
+			
+			if (session.getAttribute("search_failed") != null) {
+				session.removeAttribute("search_failed");
+			}
+			
+		}
+		catch (Exception e) {
+			session.setAttribute("search_failed", true);
+		}
 		
 		// now call the JSP to render the new page
 		req.getRequestDispatcher("/_view/search/search.jsp").forward(req, resp);

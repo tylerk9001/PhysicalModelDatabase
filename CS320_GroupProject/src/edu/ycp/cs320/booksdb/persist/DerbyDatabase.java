@@ -352,8 +352,10 @@ public class DerbyDatabase implements IDatabase {
 				PreparedStatement stmt = null;
 				ResultSet resultSet = null;
 				
+//				System.out.print(search);
+								
 				try {
-					stmt = conn.prepareStatement("select category from projects where category = ?");
+					stmt = conn.prepareStatement("select projectname, filename from projects where category = ?");
 					stmt.setString(1, search);
 					
 					ArrayList<CurrentProject> list = new ArrayList<CurrentProject>();
@@ -368,6 +370,9 @@ public class DerbyDatabase implements IDatabase {
 						
 						CurrentProject project = new CurrentProject();
 						loadSearch(project, resultSet, 1);
+						
+						// test output
+						System.out.println(project.getFileName());
 
 						list.add(project);
 					}
