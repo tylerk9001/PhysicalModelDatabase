@@ -358,20 +358,32 @@ public class DerbyDatabase implements IDatabase {
 					String lower = search.toLowerCase();
 					String upper = search.toUpperCase();
 					//stmt = conn.prepareStatement("select projectname, filename from projects, keywords where ((lower(category) like ? or upper(category) like ?) or (lower(keyword) like ? or upper(keyword) like ?)) and CAST(keywords.project_id as int) = projects.project_id");
+//					stmt = conn.prepareStatement("select projectname, filename "
+//							+ "from projects, keywords, authors, projectauthors "
+//							+ "where ((lower(category) like ? or upper(category) like ?) "
+//							+ "or (lower(keyword) like ? or upper(keyword) like ?) "
+//							+ "or (lower(authors.lastname) like ? or upper(authors.lastname) like ?)) "
+//							+ "and (CAST(keywords.project_id as int) = projects.project_id "
+//							+ "and CAST(projectauthors.project_id as int) = projects.project_id "
+//							+ "and authors.account_id = CAST(projectauthors.author_id as int))");					
+//					stmt.setString(1, "%" + lower + "%");
+//					stmt.setString(2, "%" + upper + "%");
+//					stmt.setString(3, "%" + lower + "%");
+//					stmt.setString(4, "%" + upper + "%");
+//					stmt.setString(5, "%" + lower + "%");
+//					stmt.setString(6, "%" + upper + "%");
+					
 					stmt = conn.prepareStatement("select projectname, filename "
-							+ "from projects, keywords, authors "
-							+ "where ((lower(category) like ? or upper(category) like ?) "
-							+ "or (lower(keyword) like ? or upper(keyword) like ?) "
-							+ "or (lower(authors.lastname) like ? or upper(authors.lastname) like ?)) "
-							+ "and CAST(keywords.project_id as int) = projects.project_id "
-							+ "and projectauthors.project_id = projects.project_id "
-							+ "and authors.author_id = projectauthors.author_id");					
-					stmt.setString(1, "%" + lower + "%");
-					stmt.setString(2, "%" + upper + "%");
-					stmt.setString(3, "%" + lower + "%");
-					stmt.setString(4, "%" + upper + "%");
-					stmt.setString(5, "%" + lower + "%");
-					stmt.setString(6, "%" + upper + "%");
+							+ "from projects, keywords, authors, projectauthors "
+							+ "where ((lower(category) = ? or upper(category) = ?) or (lower(keyword) = ? or upper(keyword) = ?) or (lower(authors.lastname) = ? or upper(authors.lastname) = ?)) "
+							+ "and (CAST(keywords.project_id as int) = projects.project_id and CAST(projectauthors.project_id as int) = projects.project_id and authors.account_id = CAST(projectauthors.author_id as int))");					
+					stmt.setString(1, search);
+					stmt.setString(2, search);
+					stmt.setString(3, search);
+					stmt.setString(4, search);
+					stmt.setString(5, search);
+					stmt.setString(6, search);
+					
 					ArrayList<CurrentProject> list = new ArrayList<CurrentProject>();
 					
 					// initialize boolean variable
