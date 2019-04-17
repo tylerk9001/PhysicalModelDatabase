@@ -311,8 +311,8 @@ public class DerbyDatabase implements IDatabase {
 					
 					insertProjectsAuthors = conn.prepareStatement("insert into projectAuthors (project_id, author_id) values (?, ?)");
 					for (ProjectsAuthors projectAuthor : projectsAuthorsList) {
-						insertProjectsAuthors.setString(1, projectAuthor.getProjectID());
-						insertProjectsAuthors.setString(2, projectAuthor.getAuthorID());
+						insertProjectsAuthors.setInt(1, projectAuthor.getProjectID());
+						insertProjectsAuthors.setInt(2, projectAuthor.getAuthorID());
 						insertProjectsAuthors.addBatch();
 					}
 					insertProjectsAuthors.executeBatch();

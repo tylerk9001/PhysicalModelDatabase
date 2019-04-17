@@ -33,6 +33,7 @@ public class ReadCSV implements Closeable {
 		return tuple;
 	}
 	
+	
 	public void close() throws IOException {
 		reader.close();
 	}

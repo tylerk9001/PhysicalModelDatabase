@@ -9,27 +9,27 @@ import edu.ycp.cs320.lab02.model.ProjectsAuthors;
 
 public class ProjectsAuthorsModelTest {
 	private ProjectsAuthors model;
-	private String authorID;
-	private String projectID;
+	private int authorID;
+	private int projectID;
 	
 	@Before
 	public void setUp() {
 		model = new ProjectsAuthors();
 		
-		authorID = "testProjectID";
-		projectID = "testAuthorID";
+		authorID = 4;
+		projectID = 5;
 	}
 	
 	@Test
 	public void testSetGetProjectID () {
 		model.setProjectID(projectID);
-		assertTrue(model.getProjectID().equals(projectID));
+		assertTrue(model.getProjectID() == projectID);
 	}
 	
 	@Test
 	public void testSetGetAuthorsID () {
 		model.setAuthorID(authorID);
-		assertTrue(model.getAuthorID().equals(authorID));
+		assertTrue(model.getAuthorID() == authorID);
 	}
 	
 }

@@ -66,8 +66,12 @@ public class InitialData {
 				}
 				Iterator<String> i = tuple.iterator();
 				ProjectsAuthors projectsAuthor = new ProjectsAuthors();
-				projectsAuthor.setProjectID(i.next());
-				projectsAuthor.setAuthorID(i.next());
+				String temp = i.next();
+				String[] tempArray = temp.split("|");
+				System.out.print(tempArray[0]);
+				System.out.print(tempArray[1]);
+				projectsAuthor.setProjectID(Integer.parseInt(tempArray[0]));
+				projectsAuthor.setAuthorID(Integer.parseInt(tempArray[1]));
 				projectsAuthorsList.add(projectsAuthor);
 			}
 			return projectsAuthorsList;
