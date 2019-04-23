@@ -1,26 +1,26 @@
 package edu.ycp.cs320.lab02.model;
 
 public class ProjectsAuthors {
-	private String authorID;
-	private String projectID;
+	private int authorID;
+	private int projectID;
 	
 
 	public ProjectsAuthors() {
 	}
 	
-	public void setAuthorID(String authorID) {
+	public void setAuthorID(int authorID) {
 		this.authorID = authorID;
 	}
 	
-	public String getAuthorID() {
+	public int getAuthorID() {
 		return authorID;
 	}
 	
-	public void setProjectID(String string) {
+	public void setProjectID(int string) {
 		this.projectID = string;
 	}
 	
-	public String getProjectID() {
+	public int getProjectID() {
 		return projectID;
 	}
 }

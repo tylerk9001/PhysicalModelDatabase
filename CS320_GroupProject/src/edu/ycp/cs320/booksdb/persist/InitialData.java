@@ -67,8 +67,8 @@ public class InitialData {
 				Iterator<String> i = tuple.iterator();
 				ProjectsAuthors projectsAuthor = new ProjectsAuthors();
 				
-				projectsAuthor.setProjectID(i.next());
-				projectsAuthor.setAuthorID(i.next());
+				projectsAuthor.setProjectID(Integer.parseInt(i.next()));
+				projectsAuthor.setAuthorID(Integer.parseInt(i.next()));
 				projectsAuthorsList.add(projectsAuthor);
 			}
 			return projectsAuthorsList;
