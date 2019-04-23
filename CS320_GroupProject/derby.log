@@ -1,13 +1,13 @@
 ----------------------------------------------------------------
-Wed Apr 17 10:23:44 EDT 2019:
-Booting Derby version The Apache Software Foundation - Apache Derby - 10.10.2.0 - (1582446): instance a816c00e-016a-2bae-9b4a-00000e24c6f8 
-on database directory /Users/trevorswann/git/PhysicalModelDatabase/CS320_GroupProject/test.db with class loader sun.misc.Launcher$AppClassLoader@4e25154f 
-Loaded from file:/Users/trevorswann/CS320-Workspace/CS320_Derby/lib/derby.jar
+Thu Apr 18 11:50:35 EDT 2019:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.10.2.0 - (1582446): instance a816c00e-016a-3124-7b2a-00000e1ab470 
+on database directory C:\Users\Stambuck\git\PhysicalModelDatabase\CS320_GroupProject\test.db with class loader sun.misc.Launcher$AppClassLoader@2a139a55 
+Loaded from file:/C:/Users/Stambuck/eclipse-workspace/CS320_Derby/lib/derby.jar
 java.vendor=Oracle Corporation
-java.runtime.version=1.8.0_181-b13
-user.dir=/Users/trevorswann/git/PhysicalModelDatabase/CS320_GroupProject
-os.name=Mac OS X
-os.arch=x86_64
-os.version=10.14.4
+java.runtime.version=1.8.0_192-b12
+user.dir=C:\Users\Stambuck\git\PhysicalModelDatabase\CS320_GroupProject
+os.name=Windows 10
+os.arch=amd64
+os.version=10.0
 derby.system.home=null
 Database Class Loader started - derby.database.classpath=''
