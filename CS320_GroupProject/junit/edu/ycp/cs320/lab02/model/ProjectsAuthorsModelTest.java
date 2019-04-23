@@ -9,15 +9,15 @@ import edu.ycp.cs320.lab02.model.ProjectsAuthors;
 
 public class ProjectsAuthorsModelTest {
 	private ProjectsAuthors model;
-	private int authorID;
-	private int projectID;
+	private String authorID;
+	private String projectID;
 	
 	@Before
 	public void setUp() {
 		model = new ProjectsAuthors();
 		
-		authorID = 4;
-		projectID = 5;
+		authorID = "4";
+		projectID = "5";
 	}
 	
 	@Test
