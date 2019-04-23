@@ -46,8 +46,7 @@ public class InitialData {
 				}
 				Iterator<String> i = tuple.iterator();
 				UserAccount user = new UserAccount();
-				user.setFirstName(i.next());
-				user.setLastName(i.next());
+				user.setName(i.next());
 				userList.add(user);
 			}
 			return userList;
@@ -67,12 +66,13 @@ public class InitialData {
 				Iterator<String> i = tuple.iterator();
 				ProjectsAuthors projectsAuthor = new ProjectsAuthors();
 				
-				String temp = "1";
-				int temp1 = Integer.parseInt(temp);
+				i.next();
+				int temp = Integer.parseInt(i.next());
+				projectsAuthor.setProjectID(temp);
 				
-				projectsAuthor.setProjectID(temp1);
+				temp = Integer.parseInt(i.next());
+				projectsAuthor.setAuthorID(temp);
 				
-				projectsAuthor.setAuthorID(temp1);
 				projectsAuthorsList.add(projectsAuthor);
 			}
 			return projectsAuthorsList;
@@ -92,7 +92,8 @@ public class InitialData {
 				}
 				Iterator<String> i = tuple.iterator();
 				Keywords keywords = new Keywords();
-				keywords.setProjectID(i.next());
+
+				keywords.setProjectID(Integer.parseInt(i.next()));
 
 				while (i.hasNext()) {
 					keywords.addToKeywords(i.next());

@@ -13,7 +13,7 @@ public class KeywordsModelTest {
 	private Keywords model;
 	private String keywordOne, keywordTwo, keywordThree;
 	private ArrayList<String> keywords;
-	private String projectID;
+	private int projectID;
 		
 	
 	@Before
@@ -24,7 +24,7 @@ public class KeywordsModelTest {
 		keywordOne = "testKeywordOne";
 		keywordTwo = "testKeywordsTwo";
 		keywordThree = "testKeywordThree";
-		projectID = "testProjectID";
+		projectID = 4;
 	}
 	
 	@Test
@@ -47,7 +47,7 @@ public class KeywordsModelTest {
 	@Test
 	public void testSetGetProjectID () {
 		model.setProjectID(projectID);
-		assertTrue(model.getProjectID().equals(projectID));
+		assertTrue(model.getProjectID() == projectID);
 	}
 	
 }

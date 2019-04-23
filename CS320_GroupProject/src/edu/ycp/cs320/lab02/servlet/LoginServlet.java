@@ -55,8 +55,7 @@ public class LoginServlet extends HttpServlet {
 			HttpSession session = req.getSession(true);
 			session.setAttribute("login", true);
 			session.setAttribute("email", model.getEmail());
-			session.setAttribute("firstname", model.getFirstName());
-			session.setAttribute("lastname", model.getLastName());
+			session.setAttribute("name", model.getName());
 			
 			if (session.getAttribute("login_failed") != null) {
 				session.removeAttribute("login_failed");

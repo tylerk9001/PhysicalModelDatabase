@@ -38,6 +38,7 @@ public class SignUpServlet extends HttpServlet {
 		
 		String firstName = req.getParameter("firstname");
 		String lastName = req.getParameter("lastname");
+		String name = firstName + lastName;
 		String email = req.getParameter("email");
 		String password = req.getParameter("password");
 		String retypePassword = req.getParameter("retypePassword");
@@ -49,8 +50,7 @@ public class SignUpServlet extends HttpServlet {
 				&& email != "" && email != null && password != "" && password != null 
 				&& retypePassword != "" && retypePassword != null) {
 			if (password.equals(retypePassword)) {
-				newAccount.setFirstName(firstName);
-				newAccount.setLastName(lastName);
+				newAccount.setName(name);
 				newAccount.setEmail(email);
 				newAccount.setPassword(password);
 				controller.setModel(newAccount);
@@ -69,7 +69,7 @@ public class SignUpServlet extends HttpServlet {
 		
 		if (accountCreationSuccessful == true) {
 			session.setAttribute("login", true);
-			session.setAttribute("firstname", newAccount.getFirstName());
+			session.setAttribute("name", newAccount.getName());
 			
 			resp.sendRedirect("/project/login");
 		}

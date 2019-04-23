@@ -13,7 +13,7 @@ public interface IDatabase {
 	public UserAccount getAccountInfo (String email, String password);
 	
 	// Creating account query
-	public boolean createAccount(String email, String password, String lastName, String firstName);
+	public boolean createAccount(String email, String password, String Name);
 	
 	// Search query
 	public ArrayList<CurrentProject> search(String search);

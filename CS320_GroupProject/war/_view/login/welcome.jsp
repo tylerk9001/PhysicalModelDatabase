@@ -26,7 +26,7 @@
 </style>
 
 <head>
-    <title><c:out value="${sessionScope.firstname} ${sessionScope.lastname}"/> | Dashboard </title>
+    <title><c:out value="${sessionScope.name}"/> | Dashboard </title>
     <!--Website CSS-->
     <link rel="icon" href="${pageContext.request.contextPath}/_view/img/tab.png">
     <link href="${pageContext.request.contextPath}/_view/css/collapse-1.css" rel="stylesheet">
@@ -72,13 +72,13 @@
 	        	 <div class="container1-color">
 	            	<div class="user-info">
 	                	<div class="user-message">
-	                    <h1>Welcome, <c:out value="${sessionScope.firstname}"/>!</h1>
+	                    <h1>Welcome, <c:out value="${sessionScope.name}"/>!</h1>
 	                    
 	                </div>
 	          
 	          		  
                   <div class="user-name">
-                      <p><i class="fas fa-users"></i> : <c:out value="${sessionScope.firstname} ${sessionScope.lastname}"></c:out></p>
+                      <p><i class="fas fa-users"></i> : <c:out value="${sessionScope.name}"></c:out></p>
                       <p><i class="fas fa-envelope"></i> : <c:out value="${sessionScope.email}"></c:out></p>
                       <br>
                   </div>

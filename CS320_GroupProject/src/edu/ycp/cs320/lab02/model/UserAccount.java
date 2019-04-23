@@ -1,8 +1,7 @@
 package edu.ycp.cs320.lab02.model;
 
 public class UserAccount {
-	private String firstName;
-	private String lastName;
+	private String name;
 	private String email;
 	private String password;
 	private int userAccountId;
@@ -10,20 +9,12 @@ public class UserAccount {
 	public UserAccount() {
 	}
 	
-	public String getFirstName () {
-		return firstName;
+	public String getName () {
+		return name;
 	}
 	
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
-	}
-	
-	public String getLastName () {
-		return lastName;
-	}
-	
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
+	public void setName(String name) {
+		this.name = name;
 	}
 	
 	public String getEmail () {

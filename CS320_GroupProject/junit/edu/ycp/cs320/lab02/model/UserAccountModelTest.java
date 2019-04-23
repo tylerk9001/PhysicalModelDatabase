@@ -9,8 +9,7 @@ import edu.ycp.cs320.lab02.model.UserAccount;
 
 public class UserAccountModelTest {
 	private UserAccount model;
-	private String firstName;
-	private String lastName;
+	private String name;
 	private String email;
 	private String password;
 	private int userAccountId;
@@ -22,8 +21,7 @@ public class UserAccountModelTest {
 		
 		email = "testEmail@ycp.edu";
 		password = "testPassword";
-		firstName = "testFirstName";
-		lastName = "testLastName";
+		name = "testName";
 		userAccountId = 0001;
 	}
 	
@@ -40,15 +38,9 @@ public class UserAccountModelTest {
 	}
 	
 	@Test
-	public void testSetGetFirstName () {
-		model.setFirstName(firstName);
-		assertTrue(model.getFirstName().equals(firstName));
-	}
-	
-	@Test
-	public void testSetGetLastName () {
-		model.setLastName(lastName);
-		assertTrue(model.getLastName().equals(lastName));
+	public void testSetGetName () {
+		model.setName(name);
+		assertTrue(model.getName().equals(name));
 	}
 	
 	@Test

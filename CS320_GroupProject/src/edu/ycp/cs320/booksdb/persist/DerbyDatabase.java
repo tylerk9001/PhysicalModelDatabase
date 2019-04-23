@@ -69,7 +69,7 @@ public class DerbyDatabase implements IDatabase {
 		});
 	}
 	
-	public boolean createAccount(String email, String password, String lastName, String firstName) {
+	public boolean createAccount(String email, String password, String name) {
 		return executeTransaction(new Transaction<Boolean>() {
 			@SuppressWarnings("resource")
 			@Override
@@ -90,11 +90,10 @@ public class DerbyDatabase implements IDatabase {
 					}
 					
 					if (!found) {
-						stmt = conn.prepareStatement("insert into accounts (email, password, lastname, firstname) values (?, ?, ?, ?)");
+						stmt = conn.prepareStatement("insert into accounts (email, password, name) values (?, ?, ?)");
 						stmt.setString(1, email);
 						stmt.setString(2, password);
-						stmt.setString(3, lastName);
-						stmt.setString(4, firstName);
+						stmt.setString(3, name);
 						stmt.executeUpdate();
 						
 						return true;
@@ -169,8 +168,7 @@ public class DerbyDatabase implements IDatabase {
 		account.setUserAccountId(resultSet.getInt(index++));
 		account.setEmail(resultSet.getString(index++));
 		account.setPassword(resultSet.getString(index++));
-		account.setLastName(resultSet.getString(index++));
-		account.setFirstName(resultSet.getString(index++));
+		account.setName(resultSet.getString(index++));
 	}
 	
 	private void loadSearch(CurrentProject project, ResultSet resultSet, int index) throws SQLException {
@@ -195,9 +193,7 @@ public class DerbyDatabase implements IDatabase {
 						"create table authors (" +
 						"	account_id integer primary key " +
 						"		generated always as identity (start with 1, increment by 1), " +									
-						"	firstname varchar(70)," +
-						"	lastname varchar(70)" +
-						")"
+						"	name varchar(150))"
 					);	
 					stmt1.executeUpdate();
 					
@@ -218,23 +214,22 @@ public class DerbyDatabase implements IDatabase {
 							"		generated always as identity (start with 1, increment by 1), " +									
 							"   email varchar(70)," +
 							"   password varchar(70)," +
-							"	lastname varchar(70)," +
-							"	firstname varchar(70)" +
-							")"
+							"	firstname varchar(70)," +
+							" 	lastname varchar(70))"
 						);	
 						stmt3.executeUpdate();
 						
 					stmt4 = conn.prepareStatement(
 							"create table projectAuthors (" +
-							"	project_id varchar(70), " +
-							"   author_id varchar(70)" +
+							"	project_id integer, " +
+							"   author_id integer" +
 							")"
 						);	
 						stmt4.executeUpdate();
 						
 					stmt5 = conn.prepareStatement(
 							"create table keywords (" +
-							"	project_id varchar(70), " +
+							"	project_id integer, " +
 							"   keyword varchar(500)" +
 							")"
 						);	
@@ -244,8 +239,8 @@ public class DerbyDatabase implements IDatabase {
 							"create table reviews (" +
 							" review_id integer primary key " +
 							" 	generated always as identity (start with 1, increment by 1), " +
-							" project_id varchar(70), " +
-							" account_id varchar(70), "+
+							" project_id integer, " +
+							" account_id integer, "+
 							" rating varchar(70), " +
 							" review varchar(500)" +
 							")"
@@ -301,10 +296,9 @@ public class DerbyDatabase implements IDatabase {
 					
 					// populate books table (do this after authors table,
 					// since author_id must exist in authors table before inserting book)
-					insertAuthor = conn.prepareStatement("insert into authors (firstName, lastName) values (?, ?)");
+					insertAuthor = conn.prepareStatement("insert into authors (name) values (?)");
 					for (UserAccount account : accountList) {
-						insertAuthor.setString(1, account.getFirstName());
-						insertAuthor.setString(2, account.getLastName());
+						insertAuthor.setString(1, account.getName());
 						insertAuthor.addBatch();
 					}
 					insertAuthor.executeBatch();
@@ -320,7 +314,7 @@ public class DerbyDatabase implements IDatabase {
 					
 					insertKeywords = conn.prepareStatement("insert into keywords (project_id, keyword) values (?, ?)");
 					for (Keywords keyword : keywordList) {
-						insertKeywords.setString(1, keyword.getProjectID());
+						insertKeywords.setInt(1, keyword.getProjectID());
 						String words = keyword.pullFromKeywords();
 						for (int i = 0; i < 4; i++) {
 							String temp = keyword.pullFromKeywords();
@@ -357,33 +351,24 @@ public class DerbyDatabase implements IDatabase {
 				try {
 					String lower = search.toLowerCase();
 					String upper = search.toUpperCase();
-					stmt = conn.prepareStatement("select projectname, filename from projects, keywords where ((lower(category) like ? or upper(category) like ?) or (lower(keyword) like ? or upper(keyword) like ?)) and CAST(keywords.project_id as int) = projects.project_id");
-//					stmt = conn.prepareStatement("select projectname, filename "
-//							+ "from projects, keywords, authors, projectauthors "
-//							+ "where ((lower(category) like ? or upper(category) like ?) "
-//							+ "or (lower(keyword) like ? or upper(keyword) like ?) "
-//							+ "or (lower(authors.lastname) like ? or upper(authors.lastname) like ?)) "
-//							+ "and (CAST(keywords.project_id as int) = projects.project_id "
-//							+ "and CAST(projectauthors.project_id as int) = projects.project_id "
-//							+ "and authors.account_id = CAST(projectauthors.author_id as int))");					
-//					stmt.setString(1, "%" + lower + "%");
-//					stmt.setString(2, "%" + upper + "%");
-//					stmt.setString(3, "%" + lower + "%");
-//					stmt.setString(4, "%" + upper + "%");
-//					stmt.setString(5, "%" + lower + "%");
-//					stmt.setString(6, "%" + upper + "%");
-					
 					stmt = conn.prepareStatement("select projectname, filename "
 							+ "from projects, keywords, authors, projectauthors "
-							+ "where ((lower(category) = ? or upper(category) = ?) or (lower(keyword) = ? or upper(keyword) = ?) or (lower(authors.lastname) = ? or upper(authors.lastname) = ?)) "
-							+ "and (CAST(keywords.project_id as int) = projects.project_id and CAST(projectauthors.project_id as int) = projects.project_id and authors.account_id = CAST(projectauthors.author_id as int))");					
-					stmt.setString(1, search);
-					stmt.setString(2, search);
-					stmt.setString(3, search);
-					stmt.setString(4, search);
-					stmt.setString(5, search);
-					stmt.setString(6, search);
-					
+							+ "where (lower(projectname) like ? or upper(projectname) like ? "
+							+ "or lower(category) like ? or upper(category) like ? "
+							+ "or lower(keyword) like ? or upper(keyword) like ? "
+							+ "or lower(authors.name) like ? or upper(authors.name) like ?) "
+							+ "and (keywords.project_id = projects.project_id "
+							+ "and projectauthors.project_id = projects.project_id "
+							+ "and authors.account_id = projectauthors.author_id)");	
+					stmt.setString(1, "%" + lower + "%");
+					stmt.setString(2, "%" + upper + "%");
+					stmt.setString(3, "%" + lower + "%");
+					stmt.setString(4, "%" + upper + "%");
+					stmt.setString(5, "%" + lower + "%");
+					stmt.setString(6, "%" + upper + "%");
+					stmt.setString(7, "%" + lower + "%");
+					stmt.setString(8, "%" + upper + "%");
+										
 					ArrayList<CurrentProject> list = new ArrayList<CurrentProject>();
 					
 					// initialize boolean variable

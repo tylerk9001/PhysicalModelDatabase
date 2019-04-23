@@ -25,7 +25,7 @@ public class SignUpController {
 	}
 	
 	public boolean createAccount(UserAccount model) {
-		accountCreationSuccessful = database.createAccount(model.getEmail(), model.getPassword(), model.getLastName(), model.getFirstName());
+		accountCreationSuccessful = database.createAccount(model.getEmail(), model.getPassword(), model.getName());
 		return accountCreationSuccessful;
 	}
 }	 

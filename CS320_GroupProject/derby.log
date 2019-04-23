@@ -1,20 +1,13 @@
 ----------------------------------------------------------------
-<<<<<<< HEAD
-Thu Apr 18 11:50:35 EDT 2019:
-Booting Derby version The Apache Software Foundation - Apache Derby - 10.10.2.0 - (1582446): instance a816c00e-016a-3124-7b2a-00000e1ab470 
-on database directory C:\Users\Stambuck\git\PhysicalModelDatabase\CS320_GroupProject\test.db with class loader sun.misc.Launcher$AppClassLoader@2a139a55 
-Loaded from file:/C:/Users/Stambuck/eclipse-workspace/CS320_Derby/lib/derby.jar
-=======
-Fri Apr 19 21:24:07 EDT 2019:
-Booting Derby version The Apache Software Foundation - Apache Derby - 10.10.2.0 - (1582446): instance a816c00e-016a-3857-ea95-00000e24b9a0 
+Tue Apr 23 17:31:38 EDT 2019:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.10.2.0 - (1582446): instance a816c00e-016a-4c1c-8362-000005e65a18 
 on database directory /Users/trevorswann/git/PhysicalModelDatabase/CS320_GroupProject/test.db with class loader sun.misc.Launcher$AppClassLoader@4e25154f 
 Loaded from file:/Users/trevorswann/CS320-Workspace/CS320_Derby/lib/derby.jar
->>>>>>> branch 'master' of https://github.com/tylerk9001/PhysicalModelDatabase.git
 java.vendor=Oracle Corporation
-java.runtime.version=1.8.0_192-b12
-user.dir=C:\Users\Stambuck\git\PhysicalModelDatabase\CS320_GroupProject
-os.name=Windows 10
-os.arch=amd64
-os.version=10.0
+java.runtime.version=1.8.0_181-b13
+user.dir=/Users/trevorswann/git/PhysicalModelDatabase/CS320_GroupProject
+os.name=Mac OS X
+os.arch=x86_64
+os.version=10.14.4
 derby.system.home=null
 Database Class Loader started - derby.database.classpath=''

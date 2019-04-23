@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class Keywords {
 	private ArrayList<String> keywords = new ArrayList<String>();
-	private String projectID;
+	private int projectID;
 
 	public Keywords() {
 	}
@@ -22,11 +22,11 @@ public class Keywords {
 		}
 	}
 	
-	public void setProjectID(String projectID) {
-		this.projectID = projectID;
+	public void setProjectID(int i) {
+		this.projectID = i;
 	}
 	
-	public String getProjectID() {
+	public int getProjectID() {
 		return projectID;
 	}
 }
