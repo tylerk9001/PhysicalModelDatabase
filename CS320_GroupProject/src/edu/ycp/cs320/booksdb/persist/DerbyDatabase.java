@@ -311,8 +311,8 @@ public class DerbyDatabase implements IDatabase {
 					
 					insertProjectsAuthors = conn.prepareStatement("insert into projectAuthors (project_id, author_id) values (?, ?)");
 					for (ProjectsAuthors projectAuthor : projectsAuthorsList) {
-						insertProjectsAuthors.setInt(1, projectAuthor.getProjectID());
-						insertProjectsAuthors.setInt(2, projectAuthor.getAuthorID());
+						insertProjectsAuthors.setString(1, projectAuthor.getProjectID());
+						insertProjectsAuthors.setString(2, projectAuthor.getAuthorID());
 						insertProjectsAuthors.addBatch();
 					}
 					insertProjectsAuthors.executeBatch();
@@ -357,7 +357,7 @@ public class DerbyDatabase implements IDatabase {
 				try {
 					String lower = search.toLowerCase();
 					String upper = search.toUpperCase();
-					//stmt = conn.prepareStatement("select projectname, filename from projects, keywords where ((lower(category) like ? or upper(category) like ?) or (lower(keyword) like ? or upper(keyword) like ?)) and CAST(keywords.project_id as int) = projects.project_id");
+					stmt = conn.prepareStatement("select projectname, filename from projects, keywords where ((lower(category) like ? or upper(category) like ?) or (lower(keyword) like ? or upper(keyword) like ?)) and CAST(keywords.project_id as int) = projects.project_id");
 //					stmt = conn.prepareStatement("select projectname, filename "
 //							+ "from projects, keywords, authors, projectauthors "
 //							+ "where ((lower(category) like ? or upper(category) like ?) "
