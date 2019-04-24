@@ -48,15 +48,13 @@
 	                <div class="logo"><a><i class="fa fa-cog" ></i></a></div>
 	                <a href="${pageContext.request.contextPath}/index" class="border-nav"><i class="fas fa-home"></i> Home</a>
 	                <c:if test="${sessionScope.login != null}">
-		                <a href="${pageContext.request.contextPath}/welcome"><i class="fas fa-tachometer-alt"></i>  Dashboard</a>
+		                <a href="${pageContext.request.contextPath}/dashboard"><i class="fas fa-tachometer-alt"></i>  Dashboard</a>
 		                <a href="#projects"><i class="fas fa-file-alt"></i> Projects</a>
 		                <a href="${pageContext.request.contextPath}/upload"><i class="fas fa-file-upload"></i> Upload a Project</a>
 	             	</c:if>
 	             
 	             	<div class="access-btns">
-	             		<form action="${pageContext.request.contextPath}/logout">
-		             		<input name="logout" type="submit" value="Log Out"><i class="fas fa-sign-out-alt"></i>	
-	             		</form>
+	             		<a href="${pageContext.request.contextPath}/logout">Log Out <i class="fas fa-sign-out-alt"></i>	</a>
                 	</div>
 	            </div>            
 	        </div>    

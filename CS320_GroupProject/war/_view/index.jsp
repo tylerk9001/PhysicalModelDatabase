@@ -37,10 +37,10 @@
                     
 	                
 	                <div class="access-btns">
-                        <form action="${pageContext.request.contextPath}/welcome">
+                        <form action="${pageContext.request.contextPath}/dashboard">
                             <c:choose>
                                 <c:when test="${sessionScope.login == true}">
-                                    <a href="${pageContext.request.contextPath}/welcome" name="dashboard"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+                                    <a href="${pageContext.request.contextPath}/dashboard" name="dashboard"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
                                 </c:when>
                                 <c:when test="${sessionScope.login == null}">
                                    <a href="${pageContext.request.contextPath}/login" class="button">Login</a>

@@ -6,6 +6,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import edu.ycp.cs320.lab02.controller.UserAccountController;
 import edu.ycp.cs320.lab02.model.UserAccount;
@@ -29,7 +30,7 @@ public class DynAServlet extends HttpServlet {
 			throws ServletException, IOException {
 		
 		System.out.println("Dyn_A Servlet: doPost");
-		
+	
 		// now call the JSP to render the new page
 		req.getRequestDispatcher("/_view/categories/dynamics/dyn-a.jsp").forward(req, resp);
 	}

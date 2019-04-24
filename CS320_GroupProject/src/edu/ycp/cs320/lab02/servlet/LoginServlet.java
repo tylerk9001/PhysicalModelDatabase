@@ -60,7 +60,7 @@ public class LoginServlet extends HttpServlet {
 			if (session.getAttribute("login_failed") != null) {
 				session.removeAttribute("login_failed");
 			}
-			resp.sendRedirect("/project/welcome");
+			resp.sendRedirect("/project/dashboard");
 		}
 		else {
 			HttpSession session = req.getSession(true);
