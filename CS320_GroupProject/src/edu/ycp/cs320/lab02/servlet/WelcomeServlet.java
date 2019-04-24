@@ -31,14 +31,7 @@ public class WelcomeServlet extends HttpServlet {
 		
 		System.out.println("Welcome Servlet: doPost");	
 		
-		
-		if (req.getParameter("logout") != null) {
-			HttpSession session = req.getSession(true);
-			session.invalidate();
-			resp.sendRedirect("/project/index");
-		}
-		
 		// call JSP to generate empty form
-		req.getRequestDispatcher("/_view/login/welcome.jsp").forward(req, resp);
+		//req.getRequestDispatcher("/_view/login/welcome.jsp").forward(req, resp);
 	}
 }

@@ -68,5 +68,6 @@ public class LoginServlet extends HttpServlet {
 			resp.sendRedirect("/project/login");
 			
 		}
+		
 	}
 }

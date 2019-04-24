@@ -31,9 +31,6 @@ public class IndexServlet extends HttpServlet {
 		
 		System.out.println("Index Servlet: doPost");
 		
-		HttpSession session = req.getSession(true);
-		session.setAttribute("login", true);
-		
 		req.getRequestDispatcher("/_view/index.jsp").forward(req, resp);
 	}
 }

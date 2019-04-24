@@ -30,6 +30,7 @@
     <!--Website CSS-->
     <link rel="icon" href="${pageContext.request.contextPath}/_view/img/tab.png">
     <link href="${pageContext.request.contextPath}/_view/css/collapse-1.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/_view/css/application.css" rel="stylesheet">
     <!-- Icon CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" 
@@ -53,19 +54,18 @@
 	             	</c:if>
 	             
 	             	<div class="access-btns">
-	             		<form action="${pageContext.request.contextPath}/welcome">
-		             		<c:choose>
-		             			<c:when test="${sessionScope.login == true}">
-		             				<a href="${pageContext.request.contextPath}/index" name="logout">Log Out <i class="fas fa-sign-out-alt"></i></a>
-		             			</c:when>
-		             		</c:choose>
+	             		<form action="${pageContext.request.contextPath}/logout">
+		             		<input name="logout" type="submit" value="Log Out"><i class="fas fa-sign-out-alt"></i>	
 	             		</form>
                 	</div>
 	            </div>            
-	        </div>
-	        
-	        
+	        </div>    
 	    </nav>
+	    
+	    <div class="search-box">
+	        <a class="search-btn" href="${pageContext.request.contextPath}/search"><i class="fas fa-search"></i></a>
+	    </div>
+	    
 	    
 	    <c:if test="${sessionScope.login != null}">
 		     <div class="content-container">
