@@ -38,7 +38,7 @@ public class SignUpServlet extends HttpServlet {
 		
 		String firstName = req.getParameter("firstname");
 		String lastName = req.getParameter("lastname");
-		String name = firstName + lastName;
+		String name = firstName + " " + lastName;
 		String email = req.getParameter("email");
 		String password = req.getParameter("password");
 		String retypePassword = req.getParameter("retypePassword");

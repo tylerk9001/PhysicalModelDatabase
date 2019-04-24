@@ -94,6 +94,7 @@
 <head>
     <title>Sign Up | Physical Model </title>
     <!--Website CSS-->
+    <link rel="icon" href="${pageContext.request.contextPath}/_view/img/tab.png">
     <link href="${pageContext.request.contextPath}/_view/css/collapse-1.css" type="text/css" rel="stylesheet">
     <link href="${pageContext.request.contextPath}/_view/css/application.css" type="text/css" rel="stylesheet">
     <!-- Icon CSS -->
@@ -118,13 +119,13 @@
                 <a href="${pageContext.request.contextPath}/index#mechanics">Mechanics</a>
                 <a href="${pageContext.request.contextPath}/index#statics">Statics</a>
                 <a href="${pageContext.request.contextPath}/index#thermodynamics">Thermodynamics</a>
+                </div>
             </div>
         </div>
     </nav>
     
     <div class="search-box">
-        <input class="search-txt" type="text" placeholder="Search..." name="">
-        <a class="search-btn" href="#"><i class="fas fa-search"></i></a>
+        <a class="search-btn" href="#"><i class="fas fa-search"></i></a>    
     </div>
       
 

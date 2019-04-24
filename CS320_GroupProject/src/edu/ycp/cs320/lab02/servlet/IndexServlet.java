@@ -7,6 +7,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 //import edu.ycp.cs320.lab02.controller.SearchController;
 //import edu.ycp.cs320.lab02.model.CurrentProject;
@@ -29,6 +30,9 @@ public class IndexServlet extends HttpServlet {
 			throws ServletException, IOException {
 		
 		System.out.println("Index Servlet: doPost");
+		
+		HttpSession session = req.getSession(true);
+		session.setAttribute("login", true);
 		
 		req.getRequestDispatcher("/_view/index.jsp").forward(req, resp);
 	}

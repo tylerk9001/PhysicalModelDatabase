@@ -214,8 +214,7 @@ public class DerbyDatabase implements IDatabase {
 							"		generated always as identity (start with 1, increment by 1), " +									
 							"   email varchar(70)," +
 							"   password varchar(70)," +
-							"	firstname varchar(70)," +
-							" 	lastname varchar(70))"
+							"	name varchar(70))"
 						);	
 						stmt3.executeUpdate();
 						

@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html>
 
-
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 
 <head>
     <title>Home | Physical Model </title>
     <!--Website CSS-->
     <link rel="icon" href="${pageContext.request.contextPath}/_view/img/tab.png">
     <link href="${pageContext.request.contextPath}/_view/css/collapse-1.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/_view/css/application.css" type="text/css" rel="stylesheet">
     <!-- Icon CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" 
@@ -35,8 +37,17 @@
                     
 	                
 	                <div class="access-btns">
-	                    <a href="${pageContext.request.contextPath}/login" class="button">Login</a>
-	                    <a href="${pageContext.request.contextPath}/signup" class="button">Sign Up</a>
+                        <form action="${pageContext.request.contextPath}/welcome">
+                            <c:choose>
+                                <c:when test="${sessionScope.login == true}">
+                                    <a href="${pageContext.request.contextPath}/welcome" name="dash board"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+                                </c:when>
+                                <c:when test="${sessionScope.login == false}">
+                                   <a href="${pageContext.request.contextPath}/login" class="button">Login</a>
+	                               <a href="${pageContext.request.contextPath}/signup" class="button">Sign Up</a>
+                                </c:when>
+                            </c:choose>
+                        </form>
 	                </div>
 	            </div>            
 	        </div>

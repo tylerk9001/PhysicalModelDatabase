@@ -52,7 +52,7 @@
 		                <a href="${pageContext.request.contextPath}/upload"><i class="fas fa-file-upload"></i> Upload a Project</a>
 	             	</c:if>
 	             
-	             	<div class="access-btn">
+	             	<div class="access-btns">
 	             		<form action="${pageContext.request.contextPath}/welcome">
 		             		<c:choose>
 		             			<c:when test="${sessionScope.login == true}">
