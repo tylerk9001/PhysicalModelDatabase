@@ -350,7 +350,7 @@ public class DerbyDatabase implements IDatabase {
 				try {
 					String lower = search.toLowerCase();
 					String upper = search.toUpperCase();
-					stmt = conn.prepareStatement("select projectname, filename "
+					stmt = conn.prepareStatement("select DISTINCT projectname, filename "
 							+ "from projects, keywords, authors, projectauthors "
 							+ "where (lower(projectname) like ? or upper(projectname) like ? "
 							+ "or lower(category) like ? or upper(category) like ? "
