@@ -1,5 +1,8 @@
  package edu.ycp.cs320.lab02.servlet;
 import java.io.IOException;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+import java.security.SecureRandom;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -23,8 +26,7 @@ public class SignUpServlet extends HttpServlet {
 		// call JSP to generate empty form
 		req.getRequestDispatcher("/_view/login/signup.jsp").forward(req, resp);
 	}
-
-
+	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
@@ -43,6 +45,10 @@ public class SignUpServlet extends HttpServlet {
 		String password = req.getParameter("password");
 		String retypePassword = req.getParameter("retypePassword");
 		
+		String data = password;
+		String algorithm = "SHA-256";
+		byte[] salt = createSalt();
+		
 		boolean noPasswordsMatch = false;
 		boolean accountCreationSuccessful = false;
 		
@@ -52,7 +58,11 @@ public class SignUpServlet extends HttpServlet {
 			if (password.equals(retypePassword)) {
 				newAccount.setName(name);
 				newAccount.setEmail(email);
-				newAccount.setPassword(password);
+				try {
+					newAccount.setPassword(generateHash(data, algorithm, salt));
+				} catch (NoSuchAlgorithmException e) {
+					e.printStackTrace();
+				}
 				controller.setModel(newAccount);
 				accountCreationSuccessful = controller.createAccount(newAccount);
 			}
@@ -77,6 +87,35 @@ public class SignUpServlet extends HttpServlet {
 			
 			req.getRequestDispatcher("/_view/login/signup.jsp").forward(req, resp);	
 			
-		} 
+		}
+	}
+
+
+	private static String generateHash(String data, String algorithm, byte[] salt) throws NoSuchAlgorithmException {
+		MessageDigest digest = MessageDigest.getInstance(algorithm);
+		digest.reset();
+		digest.update(salt);
+		byte[] hash = digest.digest(data.getBytes());
+		return bytesToStringHex(hash);
+	}
+	
+	private final static char[] hexArray = "0123456789ABCDEF".toCharArray();
+	
+	public static String bytesToStringHex(byte[] bytes) {
+		char[] hexChars = new char[bytes.length * 2];
+		for (int i = 0; i < bytes.length; i++) {
+			int v = bytes[i] & 0xFF;
+			hexChars[i * 2] = hexArray[v >>> 4];
+			hexChars[i * 2 + 1] = hexArray[v & 0x0F];
+		}
+		
+		return new String(hexChars);
+	}
+	
+	private static byte[] createSalt() {
+		byte[] bytes = new byte[20];
+		SecureRandom random = new SecureRandom();
+		random.nextBytes(bytes);
+		return bytes;
 	}
 }
