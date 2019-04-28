@@ -23,6 +23,19 @@
 	    color: #86C232;
 	}
 	
+	.dash-footer {
+	    	position: fixed;
+	  		bottom: 0;
+		}
+	
+	@media print {
+		.dash-footer {
+			display: block;
+	    	position: fixed;
+	  		bottom: 0;
+		}
+	}
+	s
 </style>
 
 <head>
@@ -93,17 +106,6 @@
 	                    <br>
 	                    <br>
 	                </div>
-	                <div class="user-favorites">
-	                    <hr>
-	                    <h2>My Favorites</h2>
-	                    <p><i>Currently, you do not have any projects favorited.</i></p>
-	                    <br>
-	                    <br>
-	                    <br>
-	                    <br>
-	                    <br>
-	                    <br>
-	                </div>
 	                <div class="user-reviews">
 	                    <hr>
 	                    <h2>My Reviews</h2>
@@ -122,7 +124,7 @@
 	   
 	
 	    <footer>
-	        <div class="footer">
+	        <div class="footer dash-footer">
 	            <p>Tyler Kautz, Trevor Swann, Jacob Stambaugh. Copyright &copy; 2019. Some Rights Reserved.</p>
 	        </div>
 	    </footer>
