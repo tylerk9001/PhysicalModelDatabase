@@ -1,5 +1,6 @@
 package edu.ycp.cs320.lab02.controller;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 import org.junit.Before;
@@ -18,7 +19,16 @@ public class LoginControllerTest {
 		controller = new LoginController();
 	}
 	
-	public void testLoginSuccessful(){
-	 System.out.print("Unimplemented Method");
+	@Test
+	public void testSetModel() {
+	 UserAccount testModel = new UserAccount();
+	 assertEquals(testModel, testModel);
+	}
+	
+	@Test
+	public void testGetModel() {
+		UserAccount testModel = new UserAccount();
+		controller.setModel(testModel);
+		assertTrue(controller.getModel().equals(testModel));
 	}
 }
