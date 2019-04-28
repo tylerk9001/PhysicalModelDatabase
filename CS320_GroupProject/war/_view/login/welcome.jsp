@@ -84,7 +84,11 @@
 	            	<div class="user-info">
 	                	<div class="user-message">
 	                    <h1>Welcome, <c:out value="${sessionScope.name}"/>!</h1>
-	                    
+	                   <form action="${pageContext.servletContext.contextPath}/welcome" method="post">
+		                   <span style="display: none">
+		                   	<input name="name" value="${sessionScope.name}">
+		                   </span>
+	                   </form>
 	                </div>
 	          
 	          		  
@@ -98,7 +102,12 @@
 	                <div id="projects" class="user-projects">
 	                    <hr>
 	                    <h2>My Projects</h2>
-	                    <p><i>Currently, you do not have any projects created.</i></p>
+<!--	                    <p><i>Currently, you do not have any projects created.</i></p>-->
+	                    <div id="searchResults">
+							<c:forEach items="${sessionScope.results}" var="projects">
+								<a class="linkResult" href="${projects.fileName}"><c:out value="${projects.projectName}"></c:out></a><br>
+							</c:forEach>		
+						</div>
 	                    <br>
 	                    <br>
 	                    <br>

@@ -175,6 +175,60 @@ public class DerbyDatabase implements IDatabase {
 		});
 	}
 	
+	public ArrayList<CurrentProject> checkForProjectsCreatedByAccount (final String name) {
+		return executeTransaction(new Transaction<ArrayList<CurrentProject>>() {
+			@SuppressWarnings("resource")
+			@Override
+			public ArrayList<CurrentProject> execute(Connection conn) throws SQLException {
+				PreparedStatement stmt = null;
+				ResultSet resultSet = null;
+				
+//				System.out.print(search);
+								
+				try {
+					//String upper = name.toUpperCase();
+					//String lower = name.toLowerCase();
+					stmt = conn.prepareStatement("select DISTINCT projectname, filename "
+							+ "from projects, authors, projectauthors "
+							+ "where authors.name = ? "
+							+ "and authors.account_id = projectauthors.author_id "
+							+ "and projectauthors.project_id = projects.project_id");
+					stmt.setString(1, name);
+//					stmt.setString(2, "TOM MESSERVEY");
+
+					ArrayList<CurrentProject> list = new ArrayList<CurrentProject>();
+					
+					// initialize boolean variable
+					Boolean found = false;
+					
+					resultSet = stmt.executeQuery();
+					
+					while (resultSet.next()) {
+						found = true;
+						
+						CurrentProject project = new CurrentProject();
+						loadSearch(project, resultSet, 1);
+						
+						// test output
+						System.out.println(project.getFileName());
+
+						list.add(project);
+					}
+					
+//					if (!found) {
+//						something about no project found
+//					}
+					
+					return list;
+					
+				} finally {
+					DBUtil.closeQuietly(resultSet);
+					DBUtil.closeQuietly(stmt);
+				}
+			}
+		});
+	}
+	
 	public<ResultType> ResultType executeTransaction(Transaction<ResultType> txn) {
 		try {
 			return doExecuteTransaction(txn);

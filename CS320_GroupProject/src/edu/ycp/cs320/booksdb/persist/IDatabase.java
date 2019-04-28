@@ -18,6 +18,9 @@ public interface IDatabase {
 	// Search query
 	public ArrayList<CurrentProject> searchByKeywordsAuthorsProjectNameOrCategory(String search);
 	
+	// Search query by name to display on account dashboard
+	public ArrayList<CurrentProject> checkForProjectsCreatedByAccount(String name);
+	
 	// Retrieve Review
 	//public boolean retrieveReview (String review_id);
 	
