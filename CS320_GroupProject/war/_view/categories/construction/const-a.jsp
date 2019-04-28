@@ -6,6 +6,7 @@
 <head>
     <title>Construction | Physical Model </title>
     <!--Website CSS-->
+    <link rel="icon" href="${pageContext.request.contextPath}/_view/img/tab.png">
     <link href="${pageContext.request.contextPath}/_view/css/collapse-1.css" type="text/css" rel="stylesheet">
     <link href="${pageContext.request.contextPath}/_view/css/application.css" type="text/css" rel="stylesheet">
     <!-- Icon CSS -->

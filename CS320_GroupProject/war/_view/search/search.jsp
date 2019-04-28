@@ -132,10 +132,10 @@
 	</div>
 	
 	<div style="text-align: center; font-size: 18px">
-		<form action="${pageContext.servletContext.contextPath}/search" method="post">
-			<%Boolean invalidSearch = (Boolean)request.getSession().getAttribute("search_failed");
-				if (invalidSearch != null) {%> <p>No search results found.</p><%}%>		
+		<form action="${pageContext.servletContext.contextPath}/search" method="post">	
 			<i><p>${search}</p></i>
+			<%Boolean invalidSearch = (Boolean)request.getSession().getAttribute("search_failed");
+				if (invalidSearch != null) {%> <p>No search results found.</p><%}%>	
 		</form>
 	</div>
 	

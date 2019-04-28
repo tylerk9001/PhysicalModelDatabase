@@ -1,8 +1,13 @@
 <!DOCTYPE html>
 <html>
+
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
+
 <head>
     <title>Heat Transfer | Physical Model </title>
     <!--Website CSS-->
+    <link rel="icon" href="${pageContext.request.contextPath}/_view/img/tab.png">
     <link href="${pageContext.request.contextPath}/_view/css/collapse-1.css" type="text/css" rel="stylesheet">
     <link href="${pageContext.request.contextPath}/_view/css/application.css" type="text/css" rel="stylesheet">
     <!-- Icon CSS -->
@@ -27,12 +32,25 @@
                 <a href="${pageContext.request.contextPath}/index#mechanics">Mechanics</a>
                 <a href="${pageContext.request.contextPath}/index#statics">Statics</a>
                 <a href="${pageContext.request.contextPath}/index#thermodynamics">Thermodynamics</a>
+                
+                <div class="access-btns">
+                   <form action="${pageContext.request.contextPath}/dashboard">
+                       <c:choose>
+                           <c:when test="${sessionScope.login == true}">
+                               <a href="${pageContext.request.contextPath}/dashboard" name="dashboard"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+                           </c:when>
+                           <c:when test="${sessionScope.login == null}">
+                              <a href="${pageContext.request.contextPath}/login" class="button">Login</a>
+                           <a href="${pageContext.request.contextPath}/signup" class="button">Sign Up</a>
+                           </c:when>
+                       </c:choose>
+                   </form>
+               </div>
             </div>
         </div>
     </nav>
     
     <div class="search-box">
-        <input class="search-txt" type="text" placeholder="Search..." name="">
         <a class="search-btn" href="#"><i class="fas fa-search"></i></a>
     </div>
 
@@ -46,18 +64,51 @@
         </div>
         <div class="project-content">
             <p class="description"><strong><u>Model Description:</u></strong> This demonstration illustrates the material property of thermal conductivity, and how this property affects conduction heat transfer in a
-            solid. Concepts include Fourier’s Law, conservation of energy and solid-liquid
+            solid. Concepts include Fourierâs Law, conservation of energy and solid-liquid
             phase change. This demonstration should take 8-10 minutes.</p>
             
-            <img src="${pageContext.request.contextPath}/_view/categories/construction/mod-desc(a).JPG" class="const-img">
+            <img src="${pageContext.request.contextPath}/_view/categories/heat_transfer/heat-tran(a).jpg" class="const-img">
             
-            <p class="principle"><strong><u>Engineering Principle:</u></strong> A sling’s working load limit (WLL) is based on a crane lift performed at a straight (90°) angle. The forces in rigging (sling, chain, wire rope, webbing, shackles, etc.) increase substantially as the angle formed by the sling leg and the horizontal becomes smaller. The following chart shows the increased force applied to the rigging when the rigging angle is reduced. The key engineering principle with this demonstration is related to an understanding of statics. Students must comprehend that decreasing the angle creates a horizontal force component that in turn increases the tension in the rigging. This can be derived using the figure below.</p>
+            <p class="principle"><strong><u>Engineering Principle:</u></strong> Fourier’s Law states that the heat transfer rate in a solid is
+			proportional to the thermal conductivity, k, cross sectional area, A, and
+			temperature gradient of the material. At the surface, assuming the x-direction is
+			into the solid,</p>
+   
+            <img src="${pageContext.request.contextPath}/_view/categories/heat_transfer/heat-tran(b).JPG" class="const-img">
             
-            <img src="${pageContext.request.contextPath}/_view/categories/construction/eng-principle(a).JPG" class="const-img">
+            <p class="principle">For two similar solid blocks at the same room temperature, the block with the
+			higher thermal conductivity will “feel” colder to the touch, because thermal
+			energy is more readily taken from your hand (heat source) into the block.
+			Likewise, if a colder sink is placed into contact with the two blocks, the material
+			with higher thermal conductivity will transfer thermal energy out of the block
+			faster. <br><br>
+			
+			Unless a steady condition has been achieved, the two blocks will change temperature at different rates according to
+			</p>
             
-            <p class="principle">While increasing the connection angle of a two-point lift may be required to
-            increase the stability of the lift, careful consideration must be taken in regards to
-            the sling capacity and weight of the lift.</p>
+             <img src="${pageContext.request.contextPath}/_view/categories/heat_transfer/heat-tran(c).JPG" class="const-img">
+            
+             <p class="principle">where the rate of heat transfer, q, is proportional to the mass, m, specific heat of
+			he material, 𝑐𝑝, and the rate of temperature change with time. <br><br>
+			
+			The block with the higher thermal conductivity will more rapidly lose thermal
+			energy to the cold sink, producing a greater temperature change of the block
+			with time. This is valid if both blocks have comparable heat capacity rates (mcp).
+			The latent heat of fusion of water is demonstrated by melting ice cubes on the
+			two blocks. The block with the higher thermal conductivity will be able to melt
+			the ice faster. The energy input rate required to melt ice is given in terms of the
+			latent heat of fusion and rate of mass changing phase as
+			</p>
+			
+			 <img src="${pageContext.request.contextPath}/_view/categories/heat_transfer/heat-tran(d).JPG" class="const-img">
+            
+            <p class="principle">From the rapid melting using the high thermal
+			conductivity block, the demonstration also illustrates that the heating of the ice
+			cube by the ambient air through convection is insignificant compared to the
+			heating of the ice cube via conduction from the block. For the lower thermal
+			conductivity block, which serves to insulate the ice cube bottom, the conduction
+			and convection rates are of a comparably small scale.</p><br><br>
+            
             
             <br><p class="title">Required Items</p><br>
             
@@ -70,124 +121,101 @@
                     <th>Description/Details</th>
                   </tr>
                   <tr>
-                    <td>3/16 in. Chain</td>
-                    <td>2x2 ft. sections</td>
-                    <td>$8 at $2 per foot</td>
-                    <td>These represent the sling for the lift.</td>
+                    <td>Blocks of different materials Beam</td>
+                    <td>2</td>
+                    <td>$2-7 depending on size; 25 minutes</td>
+                    <td>Must sit with level top surfaces; should be the
+						same size, and big enough to hold an ice cube;
+						one with high (copper is best, brass, aluminum)
+						and one with low (rubber, plastic, wood)
+						thermal conductivity; can be painted the same
+						color for concealing the type of material</td>
                   </tr>
                   <tr>
-                    <td>Twist Link Chain</td>
-                    <td>1 foot</td>
-                    <td>Mexico</td>
-                    <td>This is smaller than the straight chain and is used to connect the weight plate to the spring link on the lower screw eye.</td>
+                    <td>Ice cubes</td>
+                    <td>2</td>
+                    <td>n/a</td>
+                    <td>Cold enough so no melting has begun before experiment.</td>
                   </tr>
                   <tr>
-                    <td>2x6 x 3 ft</td>
+                    <td>O-rings or rubber bands</td>
+                    <td>2</td>
+                    <td>$1-3</td>
+                    <td>Keeps ice and melted water from falling off top surface.</td>
+                  </tr>
+                  <tr>
+                    <td>Stopwatch</td>
                     <td>1</td>
-                    <td>Austria</td>
-                    <td>Most pieces come in 8 foot sections. Once cut to size, this is the critical lift.</td>
+                    <td>$5</td>
+                    <td>Can be used to “take bets” on how long it’ll take to melt the ice.</td>
                   </tr>
                   <tr>
-                    <td>3/4 in. x 3 in. Screw Eyes</td>
-                    <td>7</td>
-                    <td>$5 at $1.25 per 2 pack</td>
-                    <td>These are used for the rigging connection points on top and the load connection point on the bottom. 130-pound capacity.</td>
-                  </tr>
-                  <tr>
-                    <td>3/16 in. Quick Link</td>
+                    <td>Scale (optional)</td>
                     <td>1</td>
-                    <td>$2.25</td>
-                    <td>This locks and holds the two spring scales along each chain. It also is used for the top spring scale to analyze the total weight of the lift. 450-pound capacity.</td>
-                  </tr>
-                  <tr>
-                    <td>3 in. Spring Link</td>
-                    <td>3</td>
-                    <td>$1 each</td>
-                    <td>These are used for quick connections of the chains to the screw eyes and the weight to the load screw eye. 150-pound capacity.</td>
-                  </tr>
-                   <tr>
-                    <td>20-lb Spring Scale</td>
-                    <td>3</td>
-                    <td>$11.50 each</td>
-                    <td>These scales measure the weight of the lift and along each chain.</td>
-                  </tr>
-                  <tr>
-                    <td>10-lb Weight Plate</td>
-                    <td>1</td>
-                    <td>$11</td>
-                    <td>This increases the weight of the critical lift.</td>
+                    <td>$15</td>
+                    <td>Measures the mass of blocks and ice cubes.</td>
                   </tr>
                 </table><br>
             </div>
-            
-            <img src="${pageContext.request.contextPath}/_view/categories/construction/req-items(a).JPG" class="const-img"><br><br>
             
             <p class="title">Application</p>
             
-            <p class="application"><strong><u>Before Class:</u></strong> Build and verify your model. The imperfect connections at the screw eyes and the variation in the spring scale as a load is applied make predicting the exact angle difficult. The placement of the screw eyes and the length of the chain are intended to replicate scenarios with the connections at 30°, 45°, and 60°.</p><br>
+            <p class="application"><strong><u>Before Class:</u></strong> Have two ice cubes ready, at below freezing temperature. Keep in
+			an insulated container to prevent any melting before the demonstration. Allow
+			the two blocks to sit in the same space for some time so that they come to the
+			same equilibrium temperature.</p>
+              
+            <p class="application"><strong><u>In Class:</u></strong> (a) Ask volunteers to feel the two blocks to determine which one is colder. The
+				block with the higher thermal conductivity (copper is the best), will feel colder
+				than the block with the lower thermal conductivity (eg. rubber) even though
+				they are at exactly the same temperature.<br>
+				(b) Before bringing out the ice cubes, ask which block would melt an ice cube
+				faster. Some will undoubtedly guess the low-conductivity bloack, as it feels
+				warmer. “Take bets” as to how long it’ll take to melt an ice cube on each one.
+				With timer ready, place an ice cube onto each block. The copper will melt the
+				ice cube dramatically faster, dancing on the pool of melt it has formed, while the
+				ice cube on the rubber block does nothing. Note that without any boundary, the
+				ice cube on the copper block will not necessarily slide off of the level block.
+				Surface tension will keep it from doing so.<br>
+				
+				After 1 minute, the photos show the difference in melting rates, with the
+				insulating block having little effect on the ice cube. The ice cube is melted within
+				a matter of 2-3 minutes on the high thermal conductivity block, while remaining
+				relatively unchanged on the insulating block.</p>
             
-            <img src="${pageContext.request.contextPath}/_view/categories/construction/before-class(a).JPG" class="const-img"><br>
+             <img src="${pageContext.request.contextPath}/_view/categories/heat_transfer/heat-tran(e).JPG" class="const-img">
             
-            <p class="application">After cutting the 2x6 to 3ft. length, install the screw eyes along the centerline at the distances shown above. To ensure the spring scale hook remains centered during the lift (and creates an equal force in both scales), use wire or duct tape to prevent its movement. Display the 2x6 at the front of the class, but do not have anything connected to it. Let the students build their answer as they work to solve the problem.</p>
+            <p class="application">(c) After the copper has melted the ice cube, circulate both blocks once again.
+			The copper block will feel much colder as it has lost more thermal energy. The
+			copper block will feel cold for some time, which will show how latent heat can
+			be large as compared to sensible heat. With the time and initial mass of ice cube
+			known, the average heat transfer rate from the copper block can be calculated
+			according to equation (3). The temperature of the block can be estimated then
+			using equation (2) if the mass of the block is known. This assumes other heat
+			transfer from the block is negligible.</p><br><br>
             
-            <p class="application"><strong><u>In Class:</u></strong> Build and verify your model. The imperfect connections at the screw eyes and the variation in the spring scale as a load is applied make predicting the exact angle difficult. The placement of the screw eyes and the length of the chain are intended to replicate scenarios with the connections at 30°, 45°, and 60°.</p><br>
             
-            <img src="${pageContext.request.contextPath}/_view/categories/construction/in-class(a).JPG" class="const-img"><br>
-            
-            <p class="application"><strong><u>Theory:</u></strong> Given the fixed connection options, have the students calculate the tensile forces in the sling using the farthest connection (12 inches from center). Ask them what angle they would recommend if they didn’t have time for calculations, and why? By adjusting the basic equation to 𝐹 𝑠𝑙𝑖𝑛𝑔 = 𝐹 𝑙𝑜𝑎𝑑 / 𝑠𝑖𝑛(𝜃), the students can calculate the tension in the sling at any angle. If the students are using their computers, remind them of the need to convert the answer to degrees from radians if their output is not making sense to them.</p>
-            
-            <p class="application"><strong><u>Example:</u></strong> The total weight of the demonstration should be 15-16 pounds. Explain to the students that they could use trigonometry to calculate the required sling lengths given the fixed connection points and desired connection angles. However, the variation in this model makes it difficult to perfectly replicate such detailed specifics. As the spring scales extend to register the weight, they alter the length of the cable and therefore the angle at the connection and the resulting tension within the cable. Calculations that include spring deflection yield the following cable length approximations to get the desired connection angles: 30° (no chain, but chain must hang from connection for consistent weight) , 45° (3 links) , and 60° (9 links). These numbers only apply when analyzing the connection that is 12 inches from center. Ask for four volunteers (1 on each side of the lift, 1 to make the connections and document the results, and 1 to hold the top scale when the lift is tested). Test the model at the approximate angle the students chose as the way they would conduct the lift. Then, conduct the connections described above for 30°, 45°, and 60°. Lastly, ask the students to create the worst-case scenario for the rigging and test that example as well. By keeping the lift symmetrical, the weight of the lift can be divided by two and analysis conducted on half of the rigging that creates a right triangle. Given Fsling and Fload of each documented test, have the students calculate the actual angles by adjusting the basic equation to θ = sin−1 (𝐹 𝑙𝑜𝑎𝑑 / F 𝑠𝑙𝑖𝑛𝑔) / 𝜋 / 180. Dividing by 𝜋/180 converts the answer from radians to degrees.</p><br>
-            
-            
-            <p class="application">The following chart compares theoretical angles based on perfect trigonometry to the test angles calculated from the resultant forces under varying load connections.</p>
-            
-            <div style="overflow-x: auto;">
-                <table>
-                  <tr>
-                    <th>L sling</th>
-                    <th>Expected Angle (θ)</th>
-                    <th>F sling</th>
-                    <th>F load</th>
-                    <th>Test Angle (θ)</th>
-                  </tr>
-                  <tr>
-                    <td>No chains</td>
-                    <td>30.0 deg</td>
-                    <td>15.0</td>
-                    <td>7.5</td>
-                    <td>30.0 deg.</td>
-                  </tr>
-                  <tr>
-                    <td>3 links</td>
-                    <td>45.0 deg</td>
-                    <td>11.8</td>
-                    <td>7.5</td>
-                    <td>39.5 deg.</td>
-                  </tr>
-                  <tr>
-                    <td>9 links</td>
-                    <td>60.0 deg</td>
-                    <td>9.0</td>
-                    <td>7.5</td>
-                    <td>56.4 deg.
-                      </td>
-                  </tr>
-                </table><br>
-            </div>
-            
-            <p class="application">As shown above, the angles are not always perfect matches, but are close enough to effectively highlight the amplification of forces in the sling based on rigging angles. Notice the applied force on the sling exceeds its 11lb capacity at 45 degrees!<br><br>
-            
-            Finally, ask the students if they have ever heard of the American Death Triangle. If a student has, have them explain its meaning to the class. This refers to a common source of fatalities in rock climbing and the principles are quite similar to equipment rigging.</p><br>
-            
-            <img src="${pageContext.request.contextPath}/_view/categories/construction/app-last(a).JPG" class="const-img"><br>
-            
-            <p class="application"><strong><u>Additional Application</u></strong> This makes for a good discussion on Factors of Safety. Ask the students about their tolerance for safety and how close to the sling’s capacity would they execute the lift. Did they inspect the slings? The sling’s rating is accurate when it leaves the manufacturer, but how have they been maintained? Are they rusty, worn, or frayed?<br><br>
-                
-            It is entirely possible that a foreman or superintendent does not recognize the implications of different rigging angles. Focus on emphasizing the importance of being able to say “No” to unexpected job site suggestions as a young engineer. Safety should drive the schedule.<br><br>
-            
-            This gives an opportunity to discuss other rigging arrangements such as the use of a spreader bar.<br><br>
-
-            Talk about real world examples where critical lifts did not go as planned and discuss the serious implications about the failures. This is a great time to include a PowerPoint slideshow with pictures of failed crane lifts.</p><br>
+            <p class="application"><strong><u>Additional Application</u></strong> a) Before starting, ask for an explanation of why something feels cold or warm.
+			Establish with the class that you do not feel temperature, but rather
+			temperature differences and the heat transfer that results.<br>
+			(b) The ice melting can have all of the excitement of a race, even with copper
+			being the clear winner. Take bets, and ham it up!<br>
+			(c) A discussion can follow regarding the spatial variation of temperature in the
+			blocks, due to the different thermal conductivities. This may be a good lead-in
+			into a lesson on lumped capacitance.<br>
+			(d) Discuss thermal losses to account for all energy transfers to and from the
+			block, and stored energy change of the block. An expression for conservation of
+			energy can be obtained for the block as </p><br>
+			
+			<img src="${pageContext.request.contextPath}/_view/categories/heat_transfer/heat-tran(f).JPG" class="const-img"><br>
+			
+			 <p class="application">where the energy input is from the air via convection and table underneath the
+			block via conduction, which are both warmer once the block begins to cool.
+			There is no energy generation. The energy output from the block is to the ice
+			and ice-melt, which are both colder, mostly as latent heating of the ice in
+			equation (3) but also as sensible heating as given by equation (2). The stored
+			energy of the block is given by equation (2) for a block with uniform
+			temperature. This will be a negative term.</p><br>
         </div>
     </div>
 </content>

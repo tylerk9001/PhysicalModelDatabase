@@ -1,8 +1,13 @@
 <!DOCTYPE html>
 <html>
+
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
+
 <head>
     <title>Heat Transfer | Physical Model </title>
     <!--Website CSS-->
+    <link rel="icon" href="${pageContext.request.contextPath}/_view/img/tab.png">
     <link href="${pageContext.request.contextPath}/_view/css/collapse-1.css" type="text/css" rel="stylesheet">
     <link href="${pageContext.request.contextPath}/_view/css/application.css" type="text/css" rel="stylesheet">
     <!-- Icon CSS -->
@@ -27,6 +32,21 @@
                 <a href="${pageContext.request.contextPath}/index#mechanics">Mechanics</a>
                 <a href="${pageContext.request.contextPath}/index#statics">Statics</a>
                 <a href="${pageContext.request.contextPath}/index#thermodynamics">Thermodynamics</a>
+                
+                <div class="access-btns">
+                        <form action="${pageContext.request.contextPath}/dashboard">
+                            <c:choose>
+                                <c:when test="${sessionScope.login == true}">
+                                    <a href="${pageContext.request.contextPath}/dashboard" name="dashboard"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+                                </c:when>
+                                <c:when test="${sessionScope.login == null}">
+                                   <a href="${pageContext.request.contextPath}/login" class="button">Login</a>
+	                               <a href="${pageContext.request.contextPath}/signup" class="button">Sign Up</a>
+                                </c:when>
+                            </c:choose>
+                        </form>
+	                </div>
+                
             </div>
         </div>
     </nav>
@@ -45,19 +65,29 @@
             <p class="author"><strong>Submitted By: </strong> Gunnar Tamm</p><hr>
         </div>
         <div class="project-content">
-            <p class="description"><strong><u>Model Description:</u></strong> This demonstration illustrates the material property of thermal conductivity, and how this property affects conduction heat transfer in a
-            solid. Concepts include Fourier’s Law, conservation of energy and solid-liquid
-            phase change. This demonstration should take 8-10 minutes.</p>
-            
-            <img src="${pageContext.request.contextPath}/_view/categories/construction/mod-desc(a).JPG" class="const-img">
-            
-            <p class="principle"><strong><u>Engineering Principle:</u></strong> A sling’s working load limit (WLL) is based on a crane lift performed at a straight (90°) angle. The forces in rigging (sling, chain, wire rope, webbing, shackles, etc.) increase substantially as the angle formed by the sling leg and the horizontal becomes smaller. The following chart shows the increased force applied to the rigging when the rigging angle is reduced. The key engineering principle with this demonstration is related to an understanding of statics. Students must comprehend that decreasing the angle creates a horizontal force component that in turn increases the tension in the rigging. This can be derived using the figure below.</p>
-            
-            <img src="${pageContext.request.contextPath}/_view/categories/construction/eng-principle(a).JPG" class="const-img">
-            
-            <p class="principle">While increasing the connection angle of a two-point lift may be required to
-            increase the stability of the lift, careful consideration must be taken in regards to
-            the sling capacity and weight of the lift.</p>
+            <p class="description"><strong><u>Model Description:</u></strong> This demonstration illustrates how to concentrate radiant
+			energy, solar or other, using a parabolic reflecting dish to produce high enough
+			heat fluxes to burn paper. This demonstration should take 10 minutes.</p><br>
+			
+            <p class="principle"><strong><u>Engineering Principle:</u></strong> The sun is located far enough from the earth that
+			radiation arrives here in nearly parallel beams. A parabolic dish will spectrally
+			reflect the parallel beams towards the focus of the dish, greatly amplifying the
+			radiation intensity of the original beam. In doing so, anything placed into the
+			focus of the dish will incur much more power per unit area than the original
+			beam, such that an object at the focus may reach very high temperatures.<br>
+			For indoor convenience, a spotlight can be used with a high candlepower rating.<br>
+			The candlepower rating is usually based on the brightest spot in the non-uniform
+			beam of the spotlight. Although it is known that the sun can provide roughly
+			1000 [W/m2] on a sunny summer day, conversion of the spotlight candlepower
+			rating to actual radiant power flux [W/m2] is not accurate without either
+			measurement or the manufacturer’s data. A 15,000,000 candlepower spotlight
+			is used as it is the largest battery powered spotlight currently on the market,
+			available from various manufacturers.<br>
+			The concentration of light depends on the precise geometry and surface
+			properties of the mirror. The more parabolic and reflective the surface, the
+			sharper the focus will be. More light will be focused for a larger beam diameter,
+			and mirror aperture to match.</p>
+    
             
             <br><p class="title">Required Items</p><br>
             
@@ -70,124 +100,108 @@
                     <th>Description/Details</th>
                   </tr>
                   <tr>
-                    <td>3/16 in. Chain</td>
-                    <td>2x2 ft. sections</td>
-                    <td>$8 at $2 per foot</td>
-                    <td>These represent the sling for the lift.</td>
-                  </tr>
-                  <tr>
-                    <td>Twist Link Chain</td>
-                    <td>1 foot</td>
-                    <td>Mexico</td>
-                    <td>This is smaller than the straight chain and is used to connect the weight plate to the spring link on the lower screw eye.</td>
-                  </tr>
-                  <tr>
-                    <td>2x6 x 3 ft</td>
+                    <td>15,000,000 candlepower spotlight</td>
                     <td>1</td>
-                    <td>Austria</td>
-                    <td>Most pieces come in 8 foot sections. Once cut to size, this is the critical lift.</td>
+                    <td>$60-100</td>
+                    <td>Available from various manufacturers. The one shown has an aperture diameter of 8 ¾ ”.</td>
                   </tr>
                   <tr>
-                    <td>3/4 in. x 3 in. Screw Eyes</td>
-                    <td>7</td>
-                    <td>$5 at $1.25 per 2 pack</td>
-                    <td>These are used for the rigging connection points on top and the load connection point on the bottom. 130-pound capacity.</td>
-                  </tr>
-                  <tr>
-                    <td>3/16 in. Quick Link</td>
+                    <td>Parabolic Mirror</td>
                     <td>1</td>
-                    <td>$2.25</td>
-                    <td>This locks and holds the two spring scales along each chain. It also is used for the top spring scale to analyze the total weight of the lift. 450-pound capacity.</td>
+                    <td>$45</td>
+                    <td>Highly reflecting parabolic surface, with aperture diameter approximately that of the spotlight. This mirror has an aperture diameter of 8 ¾ ”.</td>
                   </tr>
                   <tr>
-                    <td>3 in. Spring Link</td>
-                    <td>3</td>
-                    <td>$1 each</td>
-                    <td>These are used for quick connections of the chains to the screw eyes and the weight to the load screw eye. 150-pound capacity.</td>
-                  </tr>
-                   <tr>
-                    <td>20-lb Spring Scale</td>
-                    <td>3</td>
-                    <td>$11.50 each</td>
-                    <td>These scales measure the weight of the lift and along each chain.</td>
-                  </tr>
-                  <tr>
-                    <td>10-lb Weight Plate</td>
+                    <td>Mirror Stand</td>
                     <td>1</td>
-                    <td>$11</td>
-                    <td>This increases the weight of the critical lift.</td>
+                    <td>n/a</td>
+                    <td>Improvised materials. Goal is to align mirror axis with spotlight axis.</td>
+                  </tr>
+                  <tr>
+                    <td>Paper/ Match/Tissue</td>
+                    <td>1</td>
+                    <td>n/a</td>
+                    <td>Thin strip of any readily combustible material.</td>
+                  </tr>
+                  <tr>
+                    <td>Thermometer/Thermocouple</td>
+                    <td>1</td>
+                    <td>$15-35</td>
+                    <td>Measures temperature at mirror focus.</td>
                   </tr>
                 </table><br>
             </div>
             
-            <img src="${pageContext.request.contextPath}/_view/categories/construction/req-items(a).JPG" class="const-img"><br><br>
+            <br>
             
             <p class="title">Application</p>
+                        
+            <p class="application"><strong><u>In Class:</u></strong> (a) The mirror and spotlight can be easily aligned either before or during class.</p><br>
             
-            <p class="application"><strong><u>Before Class:</u></strong> Build and verify your model. The imperfect connections at the screw eyes and the variation in the spring scale as a load is applied make predicting the exact angle difficult. The placement of the screw eyes and the length of the chain are intended to replicate scenarios with the connections at 30°, 45°, and 60°.</p><br>
+            <img src="${pageContext.request.contextPath}/_view/categories/heat_transfer/heat-tran(a.1).JPG" class="const-img"><br>          
             
-            <img src="${pageContext.request.contextPath}/_view/categories/construction/before-class(a).JPG" class="const-img"><br>
+            <p class="application"><strong><u>In Class:</u></strong> If the stand for the mirror is ready to go at a known height, the alignment will
+			take half a minute. Above is an improvised mirror stand using chalk erasers. The
+			spotlight comes with an adjustable stand. (1) The axis of the mirror should be
+			the same as the axis of the spotlight for optimal concentration. The axial
+			distance between the mirror and spotlight is arbitrary, but should not be too
+			large. The alignment is fine tuned by observing the shadow of the mirror on the
+			wall behind the mirror. In the image below, the spotlight beam diameter is
+			slightly larger than the mirror diameter, showing a symmetrical eclipse image
+			(mirror blocking light) on the wall. (2)</p><br>
+			
+			 <img src="${pageContext.request.contextPath}/_view/categories/heat_transfer/heat-tran(b.1).JPG" class="const-img"><br>      
+			 
+			 <p class="application"><strong><u>In Class:</u></strong> (b) Ask for a volunteer to locate the hot spot of the mirror. This is done by
+				moving a finger along the central axis towards the mirror. At the focus, the
+				finger will rapidly get very hot on the side facing the mirror. Instinct will cause
+				the student to remove the finger very quickly. CAUTION: There is a risk of a
+				being burned if the finger is kept in the focus too long, if a higher power
+				spotlight is used, or if a better quality mirror is used. Try it first before the class
+				does, and give fair warning to your volunteer!<br>
+				(c) Once it has been proven that the focus is a hot spot, try burning a piece of
+				tissue paper, match, or plain paper. At the focus, the paper will quickly smoke
+				and even ignite! However, if the paper is even a little bit off the focus, it may not
+				even smoke. The key is to zero in on the focus, which for this mirror is about 2-3
+				inches from the surface along the primary axis. This is best done by knowing
+				where to look ahead of time, and by fine tuning the location by increasing the
+				brightness of the spot on the paper as it is moved. This all assumes that the
+				mirror axis is aligned well with the spotlight axis.<br>
+				(d) Knowing that paper was burned, have students guess the temperature at the
+				focus and then measure it with a thermometer or thermocouple.</p><br>
+       
             
-            <p class="application">After cutting the 2x6 to 3ft. length, install the screw eyes along the centerline at the distances shown above. To ensure the spring scale hook remains centered during the lift (and creates an equal force in both scales), use wire or duct tape to prevent its movement. Display the 2x6 at the front of the class, but do not have anything connected to it. Let the students build their answer as they work to solve the problem.</p>
-            
-            <p class="application"><strong><u>In Class:</u></strong> Build and verify your model. The imperfect connections at the screw eyes and the variation in the spring scale as a load is applied make predicting the exact angle difficult. The placement of the screw eyes and the length of the chain are intended to replicate scenarios with the connections at 30°, 45°, and 60°.</p><br>
-            
-            <img src="${pageContext.request.contextPath}/_view/categories/construction/in-class(a).JPG" class="const-img"><br>
-            
-            <p class="application"><strong><u>Theory:</u></strong> Given the fixed connection options, have the students calculate the tensile forces in the sling using the farthest connection (12 inches from center). Ask them what angle they would recommend if they didn’t have time for calculations, and why? By adjusting the basic equation to 𝐹 𝑠𝑙𝑖𝑛𝑔 = 𝐹 𝑙𝑜𝑎𝑑 / 𝑠𝑖𝑛(𝜃), the students can calculate the tension in the sling at any angle. If the students are using their computers, remind them of the need to convert the answer to degrees from radians if their output is not making sense to them.</p>
-            
-            <p class="application"><strong><u>Example:</u></strong> The total weight of the demonstration should be 15-16 pounds. Explain to the students that they could use trigonometry to calculate the required sling lengths given the fixed connection points and desired connection angles. However, the variation in this model makes it difficult to perfectly replicate such detailed specifics. As the spring scales extend to register the weight, they alter the length of the cable and therefore the angle at the connection and the resulting tension within the cable. Calculations that include spring deflection yield the following cable length approximations to get the desired connection angles: 30° (no chain, but chain must hang from connection for consistent weight) , 45° (3 links) , and 60° (9 links). These numbers only apply when analyzing the connection that is 12 inches from center. Ask for four volunteers (1 on each side of the lift, 1 to make the connections and document the results, and 1 to hold the top scale when the lift is tested). Test the model at the approximate angle the students chose as the way they would conduct the lift. Then, conduct the connections described above for 30°, 45°, and 60°. Lastly, ask the students to create the worst-case scenario for the rigging and test that example as well. By keeping the lift symmetrical, the weight of the lift can be divided by two and analysis conducted on half of the rigging that creates a right triangle. Given Fsling and Fload of each documented test, have the students calculate the actual angles by adjusting the basic equation to θ = sin−1 (𝐹 𝑙𝑜𝑎𝑑 / F 𝑠𝑙𝑖𝑛𝑔) / 𝜋 / 180. Dividing by 𝜋/180 converts the answer from radians to degrees.</p><br>
-            
-            
-            <p class="application">The following chart compares theoretical angles based on perfect trigonometry to the test angles calculated from the resultant forces under varying load connections.</p>
-            
-            <div style="overflow-x: auto;">
-                <table>
-                  <tr>
-                    <th>L sling</th>
-                    <th>Expected Angle (θ)</th>
-                    <th>F sling</th>
-                    <th>F load</th>
-                    <th>Test Angle (θ)</th>
-                  </tr>
-                  <tr>
-                    <td>No chains</td>
-                    <td>30.0 deg</td>
-                    <td>15.0</td>
-                    <td>7.5</td>
-                    <td>30.0 deg.</td>
-                  </tr>
-                  <tr>
-                    <td>3 links</td>
-                    <td>45.0 deg</td>
-                    <td>11.8</td>
-                    <td>7.5</td>
-                    <td>39.5 deg.</td>
-                  </tr>
-                  <tr>
-                    <td>9 links</td>
-                    <td>60.0 deg</td>
-                    <td>9.0</td>
-                    <td>7.5</td>
-                    <td>56.4 deg.
-                      </td>
-                  </tr>
-                </table><br>
-            </div>
-            
-            <p class="application">As shown above, the angles are not always perfect matches, but are close enough to effectively highlight the amplification of forces in the sling based on rigging angles. Notice the applied force on the sling exceeds its 11lb capacity at 45 degrees!<br><br>
-            
-            Finally, ask the students if they have ever heard of the American Death Triangle. If a student has, have them explain its meaning to the class. This refers to a common source of fatalities in rock climbing and the principles are quite similar to equipment rigging.</p><br>
-            
-            <img src="${pageContext.request.contextPath}/_view/categories/construction/app-last(a).JPG" class="const-img"><br>
-            
-            <p class="application"><strong><u>Additional Application</u></strong> This makes for a good discussion on Factors of Safety. Ask the students about their tolerance for safety and how close to the sling’s capacity would they execute the lift. Did they inspect the slings? The sling’s rating is accurate when it leaves the manufacturer, but how have they been maintained? Are they rusty, worn, or frayed?<br><br>
-                
-            It is entirely possible that a foreman or superintendent does not recognize the implications of different rigging angles. Focus on emphasizing the importance of being able to say “No” to unexpected job site suggestions as a young engineer. Safety should drive the schedule.<br><br>
-            
-            This gives an opportunity to discuss other rigging arrangements such as the use of a spreader bar.<br><br>
-
-            Talk about real world examples where critical lifts did not go as planned and discuss the serious implications about the failures. This is a great time to include a PowerPoint slideshow with pictures of failed crane lifts.</p><br>
+            <p class="application"><strong><u>Additional Application</u></strong> (a) After building up the hopes of the class that they will witness the incredible
+			power of the sun, first take out a puny little 1,000,000 [cp] light. This will
+			hopefully draw some “booing” from the class. Then get rid of the 1,000,000 [cp]
+			light, and impress them by hauling out the markedly larger 15,000,000 [cp] light.
+			(b) Show images of solar concentrators being used in research and the power
+			industry, either before or after the demonstration.<br>
+			(c) If the concentrator is designed to collect heat, the useful heat delivery can be
+			expressed as the radiant power reflected to the receiver which is positioned at
+			the focus, less the thermal losses from the receiver to the ambient.</p><br>
+			
+			 <img src="${pageContext.request.contextPath}/_view/categories/heat_transfer/heat-tran(c.1).JPG" class="const-img"><br>  
+			 
+			  <p class="application">where</p><br>
+			 
+			<img src="${pageContext.request.contextPath}/_view/categories/heat_transfer/heat-tran(d.1).JPG" class="const-img"><br>      
+			
+				<p class="application">The maximum temperature of the receiver (collector) can be estimated by
+				setting the useful heat delivery to zero in the above expression. Concentrating
+				solar power towers, like the one at Sandia National Labs, can achieve up to 5000
+				[K].<br><br>
+				(d) The concentration ratio is defined as the area of the mirror aperture to the
+				area of the receiver (collector) placed at the focus of the mirror.</p><br>
+			
+			 <img src="${pageContext.request.contextPath}/_view/categories/heat_transfer/heat-tran(e.1).JPG" class="const-img"><br>      
+			 
+			 <p class="application">For a two-dimensional mirror (parabolic trough), the theoretical limit of
+				concentration is 216 in air and 324 in glass. For a three-dimensional mirror
+				(parabolic dish), the theoretical limit of concentration is 46,000 in air and
+				103,500 in glass. The highest solar concentration that has been achieved in the
+				lab is 56,000!</p><br>
+			 
         </div>
     </div>
 </content>

@@ -45,9 +45,9 @@ public class SignUpServlet extends HttpServlet {
 		String password = req.getParameter("password");
 		String retypePassword = req.getParameter("retypePassword");
 		
-		String data = password;
-		String algorithm = "SHA-256";
-		byte[] salt = createSalt();
+//		String data = password;
+//		String algorithm = "SHA-256";
+//		byte[] salt = createSalt();
 		
 		boolean noPasswordsMatch = false;
 		boolean accountCreationSuccessful = false;
@@ -58,11 +58,12 @@ public class SignUpServlet extends HttpServlet {
 			if (password.equals(retypePassword)) {
 				newAccount.setName(name);
 				newAccount.setEmail(email);
-				try {
-					newAccount.setPassword(generateHash(data, algorithm, salt));
-				} catch (NoSuchAlgorithmException e) {
-					e.printStackTrace();
-				}
+//				try {
+//					newAccount.setPassword(generateHash(data, algorithm, salt));
+//				} catch (NoSuchAlgorithmException e) {
+//					e.printStackTrace();
+//				}
+				newAccount.setPassword(password);
 				controller.setModel(newAccount);
 				accountCreationSuccessful = controller.createAccount(newAccount);
 			}
@@ -91,31 +92,31 @@ public class SignUpServlet extends HttpServlet {
 	}
 
 
-	private static String generateHash(String data, String algorithm, byte[] salt) throws NoSuchAlgorithmException {
-		MessageDigest digest = MessageDigest.getInstance(algorithm);
-		digest.reset();
-		digest.update(salt);
-		byte[] hash = digest.digest(data.getBytes());
-		return bytesToStringHex(hash);
-	}
-	
-	private final static char[] hexArray = "0123456789ABCDEF".toCharArray();
-	
-	public static String bytesToStringHex(byte[] bytes) {
-		char[] hexChars = new char[bytes.length * 2];
-		for (int i = 0; i < bytes.length; i++) {
-			int v = bytes[i] & 0xFF;
-			hexChars[i * 2] = hexArray[v >>> 4];
-			hexChars[i * 2 + 1] = hexArray[v & 0x0F];
-		}
-		
-		return new String(hexChars);
-	}
-	
-	private static byte[] createSalt() {
-		byte[] bytes = new byte[20];
-		SecureRandom random = new SecureRandom();
-		random.nextBytes(bytes);
-		return bytes;
-	}
+//	private static String generateHash(String data, String algorithm, byte[] salt) throws NoSuchAlgorithmException {
+//		MessageDigest digest = MessageDigest.getInstance(algorithm);
+//		digest.reset();
+//		digest.update(salt);
+//		byte[] hash = digest.digest(data.getBytes());
+//		return bytesToStringHex(hash);
+//	}
+//	
+//	private final static char[] hexArray = "0123456789ABCDEF".toCharArray();
+//	
+//	public static String bytesToStringHex(byte[] bytes) {
+//		char[] hexChars = new char[bytes.length * 2];
+//		for (int i = 0; i < bytes.length; i++) {
+//			int v = bytes[i] & 0xFF;
+//			hexChars[i * 2] = hexArray[v >>> 4];
+//			hexChars[i * 2 + 1] = hexArray[v & 0x0F];
+//		}
+//		
+//		return new String(hexChars);
+//	}
+//	
+//	private static byte[] createSalt() {
+//		byte[] bytes = new byte[20];
+//		SecureRandom random = new SecureRandom();
+//		random.nextBytes(bytes);
+//		return bytes;
+//	}
 }

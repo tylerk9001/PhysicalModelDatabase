@@ -1,8 +1,13 @@
 <!DOCTYPE html>
 <html>
+
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
+
 <head>
-    <title>Heat Transfer | Physical Model </title>
+    <title>Material Science | Physical Model </title>
     <!--Website CSS-->
+    <link rel="icon" href="${pageContext.request.contextPath}/_view/img/tab.png">
     <link href="${pageContext.request.contextPath}/_view/css/collapse-1.css" type="text/css" rel="stylesheet">
     <link href="${pageContext.request.contextPath}/_view/css/application.css" type="text/css" rel="stylesheet">
     <!-- Icon CSS -->
@@ -27,6 +32,21 @@
                 <a href="${pageContext.request.contextPath}/index#mechanics">Mechanics</a>
                 <a href="${pageContext.request.contextPath}/index#statics">Statics</a>
                 <a href="${pageContext.request.contextPath}/index#thermodynamics">Thermodynamics</a>
+                
+                <div class="access-btns">
+                        <form action="${pageContext.request.contextPath}/dashboard">
+                            <c:choose>
+                                <c:when test="${sessionScope.login == true}">
+                                    <a href="${pageContext.request.contextPath}/dashboard" name="dashboard"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+                                </c:when>
+                                <c:when test="${sessionScope.login == null}">
+                                   <a href="${pageContext.request.contextPath}/login" class="button">Login</a>
+	                               <a href="${pageContext.request.contextPath}/signup" class="button">Sign Up</a>
+                                </c:when>
+                            </c:choose>
+                        </form>
+	                </div>
+                
             </div>
         </div>
     </nav>
@@ -45,20 +65,39 @@
             <p class="author"><strong>Submitted By: </strong>Allen Estes and Led Klosky</p><hr>
         </div>
         <div class="project-content">
-            <p class="description"><strong><u>Model Description:</u></strong> This demonstration illustrates the material property of thermal conductivity, and how this property affects conduction heat transfer in a
-            solid. Concepts include Fourier’s Law, conservation of energy and solid-liquid
-            phase change. This demonstration should take 8-10 minutes.</p>
+            <p class="description"><strong><u>Model Description:</u></strong> This is a simple demonstration to illustrate initial
+			deformation, primary creep and secondary creep of a material subjected to a
+			constant load over time. Students can observe a phenomenon over a few days
+			that often takes years to complete. Students can compute the steady state
+			creep rate and gain an appreciation for the relative time required for primary
+			and secondary creep. This demonstration should take a 20 minutes during a
+			single class, but be monitored and updated over a 3 day period..</p>
             
-            <img src="${pageContext.request.contextPath}/_view/categories/construction/mod-desc(a).JPG" class="const-img">
+            <p class="principle"><strong><u>Engineering Principle:</u></strong> Creep is defined as the permanent deformation over time
+			of a material subjected to a constant load or stress. For metals, it occurs at
+			higher temperatures, usually greater than 40% of the melting point, and can take
+			years to occur. It is therefore difficult to physically illustrate this concept to
+			students. Fortunately, many polymers experience creep at room temperature
+			and at stresses far below the yield stress of the material. Thus it is possible to
+			create a quick, inexpensive and rudimentary demonstration of creep behavior in
+			the classroom using plastic tubing with a suspended weight. Creep occurs in
+			stages as indicated by the Figure. (1)</p>
             
-            <p class="principle"><strong><u>Engineering Principle:</u></strong> A sling’s working load limit (WLL) is based on a crane lift performed at a straight (90°) angle. The forces in rigging (sling, chain, wire rope, webbing, shackles, etc.) increase substantially as the angle formed by the sling leg and the horizontal becomes smaller. The following chart shows the increased force applied to the rigging when the rigging angle is reduced. The key engineering principle with this demonstration is related to an understanding of statics. Students must comprehend that decreasing the angle creates a horizontal force component that in turn increases the tension in the rigging. This can be derived using the figure below.</p>
-            
-            <img src="${pageContext.request.contextPath}/_view/categories/construction/eng-principle(a).JPG" class="const-img">
-            
-            <p class="principle">While increasing the connection angle of a two-point lift may be required to
-            increase the stability of the lift, careful consideration must be taken in regards to
-            the sling capacity and weight of the lift.</p>
-            
+            <img src="${pageContext.request.contextPath}/_view/categories/material_science/matsci(a.2).JPG" class="const-img">
+          
+          	 <p class="principle"> When a load is applied to an object, there is an instantaneous initial deformation
+				that can be computed using basic principals of stress and strain. This first stage
+				of creep is known as primary creep where the slope of the curve is decreasing
+				and the material is experiencing strain hardening. The curve levels off to a
+				constant slope during the secondary stage of creep. This is the longest stage of
+				creep and the material is achieving a balance between strain hardening and
+				recovery of its deformation capability. The slope of the line during this period is
+				the steady state creep rate. The final stage of creep is the tertiary stage and
+				ultimately leads to rupture of the material. The slope of the curve increases as
+				the microstructure of the material changes, cracks form, and the material
+				ruptures.</p>
+          
+          
             <br><p class="title">Required Items</p><br>
             
             <div style="overflow-x: auto;">
@@ -70,125 +109,86 @@
                     <th>Description/Details</th>
                   </tr>
                   <tr>
-                    <td>3/16 in. Chain</td>
-                    <td>2x2 ft. sections</td>
-                    <td>$8 at $2 per foot</td>
-                    <td>These represent the sling for the lift.</td>
+                    <td>Surgical Tubing</td>
+                    <td>3 to 8 feet</td>
+                    <td>$5-10</td>
+                    <td>Any small diameter piece of tubing will work.
+					You will want a piece that is long enough for the
+					students to observe the deformations yet short
+					enough to fit in your classroom. Longer pieces
+					of tubing will produce larger deformations.</td>
                   </tr>
                   <tr>
-                    <td>Twist Link Chain</td>
-                    <td>1 foot</td>
-                    <td>Mexico</td>
-                    <td>This is smaller than the straight chain and is used to connect the weight plate to the spring link on the lower screw eye.</td>
-                  </tr>
-                  <tr>
-                    <td>2x6 x 3 ft</td>
+                    <td>Weight</td>
                     <td>1</td>
-                    <td>Austria</td>
-                    <td>Most pieces come in 8 foot sections. Once cut to size, this is the critical lift.</td>
+                    <td>$5</td>
+                    <td>The weight should be large enough to cause a
+					substantial initial deformation, roughly 20-40%
+					rupture strain. (20-40% of rupture strain if using
+					tubing. If using another material, 20-50% of ey
+					might be appropriate). If the weight is too small,
+					the creep curve will take a long time to develop.
+					If it is too big, the creep will either be
+					unrealistically accelerated or produce an early
+					rupture.</td>
                   </tr>
                   <tr>
-                    <td>3/4 in. x 3 in. Screw Eyes</td>
-                    <td>7</td>
-                    <td>$5 at $1.25 per 2 pack</td>
-                    <td>These are used for the rigging connection points on top and the load connection point on the bottom. 130-pound capacity.</td>
-                  </tr>
-                  <tr>
-                    <td>3/16 in. Quick Link</td>
+                    <td>Hook</td>
                     <td>1</td>
-                    <td>$2.25</td>
-                    <td>This locks and holds the two spring scales along each chain. It also is used for the top spring scale to analyze the total weight of the lift. 450-pound capacity.</td>
+                    <td>$5</td>
+                    <td>Attach the hook to either the ceiling or an upper portion of the wall.</td>
                   </tr>
                   <tr>
-                    <td>3 in. Spring Link</td>
-                    <td>3</td>
-                    <td>$1 each</td>
-                    <td>These are used for quick connections of the chains to the screw eyes and the weight to the load screw eye. 150-pound capacity.</td>
-                  </tr>
-                   <tr>
-                    <td>20-lb Spring Scale</td>
-                    <td>3</td>
-                    <td>$11.50 each</td>
-                    <td>These scales measure the weight of the lift and along each chain.</td>
-                  </tr>
-                  <tr>
-                    <td>10-lb Weight Plate</td>
+                    <td>Yardstick</td>
                     <td>1</td>
-                    <td>$11</td>
-                    <td>This increases the weight of the critical lift.</td>
+                    <td>$3</td>
+                    <td>Attach the yardstick to the wall, next to the hanging
+					weight. Use either a screw or tape. If tape is used,
+					provide a sufficient quantity that a minor disturbance
+					will not cause the yardstick to move</td>
                   </tr>
                 </table><br>
             </div>
-            
-            <img src="${pageContext.request.contextPath}/_view/categories/construction/req-items(a).JPG" class="const-img"><br><br>
             
             <p class="title">Application</p>
             
-            <p class="application"><strong><u>Before Class:</u></strong> Build and verify your model. The imperfect connections at the screw eyes and the variation in the spring scale as a load is applied make predicting the exact angle difficult. The placement of the screw eyes and the length of the chain are intended to replicate scenarios with the connections at 30°, 45°, and 60°.</p><br>
+            <p class="application"><strong><u>Before Class:</u></strong> Mount a hook in the classroom from which to hang a weight
+			suspended from a long piece of surgical tubing. Affix the yardstick to the wall
+			next to where the weight will hang. Tie the surgical tubing to the weight, but do
+			not hang it yet. This should take 10-15 minutes.</p><br>
+                                  
+            <p class="application"><strong><u>In Class:</u></strong> Attach the surgical tubing to the hook and mark the location of the
+			weight in the undeformed position on the yardstick. You will have to suspend
+			the weight in your hand to make this mark. Gently release the weight, allow the
+			surgical tubing to deform and record the difference between the initial mark and
+			its current location on the yardstick. Record the data on the blackboard. Have a
+			student take a reading every minute for the first five minutes. Record the time
+			and the reading on the yardstick on the blackboard. Continue taking readings
+			every five minutes for the remainder of the class period</p><br>
             
-            <img src="${pageContext.request.contextPath}/_view/categories/construction/before-class(a).JPG" class="const-img"><br>
-            
-            <p class="application">After cutting the 2x6 to 3ft. length, install the screw eyes along the centerline at the distances shown above. To ensure the spring scale hook remains centered during the lift (and creates an equal force in both scales), use wire or duct tape to prevent its movement. Display the 2x6 at the front of the class, but do not have anything connected to it. Let the students build their answer as they work to solve the problem.</p>
-            
-            <p class="application"><strong><u>In Class:</u></strong> Build and verify your model. The imperfect connections at the screw eyes and the variation in the spring scale as a load is applied make predicting the exact angle difficult. The placement of the screw eyes and the length of the chain are intended to replicate scenarios with the connections at 30°, 45°, and 60°.</p><br>
-            
-            <img src="${pageContext.request.contextPath}/_view/categories/construction/in-class(a).JPG" class="const-img"><br>
-            
-            <p class="application"><strong><u>Theory:</u></strong> Given the fixed connection options, have the students calculate the tensile forces in the sling using the farthest connection (12 inches from center). Ask them what angle they would recommend if they didn’t have time for calculations, and why? By adjusting the basic equation to 𝐹 𝑠𝑙𝑖𝑛𝑔 = 𝐹 𝑙𝑜𝑎𝑑 / 𝑠𝑖𝑛(𝜃), the students can calculate the tension in the sling at any angle. If the students are using their computers, remind them of the need to convert the answer to degrees from radians if their output is not making sense to them.</p>
-            
-            <p class="application"><strong><u>Example:</u></strong> The total weight of the demonstration should be 15-16 pounds. Explain to the students that they could use trigonometry to calculate the required sling lengths given the fixed connection points and desired connection angles. However, the variation in this model makes it difficult to perfectly replicate such detailed specifics. As the spring scales extend to register the weight, they alter the length of the cable and therefore the angle at the connection and the resulting tension within the cable. Calculations that include spring deflection yield the following cable length approximations to get the desired connection angles: 30° (no chain, but chain must hang from connection for consistent weight) , 45° (3 links) , and 60° (9 links). These numbers only apply when analyzing the connection that is 12 inches from center. Ask for four volunteers (1 on each side of the lift, 1 to make the connections and document the results, and 1 to hold the top scale when the lift is tested). Test the model at the approximate angle the students chose as the way they would conduct the lift. Then, conduct the connections described above for 30°, 45°, and 60°. Lastly, ask the students to create the worst-case scenario for the rigging and test that example as well. By keeping the lift symmetrical, the weight of the lift can be divided by two and analysis conducted on half of the rigging that creates a right triangle. Given Fsling and Fload of each documented test, have the students calculate the actual angles by adjusting the basic equation to θ = sin−1 (𝐹 𝑙𝑜𝑎𝑑 / F 𝑠𝑙𝑖𝑛𝑔) / 𝜋 / 180. Dividing by 𝜋/180 converts the answer from radians to degrees.</p><br>
-            
-            
-            <p class="application">The following chart compares theoretical angles based on perfect trigonometry to the test angles calculated from the resultant forces under varying load connections.</p>
-            
-            <div style="overflow-x: auto;">
-                <table>
-                  <tr>
-                    <th>L sling</th>
-                    <th>Expected Angle (θ)</th>
-                    <th>F sling</th>
-                    <th>F load</th>
-                    <th>Test Angle (θ)</th>
-                  </tr>
-                  <tr>
-                    <td>No chains</td>
-                    <td>30.0 deg</td>
-                    <td>15.0</td>
-                    <td>7.5</td>
-                    <td>30.0 deg.</td>
-                  </tr>
-                  <tr>
-                    <td>3 links</td>
-                    <td>45.0 deg</td>
-                    <td>11.8</td>
-                    <td>7.5</td>
-                    <td>39.5 deg.</td>
-                  </tr>
-                  <tr>
-                    <td>9 links</td>
-                    <td>60.0 deg</td>
-                    <td>9.0</td>
-                    <td>7.5</td>
-                    <td>56.4 deg.
-                      </td>
-                  </tr>
-                </table><br>
-            </div>
-            
-            <p class="application">As shown above, the angles are not always perfect matches, but are close enough to effectively highlight the amplification of forces in the sling based on rigging angles. Notice the applied force on the sling exceeds its 11lb capacity at 45 degrees!<br><br>
-            
-            Finally, ask the students if they have ever heard of the American Death Triangle. If a student has, have them explain its meaning to the class. This refers to a common source of fatalities in rock climbing and the principles are quite similar to equipment rigging.</p><br>
-            
-            <img src="${pageContext.request.contextPath}/_view/categories/construction/app-last(a).JPG" class="const-img"><br>
-            
-            <p class="application"><strong><u>Additional Application</u></strong> This makes for a good discussion on Factors of Safety. Ask the students about their tolerance for safety and how close to the sling’s capacity would they execute the lift. Did they inspect the slings? The sling’s rating is accurate when it leaves the manufacturer, but how have they been maintained? Are they rusty, worn, or frayed?<br><br>
-                
-            It is entirely possible that a foreman or superintendent does not recognize the implications of different rigging angles. Focus on emphasizing the importance of being able to say “No” to unexpected job site suggestions as a young engineer. Safety should drive the schedule.<br><br>
-            
-            This gives an opportunity to discuss other rigging arrangements such as the use of a spreader bar.<br><br>
-
-            Talk about real world examples where critical lifts did not go as planned and discuss the serious implications about the failures. This is a great time to include a PowerPoint slideshow with pictures of failed crane lifts.</p><br>
-        </div>
+			<img src="${pageContext.request.contextPath}/_view/categories/material_science/matsci(b.2).JPG" class="const-img">   
+			         
+             <p class="application">Prepare a spreadsheet in advance and enter the data into the spreadsheet.
+				Divide the deformation by the initial length of the surgical tubing to obtain the
+				strain. Convert the recorded clock times to a standard unit of time such as hours
+				or minutes. At the end of the class period, an initial creep curve can be posted
+				on the board. Data from an actual class experiment after 100 minutes is shown
+				below.</p><br>
+				
+			<img src="${pageContext.request.contextPath}/_view/categories/material_science/matsci(c.2).JPG" class="const-img">
+			
+			<p class="application">Continue taking readings over several days at convenient times. They do not
+				have to be taken often. At the beginning of class, show the updated creep curve.
+				For the experiment shown below, the data was collected over nine days.
+				It may not be productive to continue the experiment any longer. The learning
+				points have been made and it is unlikely that anyone will be around to capture
+				the data for tertiary creep. It will happen quickly and may occur during the
+				middle of the night. You will probably have moved on to another topic, so quit
+				while you are ahead, unless the students are interested enough to continue the
+				experiment to rupture.</p><br>
+				
+				<img src="${pageContext.request.contextPath}/_view/categories/material_science/matsci(d.2).JPG" class="const-img">
+          </div>
     </div>
 </content>
 
