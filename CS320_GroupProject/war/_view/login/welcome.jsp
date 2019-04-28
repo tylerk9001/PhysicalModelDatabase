@@ -79,7 +79,7 @@
 	    
 	    
 	    <c:if test="${sessionScope.login != null}">
-		     <div class="content-container">
+		      <div class="content-container">
 	        	 <div class="container1-color">
 	            	<div class="user-info">
 	                	<div class="user-message">
@@ -120,6 +120,7 @@
 	            </div>
 	        </div>
 	    </div>
+	    <br><br><br>
     </c:if>
 	   
 	

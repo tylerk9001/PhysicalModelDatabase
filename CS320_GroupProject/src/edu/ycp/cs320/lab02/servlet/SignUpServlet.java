@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import edu.ycp.cs320.lab02.controller.SignUpController;
+import edu.ycp.cs320.lab02.model.PasswordEncrypting;
 import edu.ycp.cs320.lab02.model.UserAccount;
 
 public class SignUpServlet extends HttpServlet {
@@ -27,6 +28,7 @@ public class SignUpServlet extends HttpServlet {
 		req.getRequestDispatcher("/_view/login/signup.jsp").forward(req, resp);
 	}
 	
+	@SuppressWarnings("static-access")
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
@@ -35,6 +37,7 @@ public class SignUpServlet extends HttpServlet {
 		
 		SignUpController controller = new SignUpController();
 		UserAccount newAccount = new UserAccount();
+		PasswordEncrypting newPassword = new PasswordEncrypting();
 		
 		HttpSession session = req.getSession(true);
 		
@@ -44,6 +47,7 @@ public class SignUpServlet extends HttpServlet {
 		String email = req.getParameter("email");
 		String password = req.getParameter("password");
 		String retypePassword = req.getParameter("retypePassword");
+		String secret = "PhysicalModelDatabase";
 		
 //		String data = password;
 //		String algorithm = "SHA-256";
@@ -63,7 +67,7 @@ public class SignUpServlet extends HttpServlet {
 //				} catch (NoSuchAlgorithmException e) {
 //					e.printStackTrace();
 //				}
-				newAccount.setPassword(password);
+				newAccount.setPassword(newPassword.encrypt(password, secret));
 				controller.setModel(newAccount);
 				accountCreationSuccessful = controller.createAccount(newAccount);
 			}

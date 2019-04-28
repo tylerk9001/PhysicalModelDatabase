@@ -10,6 +10,7 @@ import javax.servlet.http.HttpSession;
 
 import edu.ycp.cs320.lab02.controller.LoginController;
 import edu.ycp.cs320.lab02.model.Login;
+import edu.ycp.cs320.lab02.model.PasswordEncrypting;
 import edu.ycp.cs320.lab02.model.UserAccount;
 
 public class LoginServlet extends HttpServlet {
@@ -30,6 +31,7 @@ public class LoginServlet extends HttpServlet {
 		
 	}
 	
+	@SuppressWarnings("static-access")
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
@@ -38,11 +40,13 @@ public class LoginServlet extends HttpServlet {
 		
 		UserAccount model = new UserAccount();
 		LoginController controller = new LoginController();
-		
+		PasswordEncrypting getPassword = new PasswordEncrypting();
 
 		String email = req.getParameter("email");
 		String password = req.getParameter("password");
+		String secret = "PhysicalModelDatabase";
 		
+		password = getPassword.encrypt(password, secret);
 		
 		if (email != null && password != null) {
 			model.setEmail(email);
