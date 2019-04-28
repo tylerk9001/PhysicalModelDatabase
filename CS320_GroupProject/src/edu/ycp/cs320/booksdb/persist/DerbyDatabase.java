@@ -32,7 +32,7 @@ public class DerbyDatabase implements IDatabase {
 	private static final int MAX_ATTEMPTS = 10;
 	
 	@Override
-	public UserAccount getAccountInfo(final String email, final String password) {
+	public UserAccount getAccountInfoForUserLogin (final String email, final String password) {
 		return executeTransaction(new Transaction<UserAccount>() {
 			public UserAccount execute(Connection conn) throws SQLException {
 				PreparedStatement stmt = null;
@@ -69,7 +69,7 @@ public class DerbyDatabase implements IDatabase {
 		});
 	}
 	
-	public boolean createAccount(String email, String password, String name) {
+	public boolean createAccountWithSignUpForm (String email, String password, String name) {
 		return executeTransaction(new Transaction<Boolean>() {
 			@SuppressWarnings("resource")
 			@Override
@@ -107,6 +107,70 @@ public class DerbyDatabase implements IDatabase {
 					DBUtil.closeQuietly(stmt);
 				}
 				
+			}
+		});
+	}
+	
+	public ArrayList<CurrentProject> searchByKeywordsAuthorsProjectNameOrCategory (final String search) {
+		return executeTransaction(new Transaction<ArrayList<CurrentProject>>() {
+			@SuppressWarnings("resource")
+			@Override
+			public ArrayList<CurrentProject> execute(Connection conn) throws SQLException {
+				PreparedStatement stmt = null;
+				ResultSet resultSet = null;
+				
+//				System.out.print(search);
+								
+				try {
+					String lower = search.toLowerCase();
+					String upper = search.toUpperCase();
+					stmt = conn.prepareStatement("select DISTINCT projectname, filename "
+							+ "from projects, keywords, authors, projectauthors "
+							+ "where (lower(projectname) like ? or upper(projectname) like ? "
+							+ "or lower(category) like ? or upper(category) like ? "
+							+ "or lower(keyword) like ? or upper(keyword) like ? "
+							+ "or lower(authors.name) like ? or upper(authors.name) like ?) "
+							+ "and (keywords.project_id = projects.project_id "
+							+ "and projectauthors.project_id = projects.project_id "
+							+ "and authors.account_id = projectauthors.author_id)");	
+					stmt.setString(1, "%" + lower + "%");
+					stmt.setString(2, "%" + upper + "%");
+					stmt.setString(3, "%" + lower + "%");
+					stmt.setString(4, "%" + upper + "%");
+					stmt.setString(5, "%" + lower + "%");
+					stmt.setString(6, "%" + upper + "%");
+					stmt.setString(7, "%" + lower + "%");
+					stmt.setString(8, "%" + upper + "%");
+										
+					ArrayList<CurrentProject> list = new ArrayList<CurrentProject>();
+					
+					// initialize boolean variable
+					Boolean found = false;
+					
+					resultSet = stmt.executeQuery();
+					
+					while (resultSet.next()) {
+						found = true;
+						
+						CurrentProject project = new CurrentProject();
+						loadSearch(project, resultSet, 1);
+						
+						// test output
+						System.out.println(project.getFileName());
+
+						list.add(project);
+					}
+					
+//					if (!found) {
+//						something about no project found
+//					}
+					
+					return list;
+					
+				} finally {
+					DBUtil.closeQuietly(resultSet);
+					DBUtil.closeQuietly(stmt);
+				}
 			}
 		});
 	}
@@ -337,69 +401,7 @@ public class DerbyDatabase implements IDatabase {
 		});
 	}
 	
-	public ArrayList<CurrentProject> search(final String search) {
-		return executeTransaction(new Transaction<ArrayList<CurrentProject>>() {
-			@SuppressWarnings("resource")
-			@Override
-			public ArrayList<CurrentProject> execute(Connection conn) throws SQLException {
-				PreparedStatement stmt = null;
-				ResultSet resultSet = null;
-				
-//				System.out.print(search);
-								
-				try {
-					String lower = search.toLowerCase();
-					String upper = search.toUpperCase();
-					stmt = conn.prepareStatement("select DISTINCT projectname, filename "
-							+ "from projects, keywords, authors, projectauthors "
-							+ "where (lower(projectname) like ? or upper(projectname) like ? "
-							+ "or lower(category) like ? or upper(category) like ? "
-							+ "or lower(keyword) like ? or upper(keyword) like ? "
-							+ "or lower(authors.name) like ? or upper(authors.name) like ?) "
-							+ "and (keywords.project_id = projects.project_id "
-							+ "and projectauthors.project_id = projects.project_id "
-							+ "and authors.account_id = projectauthors.author_id)");	
-					stmt.setString(1, "%" + lower + "%");
-					stmt.setString(2, "%" + upper + "%");
-					stmt.setString(3, "%" + lower + "%");
-					stmt.setString(4, "%" + upper + "%");
-					stmt.setString(5, "%" + lower + "%");
-					stmt.setString(6, "%" + upper + "%");
-					stmt.setString(7, "%" + lower + "%");
-					stmt.setString(8, "%" + upper + "%");
-										
-					ArrayList<CurrentProject> list = new ArrayList<CurrentProject>();
-					
-					// initialize boolean variable
-					Boolean found = false;
-					
-					resultSet = stmt.executeQuery();
-					
-					while (resultSet.next()) {
-						found = true;
-						
-						CurrentProject project = new CurrentProject();
-						loadSearch(project, resultSet, 1);
-						
-						// test output
-						System.out.println(project.getFileName());
-
-						list.add(project);
-					}
-					
-//					if (!found) {
-//						something about no project found
-//					}
-					
-					return list;
-					
-				} finally {
-					DBUtil.closeQuietly(resultSet);
-					DBUtil.closeQuietly(stmt);
-				}
-			}
-		});
-	}
+	
 		
 	// The main method creates the database tables and loads the initial data.
 	public static void main(String[] args) throws IOException {

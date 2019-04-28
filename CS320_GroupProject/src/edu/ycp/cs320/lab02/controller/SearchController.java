@@ -26,7 +26,7 @@ public class SearchController {
 	}
 	
 	public ArrayList<CurrentProject> getProjectBySearchResult (String search) {
-		ArrayList<CurrentProject> projects = database.search(search);
+		ArrayList<CurrentProject> projects = database.searchByKeywordsAuthorsProjectNameOrCategory(search);
 		return projects;
 	}
 }	 

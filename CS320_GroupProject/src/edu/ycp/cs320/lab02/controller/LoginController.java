@@ -41,7 +41,7 @@ public class LoginController {
 	public boolean loginSuccess() {
 		boolean loginSuccessful = false;
 		
-		UserAccount getAccount = database.getAccountInfo(model.getEmail(), model.getPassword());
+		UserAccount getAccount = database.getAccountInfoForUserLogin (model.getEmail(), model.getPassword());
 		
 		if (getAccount.getEmail() != null && getAccount.getPassword() != null) {
 			if (getAccount.getEmail().equals(model.getEmail()) && getAccount.getPassword().equals(model.getPassword())) {
