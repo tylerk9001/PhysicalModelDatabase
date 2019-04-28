@@ -19,6 +19,10 @@ public class UploadProjectController {
 		this.model = model;
 	}
 	
+	public UploadProject getModel() {
+		return model;
+	}
+	
 	public void setHeader() {
 		model.setProjectName(projectName);
 		model.setEngineeringCategory(engineeringCategory);
