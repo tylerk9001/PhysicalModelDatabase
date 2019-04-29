@@ -125,6 +125,12 @@
                 <a href="${pageContext.request.contextPath}/index#mechanics">Mechanics</a>
                 <a href="${pageContext.request.contextPath}/index#statics">Statics</a>
                 <a href="${pageContext.request.contextPath}/index#thermodynamics">Thermodynamics</a>
+                
+                <div class="access-btns">
+                  <form action="${pageContext.request.contextPath}/welcome">
+                      <a href="${pageContext.request.contextPath}/login" class="button">Login</a>
+                  </form>
+               </div>
                 </div>
             </div>
         </div>

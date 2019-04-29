@@ -115,6 +115,20 @@
                 <a href="${pageContext.request.contextPath}/index#mechanics">Mechanics</a>
                 <a href="${pageContext.request.contextPath}/index#statics">Statics</a>
                 <a href="${pageContext.request.contextPath}/index#thermodynamics">Thermodynamics</a>
+                
+                <div class="access-btns">
+                  <form action="${pageContext.request.contextPath}/dashboard">
+                      <c:choose>
+                          <c:when test="${sessionScope.login == true}">
+                              <a href="${pageContext.request.contextPath}/dashboard" name="dashboard"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+                          </c:when>
+                          <c:when test="${sessionScope.login == null}">
+                             <a href="${pageContext.request.contextPath}/login" class="button">Login</a>
+                          <a href="${pageContext.request.contextPath}/signup" class="button">Sign Up</a>
+                          </c:when>
+                      </c:choose>
+                  </form>
+               </div>
             </div>
         </div>
     </nav>

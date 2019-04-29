@@ -374,6 +374,10 @@
     <url-pattern>/dashboard</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
+    <servlet-name>WelcomeServlet</servlet-name>
+    <url-pattern>/welcome</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
     <servlet-name>UploadServlet</servlet-name>
     <url-pattern>/upload</url-pattern>
   </servlet-mapping>

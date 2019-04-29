@@ -16,10 +16,13 @@ import edu.ycp.cs320.lab02.model.Search;
 public class SearchServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
+	ArrayList<CurrentProject> projectsFound = new ArrayList<CurrentProject>();
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
+		
+		projectsFound.clear();
 		
 		System.out.println("Search Servlet: doGet");	
 		
@@ -41,14 +44,11 @@ public class SearchServlet extends HttpServlet {
 		model.setSearch(search);
 		controller.setModel(model);
 		
-		ArrayList<CurrentProject> projectsFound = new ArrayList<CurrentProject>();
-	
+		
 		try {
-			projectsFound.clear();
 			projectsFound = controller.getProjectBySearchResult(search);
 			req.setAttribute("search", "Search results for '" + search + "':");
 			session.setAttribute("results", projectsFound);
-			projectsFound.clear();
 			
 			if (session.getAttribute("search_failed") != null) {
 				session.removeAttribute("search_failed");
@@ -58,6 +58,7 @@ public class SearchServlet extends HttpServlet {
 		catch (Exception e) {
 			session.setAttribute("search_failed", true);
 		}
+
 		
 		// now call the JSP to render the new page
 		req.getRequestDispatcher("/_view/search/search.jsp").forward(req, resp);

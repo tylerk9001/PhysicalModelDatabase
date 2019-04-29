@@ -82,6 +82,7 @@
 	                <c:if test="${sessionScope.login != null}">
 		                <a href="${pageContext.request.contextPath}/dashboard"><i class="fas fa-tachometer-alt"></i>  Dashboard</a>
 		                <a href="#projects"><i class="fas fa-file-alt"></i> Projects</a>
+		                <a href="#reviews"><i class="fas fa-pencil-alt"></i> Reviews</a>
 		                <a href="${pageContext.request.contextPath}/upload"><i class="fas fa-file-upload"></i> Upload a Project</a>
 	             	</c:if>
 	             
@@ -103,7 +104,7 @@
 	            	<div class="user-info">
 	                	<div class="user-message">
 	                    <h1>Welcome, <c:out value="${sessionScope.name}"/>!</h1>
-	                   <form action="${pageContext.servletContext.contextPath}/welcome" method="post">
+	                   <form action="${pageContext.servletContext.contextPath}/dashboard" method="post">
 		                   <span style="display: none">
 		                   	<input name="name" value="${sessionScope.name}">
 		                   </span>
@@ -128,7 +129,7 @@
 							</c:forEach>		
 						</div>
 	                </div>
-	                <div class="user-reviews">
+	                <div id="reviews">
 	                    <hr>
 	                    <h2>My Reviews</h2>
 	                    <p><i>Currently, you have not given any reviews.</i></p>
