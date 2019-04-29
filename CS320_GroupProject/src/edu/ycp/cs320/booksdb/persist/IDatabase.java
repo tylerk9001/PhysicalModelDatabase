@@ -21,6 +21,12 @@ public interface IDatabase {
 	// Search query by name to display on account dashboard
 	public ArrayList<CurrentProject> checkForProjectsCreatedByAccount(String name);
 	
+	// Query to add new project to database
+	public boolean addNewProjectToDatabase(String projectName, String engineeringCategory, ArrayList<String> keywords, 
+			ArrayList<String> authors, String modelDescription, String engineeringPrinciple, 
+			ArrayList<ArrayList<String>> requiredItems, int numRequiredItems, 
+			String beforeClass, String inClass, String other);
+	
 	// Retrieve Review
 	//public boolean retrieveReview (String review_id);
 	

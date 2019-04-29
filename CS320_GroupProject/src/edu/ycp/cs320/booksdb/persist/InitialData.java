@@ -26,6 +26,11 @@ public class InitialData {
 				project.setProjectName(i.next());
 				project.setEngineeringCategory(i.next());
 				project.setFileName(i.next());
+				project.setModelDescription(i.next());
+				project.setEngineeringPrinciple(i.next());
+				project.setBeforeClass(i.next());
+				project.setInClass(i.next());
+				project.setOther(i.next());
 				projectList.add(project);
 			}
 			return projectList;

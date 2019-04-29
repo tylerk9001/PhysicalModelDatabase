@@ -229,6 +229,94 @@ public class DerbyDatabase implements IDatabase {
 		});
 	}
 	
+	public boolean addNewProjectToDatabase (String projectName, String engineeringCategory, ArrayList<String> keywords, 
+			ArrayList<String> authors, String modelDescription, String engineeringPrinciple, 
+			ArrayList<ArrayList<String>> requiredItems, int numRequiredItems, 
+			String beforeClass, String inClass, String other) {
+		return executeTransaction(new Transaction<Boolean>() {
+			@SuppressWarnings("resource")
+			@Override
+			public Boolean execute(Connection conn) throws SQLException {
+				PreparedStatement stmt = null;
+				PreparedStatement stmt2 = null;
+				ResultSet resultSet2 = null;
+				PreparedStatement stmt3 = null;
+				ResultSet resultSet3 = null;
+				PreparedStatement stmt4 = null;
+				PreparedStatement stmt5 = null;
+				String filePath = "http://locahost:8081/project/useruploaded";
+				int project_id;
+				
+				stmt = conn.prepareStatement("insert into projects (projectName, category, fileName, modelDescription, engineeringPrinciple, beforeClass, inClass, other) "
+						+ "values (?, ?, ?, ?, ?, ?, ?, ?)");
+				stmt.setString(1, projectName);
+				stmt.setString(2, engineeringCategory);
+				stmt.setString(3, filePath);
+				stmt.setString(4, modelDescription);
+				stmt.setString(5, engineeringPrinciple);
+				stmt.setString(6, beforeClass);
+				stmt.setString(7, inClass);
+				stmt.setString(8, other);
+				
+				
+				stmt2 = conn.prepareStatement("select project_id from projects"
+						+ "where projectName = ?");
+				stmt2.setString(1, projectName);
+				resultSet2 = stmt.executeQuery();
+				resultSet2.next();
+				Object project_IDResult = resultSet2.getObject(1);
+				String id = project_IDResult.toString();
+				project_id = Integer.parseInt(id);
+				
+				for (int i = 0; i < authors.size(); i++) {
+					String currentAuthor = authors.get(i);
+					
+					stmt3 = conn.prepareStatement("select account_id from authors "
+							+ "where name = ?");
+					stmt3.setString(1,  currentAuthor);
+					resultSet3 = stmt.executeQuery();
+					resultSet3.next();
+					Object author_IDResult = resultSet3.getObject(1);
+					String id2 = author_IDResult.toString();
+					int author_id = Integer.parseInt(id2);
+					
+					stmt4 = conn.prepareStatement("insert into projectAuthors (project_id, author_id) values (?, ?)");
+					stmt4.setInt(1,  project_id);
+					stmt4.setInt(2,  author_id);
+				}
+				
+				String keywordString = keywords.get(0);
+				for (int i = 1; i < keywords.size(); i++) {
+					keywordString = keywordString + ", " + keywords.get(i);
+				}
+				stmt4 = conn.prepareStatement("insert into keywords (project_id, keyword) values (?, ?)");
+				stmt4.setInt(1,  project_id);
+				stmt4.setString(2,  keywordString);
+				
+				for (int i = 0; i < requiredItems.size(); i++) {
+						String item = requiredItems.get(i).get(0);
+						String quantity = requiredItems.get(i).get(1);
+						String cost = requiredItems.get(i).get(2);
+						String description = requiredItems.get(i).get(3);
+						
+						stmt5 = conn.prepareStatement("insert into requiredItems (project_id, item, quantity, cost, description)"
+								+ "values (?, ?, ?, ?, ?)");
+						stmt5.setInt(1, project_id);
+						stmt5.setString(2, item);
+						stmt5.setString(3, quantity);
+						stmt5.setString(4, cost);
+						stmt5.setString(5, description);
+				}
+				////////////////////
+				if (project_id != 0) {
+					return true;
+				} else {
+					return false;
+				}
+			}
+		});
+	}
+	
 	public<ResultType> ResultType executeTransaction(Transaction<ResultType> txn) {
 		try {
 			return doExecuteTransaction(txn);
@@ -305,6 +393,7 @@ public class DerbyDatabase implements IDatabase {
 				PreparedStatement stmt4 = null;
 				PreparedStatement stmt5 = null;
 				PreparedStatement stmt6 = null;
+				PreparedStatement stmt7 = null;
 				
 				try {
 					stmt1 = conn.prepareStatement(
@@ -321,7 +410,12 @@ public class DerbyDatabase implements IDatabase {
 							"       generated always as identity (start with 1, increment by 1), " +
 							"	projectName varchar(70)," +
 							"   category varchar(70), " +
-							"	fileName varchar(70)" +
+							"	fileName varchar(70), " + 
+							"	modelDescription varchar(2000), " + 
+							"	engineeringPrinciple varchar(2000), " + 
+							"	beforeClass varchar(2000), " + 
+							"	inClass varchar(2000), " + 
+							"	other varchar(2000) " + 
 							")"
 					);
 					stmt2.executeUpdate();
@@ -364,6 +458,17 @@ public class DerbyDatabase implements IDatabase {
 						);	
 						stmt6.executeUpdate();
 						
+					stmt7 = conn.prepareStatement(
+							"create table requiredItems (" +
+							"	project_id integer, " +
+							"	item varchar(70)," +
+							"   quantity varchar(70), " +
+							"	cost varchar(70)," + 
+							"	description varchar(200) " +
+							")"
+					);
+					stmt7.executeUpdate();
+						
 					return true;
 				} finally {
 					DBUtil.closeQuietly(stmt1);
@@ -402,11 +507,17 @@ public class DerbyDatabase implements IDatabase {
 
 				try {
 					// populate authors table (do authors first, since author_id is foreign key in books table)
-					insertProject = conn.prepareStatement("insert into projects (projectName, category, fileName) values (?, ?, ?)");
+					insertProject = conn.prepareStatement("insert into projects (projectName, category, fileName, modelDescription, engineeringPrinciple, beforeClass, inClass, other) values (?, ?, ?, ?, ?, ?, ?, ?)");
 					for (CurrentProject project : projectList) {
 						insertProject.setString(1, project.getProjectName());
 						insertProject.setString(2, project.getEngineeringCategory());
 						insertProject.setString(3, project.getFileName());
+						insertProject.setString(4, project.getModelDescription());
+						insertProject.setString(5, project.getEngineeringPrinciple());
+						insertProject.setString(6, project.getBeforeClass());
+						insertProject.setString(7, project.getInClass());
+						insertProject.setString(8, project.getOther());
+
 						insertProject.addBatch();
 					}
 					insertProject.executeBatch();

@@ -1,39 +1,34 @@
 package edu.ycp.cs320.lab02.controller;
 
-import edu.ycp.cs320.lab02.model.UploadProject;
+import java.util.ArrayList;
 
+import edu.ycp.cs320.booksdb.persist.DatabaseProvider;
+import edu.ycp.cs320.booksdb.persist.DerbyDatabase;
+import edu.ycp.cs320.booksdb.persist.IDatabase;
+import edu.ycp.cs320.lab02.model.CurrentProject;
 
 public class UploadProjectController {
-	private UploadProject model;
-	private String author = "John Doe";
-	private String projectName = "Test Project";
-	private String engineeringCategory = "Dynamics";
-	private String modelDescription = "This is a test for the model description.";
-	private String engineeringPrinciple = "This is a test for the engineering principle.";
-	private String beforeClass = "This is a test for before class.";
-	private String inClass = "This is a test for in class.";
-	private String other = "This is a test for other.";
+	private CurrentProject model;
+	private IDatabase database;
 	
-
-	public void setModel(UploadProject model) {
+	public UploadProjectController() {
+		DatabaseProvider.setInstance(new DerbyDatabase());
+		database = DatabaseProvider.getInstance();
+	}
+	
+	public void setModel(CurrentProject model) {
 		this.model = model;
 	}
 	
-	public UploadProject getModel() {
+	public CurrentProject getModel() {
 		return model;
 	}
-	
-	public void setHeader() {
-		model.setProjectName(projectName);
-		model.setEngineeringCategory(engineeringCategory);
-		model.addToAuthors(author);
-	}
-	
-	public void setBody() {
-		model.setModelDescription(modelDescription);
-		model.setEngineeringPrinciple(engineeringPrinciple);
-		model.setBeforeClass(beforeClass);
-		model.setInClass(inClass);
-		model.setOther(other);
+
+	public boolean addNewProjectToDatabase(String projectName, String engineeringCategory, ArrayList<String> keywords, 
+			ArrayList<String> authors, String modelDescription, String engineeringPrinciple, 
+			ArrayList<ArrayList<String>> requiredItems, int numRequiredItems, 
+			String beforeClass, String inClass, String other) {
+		boolean projectAdded = database.addNewProjectToDatabase(projectName, engineeringCategory, keywords, authors, modelDescription, engineeringPrinciple, requiredItems, numRequiredItems, beforeClass, inClass, other);
+		return projectAdded;
 	}
 }	 
