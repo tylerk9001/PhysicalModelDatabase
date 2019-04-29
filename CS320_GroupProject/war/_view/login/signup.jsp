@@ -10,8 +10,9 @@
 	.login-container {
 	    width: auto;
 	    height: 100%;
-	    background-color: #000000;
-		}	
+	    background-color: #ffffff;
+	    padding: 50px 550px 50px 550px;
+	}	
 	
 	.login-form {
 		padding-left: 20px;
@@ -19,10 +20,8 @@
 	
 	.login-box {
 	    width: 280px;
-	    position: absolute;
-	    top: 50%;
-	    left: 50%;
-	    transform: translate(-50%, -50%);
+	    display: block;
+	    top: 0;
 	    padding-top: 10px;
 	    padding-bottom: 10px;
 	    color: white;
@@ -86,9 +85,9 @@
 	}
 
 	.signup-footer {
-	    	position: fixed;
-	  		bottom: 0;
-		}
+    	position: fixed;
+  		bottom: 0;
+	}
 	
 	@media print {
 		.signup-footer {
@@ -154,7 +153,7 @@
 					</form>
 	    	</div>
 	    </div>
-	        
+	    <br><br><br>
     <footer>
         <div class="footer signup-footer">
             <p>Tyler Kautz, Trevor Swann, Jacob Stambaugh. Copyright &copy; 2019. Some Rights Reserved.</p>
