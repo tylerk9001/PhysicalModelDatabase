@@ -33,10 +33,10 @@ public class WelcomeServlet extends HttpServlet {
 		model.setName(name);
 		controller.setModel(model);
 		
-		ArrayList<CurrentProject> projectsFound = new ArrayList<CurrentProject>();
+		ArrayList<CurrentProject> dashboardProjectsFound = new ArrayList<CurrentProject>();
 		
-		projectsFound = controller.checkForAuthorsProjects(name);
-		session.setAttribute("results", projectsFound);
+		dashboardProjectsFound = controller.checkForAuthorsProjects(name);
+		session.setAttribute("results", dashboardProjectsFound);
 		
 		// call JSP to generate empty form
 		req.getRequestDispatcher("/_view/login/welcome.jsp").forward(req, resp);

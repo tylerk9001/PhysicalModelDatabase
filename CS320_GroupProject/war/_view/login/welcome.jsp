@@ -23,6 +23,25 @@
 	    color: #86C232;
 	}
 	
+	#projectResults {
+		width: 50%;
+	}
+	
+	.linkResult {
+		margin-bottom: 7.5px;
+		background-color: #86C232;
+		padding: 12px;
+		display: block;
+		color: #2F3640;
+		text-decoration: none;
+	}
+	
+	.linkResult:hover {
+		background-color: #2F3640;
+		color: white;
+		transition: all 0.25s ease-in 0.25s;
+	}
+	
 	.dash-footer {
 	    	position: fixed;
 	  		bottom: 0;
@@ -102,18 +121,12 @@
 	                <div id="projects" class="user-projects">
 	                    <hr>
 	                    <h2>My Projects</h2>
-<!--	                    <p><i>Currently, you do not have any projects created.</i></p>-->
-	                    <div id="searchResults">
-							<c:forEach items="${sessionScope.results}" var="projects">
-								<a class="linkResult" href="${projects.fileName}"><c:out value="${projects.projectName}"></c:out></a><br>
+						<!--<p><i>Currently, you do not have any projects created.</i></p>-->
+	                    <div id="projectResults">
+							<c:forEach items="${sessionScope.results}" var="dashboardProjects">
+								<a class="linkResult" href="${dashboardProjects.fileName}"><c:out value="${dashboardProjects.projectName}"></c:out></a>
 							</c:forEach>		
 						</div>
-	                    <br>
-	                    <br>
-	                    <br>
-	                    <br>
-	                    <br>
-	                    <br>
 	                </div>
 	                <div class="user-reviews">
 	                    <hr>

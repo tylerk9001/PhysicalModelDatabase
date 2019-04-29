@@ -8,87 +8,94 @@
 <style>
 	
 	.login-container {
-    width: auto;
-    height: 100%;
-    background-color: #000000;
-	}	
+	    width: auto;
+	    height: 100%;
+	    background-color: #000000;
+		}	
+	
+	.login-form {
+		padding-left: 20px;
+	}
+	
+	.login-box {
+	    width: 280px;
+	    position: absolute;
+	    top: 50%;
+	    left: 50%;
+	    transform: translate(-50%, -50%);
+	    padding-top: 10px;
+	    padding-bottom: 10px;
+	    color: white;
+	    background-color: #222629;
+	    box-shadow: 5px 5px 10px black;
+	}
+	
+	.login-box h1 {
+	    text-align: center;
+	    font-size: 30px;
+	    border-bottom: 4px solid #86C232;
+	    margin-bottom: 15px;
+	    padding-top: 5px;
+	    padding-bottom: 5px;
+	    margin-left: 15px;
+	    margin-right: 15px;
+	}
+	
+	.login-box h2 {
+	    text-align: center;
+	    font-size: 18px;
+	    border-bottom: 2px solid #86C232;
+	    padding-top: 5px;
+	    padding-bottom: 5px;
+	    margin-left: 75px;
+	    margin-right: 75px;
+	}
+	
+	.textbox {
+	    width: 80%;
+	    overflow: hidden;
+	    font-size: 12px;
+	    padding: 2px;
+	    margin: 8px;
+	    border: 1px solid #86C232;
+	}
+	
+	.textbox input {
+	    border: none;
+	    outline: none;
+	    background: none;
+	    color: white;
+	    font-size: 12px;
+	    width: 81%;
+	    margin: 0 10px;
+	}
+	
+	.btn {
+	    width: 90%;
+	    background: none;
+	    border: 2px solid #86C232;
+	    padding: 5px;
+	    font-size: 18px;
+	    margin: 12px;
+	    cursor: pointer;
+	    color: white;
+	}
+	
+	.btn:hover {
+	    background: #6B6E70;
+	}
 
-.login-form {
-	padding-left: 20px;
-}
-
-.login-box {
-    width: 280px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    padding-top: 10px;
-    padding-bottom: 10px;
-    color: white;
-    background-color: #222629;
-    box-shadow: 5px 5px 10px black;
-}
-
-.login-box h1 {
-    text-align: center;
-    font-size: 30px;
-    border-bottom: 4px solid #86C232;
-    margin-bottom: 15px;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    margin-left: 15px;
-    margin-right: 15px;
-}
-
-.login-box h2 {
-    text-align: center;
-    font-size: 18px;
-    border-bottom: 2px solid #86C232;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    margin-left: 75px;
-    margin-right: 75px;
-}
-
-.textbox {
-    width: 80%;
-    overflow: hidden;
-    font-size: 12px;
-    padding: 2px;
-    margin: 8px;
-    border: 1px solid #86C232;
-}
-
-.textbox input {
-    border: none;
-    outline: none;
-    background: none;
-    color: white;
-    font-size: 12px;
-    width: 81%;
-    margin: 0 10px;
-}
-
-.btn {
-    width: 90%;
-    background: none;
-    border: 2px solid #86C232;
-    padding: 5px;
-    font-size: 18px;
-    margin: 12px;
-    cursor: pointer;
-    color: white;
-}
-
-.btn:hover {
-    background: #6B6E70;
-}
-
-.login-footer {
-    position: absolute;
-    top: 95%;
-}
+	.signup-footer {
+	    	position: fixed;
+	  		bottom: 0;
+		}
+	
+	@media print {
+		.signup-footer {
+			display: block;
+	    	position: fixed;
+	  		bottom: 0;
+		}
 </style>
 
 <head>
@@ -149,7 +156,7 @@
 	    </div>
 	        
     <footer>
-        <div class="footer login-footer">
+        <div class="footer signup-footer">
             <p>Tyler Kautz, Trevor Swann, Jacob Stambaugh. Copyright &copy; 2019. Some Rights Reserved.</p>
         </div>
     </footer>

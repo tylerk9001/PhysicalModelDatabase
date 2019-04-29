@@ -44,9 +44,11 @@ public class SearchServlet extends HttpServlet {
 		ArrayList<CurrentProject> projectsFound = new ArrayList<CurrentProject>();
 	
 		try {
+			projectsFound.clear();
 			projectsFound = controller.getProjectBySearchResult(search);
 			req.setAttribute("search", "Search results for '" + search + "':");
 			session.setAttribute("results", projectsFound);
+			projectsFound.clear();
 			
 			if (session.getAttribute("search_failed") != null) {
 				session.removeAttribute("search_failed");
