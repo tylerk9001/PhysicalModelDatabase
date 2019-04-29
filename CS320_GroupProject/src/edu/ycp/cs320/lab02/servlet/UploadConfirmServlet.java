@@ -29,6 +29,9 @@ public class UploadConfirmServlet extends HttpServlet {
 		
 		System.out.println("Upload Confirm Servlet: doPost");
 		
+		
+		
+		
 		// now call the JSP to render the new page
 		req.getRequestDispatcher("/_view/upload/uploadConfirm.jsp").forward(req, resp);
 	}

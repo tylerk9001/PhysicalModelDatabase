@@ -48,7 +48,7 @@
     <content>
         
         <div class="container">
-          <form action="${pageContext.request.contextPath}/upload" method="post">
+         <form action="${pageContext.request.contextPath}/uploadConfirm" method="post">
           <div class="row">
             <div class="col-25">
               <strong><label class="upload" for="projectName">Project Name:</label></strong>
@@ -178,7 +178,7 @@
            <div class="col-75">
               <p>${other}</p>
            </div>
-          </div>
+          </div>s
           <div class="row"> 
             <input type="submit" value="Confirm">
           </div>

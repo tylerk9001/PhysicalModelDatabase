@@ -26,9 +26,9 @@ public class UploadProjectController {
 
 	public boolean addNewProjectToDatabase(String projectName, String engineeringCategory, ArrayList<String> keywords, 
 			ArrayList<String> authors, String modelDescription, String engineeringPrinciple, 
-			ArrayList<ArrayList<String>> requiredItems, int numRequiredItems, 
+			ArrayList<String> requiredItems,
 			String beforeClass, String inClass, String other) {
-		boolean projectAdded = database.addNewProjectToDatabase(projectName, engineeringCategory, keywords, authors, modelDescription, engineeringPrinciple, requiredItems, numRequiredItems, beforeClass, inClass, other);
+		boolean projectAdded = database.addNewProjectToDatabase(projectName, engineeringCategory, keywords, authors, modelDescription, engineeringPrinciple, requiredItems, beforeClass, inClass, other);
 		return projectAdded;
 	}
 }	 

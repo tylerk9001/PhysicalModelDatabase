@@ -1,10 +1,15 @@
 package edu.ycp.cs320.lab02.servlet;
 
 import java.io.IOException;
+import java.util.ArrayList;
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import edu.ycp.cs320.lab02.controller.UploadProjectController;
+import edu.ycp.cs320.lab02.model.CurrentProject;
 
 
 public class UploadServlet extends HttpServlet {
@@ -24,6 +29,8 @@ public class UploadServlet extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
+		
+		System.out.println("Upload Servlet: doPost");
 		
 		// Grab the data from the form on the upload.jsp
 		String projectName = req.getParameter("projectName");
@@ -55,9 +62,45 @@ public class UploadServlet extends HttpServlet {
 		req.setAttribute("inClass", inClass);
 		req.setAttribute("other", other);
 		
-		req.getRequestDispatcher("/_view/upload/uploadConfirm.jsp").forward(req, resp);
+		CurrentProject model = new CurrentProject();
+		UploadProjectController controller = new UploadProjectController();
 		
-		System.out.println("Upload Servlet: doPost");
+		ArrayList<String> keywordsList = new ArrayList<String>();
+		for (int i = 0; i < keywords.length; i++) {
+			keywordsList.add(keywords[i]);
+		}
+		
+		ArrayList<String> authorsList = new ArrayList<String>();
+		for (int i = 0; i < authors.length; i++) {
+			authorsList.add(authors[i]);
+		}
+		
+		ArrayList<String> requiredItems = new ArrayList<String>();
+		requiredItems.add(item1);
+		requiredItems.add(quantity1);
+		requiredItems.add(costAndBuild1);
+		requiredItems.add(desc1);
+
+		model.setProjectName(projectName);
+		model.setEngineeringCategory(category);
+		model.setKeywords(keywordsList);
+		model.setAuthors(authorsList);
+		model.setModelDescription(modelDesc);
+		model.setEngineeringPrinciple(engineeringPrinciple);
+		model.setRequiredItems(requiredItems);
+		model.setBeforeClass(beforeClass);
+		model.setInClass(inClass);
+		model.setOther(other);
+		
+		controller.setModel(model);
+		
+		boolean var = controller.addNewProjectToDatabase(projectName, category, keywordsList, authorsList, modelDesc, engineeringPrinciple, requiredItems, beforeClass, inClass, other);
+
+		
+		
+		req.getRequestDispatcher("/_view/index.jsp").forward(req, resp);
+		
+		
 		
 	}
 }
