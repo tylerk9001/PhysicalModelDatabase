@@ -141,7 +141,7 @@
 						<%Boolean invalidLogin = (Boolean)request.getSession().getAttribute("login_failed");
 							if (invalidLogin != null) {%> <p>Invalid email and/or password</p><%}%>						
 						<h2>Email:</h2>
-						<i class="fa fa-user"></i><input type="text" class="textbox" name="email" size="12" value="${model.email}" />
+						<i class="fa fa-user"></i><input type="text" class="textbox" name="email" size="12" value="${model.email}" required/>
 						<h2>Password:</h2>
 						<i class="fa fa-lock"></i><input type="password" class="textbox" name="password" size="12" value="${model.password}" /><br>
 						<input type="Submit" class="btn" name="submit" value="Login">
