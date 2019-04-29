@@ -137,7 +137,7 @@
     </nav>
     
     <div class="search-box">
-        <a class="search-btn" href="#"><i class="fas fa-search"></i></a>    
+        <a class="search-btn" href="${pageContext.request.contextPath}/search"><i class="fas fa-search"></i></a>    
     </div>
       
 

@@ -94,6 +94,7 @@
 <head>
     <title>Login | Physical Model </title>
     <!--Website CSS-->
+    <link rel="icon" href="${pageContext.request.contextPath}/_view/img/tab.png">
     <link href="${pageContext.request.contextPath}/_view/css/collapse-1.css" type="text/css" rel="stylesheet">
     <link href="${pageContext.request.contextPath}/_view/css/application.css" type="text/css" rel="stylesheet">
     <!-- Icon CSS -->
@@ -129,8 +130,7 @@
     </nav>
     
     <div class="search-box">
-        <input class="search-txt" type="text" placeholder="Search..." name="">
-        <a class="search-btn" href="#"><i class="fas fa-search"></i></a>
+        <a class="search-btn" href="${pageContext.request.contextPath}/search"><i class="fas fa-search"></i></a>
     </div>
       
 
