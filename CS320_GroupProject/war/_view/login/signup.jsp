@@ -144,17 +144,19 @@
 	  <div class="login-container">
 	        <div class="login-box">
 	            <h1>Sign Up</h1>
-					<form action="${pageContext.servletContext.contextPath}/signup" class="login-form" method="post">					
+					<form action="${pageContext.servletContext.contextPath}/signup" class="login-form" method="post">
+						<p style="color:#ffffff;">${passwordErrorMessage}</p>
+						<p style="color:#ffffff;">${emailErrorMessage}</p>
 						<h2>First Name:</h2>
-						<input type="text" class="textbox" name="firstname" size="12" placeholder="First Name..." value="${model.firstName}"/>
+						<input type="text" class="textbox" name="firstname" size="12" placeholder="First Name..." value="${model.firstName}" required/>
 						<h2>Last Name:</h2>
-						<input type="text" class="textbox" name="lastname" size="12" placeholder="Last Name..." value="${model.lastName}"/>
+						<input type="text" class="textbox" name="lastname" size="12" placeholder="Last Name..." value="${model.lastName}" required/>
 						<h2>Email:</h2>
-						<input type="text" class="textbox" name="email" size="12" placeholder="Email..." value="${model.email}"/>
+						<input type="text" class="textbox" name="email" size="12" placeholder="Email..." value="${model.email}" required/>
 						<h2>Password:</h2>
-						<input type="password" class="textbox" name="password" size="12" placeholder="Password..." value="${model.password}"/>
+						<input type="password" class="textbox" name="password" size="12" placeholder="Password..." value="${model.password}" required/>
 						<h2>Retype Password:</h2>
-						<input type="password" class="textbox" name="retypePassword" size="12" placeholder="Password..." value="${model.retypePassword}"/><br>
+						<input type="password" class="textbox" name="retypePassword" size="12" placeholder="Password..." value="${model.retypePassword}" required/><br>
 						<input type="Submit" class="btn" name="submit" value="Create Account">
 					</form>
 	    	</div>
