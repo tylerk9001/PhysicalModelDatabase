@@ -155,8 +155,7 @@ public class DerbyDatabase implements IDatabase {
 						CurrentProject project = new CurrentProject();
 						loadSearch(project, resultSet, 1);
 						
-						// test output
-						System.out.println(project.getFileName());
+						
 
 						list.add(project);
 					}
@@ -209,15 +208,12 @@ public class DerbyDatabase implements IDatabase {
 						CurrentProject project = new CurrentProject();
 						loadSearch(project, resultSet, 1);
 						
-						// test output
-						System.out.println(project.getFileName());
+						
 
 						list.add(project);
 					}
 					
-//					if (!found) {
-//						something about no project found
-//					}
+//					
 					
 					return list;
 					
@@ -250,6 +246,7 @@ public class DerbyDatabase implements IDatabase {
 				stmt = conn.prepareStatement("insert into projects (projectName, category, fileName, modelDescription, engineeringPrinciple, beforeClass, inClass, other) "
 						+ "values (?, ?, ?, ?, ?, ?, ?, ?)");
 				stmt.setString(1, projectName);
+				System.out.println(projectName);
 				stmt.setString(2, engineeringCategory);
 				stmt.setString(3, filePath);
 				stmt.setString(4, modelDescription);
@@ -257,8 +254,8 @@ public class DerbyDatabase implements IDatabase {
 				stmt.setString(6, beforeClass);
 				stmt.setString(7, inClass);
 				stmt.setString(8, other);
-				
-				
+				stmt.executeUpdate();
+				System.out.println("I got here!");
 //				stmt2 = conn.prepareStatement("select project_id from projects"
 //						+ "where projectName = ?");
 //				stmt2.setString(1, projectName);

@@ -24,11 +24,8 @@ public class UploadProjectController {
 		return model;
 	}
 
-	public boolean addNewProjectToDatabase(String projectName, String engineeringCategory, ArrayList<String> keywords, 
-			ArrayList<String> authors, String modelDescription, String engineeringPrinciple, 
-			ArrayList<String> requiredItems,
-			String beforeClass, String inClass, String other) {
-		boolean projectAdded = database.addNewProjectToDatabase(projectName, engineeringCategory, keywords, authors, modelDescription, engineeringPrinciple, requiredItems, beforeClass, inClass, other);
+	public boolean addNewProjectToDatabase(CurrentProject model) {
+		boolean projectAdded = database.addNewProjectToDatabase(model.getProjectName(), model.getEngineeringCategory(), model.getKeywords(), model.getAuthors(), model.getModelDescription(), model.getEngineeringPrinciple(), model.getRequiredItems(), model.getBeforeClass(), model.getInClass(), model.getOther());
 		return projectAdded;
 	}
 }	 

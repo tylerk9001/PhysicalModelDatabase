@@ -94,7 +94,11 @@ public class UploadServlet extends HttpServlet {
 		
 		controller.setModel(model);
 		
-		boolean var = controller.addNewProjectToDatabase(projectName, category, keywordsList, authorsList, modelDesc, engineeringPrinciple, requiredItems, beforeClass, inClass, other);
+		boolean isAddedToDatabase = controller.addNewProjectToDatabase(model);
+		
+		if (isAddedToDatabase) {
+			System.out.println("Project successfully added to database!");
+		}
 
 		
 		

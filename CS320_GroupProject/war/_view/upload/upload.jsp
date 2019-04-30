@@ -47,6 +47,7 @@
     <content>
         
         <div class="container">
+        <!--
           <form action="${pageContext.request.contextPath}/upload" method="post">
           <div class="row">
             <div class="col-25">
@@ -218,6 +219,132 @@
             <input type="submit" value="Submit">
           </div>
           </form>
+          -->
+          <form action="${pageContext.request.contextPath}/upload" method="post">
+              <strong><label class="upload" for="projectName">Project Name:</label></strong>
+     
+              <input type="text" class="gen-form-input" id="projectName" name="projectName" placeholder="Enter project name..." required>
+            
+              <strong><label class="upload" for="engPrinciple">Engineering Principle:</label></strong>
+            
+              <select id="engPrinciple" name="categories" required>
+                <option selected disabled>Select Principle...</option>
+                <option value="Construction">Construction</option>
+                <option value="Dynamics">Dynamics</option>
+                <option value="Fluids">Fluids</option>
+                <option value="Heat Transfer">Heat Transfer</option>
+                <option value="Material Science">Material Science</option>
+                <option value="Mechanics">Mechanics</option>
+                <option value="Statics">Statics</option>
+                <option value="Thermodynamics">Thermodynamics</option>
+                </select>
+          
+           
+              <strong><label class="upload" for="keywords">Keywords:</label></strong>
+           
+                <input type="text" class="keywords gen-form-input" name="keyword" placeholder="Keyword..." required>
+                
+           
+              <strong><label class="upload" for="author">Submitted By:</label></strong>
+           
+                 <input type="text" class="author gen-form-input" name="author" placeholder="Author name..." required>
+            
+              <strong><label class="upload" for="modelDesc">Model Description:</label></strong>
+           
+              <textarea id="modelDesc" name="modelDesc" class="upload" placeholder="Model description..." style="height:200px" required></textarea>
+          
+              <strong><label class="upload" for="engineeringPrinciple">Engineering Principle:</label></strong>
+           
+              <textarea id="engineeringPrinciple" name="engineeringPrinciple" placeholder="Engineering principle..." style="height:200px" required></textarea>
+           
+              <strong><label class="upload" for="reqItems">Required Items:</label></strong>
+            
+                <table style="overflow-x: auto;">
+                    <tr>
+                      <th>Item</th>
+                      <th>Qty</th>
+                      <th>Cost and Build Time</th>
+                      <th>Description/Details</th>
+                    </tr>
+                    <tr>
+                      <td><input type="text" class="itemName input-size" name="item1" placeholder="Item name..." required></td>
+                      <td><input type="text" class="qty input-size" name="quantity1" placeholder="Quantity..." required></td>
+                      <td><input type="text" class="costAndBuild input-size" name="costAndBuild1" placeholder="Cost and Build time..." required></td>
+                      <td><input type="text" class="desc input-size" name="desc1" placeholder="Description/details..." required></td>
+                    </tr>
+                    <tr>
+                      <td><input type="text" class="itemName input-size" name="item1" placeholder="Item name..."></td>
+                      <td><input type="text" class="qty input-size" name="quantity1" placeholder="Quantity..."></td>
+                      <td><input type="text" class="costAndBuild input-size" name="costAndBuild1" placeholder="Cost and Build time..."></td>
+                      <td><input type="text" class="desc input-size" name="desc1" placeholder="Description/details..."></td>
+                    </tr>
+                    <tr>
+                      <td><input type="text" class="itemName input-size" name="item1" placeholder="Item name..."></td>
+                      <td><input type="text" class="qty input-size" name="quantity1" placeholder="Quantity..."></td>
+                      <td><input type="text" class="costAndBuild input-size" name="costAndBuild1" placeholder="Cost and Build time..."></td>
+                      <td><input type="text" class="desc input-size" name="desc1" placeholder="Description/details..."></td>
+                    </tr>
+                    <tr>
+                      <td><input type="text" class="itemName input-size" name="item1" placeholder="Item name..."></td>
+                      <td><input type="text" class="qty input-size" name="quantity1" placeholder="Quantity..."></td>
+                      <td><input type="text" class="costAndBuild input-size" name="costAndBuild1" placeholder="Cost and Build time..."></td>
+                      <td><input type="text" class="desc input-size" name="desc1" placeholder="Description/details..."></td>
+                    </tr>
+                    <tr>
+                      <td><input type="text" class="itemName input-size" name="item1" placeholder="Item name..."></td>
+                      <td><input type="text" class="qty input-size" name="quantity1" placeholder="Quantity..."></td>
+                      <td><input type="text" class="costAndBuild input-size" name="costAndBuild1" placeholder="Cost and Build time..."></td>
+                      <td><input type="text" class="desc input-size" name="desc1" placeholder="Description/details..."></td>
+                    </tr>
+                    <tr>
+                      <td><input type="text" class="itemName input-size" name="item1" placeholder="Item name..."></td>
+                      <td><input type="text" class="qty input-size" name="quantity1" placeholder="Quantity..."></td>
+                      <td><input type="text" class="costAndBuild input-size" name="costAndBuild1" placeholder="Cost and Build time..."></td>
+                      <td><input type="text" class="desc input-size" name="desc1" placeholder="Description/details..."></td>
+                    </tr>
+                    <tr>
+                      <td><input type="text" class="itemName input-size" name="item1" placeholder="Item name..."></td>
+                      <td><input type="text" class="qty input-size" name="quantity1" placeholder="Quantity..."></td>
+                      <td><input type="text" class="costAndBuild input-size" name="costAndBuild1" placeholder="Cost and Build time..."></td>
+                      <td><input type="text" class="desc input-size" name="desc1" placeholder="Description/details..."></td>
+                    </tr>
+                    <tr>
+                      <td><input type="text" class="itemName input-size" name="item1" placeholder="Item name..."></td>
+                      <td><input type="text" class="qty input-size" name="quantity1" placeholder="Quantity..."></td>
+                      <td><input type="text" class="costAndBuild input-size" name="costAndBuild1" placeholder="Cost and Build time..."></td>
+                      <td><input type="text" class="desc input-size" name="desc1" placeholder="Description/details..."></td>
+                    </tr>
+                    <tr>
+                      <td><input type="text" class="itemName input-size" name="item1" placeholder="Item name..."></td>
+                      <td><input type="text" class="qty input-size" name="quantity1" placeholder="Quantity..."></td>
+                      <td><input type="text" class="costAndBuild input-size" name="costAndBuild1" placeholder="Cost and Build time..."></td>
+                      <td><input type="text" class="desc input-size" name="desc1" placeholder="Description/details..."></td>
+                    </tr>
+                    <tr>
+                      <td><input type="text" class="itemName input-size" name="item1" placeholder="Item name..."></td>
+                      <td><input type="text" class="qty input-size" name="quantity1" placeholder="Quantity..."></td>
+                      <td><input type="text" class="costAndBuild input-size" name="costAndBuild1" placeholder="Cost and Build time..."></td>
+                      <td><input type="text" class="desc input-size" name="desc1" placeholder="Description/details..."></td>
+                    </tr>
+                    
+                 </table>
+         
+              <strong><label class="upload" for="beforeClass">Before Class:</label></strong>
+           
+              <textarea id="beforeClass" name="beforeClass" placeholder="Before class..." style="height:200px" required></textarea>
+          
+              <strong><label class="upload" for="inClass">In Class:</label></strong>
+           
+              <textarea id="inClass" name="inClass" placeholder="In class..." style="height:200px" required></textarea>
+          
+              <strong><label class="upload" for="other">Other:</label></strong>
+            
+              <textarea id="other" name="other" placeholder="Any additional information..." style="height:200px"></textarea>
+          
+            <input type="submit" value="Submit">
+         
+          </form>
+          
         </div>
         
     </content>    

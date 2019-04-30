@@ -45,6 +45,9 @@ public class CurrentProject {
 //		keywords.remove(0);
 //		return keyword;
 //	}
+	public ArrayList<String> getKeywords() {
+		return keywords;
+	}
 	
 	public void setAccount (UserAccount account) {
 		this.account = account;
@@ -64,6 +67,10 @@ public class CurrentProject {
 //		return author;
 //	}
 	
+	public ArrayList<String> getRequiredItems() {
+		return requiredItems;
+	}
+	
 	public void setModelDescription(String modelDescription) {
 		this.modelDescription = modelDescription;
 	}
@@ -82,6 +89,10 @@ public class CurrentProject {
 	
 	public void setRequiredItems(ArrayList<String> requiredItems) {
 		this.requiredItems = requiredItems;
+	}
+	
+	public ArrayList<String> getAuthors() {
+		return authors;
 	}
 	
 //	public ArrayList<String> pullFromRequiredItems() {
