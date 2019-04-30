@@ -233,6 +233,7 @@ public class DerbyDatabase implements IDatabase {
 			@SuppressWarnings("resource")
 			@Override
 			public Boolean execute(Connection conn) throws SQLException {
+				
 				PreparedStatement stmt = null;
 				PreparedStatement stmt2 = null;
 				ResultSet resultSet2 = null;
@@ -255,55 +256,60 @@ public class DerbyDatabase implements IDatabase {
 				stmt.setString(7, inClass);
 				stmt.setString(8, other);
 				stmt.executeUpdate();
+				
 				System.out.println("I got here!");
-//				stmt2 = conn.prepareStatement("select project_id from projects"
-//						+ "where projectName = ?");
-//				stmt2.setString(1, projectName);
-//				resultSet2 = stmt.executeQuery();
-//				resultSet2.next();
-//				Object project_IDResult = resultSet2.getObject(1);
-//				String id = project_IDResult.toString();
-//				project_id = Integer.parseInt(id);
-//				
-//				for (int i = 0; i < authors.size(); i++) {
-//					String currentAuthor = authors.get(i);
-//					
-//					stmt3 = conn.prepareStatement("select account_id from authors "
-//							+ "where name = ?");
-//					stmt3.setString(1,  currentAuthor);
-//					resultSet3 = stmt.executeQuery();
-//					resultSet3.next();
-//					Object author_IDResult = resultSet3.getObject(1);
-//					String id2 = author_IDResult.toString();
-//					int author_id = Integer.parseInt(id2);
-//					
-//					stmt4 = conn.prepareStatement("insert into projectAuthors (project_id, author_id) values (?, ?)");
-//					stmt4.setInt(1,  project_id);
-//					stmt4.setInt(2,  author_id);
+				
+				
+				stmt2 = conn.prepareStatement("select project_id from projects "
+						+ "where projectName = ?");
+				stmt2.setString(1, projectName);
+				resultSet2 = stmt2.executeQuery();
+				resultSet2.next();
+				Object project_IDResult = resultSet2.getObject(1);
+				String id = project_IDResult.toString();
+				project_id = Integer.parseInt(id);
+				
+				for (int i = 0; i < authors.size(); i++) {
+					String currentAuthor = authors.get(i);
+					
+					stmt3 = conn.prepareStatement("select account_id from authors "
+							+ "where name = ?");
+					stmt3.setString(1,  currentAuthor);
+					resultSet3 = stmt3.executeQuery();
+					resultSet3.next();
+					Object author_IDResult = resultSet3.getObject(1);
+					String id2 = author_IDResult.toString();
+					int author_id = Integer.parseInt(id2);
+					
+					stmt4 = conn.prepareStatement("insert into projectAuthors (project_id, author_id) values (?, ?)");
+					stmt4.setInt(1,  project_id);
+					stmt4.setInt(2,  author_id);
+					stmt4.executeUpdate();
+				}
+				
+				String keywordString = keywords.get(0);
+				for (int i = 1; i < keywords.size(); i++) {
+					keywordString = keywordString + ", " + keywords.get(i);
+				}
+				stmt4 = conn.prepareStatement("insert into keywords (project_id, keyword) values (?, ?)");
+				stmt4.setInt(1,  project_id);
+				stmt4.setString(2,  keywordString);
+				
+//				for (int i = 0; i < requiredItems.size(); i++) {
+						String item = requiredItems.get(0);
+						String quantity = requiredItems.get(1);
+						String cost = requiredItems.get(2);
+						String description = requiredItems.get(3);
+						
+						stmt5 = conn.prepareStatement("insert into requiredItems (project_id, item, quantity, cost, description)"
+								+ "values (?, ?, ?, ?, ?)");
+						stmt5.setInt(1, project_id);
+						stmt5.setString(2, item);
+						stmt5.setString(3, quantity);
+						stmt5.setString(4, cost);
+						stmt5.setString(5, description);
+						stmt5.executeUpdate();
 //				}
-//				
-//				String keywordString = keywords.get(0);
-//				for (int i = 1; i < keywords.size(); i++) {
-//					keywordString = keywordString + ", " + keywords.get(i);
-//				}
-//				stmt4 = conn.prepareStatement("insert into keywords (project_id, keyword) values (?, ?)");
-//				stmt4.setInt(1,  project_id);
-//				stmt4.setString(2,  keywordString);
-//				
-////				for (int i = 0; i < requiredItems.size(); i++) {
-//						String item = requiredItems.get(0);
-//						String quantity = requiredItems.get(1);
-//						String cost = requiredItems.get(2);
-//						String description = requiredItems.get(3);
-//						
-//						stmt5 = conn.prepareStatement("insert into requiredItems (project_id, item, quantity, cost, description)"
-//								+ "values (?, ?, ?, ?, ?)");
-//						stmt5.setInt(1, project_id);
-//						stmt5.setString(2, item);
-//						stmt5.setString(3, quantity);
-//						stmt5.setString(4, cost);
-//						stmt5.setString(5, description);
-////				}
 				////////////////////
 				project_id = 1;
 				if (project_id != 0) {
