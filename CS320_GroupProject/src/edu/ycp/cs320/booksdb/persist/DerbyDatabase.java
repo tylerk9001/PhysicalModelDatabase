@@ -233,6 +233,7 @@ public class DerbyDatabase implements IDatabase {
 			@SuppressWarnings("resource")
 			@Override
 			public Boolean execute(Connection conn) throws SQLException {
+				conn.setAutoCommit(true);
 				
 				PreparedStatement stmt = null;
 				PreparedStatement stmt2 = null;
@@ -294,6 +295,7 @@ public class DerbyDatabase implements IDatabase {
 				stmt4 = conn.prepareStatement("insert into keywords (project_id, keyword) values (?, ?)");
 				stmt4.setInt(1,  project_id);
 				stmt4.setString(2,  keywordString);
+				stmt4.executeUpdate();
 				
 //				for (int i = 0; i < requiredItems.size(); i++) {
 						String item = requiredItems.get(0);
