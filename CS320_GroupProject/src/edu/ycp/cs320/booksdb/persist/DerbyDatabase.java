@@ -227,7 +227,7 @@ public class DerbyDatabase implements IDatabase {
 	
 	public boolean addNewProjectToDatabase (String projectName, String engineeringCategory, ArrayList<String> keywords, 
 			ArrayList<String> authors, String modelDescription, String engineeringPrinciple, 
-			ArrayList<ArrayList<String>> requiredItems, 
+			ArrayList<String[]> requiredItems, 
 			String beforeClass, String inClass, String other) {
 		return executeTransaction(new Transaction<Boolean>() {
 			@SuppressWarnings("resource")
@@ -298,10 +298,10 @@ public class DerbyDatabase implements IDatabase {
 				stmt4.executeUpdate();
 				
 				for (int i = 0; i < requiredItems.size(); i++) {
-						String item = requiredItems.get(i).get(0);
-						String quantity = requiredItems.get(i).get(1);
-						String cost = requiredItems.get(i).get(2);
-						String description = requiredItems.get(i).get(3);
+						String item = requiredItems.get(i)[0];
+						String quantity = requiredItems.get(i)[1];
+						String cost = requiredItems.get(i)[2];
+						String description = requiredItems.get(i)[3];
 						
 						stmt5 = conn.prepareStatement("insert into requiredItems (project_id, item, quantity, cost, description)"
 								+ "values (?, ?, ?, ?, ?)");

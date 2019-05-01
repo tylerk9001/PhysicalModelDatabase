@@ -24,7 +24,7 @@ public interface IDatabase {
 	// Query to add new project to database
 	public boolean addNewProjectToDatabase(String projectName, String engineeringCategory, ArrayList<String> keywords, 
 			ArrayList<String> authors, String modelDescription, String engineeringPrinciple, 
-			ArrayList<ArrayList<String>> requiredItems, 
+			ArrayList<String[]> requiredItems, 
 			String beforeClass, String inClass, String other);
 	
 	// Retrieve Review

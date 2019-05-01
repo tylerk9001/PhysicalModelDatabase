@@ -73,17 +73,18 @@ public class UploadServlet extends HttpServlet {
 		ArrayList<String> authorsList = new ArrayList<String>();
 		for (int i = 0; i < authors.length; i++) {
 			authorsList.add(authors[i]);
-			System.out.println(authors[i]);
 		}
 		
-		ArrayList<ArrayList<String>> requiredItems = new ArrayList<ArrayList<String>>();
-		for (int i = 0; i < item.length; i++) {
-			requiredItems.get(i).add(item[i]);
-			requiredItems.get(i).add(quantity[i]);
-			requiredItems.get(i).add(costAndBuild[i]);
-			requiredItems.get(i).add(desc[i]);
+		ArrayList<String[]> requiredItems = new ArrayList<String[]>();
+		for (int i = 0; i < 10; i++) {
+			if (!item[i].equals("") && !quantity[i].equals("") && !costAndBuild[i].equals("") && !desc[i].equals("")) {
+				requiredItems.add(new String[4]);
+				requiredItems.get(i)[0] = item[i];
+				requiredItems.get(i)[1] = quantity[i];
+				requiredItems.get(i)[2] = costAndBuild[i];
+				requiredItems.get(i)[3] = desc[i];
+			}
 		}
-		
 
 		model.setProjectName(projectName);
 		model.setEngineeringCategory(category);
@@ -99,13 +100,10 @@ public class UploadServlet extends HttpServlet {
 		controller.setModel(model);
 		
 		boolean isAddedToDatabase = controller.addNewProjectToDatabase(model);
-		
 		if (isAddedToDatabase) {
 			System.out.println("Project successfully added to database!");
 		}
 
-		
-		
 		req.getRequestDispatcher("/_view/index.jsp").forward(req, resp);
 		
 		
