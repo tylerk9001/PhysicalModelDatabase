@@ -3,10 +3,12 @@ package edu.ycp.cs320.lab02.servlet;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import javax.servlet.FilterChain;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import edu.ycp.cs320.lab02.controller.UploadProjectController;
 import edu.ycp.cs320.lab02.model.CurrentProject;
@@ -21,6 +23,7 @@ public class UploadServlet extends HttpServlet {
 			throws ServletException, IOException {
 		
 		System.out.println("Upload Servlet: doGet");	
+		
 		
 		// call JSP to generate empty form
 		req.getRequestDispatcher("/_view/upload/upload.jsp").forward(req, resp);

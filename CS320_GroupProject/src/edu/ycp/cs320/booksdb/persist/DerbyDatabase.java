@@ -160,10 +160,6 @@ public class DerbyDatabase implements IDatabase {
 						list.add(project);
 					}
 					
-//					if (!found) {
-//						something about no project found
-//					}
-					
 					return list;
 					
 				} finally {
@@ -182,18 +178,15 @@ public class DerbyDatabase implements IDatabase {
 				PreparedStatement stmt = null;
 				ResultSet resultSet = null;
 				
-//				System.out.print(search);
+
 								
 				try {
-					//String upper = name.toUpperCase();
-					//String lower = name.toLowerCase();
 					stmt = conn.prepareStatement("select DISTINCT projectname, filename "
 							+ "from projects, authors, projectauthors "
 							+ "where authors.name = ? "
 							+ "and authors.account_id = projectauthors.author_id "
 							+ "and projectauthors.project_id = projects.project_id");
 					stmt.setString(1, name);
-//					stmt.setString(2, "TOM MESSERVEY");
 
 					ArrayList<CurrentProject> list = new ArrayList<CurrentProject>();
 					
@@ -204,16 +197,10 @@ public class DerbyDatabase implements IDatabase {
 					
 					while (resultSet.next()) {
 						found = true;
-						
 						CurrentProject project = new CurrentProject();
 						loadSearch(project, resultSet, 1);
-						
-						
-
 						list.add(project);
 					}
-					
-//					
 					
 					return list;
 					
@@ -257,8 +244,6 @@ public class DerbyDatabase implements IDatabase {
 				stmt.setString(7, inClass);
 				stmt.setString(8, other);
 				stmt.executeUpdate();
-				
-				System.out.println("I got here!");
 				
 				
 				stmt2 = conn.prepareStatement("select project_id from projects "
