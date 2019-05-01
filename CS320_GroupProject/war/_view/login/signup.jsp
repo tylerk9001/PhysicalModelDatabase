@@ -20,8 +20,9 @@
 	
 	.login-box {
 	    width: 280px;
-	    display: block;
-	    top: 0;
+	    position: relative;
+	    margin-left: 30%;
+	    margin-right: 30%;
 	    padding-top: 10px;
 	    padding-bottom: 10px;
 	    color: white;
@@ -46,31 +47,23 @@
 	    border-bottom: 2px solid #86C232;
 	    padding-top: 5px;
 	    padding-bottom: 5px;
-	    margin-left: 75px;
+	    margin-left: 60px;
 	    margin-right: 75px;
 	}
 	
 	.textbox {
-	    width: 80%;
+		color: black;
+	    width: 83%;
 	    overflow: hidden;
 	    font-size: 12px;
-	    padding: 2px;
+	    padding: 5px;
 	    margin: 8px;
 	    border: 1px solid #86C232;
 	}
 	
-	.textbox input {
-	    border: none;
-	    outline: none;
-	    background: none;
-	    color: white;
-	    font-size: 12px;
-	    width: 81%;
-	    margin: 0 10px;
-	}
 	
 	.btn {
-	    width: 90%;
+	    width: 85%;
 	    background: none;
 	    border: 2px solid #86C232;
 	    padding: 5px;

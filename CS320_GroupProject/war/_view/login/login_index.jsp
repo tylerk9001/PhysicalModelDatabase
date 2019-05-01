@@ -51,27 +51,20 @@
     margin-right: 75px;
 }
 
+
+
 .textbox {
+	color: black;
     width: 80%;
     overflow: hidden;
     font-size: 12px;
-    padding: 2px;
+    padding: 5px;
     margin: 8px;
     border: 1px solid #86C232;
 }
 
-.textbox input {
-    border: none;
-    outline: none;
-    background: none;
-    color: white;
-    font-size: 12px;
-    width: 81%;
-    margin: 0 10px;
-}
-
 .btn {
-    width: 90%;
+    width: 85%;
     background: none;
     border: 2px solid #86C232;
     padding: 5px;
@@ -141,9 +134,9 @@
 						<%Boolean invalidLogin = (Boolean)request.getSession().getAttribute("login_failed");
 							if (invalidLogin != null) {%> <p>Invalid email and/or password</p><%}%>						
 						<h2>Email:</h2>
-						<i class="fa fa-user"></i><input type="text" class="textbox" name="email" size="12" value="${model.email}" required/>
+						<i class="fa fa-user"></i><input type="text" class="textbox" name="email" size="12" value="${model.email}" placeholder="Email..." required/>
 						<h2>Password:</h2>
-						<i class="fa fa-lock"></i><input type="password" class="textbox" name="password" size="12" value="${model.password}" /><br>
+						<i class="fa fa-lock"></i><input type="password" class="textbox" name="password" size="12" value="${model.password}" placeholder="Password..." /><br>
 						<input type="Submit" class="btn" name="submit" value="Login">
 					</form>
 	    	</div>

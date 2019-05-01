@@ -48,7 +48,7 @@
     <content>
         
         <div class="container">
-         <form action="${pageContext.request.contextPath}/uploadConfirm" method="post">
+         <form action="${pageContext.request.contextPath}/dashboard" method="post">
           <div class="row">
             <div class="col-25">
               <strong><label class="upload" for="projectName">Project Name:</label></strong>
@@ -70,7 +70,7 @@
               <strong><label class="upload" for="keywords">Keywords:</label></strong>
             </div>
 				 <%
-				  String[] keyword = request.getParameterValues("keyword");
+				  String[] keyword = request.getParameterValues("keywords[]");
 				   for (int i = 0; i < keyword.length; i++) {
 				      out.print("<P>" + keyword[i] + "</p>");
 				   }
@@ -83,7 +83,7 @@
             </div>
             <div class="col-75">
                  <%
-				  String[] author = request.getParameterValues("author");
+				  String[] author = request.getParameterValues("authors[]");
 				   for (int i = 0; i < author.length; i++) {
 				      out.print("<P>" + author[i] + "</p>");
 				   }

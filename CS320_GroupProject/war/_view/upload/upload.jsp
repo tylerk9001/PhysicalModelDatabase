@@ -22,6 +22,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
+	<% if(session.getAttribute("email") == null)
+		response.sendRedirect("/project/login");
+		%>
+
     <nav>
         <div class="nav">
             <label for="toggle">&#9776;</label>
@@ -222,7 +226,7 @@
           </form>
           -->
           
-          <form action="${pageContext.request.contextPath}/upload" method="post">
+          <form action="${pageContext.request.contextPath}/upload" method="post" >
               <strong><label class="upload" for="projectName">Project Name:</label></strong>
               <input type="text" class="gen-form-input" id="projectName" name="projectName" placeholder="Enter project name..." required>
             

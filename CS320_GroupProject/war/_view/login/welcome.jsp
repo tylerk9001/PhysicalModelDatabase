@@ -9,6 +9,7 @@
 		padding: 10px;
 	}
 	.container1-color {
+		min-height: 770px;
 		background-color: lightgray;
 		padding: 10px;
 		padding-left: 15px;
@@ -72,6 +73,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
+
+		<%
+			response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
+		
+			if(session.getAttribute("email") == null)
+				response.sendRedirect("/project/login");
+		%>
+		
 	    <nav>
 	        <div class="nav">
 	            <label for="toggle">&#9776;</label>
@@ -79,12 +88,10 @@
 	            <div class="menu">
 	                <div class="logo"><a><i class="fa fa-cog" ></i></a></div>
 	                <a href="${pageContext.request.contextPath}/index" class="border-nav"><i class="fas fa-home"></i> Home</a>
-	                <c:if test="${sessionScope.login != null}">
 		                <a href="${pageContext.request.contextPath}/dashboard"><i class="fas fa-tachometer-alt"></i>  Dashboard</a>
 		                <a href="#projects"><i class="fas fa-file-alt"></i> Projects</a>
 		                <a href="#reviews"><i class="fas fa-pencil-alt"></i> Reviews</a>
 		                <a href="${pageContext.request.contextPath}/upload"><i class="fas fa-file-upload"></i> Upload a Project</a>
-	             	</c:if>
 	             
 	             	<div class="access-btns">
 	             		<a href="${pageContext.request.contextPath}/logout">Log Out <i class="fas fa-sign-out-alt"></i>	</a>
@@ -122,8 +129,11 @@
 	                <div id="projects" class="user-projects">
 	                    <hr>
 	                    <h2>My Projects</h2>
-						<!--<p><i>Currently, you do not have any projects created.</i></p>-->
+	                  
 	                    <div id="projectResults">
+		                    <form action="${pageContext.request.contextPath}/welcome" method="get">
+								<p><i>${noProjects}</i></p><br>
+							</form>
 							<c:forEach items="${sessionScope.results}" var="dashboardProjects">
 								<a class="linkResult" href="${dashboardProjects.fileName}"><c:out value="${dashboardProjects.projectName}"></c:out></a>
 							</c:forEach>		
@@ -132,13 +142,8 @@
 	                <div id="reviews">
 	                    <hr>
 	                    <h2>My Reviews</h2>
-	                    <p><i>Currently, you have not given any reviews.</i></p>
-	                    <br>
-	                    <br>
-	                    <br>
-	                    <br>
-	                    <br>
-	                    <br>
+	                    <p><i>Currently, you have not written any reviews.</i></p>
+	                    
 	                </div>
 	            </div>
 	        </div>

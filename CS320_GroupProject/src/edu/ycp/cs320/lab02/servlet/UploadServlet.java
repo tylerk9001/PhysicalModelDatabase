@@ -107,7 +107,7 @@ public class UploadServlet extends HttpServlet {
 			System.out.println("Project successfully added to database!");
 		}
 
-		req.getRequestDispatcher("/_view/index.jsp").forward(req, resp);
+		req.getRequestDispatcher("/_view/upload/uploadConfirm.jsp").forward(req, resp);
 		
 		
 		

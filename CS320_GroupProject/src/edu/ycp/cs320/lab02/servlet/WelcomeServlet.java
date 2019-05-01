@@ -17,7 +17,6 @@ import edu.ycp.cs320.lab02.servlet.LoginServlet;
 public class WelcomeServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
-	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
@@ -38,18 +37,20 @@ public class WelcomeServlet extends HttpServlet {
 		dashboardProjectsFound = controller.checkForAuthorsProjects(name);
 		session.setAttribute("results", dashboardProjectsFound);
 		
+		if (dashboardProjectsFound.isEmpty()) {
+			req.setAttribute("noProjects", "Currently, you do not have any projects uploaded.");
+		}
+		
 		// call JSP to generate empty form
 		req.getRequestDispatcher("/_view/login/welcome.jsp").forward(req, resp);
 	}
-
-
+	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
 		
-		System.out.println("Welcome Servlet: doPost");	
-	
-		// call JSP to generate empty form
-		//req.getRequestDispatcher("/_view/login/welcome.jsp").forward(req, resp);
+		System.out.println("Welcome Servlet: doPost");
+		
+		req.getRequestDispatcher("/_view/login/welcome.jsp").forward(req, resp);
 	}
 }
