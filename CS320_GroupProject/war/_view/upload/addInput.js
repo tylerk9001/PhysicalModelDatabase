@@ -1,13 +1,13 @@
-var counter = 1;
-var limit = 10;
+var authorCounter = 1;
+var authorLimit = 10;
 function addInput(divName){
-     if (counter == limit)  {
-          alert("You have reached the limit of adding " + counter + " inputs");
+     if (authorCounter == authorLimit)  {
+          alert("You have reached the limit of adding " + authorCounter + " inputs");
      }
      else {
           var newdiv = document.createElement('div');
-          newdiv.innerHTML = "Author " + (counter + 1) + " <br><input type='text' class='author gen-form-input' name='myInputs[]' placeholder='Author name...' required>";
+          newdiv.innerHTML = "Author " + (authorCounter + 1) + " <br><input type='text' class='author gen-form-input' name='authors[]' placeholder='Author name...' required>";
           document.getElementById(divName).appendChild(newdiv);
-          counter++;
+          authorCounter++;
      }
 }

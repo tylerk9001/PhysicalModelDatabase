@@ -7,6 +7,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import edu.ycp.cs320.lab02.controller.UploadProjectController;
+import edu.ycp.cs320.lab02.model.CurrentProject;
 import edu.ycp.cs320.lab02.model.UploadProject;
 
 public class UploadProjectControllerTest {
@@ -27,7 +28,7 @@ public class UploadProjectControllerTest {
 	
 	@Test
 	public void testGetModel() {
-		UploadProject testModel = new UploadProject();
+		CurrentProject testModel = new CurrentProject();
 		controller.setModel(testModel);
 		assertTrue(controller.getModel().equals(testModel));
 	}

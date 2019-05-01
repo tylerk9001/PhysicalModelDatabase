@@ -14,7 +14,7 @@
     <link rel="icon" href="${pageContext.request.contextPath}/_view/img/tab.png">
     <!--Website CSS-->
     <link href="${pageContext.request.contextPath}/_view/css/collapse-1.css" type="text/css" rel="stylesheet">
-    <link href="${pageContext.request.contextPath}/_view/css/uploadForm.css" type="text/css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/_view/css/upload.css" type="text/css" rel="stylesheet">
     <!-- Icon CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
@@ -242,16 +242,19 @@
           
            
               <strong><label class="upload" for="keywords">Keywords:</label></strong>
-              <input type="text" class="keywords gen-form-input" name="keyword" placeholder="Keyword..." required>
-                
+              <script src="${pageContext.request.contextPath}/_view/upload/keywordsInput.js" language="Javascript" type="text/javascript"></script>
+			     <div id="keywordInput">
+			          Keyword 1<br><input type="text" class="keywords gen-form-input" name="keywords[]" placeholder="Keyword..." required>
+			     </div>
+                <input id="newAuthorButton" type="button" value="Add Keyword" onClick="aaddInput('keywordInput');"><br>
            
               <strong><label class="upload" for="author">Submitted By:</label></strong>
               <script src="${pageContext.request.contextPath}/_view/upload/addInput.js" language="Javascript" type="text/javascript"></script>
-				
-				     <div id="dynamicInput">
-				          Author 1<br><input type="text" class="author gen-form-input" name="myInputs[]" placeholder="Author name..." required>
-				     </div>
-				     <input id="newAuthorButton" type="button" value="Add New Author" onClick="addInput('dynamicInput');"><br>
+			     <div id="dynamicInput">
+			          Author 1<br><input type="text" class="author gen-form-input" name="authors[]" placeholder="Author name..." required>
+			     </div>
+			     <input id="newAuthorButton" type="button" value="Add Author" onClick="addInput('dynamicInput');"><br>
+				    
 				
            	  <!-- <input type="text" class="author gen-form-input" name="author" placeholder="Author name..." required> -->
             

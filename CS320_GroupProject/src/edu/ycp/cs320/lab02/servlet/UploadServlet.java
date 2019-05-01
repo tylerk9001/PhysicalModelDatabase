@@ -35,8 +35,8 @@ public class UploadServlet extends HttpServlet {
 		// Grab the data from the form on the upload.jsp
 		String projectName = req.getParameter("projectName");
 		String category = req.getParameter("categories");
-		String[] keywords = req.getParameterValues("keyword");
-		String[] authors = req.getParameterValues("myInputs[]");
+		String[] keywords = req.getParameterValues("keywords[]");
+		String[] authors = req.getParameterValues("authors[]");
 		String modelDesc = req.getParameter("modelDesc");
 		String engineeringPrinciple = req.getParameter("engineeringPrinciple");
 		String item1 = req.getParameter("item1");
