@@ -39,10 +39,10 @@ public class UploadServlet extends HttpServlet {
 		String[] authors = req.getParameterValues("authors[]");
 		String modelDesc = req.getParameter("modelDesc");
 		String engineeringPrinciple = req.getParameter("engineeringPrinciple");
-		String item1 = req.getParameter("item1");
-		String quantity1 = req.getParameter("quantity1");
-		String costAndBuild1 = req.getParameter("costAndBuild1");
-		String desc1 = req.getParameter("desc1");
+		String item[] = req.getParameterValues("item[]");
+		String quantity[] = req.getParameterValues("quantity[]");
+		String costAndBuild[] = req.getParameterValues("costAndBuild[]");
+		String desc[] = req.getParameterValues("desc[]");
 		String beforeClass = req.getParameter("beforeClass");
 		String inClass = req.getParameter("inClass");
 		String other = req.getParameter("other");
@@ -54,10 +54,10 @@ public class UploadServlet extends HttpServlet {
 		req.setAttribute("author", authors);
 		req.setAttribute("modelDesc", modelDesc);
 		req.setAttribute("engineeringPrinciple", engineeringPrinciple);
-		req.setAttribute("item", item1);
-		req.setAttribute("quantity", quantity1);
-		req.setAttribute("costAndBuild", costAndBuild1);
-		req.setAttribute("desc", desc1);
+		req.setAttribute("item", item);
+		req.setAttribute("quantity", quantity);
+		req.setAttribute("costAndBuild", costAndBuild);
+		req.setAttribute("desc", desc);
 		req.setAttribute("beforeClass", beforeClass);
 		req.setAttribute("inClass", inClass);
 		req.setAttribute("other", other);
@@ -77,10 +77,10 @@ public class UploadServlet extends HttpServlet {
 		}
 		
 		ArrayList<String> requiredItems = new ArrayList<String>();
-		requiredItems.add(item1);
-		requiredItems.add(quantity1);
-		requiredItems.add(costAndBuild1);
-		requiredItems.add(desc1);
+		requiredItems.add(item);
+		requiredItems.add(quantity);
+		requiredItems.add(costAndBuild);
+		requiredItems.add(desc);
 
 		model.setProjectName(projectName);
 		model.setEngineeringCategory(category);

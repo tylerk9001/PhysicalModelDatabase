@@ -255,8 +255,6 @@
 			     </div>
 			     <input id="newAuthorButton" type="button" value="Add Author" onClick="addInput('dynamicInput');"><br>
 				    
-				
-           	  <!-- <input type="text" class="author gen-form-input" name="author" placeholder="Author name..." required> -->
             
               <strong><label class="upload" for="modelDesc">Model Description:</label></strong>
               <textarea id="modelDesc" name="modelDesc" class="upload" placeholder="Model description..." style="height:200px" required></textarea>
@@ -273,64 +271,64 @@
                       <th>Description/Details</th>
                     </tr>
                     <tr>
-                      <td><input type="text" class="itemName input-size" name="item1" placeholder="Item name..." required></td>
-                      <td><input type="text" class="qty input-size" name="quantity1" placeholder="Quantity..." required></td>
-                      <td><input type="text" class="costAndBuild input-size" name="costAndBuild1" placeholder="Cost and Build time..." required></td>
-                      <td><input type="text" class="desc input-size" name="desc1" placeholder="Description/details..." required></td>
+                      <td><input type="text" class="itemName input-size" name="item[]" placeholder="Item name..." required></td>
+                      <td><input type="text" class="qty input-size" name="quantity[]" placeholder="Quantity..." required></td>
+                      <td><input type="text" class="costAndBuild input-size" name="costAndBuild[]" placeholder="Cost and Build time..." required></td>
+                      <td><input type="text" class="desc input-size" name="desc[]" placeholder="Description/details..." required></td>
                     </tr>
                     <tr>
-                      <td><input type="text" class="itemName input-size" name="item1" placeholder="Item name..."></td>
-                      <td><input type="text" class="qty input-size" name="quantity1" placeholder="Quantity..."></td>
-                      <td><input type="text" class="costAndBuild input-size" name="costAndBuild1" placeholder="Cost and Build time..."></td>
-                      <td><input type="text" class="desc input-size" name="desc1" placeholder="Description/details..."></td>
+                      <td><input type="text" class="itemName input-size" name="item[]" placeholder="Item name..." required></td>
+                      <td><input type="text" class="qty input-size" name="quantity[]" placeholder="Quantity..." required></td>
+                      <td><input type="text" class="costAndBuild input-size" name="costAndBuild[]" placeholder="Cost and Build time..." required></td>
+                      <td><input type="text" class="desc input-size" name="desc[]" placeholder="Description/details..." required></td>
                     </tr>
                     <tr>
-                      <td><input type="text" class="itemName input-size" name="item1" placeholder="Item name..."></td>
-                      <td><input type="text" class="qty input-size" name="quantity1" placeholder="Quantity..."></td>
-                      <td><input type="text" class="costAndBuild input-size" name="costAndBuild1" placeholder="Cost and Build time..."></td>
-                      <td><input type="text" class="desc input-size" name="desc1" placeholder="Description/details..."></td>
+                      <td><input type="text" class="itemName input-size" name="item[]" placeholder="Item name..." required></td>
+                      <td><input type="text" class="qty input-size" name="quantity[]" placeholder="Quantity..." required></td>
+                      <td><input type="text" class="costAndBuild input-size" name="costAndBuild[]" placeholder="Cost and Build time..." required></td>
+                      <td><input type="text" class="desc input-size" name="desc[]" placeholder="Description/details..." required></td>
                     </tr>
                     <tr>
-                      <td><input type="text" class="itemName input-size" name="item1" placeholder="Item name..."></td>
-                      <td><input type="text" class="qty input-size" name="quantity1" placeholder="Quantity..."></td>
-                      <td><input type="text" class="costAndBuild input-size" name="costAndBuild1" placeholder="Cost and Build time..."></td>
-                      <td><input type="text" class="desc input-size" name="desc1" placeholder="Description/details..."></td>
+                      <td><input type="text" class="itemName input-size" name="item[]" placeholder="Item name..." required></td>
+                      <td><input type="text" class="qty input-size" name="quantity[]" placeholder="Quantity..." required></td>
+                      <td><input type="text" class="costAndBuild input-size" name="costAndBuild[]" placeholder="Cost and Build time..." required></td>
+                      <td><input type="text" class="desc input-size" name="desc[]" placeholder="Description/details..." required></td>
+                    </tr>
+                   <tr>
+                      <td><input type="text" class="itemName input-size" name="item[]" placeholder="Item name..." required></td>
+                      <td><input type="text" class="qty input-size" name="quantity[]" placeholder="Quantity..." required></td>
+                      <td><input type="text" class="costAndBuild input-size" name="costAndBuild[]" placeholder="Cost and Build time..." required></td>
+                      <td><input type="text" class="desc input-size" name="desc[]" placeholder="Description/details..." required></td>
                     </tr>
                     <tr>
-                      <td><input type="text" class="itemName input-size" name="item1" placeholder="Item name..."></td>
-                      <td><input type="text" class="qty input-size" name="quantity1" placeholder="Quantity..."></td>
-                      <td><input type="text" class="costAndBuild input-size" name="costAndBuild1" placeholder="Cost and Build time..."></td>
-                      <td><input type="text" class="desc input-size" name="desc1" placeholder="Description/details..."></td>
+                      <td><input type="text" class="itemName input-size" name="item[]" placeholder="Item name..." required></td>
+                      <td><input type="text" class="qty input-size" name="quantity[]" placeholder="Quantity..." required></td>
+                      <td><input type="text" class="costAndBuild input-size" name="costAndBuild[]" placeholder="Cost and Build time..." required></td>
+                      <td><input type="text" class="desc input-size" name="desc[]" placeholder="Description/details..." required></td>
                     </tr>
                     <tr>
-                      <td><input type="text" class="itemName input-size" name="item1" placeholder="Item name..."></td>
-                      <td><input type="text" class="qty input-size" name="quantity1" placeholder="Quantity..."></td>
-                      <td><input type="text" class="costAndBuild input-size" name="costAndBuild1" placeholder="Cost and Build time..."></td>
-                      <td><input type="text" class="desc input-size" name="desc1" placeholder="Description/details..."></td>
+                      <td><input type="text" class="itemName input-size" name="item[]" placeholder="Item name..." required></td>
+                      <td><input type="text" class="qty input-size" name="quantity[]" placeholder="Quantity..." required></td>
+                      <td><input type="text" class="costAndBuild input-size" name="costAndBuild[]" placeholder="Cost and Build time..." required></td>
+                      <td><input type="text" class="desc input-size" name="desc[]" placeholder="Description/details..." required></td>
                     </tr>
                     <tr>
-                      <td><input type="text" class="itemName input-size" name="item1" placeholder="Item name..."></td>
-                      <td><input type="text" class="qty input-size" name="quantity1" placeholder="Quantity..."></td>
-                      <td><input type="text" class="costAndBuild input-size" name="costAndBuild1" placeholder="Cost and Build time..."></td>
-                      <td><input type="text" class="desc input-size" name="desc1" placeholder="Description/details..."></td>
+                      <td><input type="text" class="itemName input-size" name="item[]" placeholder="Item name..." required></td>
+                      <td><input type="text" class="qty input-size" name="quantity[]" placeholder="Quantity..." required></td>
+                      <td><input type="text" class="costAndBuild input-size" name="costAndBuild[]" placeholder="Cost and Build time..." required></td>
+                      <td><input type="text" class="desc input-size" name="desc[]" placeholder="Description/details..." required></td>
                     </tr>
                     <tr>
-                      <td><input type="text" class="itemName input-size" name="item1" placeholder="Item name..."></td>
-                      <td><input type="text" class="qty input-size" name="quantity1" placeholder="Quantity..."></td>
-                      <td><input type="text" class="costAndBuild input-size" name="costAndBuild1" placeholder="Cost and Build time..."></td>
-                      <td><input type="text" class="desc input-size" name="desc1" placeholder="Description/details..."></td>
+                      <td><input type="text" class="itemName input-size" name="item[]" placeholder="Item name..." required></td>
+                      <td><input type="text" class="qty input-size" name="quantity[]" placeholder="Quantity..." required></td>
+                      <td><input type="text" class="costAndBuild input-size" name="costAndBuild[]" placeholder="Cost and Build time..." required></td>
+                      <td><input type="text" class="desc input-size" name="desc[]" placeholder="Description/details..." required></td>
                     </tr>
                     <tr>
-                      <td><input type="text" class="itemName input-size" name="item1" placeholder="Item name..."></td>
-                      <td><input type="text" class="qty input-size" name="quantity1" placeholder="Quantity..."></td>
-                      <td><input type="text" class="costAndBuild input-size" name="costAndBuild1" placeholder="Cost and Build time..."></td>
-                      <td><input type="text" class="desc input-size" name="desc1" placeholder="Description/details..."></td>
-                    </tr>
-                    <tr>
-                      <td><input type="text" class="itemName input-size" name="item1" placeholder="Item name..."></td>
-                      <td><input type="text" class="qty input-size" name="quantity1" placeholder="Quantity..."></td>
-                      <td><input type="text" class="costAndBuild input-size" name="costAndBuild1" placeholder="Cost and Build time..."></td>
-                      <td><input type="text" class="desc input-size" name="desc1" placeholder="Description/details..."></td>
+                      <td><input type="text" class="itemName input-size" name="item[]" placeholder="Item name..." required></td>
+                      <td><input type="text" class="qty input-size" name="quantity[]" placeholder="Quantity..." required></td>
+                      <td><input type="text" class="costAndBuild input-size" name="costAndBuild[]" placeholder="Cost and Build time..." required></td>
+                      <td><input type="text" class="desc input-size" name="desc[]" placeholder="Description/details..." required></td>
                     </tr>
                     
                  </table>
