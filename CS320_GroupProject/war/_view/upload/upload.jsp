@@ -5,6 +5,8 @@
 	td, th, tr {
 		border: 1px #dddddd solid;
 	}
+	
+	
 </style>
 
 <head>
@@ -12,7 +14,7 @@
     <link rel="icon" href="${pageContext.request.contextPath}/_view/img/tab.png">
     <!--Website CSS-->
     <link href="${pageContext.request.contextPath}/_view/css/collapse-1.css" type="text/css" rel="stylesheet">
-    <link href="${pageContext.request.contextPath}/_view/css/form.css" type="text/css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/_view/css/uploadForm.css" type="text/css" rel="stylesheet">
     <!-- Icon CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
@@ -220,13 +222,12 @@
           </div>
           </form>
           -->
+          
           <form action="${pageContext.request.contextPath}/upload" method="post">
               <strong><label class="upload" for="projectName">Project Name:</label></strong>
-     
               <input type="text" class="gen-form-input" id="projectName" name="projectName" placeholder="Enter project name..." required>
             
               <strong><label class="upload" for="engPrinciple">Engineering Principle:</label></strong>
-            
               <select id="engPrinciple" name="categories" required>
                 <option selected disabled>Select Principle...</option>
                 <option value="Construction">Construction</option>
@@ -241,24 +242,26 @@
           
            
               <strong><label class="upload" for="keywords">Keywords:</label></strong>
-           
-                <input type="text" class="keywords gen-form-input" name="keyword" placeholder="Keyword..." required>
+              <input type="text" class="keywords gen-form-input" name="keyword" placeholder="Keyword..." required>
                 
            
               <strong><label class="upload" for="author">Submitted By:</label></strong>
-           
-                 <input type="text" class="author gen-form-input" name="author" placeholder="Author name..." required>
+              <script src="${pageContext.request.contextPath}/_view/upload/addInput.js" language="Javascript" type="text/javascript"></script>
+				
+				     <div id="dynamicInput">
+				          Author 1<br><input type="text" class="author gen-form-input" name="myInputs[]" placeholder="Author name..." required>
+				     </div>
+				     <input id="newAuthorButton" type="button" value="Add New Author" onClick="addInput('dynamicInput');"><br>
+				
+           	  <!-- <input type="text" class="author gen-form-input" name="author" placeholder="Author name..." required> -->
             
               <strong><label class="upload" for="modelDesc">Model Description:</label></strong>
-           
               <textarea id="modelDesc" name="modelDesc" class="upload" placeholder="Model description..." style="height:200px" required></textarea>
           
               <strong><label class="upload" for="engineeringPrinciple">Engineering Principle:</label></strong>
-           
               <textarea id="engineeringPrinciple" name="engineeringPrinciple" placeholder="Engineering principle..." style="height:200px" required></textarea>
            
               <strong><label class="upload" for="reqItems">Required Items:</label></strong>
-            
                 <table style="overflow-x: auto;">
                     <tr>
                       <th>Item</th>
@@ -330,23 +333,20 @@
                  </table>
          
               <strong><label class="upload" for="beforeClass">Before Class:</label></strong>
-           
               <textarea id="beforeClass" name="beforeClass" placeholder="Before class..." style="height:200px" required></textarea>
           
               <strong><label class="upload" for="inClass">In Class:</label></strong>
-           
               <textarea id="inClass" name="inClass" placeholder="In class..." style="height:200px" required></textarea>
           
               <strong><label class="upload" for="other">Other:</label></strong>
-            
               <textarea id="other" name="other" placeholder="Any additional information..." style="height:200px"></textarea>
           
-            <input type="submit" value="Submit">
+          	   
+              <input type="submit" value="Submit">
          
           </form>
           
         </div>
-        
     </content>    
         
     <footer>

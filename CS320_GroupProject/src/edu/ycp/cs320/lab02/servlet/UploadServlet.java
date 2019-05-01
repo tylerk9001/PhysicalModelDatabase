@@ -36,7 +36,7 @@ public class UploadServlet extends HttpServlet {
 		String projectName = req.getParameter("projectName");
 		String category = req.getParameter("categories");
 		String[] keywords = req.getParameterValues("keyword");
-		String[] authors = req.getParameterValues("author");
+		String[] authors = req.getParameterValues("myInputs[]");
 		String modelDesc = req.getParameter("modelDesc");
 		String engineeringPrinciple = req.getParameter("engineeringPrinciple");
 		String item1 = req.getParameter("item1");
@@ -73,6 +73,7 @@ public class UploadServlet extends HttpServlet {
 		ArrayList<String> authorsList = new ArrayList<String>();
 		for (int i = 0; i < authors.length; i++) {
 			authorsList.add(authors[i]);
+			System.out.println(authors[i]);
 		}
 		
 		ArrayList<String> requiredItems = new ArrayList<String>();

@@ -44,7 +44,22 @@ input[type=submit] {
   float: right;
 }
 
+#newAuthorButton {
+  background-color: #4CAF50;
+  color: white;
+  padding: 12px 20px;
+  margin-right: 5px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  float: right;
+}
+
 input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+#newAuthorButton:hover {
   background-color: #45a049;
 }
 
