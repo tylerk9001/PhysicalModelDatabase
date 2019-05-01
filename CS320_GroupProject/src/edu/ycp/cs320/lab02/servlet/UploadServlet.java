@@ -39,10 +39,10 @@ public class UploadServlet extends HttpServlet {
 		String[] authors = req.getParameterValues("authors[]");
 		String modelDesc = req.getParameter("modelDesc");
 		String engineeringPrinciple = req.getParameter("engineeringPrinciple");
-		String item[] = req.getParameterValues("item[]");
-		String quantity[] = req.getParameterValues("quantity[]");
-		String costAndBuild[] = req.getParameterValues("costAndBuild[]");
-		String desc[] = req.getParameterValues("desc[]");
+		String[] item = req.getParameterValues("item[]");
+		String[] quantity = req.getParameterValues("quantity[]");
+		String[] costAndBuild = req.getParameterValues("costAndBuild[]");
+		String[] desc = req.getParameterValues("desc[]");
 		String beforeClass = req.getParameter("beforeClass");
 		String inClass = req.getParameter("inClass");
 		String other = req.getParameter("other");
@@ -76,11 +76,14 @@ public class UploadServlet extends HttpServlet {
 			System.out.println(authors[i]);
 		}
 		
-		ArrayList<String> requiredItems = new ArrayList<String>();
-		requiredItems.add(item);
-		requiredItems.add(quantity);
-		requiredItems.add(costAndBuild);
-		requiredItems.add(desc);
+		ArrayList<ArrayList<String>> requiredItems = new ArrayList<ArrayList<String>>();
+		for (int i = 0; i < item.length; i++) {
+			requiredItems.get(i).add(item[i]);
+			requiredItems.get(i).add(quantity[i]);
+			requiredItems.get(i).add(costAndBuild[i]);
+			requiredItems.get(i).add(desc[i]);
+		}
+		
 
 		model.setProjectName(projectName);
 		model.setEngineeringCategory(category);

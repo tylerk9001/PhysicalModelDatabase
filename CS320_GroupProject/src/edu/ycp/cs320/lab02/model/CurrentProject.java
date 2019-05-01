@@ -10,7 +10,7 @@ public class CurrentProject {
 	private ArrayList<String> authors = new ArrayList<String>();
 	private String modelDescription;
 	private String engineeringPrinciple;
-	private ArrayList<String> requiredItems = new ArrayList<String>();
+	private ArrayList<ArrayList<String>> requiredItems = new ArrayList<ArrayList<String>>();
 	private ArrayList<String> items = new ArrayList<String>();
 	private String beforeClass;
 	private String inClass;
@@ -67,7 +67,11 @@ public class CurrentProject {
 //		return author;
 //	}
 	
-	public ArrayList<String> getRequiredItems() {
+	public void setRequiredItems(ArrayList<ArrayList<String>> requiredItems) {
+		this.requiredItems = requiredItems;
+	}
+	
+	public ArrayList<ArrayList<String>> getRequiredItems() {
 		return requiredItems;
 	}
 	
@@ -85,10 +89,6 @@ public class CurrentProject {
 	
 	public String getEngineeringPrinciple() {
 		return engineeringPrinciple;
-	}
-	
-	public void setRequiredItems(ArrayList<String> requiredItems) {
-		this.requiredItems = requiredItems;
 	}
 	
 	public ArrayList<String> getAuthors() {
