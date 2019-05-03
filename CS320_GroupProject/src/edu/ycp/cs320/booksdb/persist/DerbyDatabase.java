@@ -235,7 +235,6 @@ public class DerbyDatabase implements IDatabase {
 				stmt = conn.prepareStatement("insert into projects (projectName, category, fileName, modelDescription, engineeringPrinciple, beforeClass, inClass, other) "
 						+ "values (?, ?, ?, ?, ?, ?, ?, ?)");
 				stmt.setString(1, projectName);
-				System.out.println(projectName);
 				stmt.setString(2, engineeringCategory);
 				stmt.setString(3, filePath);
 				stmt.setString(4, modelDescription);

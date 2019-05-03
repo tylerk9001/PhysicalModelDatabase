@@ -88,7 +88,10 @@ public class UploadServlet extends HttpServlet {
 				requiredItems.get(i)[3] = desc[i];
 			}
 		}
+		
+		req.setAttribute("requiredItems", requiredItems);
 
+		
 		model.setProjectName(projectName);
 		model.setEngineeringCategory(category);
 		model.setKeywords(keywordsList);
