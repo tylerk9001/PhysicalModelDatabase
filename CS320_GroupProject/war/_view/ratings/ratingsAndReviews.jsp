@@ -3,143 +3,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 
-<style>
-
-.content-1 {
-	margin: 0 350px 0 350px;
-}
-
-h2 {
-	text-align: center;
-}
-
-h2 i {
-	color: #86c232;
-}
-
-#project-title {
-	margin-bottom: 6px;
-	text-decoration: underline;
-	font-weight: bold;
-}
-
-#select-menu {
-	direction: ltr;
-	font-family: 'Gotham';
-	font-size: 15px;
-    width: 99.4%;
-	padding: 12px;
-	border: 1px solid #ccc;
-	border-radius: 4px;
-}
-
-#title {
-	margin-bottom: -10px;
-	text-decoration: underline;
-	font-weight: bold;
-}
-
-#stars-title {
-	margin-bottom: 2px;
-	text-decoration: underline;
-	font-weight: bold;
-}
-
-#review-title {
-	margin-bottom: -10px;
-	text-decoration: underline;
-	font-weight: bold;
-}
-
-.gen-form-input {
-  direction:ltr;
-  font-family: 'Gotham';
-  color: black;
-  font-size: 15px;
-  padding: 12px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  margin-top: 20px;
-  width: 97.5%;
-}
- 
-textarea {
-  font-family: 'Gotham';
-  color: black;
-  font-size: 15px;
-  padding: 12px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  margin-top: 20px;
-}
-
-#submit {
-  background-color: #4CAF50;
-  color: white;
-  padding: 12px 20px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  float: right;
-}
-
-#submit:hover {
-  background-color: #45a049;
-}
-
-.search-footer {
-   	position: fixed;
- 	bottom: 0;
-}
-
-@media print {
-	.search-footer {
-		display: block;
-    	position: fixed;
-  		bottom: 0;
-	}
-
-
-fieldset, label { margin: 0; padding: 0; }
-
-/****** Style Star Rating Widget *****/
-
-.rating { 
-  border: none;
-  float: left;
-}
-
-.rating > input { display: none; } 
-.rating > label:before { 
-  margin: 5px;
-  font-size: 1.25em;
-  font-family: FontAwesome;
-  display: inline-block;
-  content: "\f005";
-}
-
-.rating > .half:before { 
-  content: "\f089";
-  position: absolute;
-}
-
-.rating > label { 
-  color: #ddd; 
- float: right; 
-}
-
-/***** CSS Magic to Highlight Stars on Hover *****/
-
-.rating > input:checked ~ label, /* show gold star when clicked */
-.rating:not(:checked) > label:hover, /* hover current star */
-.rating:not(:checked) > label:hover ~ label { color: #FFD700;  } /* hover previous stars in list */
-
-.rating > input:checked + label:hover, /* hover current star when changing rating */
-.rating > input:checked ~ label:hover,
-.rating > label:hover ~ input:checked ~ label, /* lighten current selection */
-.rating > input:checked ~ label:hover ~ label { color: #FFED85;  } 
-}
-</style>
 
 <head>
     <title>Write a Review | Physical Model </title>
@@ -147,9 +10,12 @@ fieldset, label { margin: 0; padding: 0; }
     <link rel="icon" href="${pageContext.request.contextPath}/_view/img/tab.png">
     <link href="${pageContext.request.contextPath}/_view/css/collapse-1.css" type="text/css" rel="stylesheet">
     <link href="${pageContext.request.contextPath}/_view/css/application.css" type="text/css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/_view/css/ratings.css" type="text/css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/_view/css/fontawesome.min.css" type="text/css" rel="stylesheet">
     <!-- Icon CSS -->
+    <link rel='stylesheet' id='fontawesome-css' href='https://use.fontawesome.com/releases/v5.0.1/css/all.css?ver=4.9.1' type='text/css' media='all' />
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
