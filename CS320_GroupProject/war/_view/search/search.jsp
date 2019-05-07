@@ -64,6 +64,7 @@
 	}
 	
 	
+	
 	.search-footer {
 	    	position: fixed;
 	  		bottom: 0;
