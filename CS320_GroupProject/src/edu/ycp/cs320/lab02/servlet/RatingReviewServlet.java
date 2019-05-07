@@ -28,6 +28,8 @@ public class RatingReviewServlet extends HttpServlet {
 		
 		System.out.println("RatingReview Servlet: doPost");
 		
+		String review = req.getParameter("reviewDesc");
+		
 		// now call the JSP to render the new page
 		req.getRequestDispatcher("/_view/ratingReview/ratingReview.jsp").forward(req, resp);
 	}

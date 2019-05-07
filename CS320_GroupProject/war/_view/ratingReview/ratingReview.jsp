@@ -44,12 +44,36 @@
     <div class="search-box">
         <a class="search-btn" href="${pageContext.request.contextPath}/search"><i class="fas fa-search"></i></a>
     </div>
-     
-    <footer>
-        <div class="footer login-footer">
-            <p>Tyler Kautz, Trevor Swann, Jacob Stambaugh. Copyright &copy; 2019. Some Rights Reserved.</p>
-        </div>
-    </footer>
     
+    <div class="container">
+        <!--
+       	<form action="${pageContext.request.contextPath}/ratingReview" method="post" >
+	    <div class="row">
+	            <div class="col-25">
+	              <strong><label class="review" for="reviewDesc">Model Description:</label></strong>
+	            </div>
+	            <div class="col-75">
+	              <textarea id="reviewDesc" name="reviewDesc" class="upload" placeholder="Review Description..." style="height:500px" required></textarea>
+	            </div>
+	          </div>
+	          
+	          <div class="row">
+            <input type="submit" value="Submit">
+          </div>
+	     
+	    <footer>
+	        <div class="footer login-footer">
+	            <p>Tyler Kautz, Trevor Swann, Jacob Stambaugh. Copyright &copy; 2019. Some Rights Reserved.</p>
+	        </div>
+	    </footer>
+	   	-->
+	   	 <form action="${pageContext.request.contextPath}/dashboard" method="post" >
+	   	 <strong><label class="review" for="reviewDesc">Review Description:</label></strong>
+              <textarea id="reviewDesc" name="reviewDesc" class="review" placeholder="Review description..." style="height:500px" required></textarea>
+    
+         <input type="submit" value="Submit">
+   		</form>
+    
+    </div>
 </body>    
 </html>
