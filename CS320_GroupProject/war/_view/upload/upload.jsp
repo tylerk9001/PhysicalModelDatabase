@@ -227,7 +227,7 @@
           -->
           
           <form action="${pageContext.request.contextPath}/upload" method="post" >
-              <strong><label class="upload" for="projectName">Project Name:</label></strong>
+             <label class="upload" for="projectName">Project Name:</label>
               <input type="text" class="gen-form-input" id="projectName" name="projectName" placeholder="Enter project name..." required>
             
               <strong><label class="upload" for="engPrinciple">Engineering Principle:</label></strong>
