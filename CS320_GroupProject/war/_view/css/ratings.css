@@ -1,4 +1,10 @@
-
+@font-face {
+font-family: "FontAwesome";
+font-weight: normal;
+font-style : normal;
+       src : url("https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/fonts/fontawesome-webfont.eot?v=4.3.0");
+       src : url("https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/fonts/fontawesome-webfont.eot?#iefix&v=4.3.0") format("embedded-opentype")
+}
 
 .content-1 {
 	margin: 0 350px 0 350px;
@@ -108,14 +114,14 @@ fieldset, label { margin: 0; padding: 0; }
 .rating > label:before { 
   margin: 5px;
   font-size: 1.25em;
-  font-family: "Font Awesome 5 Free";
+  font-family: FontAwesome;
   font-weight: 900;
   display: inline-block;
   content: "\f005";
 }
 
 .rating > .half:before { 
-  font-family: "Font Awesome 5 Free";
+  font-family: FontAwesome;
   font-weight: 900;
   content: "\f089";
   position: absolute;

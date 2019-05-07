@@ -54,7 +54,7 @@ public class WelcomeServlet extends HttpServlet {
 		dashboardReviewsFound = controller2.retrieveReviewByAuthorName(model2);
 		session.setAttribute("results2", dashboardReviewsFound);
 		
-		if (dashboardProjectsFound.isEmpty()) {
+		if (dashboardReviewsFound.isEmpty()) {
 			req.setAttribute("noReviews", "Currently, you do not have any reviews written.");
 		}
 		

@@ -371,8 +371,8 @@ public class DerbyDatabase implements IDatabase {
 					String upper = name.toUpperCase();
 					stmt = conn.prepareStatement("select DISTINCT title, rating, review, name, reviews.fileName, projectname "
 							+ "from projects, reviews, authors, authorReviews, projectReviews "
-							+ "where (lower(authors.name) like ? or upper(authors.name) like ? "
-							+ "and reviews.review_id = projectReviews.review_id "
+							+ "where (lower(authors.name) like ? or upper(authors.name) like ?) "
+							+ "and (reviews.review_id = projectReviews.review_id "
 							+ "and reviews.review_id = authorReviews.review_id "
 							+ "and projects.project_id = projectReviews.project_id "
 							+ "and authors.account_id = authorReviews.author_id)");	

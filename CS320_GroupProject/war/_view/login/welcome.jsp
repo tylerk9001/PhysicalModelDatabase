@@ -147,8 +147,8 @@
 		                    <form action="${pageContext.request.contextPath}/welcome" method="get">
 								<p><i>${noReviews}</i></p><br>
 							</form>
-							<c:forEach items="${sessionScope.results}" var="dashboardReviews">
-								<a class="linkResult" href="${dashboardReviews.fileName}"><c:out value="${dashboardReviews.title}"></c:out></a>
+							<c:forEach items="${sessionScope.results2}" var="dashboardReviews">
+								<a class="linkResult" href="${dashboardReviews.fileName}"><c:out value="${dashboardReviews.reviewTitle}"></c:out></a>
 							</c:forEach>		
 						</div>
 	                </div>
