@@ -30,7 +30,7 @@ public class ratingsAndReviewsServlet extends HttpServlet {
 		
 		System.out.println("Ratings And Reviews Servlet: doPost");
 		
-		String getStars = req.getAttribute("rating").toString();
+		String getStars = req.getParameter("rating");
 		
 		System.out.println(getStars);
 		

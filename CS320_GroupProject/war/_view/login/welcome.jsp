@@ -89,9 +89,10 @@
 	                <div class="logo"><a><i class="fa fa-cog" ></i></a></div>
 	                <a href="${pageContext.request.contextPath}/index" class="border-nav"><i class="fas fa-home"></i> Home</a>
 		                <a href="${pageContext.request.contextPath}/dashboard"><i class="fas fa-tachometer-alt"></i>  Dashboard</a>
-		                <a href="#projects"><i class="fas fa-file-alt"></i> Projects</a>
-		                <a href="#reviews"><i class="fas fa-pencil-alt"></i> Reviews</a>
+		                <a href="#projects"><i class="fas fa-file-alt"></i> My Projects</a>
+		                <a href="#reviews"><i class="fas fa-pencil-alt"></i> My Reviews</a>
 		                <a href="${pageContext.request.contextPath}/upload"><i class="fas fa-file-upload"></i> Upload a Project</a>
+		                <a href="${pageContext.request.contextPath}/reviews"><i class="fas fa-edit"></i> Write a Review</a>
 	             
 	             	<div class="access-btns">
 	             		<a href="${pageContext.request.contextPath}/logout">Log Out <i class="fas fa-sign-out-alt"></i>	</a>
