@@ -11,7 +11,10 @@
     <servlet-class>edu.ycp.cs320.lab02.servlet.IndexServlet</servlet-class>
   </servlet>
   
-  
+  <servlet>
+    <servlet-name>RatingReviewServlet</servlet-name>
+    <servlet-class>edu.ycp.cs320.lab02.servlet.RatingReviewServlet</servlet-class>
+  </servlet>
   <servlet>
   <servlet-name>SearchServlet</servlet-name>
     <servlet-class>edu.ycp.cs320.lab02.servlet.SearchServlet</servlet-class>
@@ -351,6 +354,10 @@
    <servlet-mapping>
     <servlet-name>SearchServlet</servlet-name>
     <url-pattern>/search</url-pattern>
+  </servlet-mapping>
+   <servlet-mapping>
+    <servlet-name>RatingReviewServlet</servlet-name>
+    <url-pattern>/ratingReview</url-pattern>
   </servlet-mapping>
   
   <servlet-mapping>
