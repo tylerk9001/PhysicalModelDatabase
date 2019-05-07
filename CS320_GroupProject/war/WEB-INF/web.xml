@@ -12,8 +12,8 @@
   </servlet>
   
   <servlet>
-    <servlet-name>RatingReviewServlet</servlet-name>
-    <servlet-class>edu.ycp.cs320.lab02.servlet.RatingReviewServlet</servlet-class>
+    <servlet-name>ratingsAndReviewsServlet</servlet-name>
+    <servlet-class>edu.ycp.cs320.lab02.servlet.ratingsAndReviewsServlet</servlet-class>
   </servlet>
   <servlet>
   <servlet-name>SearchServlet</servlet-name>
@@ -356,8 +356,8 @@
     <url-pattern>/search</url-pattern>
   </servlet-mapping>
    <servlet-mapping>
-    <servlet-name>RatingReviewServlet</servlet-name>
-    <url-pattern>/ratingReview</url-pattern>
+    <servlet-name>ratingsAndReviewsServlet</servlet-name>
+    <url-pattern>/reviews</url-pattern>
   </servlet-mapping>
   
   <servlet-mapping>
