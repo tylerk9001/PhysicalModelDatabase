@@ -2,6 +2,7 @@ package edu.ycp.cs320.booksdb.persist;
 
 import java.util.ArrayList;
 import edu.ycp.cs320.lab02.model.CurrentProject;
+import edu.ycp.cs320.lab02.model.RatingReviews;
 import edu.ycp.cs320.lab02.model.UserAccount;
 
 
@@ -27,9 +28,12 @@ public interface IDatabase {
 			ArrayList<String[]> requiredItems, 
 			String beforeClass, String inClass, String other);
 	
-	// Retrieve Review
-	//public boolean retrieveReview (String review_id);
+	// Retrieve review by project name
+	public ArrayList<RatingReviews> retrieveReviewByProjectName (String name);
+	
+	// Retrieve review by author name
+	public ArrayList<RatingReviews> retrieveReviewByAuthorName (String name);
 	
 	// Add review
-	//public boolean addReview (String project_id, String account_id, String rating, String review);
+	public boolean addReview (int rating, String projectName, String authorName, String review, String title);
 }

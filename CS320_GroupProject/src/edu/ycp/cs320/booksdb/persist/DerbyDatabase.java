@@ -13,6 +13,7 @@ import edu.ycp.cs320.lab02.model.CurrentProject;
 import edu.ycp.cs320.lab02.model.Keywords;
 import edu.ycp.cs320.lab02.model.UserAccount;
 import edu.ycp.cs320.lab02.model.ProjectsAuthors;
+import edu.ycp.cs320.lab02.model.RatingReviews;
 //import edu.ycp.cs320.lab02.model.Search;
 import edu.ycp.cs320.sqldemo.DBUtil;
 
@@ -307,6 +308,181 @@ public class DerbyDatabase implements IDatabase {
 		});
 	}
 	
+	public ArrayList<RatingReviews> retrieveReviewByProjectName (final String name) {
+		return executeTransaction(new Transaction<ArrayList<RatingReviews>>() {
+			@SuppressWarnings("resource")
+			@Override
+			public ArrayList<RatingReviews> execute(Connection conn) throws SQLException {
+				PreparedStatement stmt = null;
+				ResultSet resultSet = null;
+				
+//				System.out.print(name);
+								
+				try {
+					String lower = name.toLowerCase();
+					String upper = name.toUpperCase();
+					stmt = conn.prepareStatement("select DISTINCT title, rating, review, name, reviews.fileName, projectname "
+							+ "from projects, reviews, authors, authorReviews, projectReviews "
+							+ "where (lower(projectname) like ? or upper(projectname) like ? "
+							+ "and reviews.review_id = projectReviews.review_id "
+							+ "and reviews.review_id = authorReviews.review_id "
+							+ "and projects.project_id = projectReviews.project_id "
+							+ "and authors.account_id = authorReviews.author_id)");	
+					stmt.setString(1, "%" + lower + "%");
+					stmt.setString(2, "%" + upper + "%");
+										
+					ArrayList<RatingReviews> list = new ArrayList<RatingReviews>();
+					
+					// initialize boolean variable
+					Boolean found = false;
+					
+					resultSet = stmt.executeQuery();
+					
+					while (resultSet.next()) {
+						found = true;
+						
+						RatingReviews review = new RatingReviews();
+						loadReview(review, resultSet, 1);
+						list.add(review);
+					}
+					
+					return list;
+					
+				} finally {
+					DBUtil.closeQuietly(resultSet);
+					DBUtil.closeQuietly(stmt);
+				}
+			}
+		});
+	}
+	
+	public ArrayList<RatingReviews> retrieveReviewByAuthorName (final String name) {
+		return executeTransaction(new Transaction<ArrayList<RatingReviews>>() {
+			@SuppressWarnings("resource")
+			@Override
+			public ArrayList<RatingReviews> execute(Connection conn) throws SQLException {
+				PreparedStatement stmt = null;
+				ResultSet resultSet = null;
+				
+//				System.out.print(name);
+								
+				try {
+					String lower = name.toLowerCase();
+					String upper = name.toUpperCase();
+					stmt = conn.prepareStatement("select DISTINCT title, rating, review, name, reviews.fileName, projectname "
+							+ "from projects, reviews, authors, authorReviews, projectReviews "
+							+ "where (lower(authors.name) like ? or upper(authors.name) like ? "
+							+ "and reviews.review_id = projectReviews.review_id "
+							+ "and reviews.review_id = authorReviews.review_id "
+							+ "and projects.project_id = projectReviews.project_id "
+							+ "and authors.account_id = authorReviews.author_id)");	
+					stmt.setString(1, "%" + lower + "%");
+					stmt.setString(2, "%" + upper + "%");
+										
+					ArrayList<RatingReviews> list = new ArrayList<RatingReviews>();
+					
+					// initialize boolean variable
+					Boolean found = false;
+					
+					resultSet = stmt.executeQuery();
+					
+					while (resultSet.next()) {
+						found = true;
+						
+						RatingReviews review = new RatingReviews();
+						loadReview(review, resultSet, 1);
+						list.add(review);
+					}
+					
+					return list;
+					
+				} finally {
+					DBUtil.closeQuietly(resultSet);
+					DBUtil.closeQuietly(stmt);
+				}
+			}
+		});
+	}
+	
+	public boolean addReview (int rating, String projectName, String authorName, String review, String title) {
+		return executeTransaction(new Transaction<Boolean>() {
+			@SuppressWarnings("resource")
+			@Override
+			public Boolean execute(Connection conn) throws SQLException {
+				conn.setAutoCommit(true);
+				
+				PreparedStatement stmt = null;
+				PreparedStatement stmt2 = null;
+				ResultSet resultSet2 = null;
+				PreparedStatement stmt3 = null;
+				ResultSet resultSet3 = null;
+				PreparedStatement stmt4 = null;
+				ResultSet resultSet4 = null;
+				PreparedStatement stmt5 = null;
+				PreparedStatement stmt6 = null;
+				String filePath = "http://locahost:8081/project/review";
+				int project_id;
+				int review_id;
+				
+				stmt = conn.prepareStatement("insert into reviews (title, rating, review, fileName) "
+						+ "values (?, ?, ?, ?)");
+				stmt.setString(1, title);
+				stmt.setInt(2, rating);
+				stmt.setString(3, review);
+				stmt.setString(4, filePath);
+				stmt.executeUpdate();
+				
+				
+				stmt2 = conn.prepareStatement("select project_id from projects "
+						+ "where projectName = ?");
+				stmt2.setString(1, projectName);
+				resultSet2 = stmt2.executeQuery();
+				resultSet2.next();
+				Object project_IDResult = resultSet2.getObject(1);
+				String id = project_IDResult.toString();
+				project_id = Integer.parseInt(id);
+	
+				
+				stmt3 = conn.prepareStatement("select review_id from reviews "
+						+ "where title = ?");
+				stmt3.setString(1, title);
+				resultSet3 = stmt3.executeQuery();
+				resultSet3.next();
+				Object review_IDResult = resultSet3.getObject(1);
+				String id2 = review_IDResult.toString();
+				review_id = Integer.parseInt(id2);
+				
+				
+				stmt4 = conn.prepareStatement("select account_id from authors "
+						+ "where name = ?");
+				stmt4.setString(1,  authorName);
+				resultSet4 = stmt4.executeQuery();
+				resultSet4.next();
+				Object author_IDResult = resultSet4.getObject(1);
+				String id3 = author_IDResult.toString();
+				int author_id = Integer.parseInt(id3);
+				
+				stmt5 = conn.prepareStatement("insert into projectReviews (project_id, review_id) values (?, ?)");
+				stmt5.setInt(1,  project_id);
+				stmt5.setInt(2,  review_id);
+				stmt5.executeUpdate();
+				
+				stmt5 = conn.prepareStatement("insert into authorReviews (author_id, review_id) values (?, ?)");
+				stmt5.setInt(1,  author_id);
+				stmt5.setInt(2,  review_id);
+				stmt5.executeUpdate();
+				
+				////////////////////
+				project_id = 1;
+				if (project_id != 0) {
+					return true;
+				} else {
+					return false;
+				}
+			}
+		});
+	}
+	
 	public<ResultType> ResultType executeTransaction(Transaction<ResultType> txn) {
 		try {
 			return doExecuteTransaction(txn);
@@ -372,6 +548,15 @@ public class DerbyDatabase implements IDatabase {
 		project.setFileName(resultSet.getString(index++));
 	}
 	
+	private void loadReview(RatingReviews review, ResultSet resultSet, int index) throws SQLException {
+		review.setReviewTitle(resultSet.getString(index++));
+		review.setRating(Integer.parseInt(resultSet.getString(index++)));
+		review.setReview(resultSet.getString(index++));
+		review.setAuthorName(resultSet.getString(index++));
+		review.setFileName(resultSet.getString(index++));
+		review.setProjectName(resultSet.getString(index++));
+	}
+	
 	
 	public void createTables() {
 		executeTransaction(new Transaction<Boolean>() {
@@ -384,6 +569,8 @@ public class DerbyDatabase implements IDatabase {
 				PreparedStatement stmt5 = null;
 				PreparedStatement stmt6 = null;
 				PreparedStatement stmt7 = null;
+				PreparedStatement stmt8 = null;
+				PreparedStatement stmt9 = null;
 				
 				try {
 					stmt1 = conn.prepareStatement(
@@ -405,7 +592,7 @@ public class DerbyDatabase implements IDatabase {
 							"	engineeringPrinciple varchar(2000), " + 
 							"	beforeClass varchar(2000), " + 
 							"	inClass varchar(2000), " + 
-							"	other varchar(2000) " + 
+							"	other varchar(2000)" + 
 							")"
 					);
 					stmt2.executeUpdate();
@@ -418,7 +605,7 @@ public class DerbyDatabase implements IDatabase {
 							"   password varchar(70)," +
 							"	name varchar(70))"
 						);	
-						stmt3.executeUpdate();
+					stmt3.executeUpdate();
 						
 					stmt4 = conn.prepareStatement(
 							"create table projectAuthors (" +
@@ -426,7 +613,7 @@ public class DerbyDatabase implements IDatabase {
 							"   author_id integer" +
 							")"
 						);	
-						stmt4.executeUpdate();
+					stmt4.executeUpdate();
 						
 					stmt5 = conn.prepareStatement(
 							"create table keywords (" +
@@ -434,19 +621,19 @@ public class DerbyDatabase implements IDatabase {
 							"   keyword varchar(500)" +
 							")"
 						);	
-						stmt5.executeUpdate();
+					stmt5.executeUpdate();
 					
 					stmt6 = conn.prepareStatement(
 							"create table reviews (" +
 							" review_id integer primary key " +
-							" 	generated always as identity (start with 1, increment by 1), " +
-							" project_id integer, " +
-							" account_id integer, "+
+							" 	generated always as identity (start with 1, increment by 1), " + 
+							" title varchar(100), " +
 							" rating varchar(70), " +
-							" review varchar(500)" +
+							" review varchar(500), " +
+							" fileName varchar(70) "+
 							")"
 						);	
-						stmt6.executeUpdate();
+					stmt6.executeUpdate();
 						
 					stmt7 = conn.prepareStatement(
 							"create table requiredItems (" +
@@ -454,10 +641,26 @@ public class DerbyDatabase implements IDatabase {
 							"	item varchar(70)," +
 							"   quantity varchar(70), " +
 							"	cost varchar(70)," + 
-							"	description varchar(200) " +
+							"	description varchar(200)" +
 							")"
 					);
 					stmt7.executeUpdate();
+					
+					stmt8 = conn.prepareStatement(
+							"create table projectReviews (" +
+							"	project_id integer, " +
+							"   review_id integer" +
+							")"
+						);	
+					stmt8.executeUpdate();
+						
+					stmt9 = conn.prepareStatement(
+							"create table authorReviews (" +
+							"	author_id integer, " +
+							"   review_id integer" +
+							")"
+						);	
+					stmt9.executeUpdate();
 						
 					return true;
 				} finally {

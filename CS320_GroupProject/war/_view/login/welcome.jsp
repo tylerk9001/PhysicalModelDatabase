@@ -143,8 +143,14 @@
 	                <div id="reviews">
 	                    <hr>
 	                    <h2>My Reviews</h2>
-	                    <p><i>Currently, you have not written any reviews.</i></p>
-	                    
+	                    <div id="projectResults">
+		                    <form action="${pageContext.request.contextPath}/welcome" method="get">
+								<p><i>${noReviews}</i></p><br>
+							</form>
+							<c:forEach items="${sessionScope.results}" var="dashboardReviews">
+								<a class="linkResult" href="${dashboardReviews.fileName}"><c:out value="${dashboardReviews.title}"></c:out></a>
+							</c:forEach>		
+						</div>
 	                </div>
 	            </div>
 	        </div>

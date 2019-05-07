@@ -2,10 +2,12 @@ package edu.ycp.cs320.lab02.model;
 
 public class RatingReviews {
 	private int rating;
-	private int project_ID;
-	private int account_ID;
+	private String projectName;
+	private String authorName;
 	private int review_ID;
 	private String review;
+	private String reviewTitle;
+	private String fileName;
 	
 	
 	public RatingReviews() {
@@ -19,21 +21,20 @@ public class RatingReviews {
 		return rating;
 	}
 	
-	public void setProject_ID(int project_ID) {
-		this.project_ID = project_ID;
+	public void setProjectName(String projectName) {
+		this.projectName = projectName;
 	}
 	
-	public int getProject_ID() {
-		return project_ID;
+	public String getProjectName() {
+		return projectName;
 	}
 	
-	
-	public void setAccount_ID(int account_ID) {
-		this.account_ID = account_ID;
+	public void setAuthorName(String authorName) {
+		this.authorName = authorName;
 	}
 	
-	public int getAccount_ID() {
-		return account_ID;
+	public String getAuthorName() {
+		return authorName;
 	}
 	
 	public void setReview_ID(int review_ID) {
@@ -50,5 +51,21 @@ public class RatingReviews {
 
 	public String getReview() {
 		return review;
+	}
+	
+	public void setReviewTitle(String reviewTitle) {
+		this.reviewTitle = reviewTitle;
+	}
+	
+	public String getReviewTitle() {
+		return reviewTitle;
+	}
+	
+	public void setFileName(String fileName) {
+		this.fileName = fileName;
+	}
+	
+	public String getFileName() {
+		return fileName;
 	}
 }

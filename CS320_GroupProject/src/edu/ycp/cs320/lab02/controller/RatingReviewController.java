@@ -1,5 +1,7 @@
 package edu.ycp.cs320.lab02.controller;
 
+import java.util.ArrayList;
+
 import edu.ycp.cs320.booksdb.persist.DatabaseProvider;
 import edu.ycp.cs320.booksdb.persist.DerbyDatabase;
 import edu.ycp.cs320.booksdb.persist.IDatabase;
@@ -9,7 +11,7 @@ public class RatingReviewController {
 	
 	private RatingReviews model;
 	private IDatabase database;
-	boolean retrieveReview = false;
+//	boolean retrieveReview = false;
 	
 	public RatingReviewController() {
 		DatabaseProvider.setInstance(new DerbyDatabase());
@@ -24,13 +26,18 @@ public class RatingReviewController {
 		return model;
 	}
 	
-	public boolean retrieveReview (RatingReviews model) {
-		//retrieveReview = database.retrieveReview(model.getReview_ID());
-		return retrieveReview;
+	public ArrayList<RatingReviews> retrieveReviewByProjectName (RatingReviews model) {
+		ArrayList<RatingReviews> results = database.retrieveReviewByProjectName(model.getProjectName());
+		return results;
+	}
+	
+	public ArrayList<RatingReviews> retrieveReviewByAuthorName (RatingReviews model) {
+		ArrayList<RatingReviews> results = database.retrieveReviewByAuthorName(model.getAuthorName());
+		return results;
 	}
 	
 	public boolean addReview (RatingReviews model) {
-		//retrieveReview = database.addReview(model.getProject_ID(), model.getAccount_ID(), model.getRating(), model.getReview());
+		boolean retrieveReview = database.addReview(model.getRating(), model.getProjectName(), model.getAuthorName(), model.getReview(), model.getReviewTitle());
 		return retrieveReview;
 	}
 }	 
