@@ -25,7 +25,7 @@
 	}
 	
 	#projectResults {
-		width: 50%;
+		width: 100%;
 	}
 	
 	.linkResult {
@@ -147,9 +147,24 @@
 		                    <form action="${pageContext.request.contextPath}/welcome" method="get">
 								<p><i>${noReviews}</i></p><br>
 							</form>
+							<table style="width:100%; border: 1px solid black; text-align: center;">
+							  <tr>
+							    <th width="20%;">Project Name</th>
+							    <th width="20%;">Review Name</th>
+							    <th width="2.5%;">Rating</th> 
+							    <th width="40%;">Review</th>
+							    <th width="6%;">Link</th>
+							  </tr>
 							<c:forEach items="${sessionScope.results2}" var="dashboardReviews">
-								<a class="linkResult" href="${dashboardReviews.fileName}"><c:out value="${dashboardReviews.reviewTitle}"></c:out></a>
-							</c:forEach>		
+								  <tr>
+								    <td><c:out value="${dashboardReviews.projectName}"></c:out></td>
+								    <td><c:out value="${dashboardReviews.reviewTitle}"></c:out></td>
+								    <td><c:out value="${dashboardReviews.rating}"></c:out></td>
+								    <td><c:out value="${dashboardReviews.review}"></c:out></td>
+								    <td><a class="linkResult" href="${dashboardReviews.fileName}">View More</a></td>
+								  </tr>
+							</c:forEach>
+							</table>		
 						</div>
 	                </div>
 	            </div>
