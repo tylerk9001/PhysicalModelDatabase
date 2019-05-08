@@ -7,7 +7,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import edu.ycp.cs320.lab02.controller.RatingReviewController;
 import edu.ycp.cs320.lab02.controller.UserAccountController;
+import edu.ycp.cs320.lab02.model.RatingReviews;
 import edu.ycp.cs320.lab02.model.UserAccount;
 
 public class ratingsAndReviewsServlet extends HttpServlet {
@@ -30,9 +32,22 @@ public class ratingsAndReviewsServlet extends HttpServlet {
 		
 		System.out.println("Ratings And Reviews Servlet: doPost");
 		
-		String getStars = req.getParameter("rating");
+		RatingReviews model = new RatingReviews();
+		RatingReviewController controller = new RatingReviewController();
 		
-		System.out.println(getStars);
+		String getProjectTitle = req.getParameter("projectTitle");
+		String getReviewDesc = req.getParameter("reviewDesc");
+		String getRatingStar = req.getParameter("star");
+		String getReview = req.getParameter("review");
+		
+		controller.setModel(model);
+		model.setProjectName(getProjectTitle);
+		model.setReviewTitle(getReviewDesc);
+		model.setRating(Integer.parseInt(getRatingStar));
+		model.setReview(getReview);
+		
+		controller.addReview(model);
+		
 		
 		// now call the JSP to render the new page
 		req.getRequestDispatcher("/_view/ratings/ratingsAndReviews.jsp").forward(req, resp);
