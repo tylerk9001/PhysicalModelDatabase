@@ -102,11 +102,13 @@ input.star:checked ~ .rev-box{
 	 		<form action="${pageContext.request.contextPath}/reviews" method="POST">
 		    	<p id="project-title">Project Title :</p>
 		    	<select id="select-menu" name="projectTitle">
-					<option value="volvo">Volvo</option>
-					<option value="saab">Saab</option>
-					<option value="fiat">Fiat</option>
-					<option value="audi">Audi</option>
+						<c:forEach items="${sessionScope.results3}" var="Projects">
+							<a class="linkResult" href="${Projects.fileName}"><c:out value="${Projects.projectName}"></c:out></a>
+						</c:forEach>
 				</select>
+					<c:forEach items="${sessionScope.results3}" var="projects">
+						<a class="linkResult" href="${projects.fileName}"><c:out value="${projects.projectName}"></c:out></a>
+					</c:forEach>
 		    
 		    	<p id="title">Review Description :</p>
 		    	<input type="text" name="reviewDesc" class="gen-form-input" placeholder="Review Title...">

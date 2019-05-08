@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import edu.ycp.cs320.booksdb.persist.DatabaseProvider;
 import edu.ycp.cs320.booksdb.persist.DerbyDatabase;
 import edu.ycp.cs320.booksdb.persist.IDatabase;
+import edu.ycp.cs320.lab02.model.CurrentProject;
 import edu.ycp.cs320.lab02.model.RatingReviews;
 
 public class RatingReviewController {
@@ -39,5 +40,10 @@ public class RatingReviewController {
 	public boolean addReview (RatingReviews model) {
 		boolean retrieveReview = database.addReview(model.getRating(), model.getProjectName(), model.getAuthorName(), model.getReview(), model.getReviewTitle());
 		return retrieveReview;
+	}
+	
+	public ArrayList<CurrentProject> retrieveAllProjectsInDatabase () {
+		ArrayList<CurrentProject> projects = database.retrieveAllProjectsInDatabase();
+		return projects;
 	}
 }	 

@@ -213,36 +213,36 @@ public class DerbyDatabase implements IDatabase {
 		});
 	}
 	
-	public ArrayList<String> retrieveAllProjectsInDatabase () {
-		return executeTransaction(new Transaction<ArrayList<String>>() {
+	public ArrayList<CurrentProject> retrieveAllProjectsInDatabase () {
+		return executeTransaction(new Transaction<ArrayList<CurrentProject>>() {
 			@SuppressWarnings("resource")
 			@Override
-			public ArrayList<String> execute(Connection conn) throws SQLException {
+			public ArrayList<CurrentProject> execute(Connection conn) throws SQLException {
 				PreparedStatement stmt = null;
 				ResultSet resultSet = null;
 				
 
 								
 				try {
-					stmt = conn.prepareStatement("select DISTINCT projectname "
-							+ "from projects");
+					stmt = conn.prepareStatement("select DISTINCT projectname, fileName "
+							+ "from projects order by category asc");
+					
+					ArrayList<CurrentProject> list = new ArrayList<CurrentProject>();
 					
 					// initialize boolean variable
 					Boolean found = false;
 					
 					resultSet = stmt.executeQuery();
-					ArrayList<String> titles = new ArrayList<String>();
 					
-					resultSet.next();
-					int index = 1;
 					while (resultSet.next()) {
 						found = true;
-						Object projectName = resultSet.getObject(index);
-						titles.add(projectName.toString());
-						index ++;
+						CurrentProject project = new CurrentProject();
+						loadSearch(project, resultSet, 1);
+						list.add(project);
 					}
 					
-					return titles;
+					
+					return list;
 					
 				} finally {
 					DBUtil.closeQuietly(resultSet);

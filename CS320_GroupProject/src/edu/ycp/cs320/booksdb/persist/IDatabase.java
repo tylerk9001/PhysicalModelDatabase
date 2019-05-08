@@ -23,7 +23,7 @@ public interface IDatabase {
 	public ArrayList<CurrentProject> checkForProjectsCreatedByAccount(String name);
 	
 	// Return entire list of project names
-	public ArrayList<String> retrieveAllProjectsInDatabase ();
+	public ArrayList<CurrentProject> retrieveAllProjectsInDatabase ();
 	
 	// Query to add new project to database
 	public boolean addNewProjectToDatabase(String projectName, String engineeringCategory, ArrayList<String> keywords, 

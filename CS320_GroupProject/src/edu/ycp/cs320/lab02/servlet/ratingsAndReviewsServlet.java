@@ -1,14 +1,17 @@
 package edu.ycp.cs320.lab02.servlet;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import edu.ycp.cs320.lab02.controller.RatingReviewController;
 import edu.ycp.cs320.lab02.controller.UserAccountController;
+import edu.ycp.cs320.lab02.model.CurrentProject;
 import edu.ycp.cs320.lab02.model.RatingReviews;
 import edu.ycp.cs320.lab02.model.UserAccount;
 
@@ -34,6 +37,12 @@ public class ratingsAndReviewsServlet extends HttpServlet {
 		
 		RatingReviews model = new RatingReviews();
 		RatingReviewController controller = new RatingReviewController();
+		HttpSession session = req.getSession();
+		
+		ArrayList<CurrentProject> projectsInDatabase = new ArrayList<CurrentProject>();
+		
+		projectsInDatabase = controller.retrieveAllProjectsInDatabase();
+		session.setAttribute("results3", projectsInDatabase);
 		
 		String getProjectTitle = req.getParameter("projectTitle");
 		String getReviewDesc = req.getParameter("reviewDesc");
@@ -55,6 +64,7 @@ public class ratingsAndReviewsServlet extends HttpServlet {
 		controller.setModel(model);
 		
 		controller.addReview(model);
+		controller.retrieveAllProjectsInDatabase();
 		
 		
 		// now call the JSP to render the new page
