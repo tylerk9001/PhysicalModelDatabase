@@ -28,13 +28,37 @@ public class ratingsAndReviewsServlet extends HttpServlet {
 		RatingReviewController controller = new RatingReviewController();
 		
 		
-		ArrayList<CurrentProject> projectsInDatabase = new ArrayList<CurrentProject>();
-		projectsInDatabase = controller.retrieveAllProjectsInDatabase();
-		req.setAttribute("results3", projectsInDatabase);
+		ArrayList<CurrentProject> constructionResults = new ArrayList<CurrentProject>();
+		constructionResults = controller.retrieveAllProjectsInDatabase("Construction");
+		req.setAttribute("constructionResults", constructionResults);
 		
-		ArrayList<CurrentProject> projectsInDatabase1 = new ArrayList<CurrentProject>();
-		projectsInDatabase1 = controller.retrieveAllProjectsInDatabase1();
-		req.setAttribute("results4", projectsInDatabase1);
+		ArrayList<CurrentProject> dynamicsResults = new ArrayList<CurrentProject>();
+		dynamicsResults = controller.retrieveAllProjectsInDatabase("Dynamics");
+		req.setAttribute("dynamicsResults", dynamicsResults);
+		
+		ArrayList<CurrentProject> fluidsResults = new ArrayList<CurrentProject>();
+		fluidsResults = controller.retrieveAllProjectsInDatabase("Fluids");
+		req.setAttribute("fluidsResults", fluidsResults);
+		
+		ArrayList<CurrentProject> heatTranResults = new ArrayList<CurrentProject>();
+		heatTranResults = controller.retrieveAllProjectsInDatabase("Heat Transfer");
+		req.setAttribute("heatTranResults", heatTranResults);
+		
+		ArrayList<CurrentProject> matSciResults = new ArrayList<CurrentProject>();
+		matSciResults = controller.retrieveAllProjectsInDatabase("Material Science");
+		req.setAttribute("matSciResults", matSciResults);
+		
+		ArrayList<CurrentProject> mechanicsResults = new ArrayList<CurrentProject>();
+		mechanicsResults = controller.retrieveAllProjectsInDatabase("Mechanics");
+		req.setAttribute("mechanicsResults", mechanicsResults);
+		
+		ArrayList<CurrentProject> staticsResults = new ArrayList<CurrentProject>();
+		staticsResults = controller.retrieveAllProjectsInDatabase("Statics");
+		req.setAttribute("staticsResults", staticsResults);
+		
+		ArrayList<CurrentProject> thermResults = new ArrayList<CurrentProject>();
+		thermResults = controller.retrieveAllProjectsInDatabase("Thermodynamics");
+		req.setAttribute("thermResults", thermResults);
 		
 		// call JSP to generate empty form
 		req.getRequestDispatcher("/_view/ratings/ratingsAndReviews.jsp").forward(req, resp);
@@ -62,9 +86,12 @@ public class ratingsAndReviewsServlet extends HttpServlet {
 		model.setAuthorName(session.getAttribute("name").toString());
 		
 		controller.setModel(model);
-		controller.addReview(model);
+		boolean reviewAdd = controller.addReview(model);
 		
-		
+		if (reviewAdd) {
+			session.setAttribute("reviewCreated", "Review: " + getReviewDesc + " was successfully added.");
+			resp.sendRedirect("/project/dashboard");
+		}
 		// now call the JSP to render the new page
 		req.getRequestDispatcher("/_view/ratings/ratingsAndReviews.jsp").forward(req, resp);
 	}

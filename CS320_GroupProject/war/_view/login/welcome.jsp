@@ -55,7 +55,18 @@
 	  		bottom: 0;
 		}
 	}
-	s
+	
+	.blinking{
+		animation: blinkingText 2s 8;
+		font-weight: bold;
+	}
+	@keyframes blinkingText{
+		0%{		color: red;	}
+		49%{	color: red;	}
+		50%{	color: transparent;	}
+		99%{	color: red;	}
+		100%{	color: red;	}
+	}
 </style>
 
 <head>
@@ -75,8 +86,6 @@
 <body>
 
 		<%
-			response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
-		
 			if(session.getAttribute("email") == null)
 				response.sendRedirect("/project/login");
 		%>
@@ -123,7 +132,7 @@
                   <div class="user-name">
                       <p><i class="fas fa-users"></i> : <c:out value="${sessionScope.name}"></c:out></p>
                       <p><i class="fas fa-envelope"></i> : <c:out value="${sessionScope.email}"></c:out></p>
-                      <br>
+                      <p class="blinking" style="color:#d3d3d3; font-size: 18px; padding: 5px;"><c:out value="${sessionScope.reviewCreated}"></c:out></p>
                   </div>
 		             
 	                    

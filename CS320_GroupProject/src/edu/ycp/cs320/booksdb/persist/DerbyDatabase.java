@@ -213,7 +213,7 @@ public class DerbyDatabase implements IDatabase {
 		});
 	}
 	
-	public ArrayList<CurrentProject> retrieveAllProjectsInDatabase () {
+	public ArrayList<CurrentProject> retrieveAllProjectsInDatabase (String category) {
 		return executeTransaction(new Transaction<ArrayList<CurrentProject>>() {
 			@SuppressWarnings("resource")
 			@Override
@@ -221,11 +221,10 @@ public class DerbyDatabase implements IDatabase {
 				PreparedStatement stmt = null;
 				ResultSet resultSet = null;
 				
-
-								
 				try {
 					stmt = conn.prepareStatement("select projectname, fileName "
-							+ "from projects order by category asc");
+							+ "from projects where category = ? order by category asc");
+					stmt.setString(1, category);
 					
 					ArrayList<CurrentProject> list = new ArrayList<CurrentProject>();
 					
@@ -252,44 +251,6 @@ public class DerbyDatabase implements IDatabase {
 		});
 	}
 	
-	public ArrayList<CurrentProject> retrieveAllProjectsInDatabase1 () {
-		return executeTransaction(new Transaction<ArrayList<CurrentProject>>() {
-			@SuppressWarnings("resource")
-			@Override
-			public ArrayList<CurrentProject> execute(Connection conn) throws SQLException {
-				PreparedStatement stmt = null;
-				ResultSet resultSet = null;
-				
-
-								
-				try {
-					stmt = conn.prepareStatement("select projectname, fileName "
-							+ "from projects order by category asc");
-					
-					ArrayList<CurrentProject> list = new ArrayList<CurrentProject>();
-					
-					// initialize boolean variable
-					Boolean found = false;
-					
-					resultSet = stmt.executeQuery();
-					
-					while (resultSet.next()) {
-						found = true;
-						CurrentProject project = new CurrentProject();
-						loadSearch(project, resultSet, 1);
-						list.add(project);
-					}
-					
-					
-					return list;
-					
-				} finally {
-					DBUtil.closeQuietly(resultSet);
-					DBUtil.closeQuietly(stmt);
-				}
-			}
-		});
-	}
 	
 	public boolean addNewProjectToDatabase (String projectName, String engineeringCategory, ArrayList<String> keywords, 
 			ArrayList<String> authors, String modelDescription, String engineeringPrinciple, 

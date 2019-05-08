@@ -42,13 +42,8 @@ public class RatingReviewController {
 		return retrieveReview;
 	}
 	
-	public ArrayList<CurrentProject> retrieveAllProjectsInDatabase () {
-		ArrayList<CurrentProject> projects = database.retrieveAllProjectsInDatabase();
-		return projects;
-	}
-	
-	public ArrayList<CurrentProject> retrieveAllProjectsInDatabase1 () {
-		ArrayList<CurrentProject> projects = database.retrieveAllProjectsInDatabase1();
+	public ArrayList<CurrentProject> retrieveAllProjectsInDatabase (String category) {
+		ArrayList<CurrentProject> projects = database.retrieveAllProjectsInDatabase(category);
 		return projects;
 	}
 }	 

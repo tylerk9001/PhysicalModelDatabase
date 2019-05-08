@@ -6,7 +6,7 @@ function addInput(divName){
      }
      else {
           var newdiv = document.createElement('div');
-          newdiv.innerHTML = "Author " + (authorCounter + 1) + " <br><input type='text' class='author gen-form-input' name='authors[]' placeholder='Author name...' >";
+          newdiv.innerHTML = "Author " + (authorCounter + 1) + " <br><input type='text' class='author gen-form-input' name='authors[]' placeholder='Author name...' required>";
           document.getElementById(divName).appendChild(newdiv);
           authorCounter++;
      }

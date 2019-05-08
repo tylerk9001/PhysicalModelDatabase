@@ -49,6 +49,7 @@ public class UploadServlet extends HttpServlet {
 		String beforeClass = req.getParameter("beforeClass");
 		String inClass = req.getParameter("inClass");
 		String other = req.getParameter("other");
+		HttpSession session = req.getSession();
 		
 		// Used to push the data from the form to the uploadConfirm page.
 		req.setAttribute("projectName", projectName);
@@ -108,9 +109,10 @@ public class UploadServlet extends HttpServlet {
 		boolean isAddedToDatabase = controller.addNewProjectToDatabase(model);
 		if (isAddedToDatabase) {
 			System.out.println("Project successfully added to database!");
+			session.setAttribute("reviewCreated", "Project: " + projectName + " was successfully added.");
 		}
 
-		req.getRequestDispatcher("/_view/upload/uploadConfirm.jsp").forward(req, resp);
+		req.getRequestDispatcher("/_view/login/welcome.jsp").forward(req, resp);
 		
 		
 		

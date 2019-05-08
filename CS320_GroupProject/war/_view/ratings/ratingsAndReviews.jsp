@@ -77,17 +77,9 @@ input.star:checked ~ .rev-box{
                 <a href="${pageContext.request.contextPath}/index#statics">Statics</a>
                 <a href="${pageContext.request.contextPath}/index#thermodynamics">Thermodynamics</a>
                 
-                <div class="access-btns">
+               <div class="access-btns">
                   <form action="${pageContext.request.contextPath}/welcome">
-                      <c:choose>
-                          <c:when test="${sessionScope.login == true}">
-                              <a href="${pageContext.request.contextPath}/welcome" name="dashboard"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
-                          </c:when>
-                          <c:when test="${sessionScope.login == null}">
-                             <a href="${pageContext.request.contextPath}/login" class="button">Login</a>
-                          <a href="${pageContext.request.contextPath}/signup" class="button">Sign Up</a>
-                          </c:when>
-                      </c:choose>
+                      <a href="${pageContext.request.contextPath}/welcome" name="dashboard"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
                   </form>
                </div>
             </div>
@@ -109,7 +101,42 @@ input.star:checked ~ .rev-box{
 		    	<select id="select-menu" name="projectTitle" required>
 		    			<option value="" selected disabled>Select Project Title...</option>
 		    			<optgroup label="Construction">
-						<c:forEach items="${results3}" var="Projects">
+						<c:forEach items="${constructionResults}" var="Projects">
+								<option value="${Projects.projectName}">${Projects.projectName}</option>
+						</c:forEach>
+						</optgroup>
+						<optgroup label="Dynamics">
+						<c:forEach items="${dynamicsResults}" var="Projects">
+								<option value="${Projects.projectName}">${Projects.projectName}</option>
+						</c:forEach>
+						</optgroup>
+						<optgroup label="Fluids">
+						<c:forEach items="${fluidsResults}" var="Projects">
+								<option value="${Projects.projectName}">${Projects.projectName}</option>
+						</c:forEach>
+						</optgroup>
+						<optgroup label="Heat Transfer">
+						<c:forEach items="${heatTranResults}" var="Projects">
+								<option value="${Projects.projectName}">${Projects.projectName}</option>
+						</c:forEach>
+						</optgroup>
+						<optgroup label="Material Science">
+						<c:forEach items="${matSciResults}" var="Projects">
+								<option value="${Projects.projectName}">${Projects.projectName}</option>
+						</c:forEach>
+						</optgroup>
+						<optgroup label="Mechanics">
+						<c:forEach items="${mechanicsResults}" var="Projects">
+								<option value="${Projects.projectName}">${Projects.projectName}</option>
+						</c:forEach>
+						</optgroup>
+						<optgroup label="Statics">
+						<c:forEach items="${staticsResults}" var="Projects">
+								<option value="${Projects.projectName}">${Projects.projectName}</option>
+						</c:forEach>
+						</optgroup>
+						<optgroup label="Thermodynamics">
+						<c:forEach items="${thermResults}" var="Projects">
 								<option value="${Projects.projectName}">${Projects.projectName}</option>
 						</c:forEach>
 						</optgroup>
