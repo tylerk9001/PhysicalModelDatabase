@@ -40,11 +40,19 @@ public class ratingsAndReviewsServlet extends HttpServlet {
 		String getRatingStar = req.getParameter("star");
 		String getReview = req.getParameter("review");
 		
+		System.out.println(getProjectTitle);
+		System.out.println(getReviewDesc);
+		System.out.println(getRatingStar);
+		System.out.println(getReview);
+		
+		
+		
 		controller.setModel(model);
 		model.setProjectName(getProjectTitle);
 		model.setReviewTitle(getReviewDesc);
 		model.setRating(Integer.parseInt(getRatingStar));
 		model.setReview(getReview);
+		model.setAuthorName("Tom Messervey");
 		
 		controller.addReview(model);
 		

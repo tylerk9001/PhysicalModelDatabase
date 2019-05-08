@@ -442,7 +442,7 @@ public class DerbyDatabase implements IDatabase {
 				String id = project_IDResult.toString();
 				project_id = Integer.parseInt(id);
 	
-				
+				System.out.println("I got here!");
 				stmt3 = conn.prepareStatement("select review_id from reviews "
 						+ "where title = ?");
 				stmt3.setString(1, title);

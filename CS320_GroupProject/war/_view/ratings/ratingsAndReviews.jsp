@@ -101,7 +101,7 @@ input.star:checked ~ .rev-box{
 	 		<h2>Write A Review</h2>
 	 		<form action="${pageContext.request.contextPath}/reviews" method="POST">
 		    	<p id="project-title">Project Title :</p>
-		    	<select id="select-menu" name="cars">
+		    	<select id="select-menu" name="projectTitle">
 					<option value="volvo">Volvo</option>
 					<option value="saab">Saab</option>
 					<option value="fiat">Fiat</option>
@@ -109,7 +109,7 @@ input.star:checked ~ .rev-box{
 				</select>
 		    
 		    	<p id="title">Review Description :</p>
-		    	<input type="text" class="gen-form-input" placeholder="Review Title...">
+		    	<input type="text" name="reviewDesc" class="gen-form-input" placeholder="Review Title...">
 		    
 		    	<p id="stars-title">Overall Review :</p>
 		   		
@@ -129,7 +129,7 @@ input.star:checked ~ .rev-box{
 					
 					
 				<p id="review-title">Write Your Review :</p>
-				<textarea rows="20" maxlength="500" placeholder="What did you like or dislike about this project? What could be improved?"></textarea><br>
+				<textarea rows="20" maxlength="500" name="review" placeholder="What did you like or dislike about this project? What could be improved?"></textarea><br>
 				
 				<input id="submit" type="submit" value="Submit Review">
 			</form>
