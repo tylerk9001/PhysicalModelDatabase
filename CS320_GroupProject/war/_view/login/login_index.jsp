@@ -97,6 +97,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
+	<%
+		if(session.getAttribute("email") != null)
+			response.sendRedirect("/project/dashboard");
+		%>
     <nav>
         <div class="nav">
             <label for="toggle">&#9776;</label>

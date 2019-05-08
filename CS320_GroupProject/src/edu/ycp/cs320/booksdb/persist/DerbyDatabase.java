@@ -224,7 +224,46 @@ public class DerbyDatabase implements IDatabase {
 
 								
 				try {
-					stmt = conn.prepareStatement("select DISTINCT projectname, fileName "
+					stmt = conn.prepareStatement("select projectname, fileName "
+							+ "from projects order by category asc");
+					
+					ArrayList<CurrentProject> list = new ArrayList<CurrentProject>();
+					
+					// initialize boolean variable
+					Boolean found = false;
+					
+					resultSet = stmt.executeQuery();
+					
+					while (resultSet.next()) {
+						found = true;
+						CurrentProject project = new CurrentProject();
+						loadSearch(project, resultSet, 1);
+						list.add(project);
+					}
+					
+					
+					return list;
+					
+				} finally {
+					DBUtil.closeQuietly(resultSet);
+					DBUtil.closeQuietly(stmt);
+				}
+			}
+		});
+	}
+	
+	public ArrayList<CurrentProject> retrieveAllProjectsInDatabase1 () {
+		return executeTransaction(new Transaction<ArrayList<CurrentProject>>() {
+			@SuppressWarnings("resource")
+			@Override
+			public ArrayList<CurrentProject> execute(Connection conn) throws SQLException {
+				PreparedStatement stmt = null;
+				ResultSet resultSet = null;
+				
+
+								
+				try {
+					stmt = conn.prepareStatement("select projectname, fileName "
 							+ "from projects order by category asc");
 					
 					ArrayList<CurrentProject> list = new ArrayList<CurrentProject>();
@@ -471,7 +510,6 @@ public class DerbyDatabase implements IDatabase {
 				stmt.setString(3, review);
 				stmt.setString(4, filePath);
 				stmt.executeUpdate();
-				System.out.println("I got past inserting into reviews!");
 				
 				
 				stmt2 = conn.prepareStatement("select project_id from projects "
@@ -482,7 +520,6 @@ public class DerbyDatabase implements IDatabase {
 				Object project_IDResult = resultSet2.getObject(1);
 				String id = project_IDResult.toString();
 				project_id = Integer.parseInt(id);
-				System.out.println("I got past pulling from projects!");
 	
 
 				stmt3 = conn.prepareStatement("select review_id from reviews "

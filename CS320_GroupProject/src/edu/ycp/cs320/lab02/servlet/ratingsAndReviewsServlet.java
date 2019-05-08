@@ -25,6 +25,17 @@ public class ratingsAndReviewsServlet extends HttpServlet {
 		
 		System.out.println("Ratings And Reviews Servlet: doGet");	
 		
+		RatingReviewController controller = new RatingReviewController();
+		
+		
+		ArrayList<CurrentProject> projectsInDatabase = new ArrayList<CurrentProject>();
+		projectsInDatabase = controller.retrieveAllProjectsInDatabase();
+		req.setAttribute("results3", projectsInDatabase);
+		
+		ArrayList<CurrentProject> projectsInDatabase1 = new ArrayList<CurrentProject>();
+		projectsInDatabase1 = controller.retrieveAllProjectsInDatabase1();
+		req.setAttribute("results4", projectsInDatabase1);
+		
 		// call JSP to generate empty form
 		req.getRequestDispatcher("/_view/ratings/ratingsAndReviews.jsp").forward(req, resp);
 	}
@@ -39,32 +50,19 @@ public class ratingsAndReviewsServlet extends HttpServlet {
 		RatingReviewController controller = new RatingReviewController();
 		HttpSession session = req.getSession();
 		
-		ArrayList<CurrentProject> projectsInDatabase = new ArrayList<CurrentProject>();
-		
-		projectsInDatabase = controller.retrieveAllProjectsInDatabase();
-		session.setAttribute("results3", projectsInDatabase);
-		
 		String getProjectTitle = req.getParameter("projectTitle");
 		String getReviewDesc = req.getParameter("reviewDesc");
 		String getRatingStar = req.getParameter("star");
 		String getReview = req.getParameter("review");
 		
-		System.out.println(getProjectTitle);
-		System.out.println(getReviewDesc);
-		System.out.println(getRatingStar);
-		System.out.println(getReview);
-		
-		
-		
-		model.setProjectName("Crane Rigging Angles");
+		model.setProjectName(getProjectTitle);
 		model.setReviewTitle(getReviewDesc);
 		model.setRating(Integer.parseInt(getRatingStar));
 		model.setReview(getReview);
-		model.setAuthorName("Tom Messervey");
-		controller.setModel(model);
+		model.setAuthorName(session.getAttribute("name").toString());
 		
+		controller.setModel(model);
 		controller.addReview(model);
-		controller.retrieveAllProjectsInDatabase();
 		
 		
 		// now call the JSP to render the new page

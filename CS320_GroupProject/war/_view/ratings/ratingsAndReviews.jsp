@@ -5,6 +5,8 @@
 
 <style>
 @import url(https://fonts.googleapis.com/css?family=Roboto:500,100,300,700,400);
+
+
 div.stars{
   width: 270px;
   display: inline-block;
@@ -50,13 +52,15 @@ input.star:checked ~ .rev-box{
     <link href="${pageContext.request.contextPath}/_view/css/collapse-1.css" type="text/css" rel="stylesheet">
     <link href="${pageContext.request.contextPath}/_view/css/application.css" type="text/css" rel="stylesheet">
     <link href="${pageContext.request.contextPath}/_view/css/ratings.css" type="text/css" rel="stylesheet">
-    <link href="${pageContext.request.contextPath}/_view/css/fontawesome.css" type="text/css" rel="stylesheet">
-    <link href="${pageContext.request.contextPath}/_view/css/all.css" type="text/css" rel="stylesheet">
     <!-- Icon CSS -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 	<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
+
+	<% if(session.getAttribute("email") == null)
+		response.sendRedirect("/project/login");
+		%>
     <nav>
         <div class="nav">
             <label for="toggle">&#9776;</label>
@@ -100,38 +104,39 @@ input.star:checked ~ .rev-box{
 	        <h2><i class="fas fa-edit"></i></h2>
 	 		<h2>Write A Review</h2>
 	 		<form action="${pageContext.request.contextPath}/reviews" method="POST">
+	 		
 		    	<p id="project-title">Project Title :</p>
-		    	<select id="select-menu" name="projectTitle">
-						<c:forEach items="${sessionScope.results3}" var="Projects">
-							<a class="linkResult" href="${Projects.fileName}"><c:out value="${Projects.projectName}"></c:out></a>
+		    	<select id="select-menu" name="projectTitle" required>
+		    			<option value="" selected disabled>Select Project Title...</option>
+		    			<optgroup label="Construction">
+						<c:forEach items="${results3}" var="Projects">
+								<option value="${Projects.projectName}">${Projects.projectName}</option>
 						</c:forEach>
+						</optgroup>
 				</select>
-					<c:forEach items="${sessionScope.results3}" var="projects">
-						<a class="linkResult" href="${projects.fileName}"><c:out value="${projects.projectName}"></c:out></a>
-					</c:forEach>
 		    
 		    	<p id="title">Review Description :</p>
-		    	<input type="text" name="reviewDesc" class="gen-form-input" placeholder="Review Title...">
+		    	<input type="text" name="reviewDesc" class="gen-form-input" placeholder="Review Title..." required>
 		    
 		    	<p id="stars-title">Overall Review :</p>
 		   		
 		   		<div class="stars">
-				  <input class="star star-5" id="star-5" type="radio" name="star" value="5"/>
+				  <input class="star star-5" id="star-5" type="radio" name="star" value="5" required/>
 				  <label class="star star-5" for="star-5"></label>
-				  <input class="star star-4" id="star-4" type="radio" name="star" value="4"/>
+				  <input class="star star-4" id="star-4" type="radio" name="star" value="4" required/>
 				  <label class="star star-4" for="star-4"></label>
-				  <input class="star star-3" id="star-3" type="radio" name="star" value="3"/>
+				  <input class="star star-3" id="star-3" type="radio" name="star" value="3" required/>
 				  <label class="star star-3" for="star-3"></label>
-				  <input class="star star-2" id="star-2" type="radio" name="star" value="2"/>
+				  <input class="star star-2" id="star-2" type="radio" name="star" value="2" required/>
 				  <label class="star star-2" for="star-2"></label>
-				  <input class="star star-1" id="star-1" type="radio" name="star" value="1"/>
+				  <input class="star star-1" id="star-1" type="radio" name="star" value="1" required/>
 				  <label class="star star-1" for="star-1"></label>
 				
 				</div>
 					
 					
 				<p id="review-title">Write Your Review :</p>
-				<textarea rows="20" maxlength="500" name="review" placeholder="What did you like or dislike about this project? What could be improved?"></textarea><br>
+				<textarea rows="20" maxlength="500" name="review" placeholder="What did you like or dislike about this project? What could be improved?" required></textarea><br>
 				
 				<input id="submit" type="submit" value="Submit Review">
 			</form>
