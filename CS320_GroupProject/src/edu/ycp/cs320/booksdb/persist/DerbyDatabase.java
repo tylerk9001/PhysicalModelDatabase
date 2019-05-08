@@ -467,10 +467,10 @@ public class DerbyDatabase implements IDatabase {
 				stmt5.setInt(2,  review_id);
 				stmt5.executeUpdate();
 				
-				stmt5 = conn.prepareStatement("insert into authorReviews (author_id, review_id) values (?, ?)");
-				stmt5.setInt(1,  author_id);
-				stmt5.setInt(2,  review_id);
-				stmt5.executeUpdate();
+				stmt6 = conn.prepareStatement("insert into authorReviews (author_id, review_id) values (?, ?)");
+				stmt6.setInt(1,  author_id);
+				stmt6.setInt(2,  review_id);
+				stmt6.executeUpdate();
 				
 				////////////////////
 				project_id = 1;
@@ -628,7 +628,7 @@ public class DerbyDatabase implements IDatabase {
 							" review_id integer primary key " +
 							" 	generated always as identity (start with 1, increment by 1), " + 
 							" title varchar(100), " +
-							" rating varchar(70), " +
+							" rating integer, " +
 							" review varchar(500), " +
 							" fileName varchar(70) "+
 							")"
