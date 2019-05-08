@@ -47,12 +47,12 @@ public class ratingsAndReviewsServlet extends HttpServlet {
 		
 		
 		
-		controller.setModel(model);
-		model.setProjectName(getProjectTitle);
+		model.setProjectName("Crane Rigging Angles");
 		model.setReviewTitle(getReviewDesc);
 		model.setRating(Integer.parseInt(getRatingStar));
 		model.setReview(getReview);
 		model.setAuthorName("Tom Messervey");
+		controller.setModel(model);
 		
 		controller.addReview(model);
 		

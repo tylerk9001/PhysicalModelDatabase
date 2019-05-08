@@ -409,7 +409,7 @@ public class DerbyDatabase implements IDatabase {
 			@SuppressWarnings("resource")
 			@Override
 			public Boolean execute(Connection conn) throws SQLException {
-				conn.setAutoCommit(true);
+				conn.setAutoCommit(false);
 				
 				PreparedStatement stmt = null;
 				PreparedStatement stmt2 = null;
@@ -423,6 +423,7 @@ public class DerbyDatabase implements IDatabase {
 				String filePath = "http://locahost:8081/project/review";
 				int project_id;
 				int review_id;
+				int author_id;
 				
 				stmt = conn.prepareStatement("insert into reviews (title, rating, review, fileName) "
 						+ "values (?, ?, ?, ?)");
@@ -431,6 +432,7 @@ public class DerbyDatabase implements IDatabase {
 				stmt.setString(3, review);
 				stmt.setString(4, filePath);
 				stmt.executeUpdate();
+				System.out.println("I got past inserting into reviews!");
 				
 				
 				stmt2 = conn.prepareStatement("select project_id from projects "
@@ -441,8 +443,9 @@ public class DerbyDatabase implements IDatabase {
 				Object project_IDResult = resultSet2.getObject(1);
 				String id = project_IDResult.toString();
 				project_id = Integer.parseInt(id);
+				System.out.println("I got past pulling from projects!");
 	
-				System.out.println("I got here!");
+
 				stmt3 = conn.prepareStatement("select review_id from reviews "
 						+ "where title = ?");
 				stmt3.setString(1, title);
@@ -460,7 +463,7 @@ public class DerbyDatabase implements IDatabase {
 				resultSet4.next();
 				Object author_IDResult = resultSet4.getObject(1);
 				String id3 = author_IDResult.toString();
-				int author_id = Integer.parseInt(id3);
+				author_id = Integer.parseInt(id3);
 				
 				stmt5 = conn.prepareStatement("insert into projectReviews (project_id, review_id) values (?, ?)");
 				stmt5.setInt(1,  project_id);
