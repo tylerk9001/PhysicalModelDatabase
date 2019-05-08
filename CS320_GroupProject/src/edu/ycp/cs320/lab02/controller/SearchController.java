@@ -29,4 +29,9 @@ public class SearchController {
 		ArrayList<CurrentProject> projects = database.searchByKeywordsAuthorsProjectNameOrCategory(search);
 		return projects;
 	}
+	
+	public ArrayList<String> retrieveAllProjectsInDatabase () {
+		ArrayList<String> projects = database.retrieveAllProjectsInDatabase();
+		return projects;
+	}
 }	 

@@ -213,6 +213,45 @@ public class DerbyDatabase implements IDatabase {
 		});
 	}
 	
+	public ArrayList<String> retrieveAllProjectsInDatabase () {
+		return executeTransaction(new Transaction<ArrayList<String>>() {
+			@SuppressWarnings("resource")
+			@Override
+			public ArrayList<String> execute(Connection conn) throws SQLException {
+				PreparedStatement stmt = null;
+				ResultSet resultSet = null;
+				
+
+								
+				try {
+					stmt = conn.prepareStatement("select DISTINCT projectname "
+							+ "from projects");
+					
+					// initialize boolean variable
+					Boolean found = false;
+					
+					resultSet = stmt.executeQuery();
+					ArrayList<String> titles = new ArrayList<String>();
+					
+					resultSet.next();
+					int index = 1;
+					while (resultSet.next()) {
+						found = true;
+						Object projectName = resultSet.getObject(index);
+						titles.add(projectName.toString());
+						index ++;
+					}
+					
+					return titles;
+					
+				} finally {
+					DBUtil.closeQuietly(resultSet);
+					DBUtil.closeQuietly(stmt);
+				}
+			}
+		});
+	}
+	
 	public boolean addNewProjectToDatabase (String projectName, String engineeringCategory, ArrayList<String> keywords, 
 			ArrayList<String> authors, String modelDescription, String engineeringPrinciple, 
 			ArrayList<String[]> requiredItems, 
@@ -304,7 +343,7 @@ public class DerbyDatabase implements IDatabase {
 				} else {
 					return false;
 				}
-			}
+			} 
 		});
 	}
 	

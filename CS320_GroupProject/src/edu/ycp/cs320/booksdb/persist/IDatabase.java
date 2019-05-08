@@ -22,6 +22,9 @@ public interface IDatabase {
 	// Search query by name to display on account dashboard
 	public ArrayList<CurrentProject> checkForProjectsCreatedByAccount(String name);
 	
+	// Return entire list of project names
+	public ArrayList<String> retrieveAllProjectsInDatabase ();
+	
 	// Query to add new project to database
 	public boolean addNewProjectToDatabase(String projectName, String engineeringCategory, ArrayList<String> keywords, 
 			ArrayList<String> authors, String modelDescription, String engineeringPrinciple, 
