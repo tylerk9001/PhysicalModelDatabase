@@ -13,14 +13,19 @@ public class RatingReviewsModelTest {
 	private int account_ID;
 	private int review_ID;
 	private String review;	
+	private String authorName;
+	private String projectName;
+	private String reviewTitle;
+	private String fileName;
 	
 	@Before
 	public void setUp() {
 		model = new RatingReviews();
-		
+		authorName = "Tom Messervey";
+		projectName = "Crane Rigging Angles";
+		reviewTitle = "Cranes are cool";
+		fileName = "localhost:1700blahblah";
 		rating = 4;
-		project_ID = 5;
-		account_ID = 323;
 		review_ID = 1;
 		review = "This is a test review.";
 	}
@@ -30,28 +35,34 @@ public class RatingReviewsModelTest {
 		model.setRating(rating);
 		assertTrue(model.getRating() == (rating));
 	}
-	
-	@Test
-	public void testSetGetProject_ID () {
-		model.setProject_ID(project_ID);
-		assertTrue(model.getProject_ID() == (project_ID));
-	}
-	
-	@Test
-	public void testSetGetAccount_ID () {
-		model.setAccount_ID(account_ID);
-		assertTrue(model.getAccount_ID() == (account_ID));
-	}
-	
 	@Test
 	public void testSetGetReview_ID () {
 		model.setReview_ID(review_ID);
 		assertTrue(model.getReview_ID() == (review_ID));
 	}
-	
 	@Test
 	public void testSetGetReview () {
 		model.setReview(review);
 		assertTrue(model.getReview().equals(review));
+	}
+	@Test
+	public void testSetGetAuthorsName() {
+		model.setAuthorName(authorName);
+		assertTrue(model.getAuthorName().equals(authorName));
+	}
+	@Test
+	public void testSetGetProjectName() {
+		model.setProjectName(projectName);
+		assertTrue(model.getProjectName().equals(projectName));
+	}
+	@Test
+	public void testGetSetReviewTitle() {
+		model.setReviewTitle(reviewTitle);
+		assertTrue(model.getReviewTitle().equals(reviewTitle));
+	}
+	@Test
+	public void testGetSetFileName() {
+		model.setFileName(fileName);
+		assertTrue(model.getFileName().equals(fileName));
 	}
 }
