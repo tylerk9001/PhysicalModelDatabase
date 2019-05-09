@@ -105,7 +105,7 @@ you can draw one large square.</td>
                     <td>Rubber Rectangular Members</td>
                     <td>2</td>
                     <td>$8*</td>
-                    <td>Dimensions are 12” long x 1½” wide x ½” thick.
+                    <td>Dimensions are 12"" long x 1.5"" wide x .5" thick.
 Various patterns can be drawn on the largest
 side of one of the members to demonstrate
 flexural behavior. Generally vertical and
@@ -115,14 +115,14 @@ horizontal lines along the length are drawn.</td>
                     <td>Rubber-Wide Flange Beams</td>
                     <td>2</td>
                     <td>$12*</td>
-                    <td>Dimensions are 18” long x 2” tall x 1½” wide
-(flange) and ⅛” thick (flange and web).</td>
+                    <td>Dimensions are 18" long x 2" tall x 1.5" wide
+(flange) and .125" thick (flange and web).</td>
                     </tr>
                     <tr>
                     <td>Rubber Angles</td>
                     <td>2</td>
                     <td>$10*</td>
-                    <td>Dimensions are 18” long x 1½” x 1½” (⅛” thick) -
+                    <td>Dimensions are 18" long x 1.5" x 1.5" (.125" thick) -
 an equal leg angle. When two angles are clipped
 together, we can demonstrate the need for
 intermediate connections along the length in
@@ -162,7 +162,7 @@ strain/stress theory.
 The discussion can be further enhanced with the twisting of the other rod with
 the series of lines along the length and around the circumference. Highlight
 that the longitudinal lines twist like a candy cane while the vertical lines do not
-distort – stay vertical. The squares still deform to form a rhombus where the
+distort - stay vertical. The squares still deform to form a rhombus where the
 square changes shape, but not size. This demonstration depicts key highlights of
 pure shear deformation. Additionally, highlight how the overall shape of the rod
 does not change when twisted in comparison to the rectangular beam. The
@@ -172,11 +172,11 @@ resists with the smallest area moment of inertia and observe how easy it is to
 bend and how much it bends. Rotate the beam and apply a moment when it has
 the largest area moment of inertia and note how much more difficult it is to
 bend it and how little it bends. Most students can make this connection to their
-experiences of using left over 2”x4” wood members to build a fort, a tree house
+experiences of using left over 2"x4" wood members to build a fort, a tree house
 or a foot bridge over a neighborhood stream.
 Just as with the foam beam example, vertical and horizontal lines drawn along
 the length demonstrate the assumptions associated with flexural behavior. Point
-out the deformation of the horizontal lines—they are now curved—but the
+out the deformation of the horizontal lines-they are now curved-but the
 central horizontal line did not change in length while the top and bottom lines
 did change length. This can also be seen by observing the change in the space
 between the vertical lines. At the top of the beam, the lines moved closer
@@ -203,8 +203,8 @@ we see the use of this shape for tension bracing members. Ask the class: what
 they think would be best to modification to address the issue of buckling?
 Hopefully the previous lessons will have highlighted the need for additional area
 moment of inertia. Use a second angle and clip them together using the binder
-clips – one at each end. Apply the same force to the new composite member in
-the same method as before and demonstrate that the column doesn’t buckle as
+clips - one at each end. Apply the same force to the new composite member in
+the same method as before and demonstrate that the column doesn't buckle as
 easily, but it might still buckle some at the center. Add another clip in the center,
 and reapply the load to demonstrate that even more load is required to buckle
 the double angle configuration (this step might not be required if not applying to
@@ -212,6 +212,7 @@ large of a load and if you are going to demonstrate the next step below in the
 same class). Again, the importance of area moment of inertia is
 highlighted, but also the importance of connection of multiple members to
 ensure that the individual members must be mad
+
 Additional Application: These shapes are not only useful in a basic Statics class
 to show how loads are applied, but especially useful in a Mechanics of Materials
 class. However, any class where the behavior of the member is important (steel
