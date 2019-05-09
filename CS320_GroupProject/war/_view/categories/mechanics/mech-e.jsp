@@ -55,28 +55,28 @@
 <content>
     <div class="content">
         <div class="header-container" align="center">
-            <p class="title">Elastic Vs Plastic Deformation</p>
+            <p class="title">Rubber Shapes</p>
             <p class="eng-principle"><strong>Engineering Principle: </strong>Mechanics</p>
-            <p class="keywords"><strong>Keywords: </strong>Axial, Deformation, Elastic, Plastic, Strain, Stress</p>
+            <p class="keywords"><strong>Keywords: </strong>Buckling, Compression, Cross-Section, Load Conditions, Tenson, Torsion</p>
             <p class="author"><strong>Submitted By: </strong>John Richards</p><hr>
         </div>
         <div class="project-content">
-            <p class="description"><strong><u>Model Description:</u></strong>This is a simple demonstration of the basic principles
-			underlying the elastic and plastic behavior of materials subjected to an axial
-			load. The demonstration can also be used to show the highlight the elastic and
-			plastic portions of stress-strain curves. This demonstration should take 8-10
-			minutes.</p>
+            <p class="description"><strong><u>Model Description:</u></strong>These physical models easily and quickly demonstrate the
+behavior of varying cross-sectional shapes to varying loading conditions. When
+the instructor passes the rubber shapes around during class, students personally
+experience the associated behavior and quickly catalog for themselves when
+shapes are best used. Applying vertical, horizontal, and circumferential lines
+along the length allow for physical representation of the assumptions associated
+with each type of loading and shape that are not always intuitively obvious to
+our students. This demonstration should take 20-25 minutes</p>
             
-            <img src="${pageContext.request.contextPath}/_view/categories/mechanics/mech-d(a).png" class="const-img">                        
             
-            <p class="principle"><strong><u>Engineering Principle:</u></strong> The basic definitions for stress, deformation, and strain where the stress is force over area, axial (longitudinal) deformation is equal to
-			the final length minus the initial length. The longitudinal strain is equal to the
-			axial deformation divide by the initial length. Further, according to Hooke's Law,
-			a stress-strain curve for each material can be developed showing elastic and
-			plastic behavior. Hooke's Law <img src="${pageContext.request.contextPath}/_view/categories/mechanics/mech-d(b).png" class="const-img">                        
-			where the Modulus of Elasticity (Young’s Modulus) is equal to the normal stress
-			divided by the longitudinal strain. Further, in the Elastic Region of the stressstrain curve, a material will return to its original shape while in the Plastic Region
-			permanent deformation is induced. The material finally ruptures and breaks.
+            <p class="principle"><strong><u>Engineering Principle:</u></strong>The shape of structural members affects their behavior
+during loading. Some shapes have more strength and stability versus other
+shapes when identical forces are applied. Flexural, axial, torsional, and buckling
+behaviors and assumptions can be demonstrated and experienced using these
+rubber shapes. Additionally, the importance of a shapes area moment of inertia
+(a physical property) can be highlighted.
 			</p>
             
             <br><p class="title">Required Items</p><br>
@@ -90,10 +90,49 @@
                     <th>Description/Details</th>
                   </tr>
                   <tr>
-                    <td>Twizzlers</td>
-                    <td>Varies</td>
-                    <td>$5</td>
-                    <td>Each student will need two Twizzlers, one control and one experimental.</td>
+                    <td>Rubber Cylinders</td>
+                    <td>2</td>
+                    <td>$8*</td>
+                    <td>These are about a foot long and an inch in
+diameter. To demonstrate torsional behavior of
+cylindrical members, draw 10-12 lines
+lengthwise and evenly spaced around the
+circumference of the cylinder. These lines
+should form squares. On the other cylinder,
+you can draw one large square.</td>
+                    </tr>
+                    <tr>
+                    <td>Rubber Rectangular Members</td>
+                    <td>2</td>
+                    <td>$8*</td>
+                    <td>Dimensions are 12” long x 1½” wide x ½” thick.
+Various patterns can be drawn on the largest
+side of one of the members to demonstrate
+flexural behavior. Generally vertical and
+horizontal lines along the length are drawn.</td>
+                    </tr>
+                	 <tr>
+                    <td>Rubber-Wide Flange Beams</td>
+                    <td>2</td>
+                    <td>$12*</td>
+                    <td>Dimensions are 18” long x 2” tall x 1½” wide
+(flange) and ⅛” thick (flange and web).</td>
+                    </tr>
+                    <tr>
+                    <td>Rubber Angles</td>
+                    <td>2</td>
+                    <td>$10*</td>
+                    <td>Dimensions are 18” long x 1½” x 1½” (⅛” thick) -
+an equal leg angle. When two angles are clipped
+together, we can demonstrate the need for
+intermediate connections along the length in
+order to increase the strength (due to buckling).</td>
+                    </tr>
+                     <tr>
+                    <td>Binder Clips</td>
+                    <td>3</td>
+                    <td></td>
+                    <td>These are used to hold the two angles together.</td>
                     </tr>
                 </table><br>
             </div>
@@ -101,37 +140,100 @@
             
             <p class="title">Application</p>
             
-            <p class="application"><strong><u>Before Class:</u></strong> : Purchase enough Twizzlers so that each student and the instructor
-			will have two. It also helps to open the package before hand to speed up the
-			process. </p><br>
+            <p class="application"><strong><u>Before Class:</u></strong>Draw the patterns on the shapes that require it based on the
+lesson at hand. Be sure you have all of the shapes and clips necessary for each
+demonstration. </p><br>
 
             
-            <p class="application"><strong><u>In Class:</u></strong>During the lesson, the stress-strain curve is drawn and the various
-			regions on the curve are identified (Elastic, Yielding, Inelastic/Plastic, and
-			Fracture). Then bring out the Twizzlers to allow the students to make realworld observations about these various material behaviors.<br/> 
+            <p class="application"><strong><u>In Class:</u></strong>Depending on the lesson, bring out the rubber shapes of choice for
+everyone to see. If the lesson is on torsion, maybe both the rectangular and
+cylindrical shapes are used. Ask the students: how the different shapes will
+behave when applying a torsional moment? First, take the rectangular beam and
+twist is and see that it warps. Twist the cylinder and notice that it does not warp
+and is possibly a more efficient shape for members that will experience only axial
+loads and/or torsional moments. Start with the rod with only a single square
+drawn on it. Ask the students: what will happen to the square if the rod is
+twisted? Twist the cylinder with a single square drawn on it. Show the students
+how the square turns into a rhombus. The area of the square does not get
+larger, but the square just changes shape to a rhombus. This behavior opens the
+discussion on the pure shear behavior of cylindrical shapes and can be
+demonstrated numerous times during the development of the shear
+strain/stress theory.
+The discussion can be further enhanced with the twisting of the other rod with
+the series of lines along the length and around the circumference. Highlight
+that the longitudinal lines twist like a candy cane while the vertical lines do not
+distort – stay vertical. The squares still deform to form a rhombus where the
+square changes shape, but not size. This demonstration depicts key highlights of
+pure shear deformation. Additionally, highlight how the overall shape of the rod
+does not change when twisted in comparison to the rectangular beam. The
+rectangular beam can be twisted to show warping. During lessons on flexure, use the unmarked rectangular beam. Ask the
+class which way it would hold more load? Apply a moment to the beam when it
+resists with the smallest area moment of inertia and observe how easy it is to
+bend and how much it bends. Rotate the beam and apply a moment when it has
+the largest area moment of inertia and note how much more difficult it is to
+bend it and how little it bends. Most students can make this connection to their
+experiences of using left over 2”x4” wood members to build a fort, a tree house
+or a foot bridge over a neighborhood stream.
+Just as with the foam beam example, vertical and horizontal lines drawn along
+the length demonstrate the assumptions associated with flexural behavior. Point
+out the deformation of the horizontal lines—they are now curved—but the
+central horizontal line did not change in length while the top and bottom lines
+did change length. This can also be seen by observing the change in the space
+between the vertical lines. At the top of the beam, the lines moved closer
+together (compression), while at the bottom of the beam the lines moved
+farther apart (tension). You can also point out that the spacing between black
+lines does not change along the neutral axis. But also point out that the vertical
+lines themselves did not deform - they are still straight, unless we load the beam
+to cause large deformations... This is similar to what can be shown using the
+foam beams. The wide-flange shaped beam can demonstrate the additional stiffness
+when the area moment of inertia is increased by moving more of the crosssectional areas further from the shapes neutral surface/axis. The shape is very
+useful in steel design when desiring to demonstrate lateral-torsional buckling of
+wide-flange members (if not discussed in Mechanics of Materials). When
+moments are applied to either end of the long beam, it experiences lateraltorsional buckling and buckles laterally. But as the length of the beam between
+load points is decreased, greater moments are required to cause lateral-torsional
+buckling. So the importance of intermediate lateral support is directly shown
+and physically demonstrated/emphasized for the students. Additionally, wideflange members are used as columns. Again, with no intermediate supports
+along the length, a longitudinal load will result in the column bending/bucking
+about the weak axis or the axis with the smaller area moment of inertia. Point
+out the fact that when a wide-flange member is used as a beam or column for its
+greater flexural strength along one of the axis, the weaker axis generally requires
+some type of lateral support. The final rubber shape member is the angle. When an axial
+compressive force is applied to a single member, it buckles easily. So usually
+we see the use of this shape for tension bracing members. Ask the class: what
+they think would be best to modification to address the issue of buckling?
+Hopefully the previous lessons will have highlighted the need for additional area
+moment of inertia. Use a second angle and clip them together using the binder
+clips – one at each end. Apply the same force to the new composite member in
+the same method as before and demonstrate that the column doesn’t buckle as
+easily, but it might still buckle some at the center. Add another clip in the center,
+and reapply the load to demonstrate that even more load is required to buckle
+the double angle configuration (this step might not be required if not applying to
+large of a load and if you are going to demonstrate the next step below in the
+same class). Again, the importance of area moment of inertia is
+highlighted, but also the importance of connection of multiple members to
+ensure that the individual members must be mad
+Additional Application: These shapes are not only useful in a basic Statics class
+to show how loads are applied, but especially useful in a Mechanics of Materials
+class. However, any class where the behavior of the member is important (steel
+design, concrete, design, structural pieces in mechanical design, i.e. automotive
+and aircraft frames), these rubber shapes are an efficient method to review
+and/or reinforcement of past discussions of member behavior.
+In Class: The same general behavior can be demonstrated while loading an
+angle in flexure. Once again, it buckles while demonstrating lateral-torsional
+buckling at mid-span. Ask the class again what should be done. It is now
+clear that additional area moment of inertia is required (another angle) and that
+the angles must be connected. Once the class gives the answer, clip the two
+angles together with two clips just as before. Apply the same moment to
+the ends of the beam so that it buckles in the middle. Once again, ask the class
+what should be done. Attach a third clip to the middle of the beam and show
+that this beam is much stiffer/stronger than before.
 			
-			<img src="${pageContext.request.contextPath}/_view/categories/mechanics/mech-d(c).png" class="const-img">
-		
-			Each student will have one Twizzler as a control and the other will be used for
-			the experiment. First, have the students pull on the experimental Twizzler with a
-			small amount of force and notice how it will go back to its original length as
-			compared to the control Twizzler (the Elastic Region). Next, have the students
-			pull on the Twizzler more, just enough to induce permanent deformation so that
-			it remains longer than the reference Twizzler, but not enough to break it. .
-			Plastic behavior! Finally, have them pull on the Twizzler with enough force to
-			cause it to rupture!
-			
-			<img src="${pageContext.request.contextPath}/_view/categories/mechanics/mech-d(d).png" class="const-img">
-			<img src="${pageContext.request.contextPath}/_view/categories/mechanics/mech-d(e).png" class="const-img">
-			
-			T
-			<p class = "application"><strong><u>Observations:</u></strong>: : Point out the difference between deformation/strain in the elastic
-			region (the Twizzler returns to its original length every time) and plastic region
-			(permanent deformation).
-			<br/>
-			After using the Twizzlers for the demo, destroy the evidence by eating the
-			training aids!
-			
+			<p class = "application"><strong><u>Additional Application</u></strong>These shapes are not only useful in a basic Statics class
+to show how loads are applied, but especially useful in a Mechanics of Materials
+class. However, any class where the behavior of the member is important (steel
+design, concrete, design, structural pieces in mechanical design, i.e. automotive
+and aircraft frames), these rubber shapes are an efficient method to review
+and/or reinforcement of past discussions of member behavior.
 			</p>
           </div>
     	</div>
