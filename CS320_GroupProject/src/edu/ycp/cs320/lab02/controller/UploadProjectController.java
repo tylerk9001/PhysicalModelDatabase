@@ -28,4 +28,9 @@ public class UploadProjectController {
 		boolean projectAdded = database.addNewProjectToDatabase(model.getProjectName(), model.getEngineeringCategory(), model.getKeywords(), model.getAuthors(), model.getModelDescription(), model.getEngineeringPrinciple(), model.getRequiredItems(), model.getBeforeClass(), model.getInClass(), model.getOther());
 		return projectAdded;
 	}
+	
+	public boolean addProjectPhotosToDatabase(String projectName, String photoName) {
+		boolean photoAdded = database.addProjectPhotosToDatabase(projectName, photoName);
+		return photoAdded;
+	}
 }	 

@@ -97,8 +97,13 @@ public class DerbyDatabase implements IDatabase {
 						stmt.setString(3, name);
 						stmt.executeUpdate();
 						
+						stmt = conn.prepareStatement("insert into authors (name) values (?)");
+						stmt.setString(1, name);
+						stmt.executeUpdate();
+						
 						return true;
 					}
+				
 					else {
 						return false;
 					}
@@ -336,6 +341,44 @@ public class DerbyDatabase implements IDatabase {
 						stmt5.setString(5, description);
 						stmt5.executeUpdate();
 				}
+				////////////////////
+				project_id = 1;
+				if (project_id != 0) {
+					return true;
+				} else {
+					return false;
+				}
+			} 
+		});
+	}
+	
+	public boolean addProjectPhotosToDatabase (String projectName, String photoName) {
+		return executeTransaction(new Transaction<Boolean>() {
+			@SuppressWarnings("resource")
+			@Override
+			public Boolean execute(Connection conn) throws SQLException {
+				conn.setAutoCommit(true);
+				
+				PreparedStatement stmt = null;
+				ResultSet resultSet = null;
+				PreparedStatement stmt2 = null;
+				int project_id;
+				
+				stmt = conn.prepareStatement("select project_id from projects "
+						+ "where projectName = ?");
+				stmt.setString(1, projectName);
+				resultSet = stmt.executeQuery();
+				resultSet.next();
+				Object project_IDResult = resultSet.getObject(1);
+				String id = project_IDResult.toString();
+				project_id = Integer.parseInt(id);
+				
+				stmt2 = conn.prepareStatement("insert into projectMedia (project_id, filePath) "
+						+ "values (?, ?)");
+				stmt2.setString(1, projectName);
+				stmt2.setString(2, photoName);
+				stmt2.executeUpdate();
+				
 				////////////////////
 				project_id = 1;
 				if (project_id != 0) {
@@ -611,6 +654,8 @@ public class DerbyDatabase implements IDatabase {
 				PreparedStatement stmt7 = null;
 				PreparedStatement stmt8 = null;
 				PreparedStatement stmt9 = null;
+				PreparedStatement stmt10 = null;
+
 				
 				try {
 					stmt1 = conn.prepareStatement(
@@ -625,7 +670,7 @@ public class DerbyDatabase implements IDatabase {
 							"create table projects (" +
 							"	project_id integer primary key " +
 							"       generated always as identity (start with 1, increment by 1), " +
-							"	projectName varchar(70)," +
+							"	projectName varchar(255)," +
 							"   category varchar(70), " +
 							"	fileName varchar(70), " + 
 							"	modelDescription varchar(2000), " + 
@@ -702,6 +747,15 @@ public class DerbyDatabase implements IDatabase {
 						);	
 					stmt9.executeUpdate();
 						
+					
+					stmt10 = conn.prepareStatement(
+							"create table projectMedia (" +
+							"	project_id integer, " +
+							"   filePath varchar(255)" +
+							")"
+						);	
+					stmt10.executeUpdate();
+					
 					return true;
 				} finally {
 					DBUtil.closeQuietly(stmt1);

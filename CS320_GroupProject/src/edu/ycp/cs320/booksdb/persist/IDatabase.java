@@ -31,6 +31,9 @@ public interface IDatabase {
 			ArrayList<String[]> requiredItems, 
 			String beforeClass, String inClass, String other);
 	
+	// Query to insert photo filepaths into databse
+	public boolean addProjectPhotosToDatabase(String projectName, String photoName);
+
 	// Retrieve review by project name
 	public ArrayList<RatingReviews> retrieveReviewByProjectName (String name);
 	

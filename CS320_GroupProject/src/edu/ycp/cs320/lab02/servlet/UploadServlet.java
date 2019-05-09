@@ -1,7 +1,9 @@
 package edu.ycp.cs320.lab02.servlet;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.FilterChain;
 import javax.servlet.ServletException;
@@ -13,9 +15,14 @@ import javax.servlet.http.HttpSession;
 import edu.ycp.cs320.lab02.controller.UploadProjectController;
 import edu.ycp.cs320.lab02.model.CurrentProject;
 
+import org.apache.commons.fileupload.FileItem;
+import org.apache.commons.fileupload.disk.DiskFileItemFactory;
+import org.apache.commons.fileupload.servlet.ServletFileUpload;
+
 
 public class UploadServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	private final String UPLOAD_DIRECTORY = "git/PhysicalModelDatabase/CS320_GroupProject/war/_view/upload/media/";
 	
 	
 	@Override
@@ -51,21 +58,23 @@ public class UploadServlet extends HttpServlet {
 		String other = req.getParameter("other");
 		HttpSession session = req.getSession();
 		
-		// Used to push the data from the form to the uploadConfirm page.
-		req.setAttribute("projectName", projectName);
-		req.setAttribute("category", category);
-		req.setAttribute("keyword", keywords);
-		req.setAttribute("author", authors);
-		req.setAttribute("modelDesc", modelDesc);
-		req.setAttribute("engineeringPrinciple", engineeringPrinciple);
-		req.setAttribute("item", item);
-		req.setAttribute("quantity", quantity);
-		req.setAttribute("costAndBuild", costAndBuild);
-		req.setAttribute("desc", desc);
-		req.setAttribute("beforeClass", beforeClass);
-		req.setAttribute("inClass", inClass);
-		req.setAttribute("other", other);
+//		System.out.print(authors[0]);
 		
+//		// Used to push the data from the form to the uploadConfirm page.
+//		req.setAttribute("projectName", projectName);
+//		req.setAttribute("category", category);
+//		req.setAttribute("keyword", keywords);
+//		req.setAttribute("author", authors);
+//		req.setAttribute("modelDesc", modelDesc);
+//		req.setAttribute("engineeringPrinciple", engineeringPrinciple);
+//		req.setAttribute("item", item);
+//		req.setAttribute("quantity", quantity);
+//		req.setAttribute("costAndBuild", costAndBuild);
+//		req.setAttribute("desc", desc);
+//		req.setAttribute("beforeClass", beforeClass);
+//		req.setAttribute("inClass", inClass);
+//		req.setAttribute("other", other);
+//		
 		CurrentProject model = new CurrentProject();
 		UploadProjectController controller = new UploadProjectController();
 		
@@ -90,6 +99,32 @@ public class UploadServlet extends HttpServlet {
 			}
 		}
 		
+		ArrayList<String> allPhotos = new ArrayList<String>();
+		///////////////
+		if(ServletFileUpload.isMultipartContent(req)){
+            try {
+                List<FileItem> multiparts = new ServletFileUpload(new DiskFileItemFactory()).parseRequest(req);
+               
+                for(FileItem uploadedFile : multiparts){
+                    if(!uploadedFile.isFormField()){
+                        String name = new File(uploadedFile.getName()).getName();
+                        uploadedFile.write(new File(UPLOAD_DIRECTORY + File.separator + name));
+                        allPhotos.add(UPLOAD_DIRECTORY + File.separator + name);
+                    }
+                }
+//            
+//               //File uploaded successfully
+//               req.setAttribute("message", "File Uploaded Successfully");
+            } catch (Exception ex) {
+               req.setAttribute("message", "File Upload Failed due to " + ex);
+            }          
+//          
+//        }else{
+//            req.setAttribute("message",
+//                                 "Sorry this Servlet only handles file upload request");
+        }
+		///////////////
+		
 		req.setAttribute("requiredItems", requiredItems);
 
 		
@@ -111,6 +146,12 @@ public class UploadServlet extends HttpServlet {
 			System.out.println("Project successfully added to database!");
 			session.setAttribute("reviewCreated", "Project: " + projectName + " was successfully added.");
 		}
+		
+		for (int i = 0; i < allPhotos.size(); i++) {
+			controller.addProjectPhotosToDatabase(projectName, allPhotos.get(i));
+		}
+		
+//		boolean photosAdded = controller.addProjectPhotosToDatabase(projectName, path);
 
 		req.getRequestDispatcher("/_view/login/welcome.jsp").forward(req, resp);
 		

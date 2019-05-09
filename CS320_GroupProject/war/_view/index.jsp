@@ -72,8 +72,9 @@
 	                    <section id="construction">
 	                        <h3>Construction</h3>
 	                        <ul>
-	                            <li><a href="${pageContext.request.contextPath}/const-a">Crane Rigging Angles</a></li>
-	                            <li><a href="${pageContext.request.contextPath}/const-b">Excavation and Earthwork Pressure</a></li>
+	                        	<c:forEach items="${constructionResults}" var="Projects">						
+	                            	<li><a href="${Projects.fileName}">${Projects.projectName}</a></li>
+	                            </c:forEach>
 	                        </ul>
 	                    </section>
 	                </div>
@@ -81,18 +82,9 @@
 	                    <section id="dynamics">
 	                        <h3>Dynamics</h3>
 	                        <ul>
-	                            <li><a href="${pageContext.request.contextPath}/dyn-a">Collision and Deformation: When Worlds Collide</a></li>
-	                            <li><a href="${pageContext.request.contextPath}/dyn-b">General Planar Motion: Armor Attack</a></li>
-	                            <li><a href="${pageContext.request.contextPath}/dyn-c">General Planar Motion: The Helicopter</a></li>
-	                            <li><a href="${pageContext.request.contextPath}/dyn-d">General Planar Motion: The Oil Rig</a></li>
-	                            <li><a href="${pageContext.request.contextPath}/dyn-e">General Planar Motion: The Slider</a></li>
-	                            <li><a href="${pageContext.request.contextPath}/dyn-f">General Planar Motion: The Tank</a></li>
-	                            <li><a href="${pageContext.request.contextPath}/dyn-g">Projectile Motion</a></li>
-	                            <li><a href="${pageContext.request.contextPath}/dyn-h">Rectilinear Motion</a></li>
-	                            <li><a href="${pageContext.request.contextPath}/dyn-i">Relative Motion: Choo Choo Train</a></li>
-	                            <li><a href="${pageContext.request.contextPath}/dyn-j">Rotation: No Slip Wheel</a></li>
-	                            <li><a href="${pageContext.request.contextPath}/dyn-k">Rotation and Moment of Inertia: A Day at the Races</a></li>
-	                            <li><a href="${pageContext.request.contextPath}/dyn-l">Rotational Kinematics: The Ferris Wheel</a></li>
+	                            <c:forEach items="${dynamicsResults}" var="Projects">						
+	                            	<li><a href="${Projects.fileName}">${Projects.projectName}</a></li>
+	                            </c:forEach>
 	                        </ul>
 	                    </section>
 	                </div>
@@ -100,12 +92,9 @@
 	                    <section id="fluids">
 	                    <h3>Fluids</h3>
 	                        <ul>
-	                            <li><a href="${pageContext.request.contextPath}/flu-a">Fluid Properties</a></li>
-	                            <li><a href="${pageContext.request.contextPath}/flu-b">Head Loss</a></li>
-	                            <li><a href="${pageContext.request.contextPath}/flu-c">Hydrostatics</a></li>
-	                            <li><a href="${pageContext.request.contextPath}/flu-d">Internal Flow and Losses</a></li>
-	                            <li><a href="${pageContext.request.contextPath}/flu-e">Laminar and Turbulent Flow: Smoke Tunnel</a></li>
-	                            <li><a href="${pageContext.request.contextPath}/flu-f">The Fish Tank</a></li>
+	                           <c:forEach items="${fluidsResults}" var="Projects">						
+	                            	<li><a href="${Projects.fileName}">${Projects.projectName}</a></li>
+	                            </c:forEach>
 	                        </ul>
 	                    </section>
 	                </div>
@@ -113,8 +102,9 @@
 	                    <section id="heattran">
 	                        <h3>Heat Transfer</h3>
 	                        <ul>
-	                            <li><a href="${pageContext.request.contextPath}/heat-a">Conservation of Energy: Ice Melting Blocks</a></li>
-	                            <li><a href="${pageContext.request.contextPath}/heat-b">Radiant Energy: Parabolic Concentrator</a></li>
+	                            <c:forEach items="${heatTranResults}" var="Projects">						
+	                            	<li><a href="${Projects.fileName}">${Projects.projectName}</a></li>
+	                            </c:forEach>
 	                        </ul>
 	                    </section>
 	                </div>
@@ -125,9 +115,9 @@
 	                <section id="matsci">
 	                    <h3>Material Science</h3>
 	                    <ul>
-	                        <li><a href="${pageContext.request.contextPath}/matsci-a">Deformation: Bending a Knife Blade</a></li>
-	                        <li><a href="${pageContext.request.contextPath}/matsci-b">Deformation: Shape Memory Alloys</a></li>
-	                        <li><a href="${pageContext.request.contextPath}/matsci-c">Primary and Secondary Creep: Creepy Plastic</a></li>
+	                        <c:forEach items="${matSciResults}" var="Projects">						
+	                        	<li><a href="${Projects.fileName}">${Projects.projectName}</a></li>
+	                        </c:forEach>
 	                    </ul>
 	                </section>
 	            </div>
@@ -135,20 +125,9 @@
 	                <section id="mechanics">
 	                    <h3>Mechanics</h3>
 	                    <ul>
-	                        <li><a href="${pageContext.request.contextPath}/mech-a">Axial Strain</a></li>
-	                        <li><a href="${pageContext.request.contextPath}/mech-b">Beam Bending: Foam Beam</a></li>
-	                        <li><a href="${pageContext.request.contextPath}/mech-c">Design of Axial Members</a></li>
-	                        <li><a href="${pageContext.request.contextPath}/mech-d">Elastic vs. Plastic</a></li>
-	                        <li><a href="${pageContext.request.contextPath}/mech-e">Load Conditions: Rubber Shapes</a></li>
-	                        <li><a href="${pageContext.request.contextPath}/mech-f">Paper Stress Concentrations</a></li>
-	                        <li><a href="${pageContext.request.contextPath}/mech-g">Shear Demonstrator</a></li>
-	                        <li><a href="${pageContext.request.contextPath}/mech-h">Stress/Strain: A Strainge Transformation</a></li>
-	                        <li><a href="${pageContext.request.contextPath}/mech-i">Stress/Strain Transformation: The Big Book of Shear</a></li>
-	                        <li><a href="${pageContext.request.contextPath}/mech-j">Thermal Expansion</a></li>
-	                        <li><a href="${pageContext.request.contextPath}/mech-k">Thin Wall Pressure Vessels - Balloons</a></li>
-	                        <li><a href="${pageContext.request.contextPath}/mech-l">Thin Wall Pressure Vessels - Hot Dogs</a></li>
-	                        <li><a href="${pageContext.request.contextPath}/mech-m">Thin Wall Pressure Vessels</a>
-	                        <li><a href="${pageContext.request.contextPath}/mech-n">Torsion: Tower of Torque</a></li>
+	                       <c:forEach items="${mechanicsResults}" var="Projects">						
+	                       		<li><a href="${Projects.fileName}">${Projects.projectName}</a></li>
+	                       </c:forEach>
 	                    </ul>
 	                </section>
 	            </div>
@@ -156,25 +135,9 @@
 	                <section id="statics">
 	                    <h3>Statics</h3>
 	                    <ul>
-	                        <li><a href="${pageContext.request.contextPath}/stat-a">Concentrated Cable Loads: The Ski Gondola</a></li>
-	                        <li><a href="${pageContext.request.contextPath}/stat-b">Coulomb Friction: Fun with Friction</a></li>
-	                        <li><a href="${pageContext.request.contextPath}/stat-c">Force Vector: Amazing Weight Loss Program</a></li>
-	                        <li><a href="${pageContext.request.contextPath}/stat-d">Frame Demos</a></li>
-	                        <li><a href="${pageContext.request.contextPath}/stat-e">Friction: Belt Friction</a></li>
-	                        <li><a href="${pageContext.request.contextPath}/stat-f">Loading: Distributed Student Loading</a></li>
-	                        <li><a href="${pageContext.request.contextPath}/stat-g">Mechanical Advantage: Pulleys - Equilibrator Challenge</a></li>
-	                        <li><a href="${pageContext.request.contextPath}/stat-h">Mechanical Advantage: The Torque Tester</a></li>
-	                        <li><a href="${pageContext.request.contextPath}/stat-i">Moments: Lug Wrench vs. Breaker Bar</a></li>
-	                        <li><a href="${pageContext.request.contextPath}/stat-j">Moments: Moments and Couples</a></li>
-	                        <li><a href="${pageContext.request.contextPath}/stat-k">Moments: The Persuader</a></li>
-	                        <li><a href="${pageContext.request.contextPath}/stat-l">Moments: Varignon's I-Beam</a></li>
-	                        <li><a href="${pageContext.request.contextPath}/stat-m">Truss Design: K'NEX Trusses</a></li>
-	                        <li><a href="${pageContext.request.contextPath}/stat-n">Truss Design: Ruler Truss</a></li>
-	                        <li><a href="${pageContext.request.contextPath}/stat-o">Truss Design: Wacky Fun Noodle</a></li>
-	                        <li><a href="${pageContext.request.contextPath}/stat-p">Truss Design: Wooden Truss 2D</a></li>
-	                        <li><a href="${pageContext.request.contextPath}/stat-q">Truss Design: Wooden Truss 3D</a></li>
-	                        <li><a href="${pageContext.request.contextPath}/stat-r">Uniformly Loaded Cables</a></li>
-	                        <li><a href="${pageContext.request.contextPath}/stat-s">Zero Force Members</a></li>
+	                       <c:forEach items="${staticsResults}" var="Projects">						
+                           		<li><a href="${Projects.fileName}">${Projects.projectName}</a></li>
+                           </c:forEach>
 	                    </ul>
 	                </section>
 	            </div>
@@ -182,18 +145,9 @@
 	                <div id="box-8" class="boxes">
 	                    <h3>Thermodynamics</h3>
 	                    <ul>
-	                        <li><a href="${pageContext.request.contextPath}/therm-a">2nd Law - Direction</a></li>
-	                        <li><a href="${pageContext.request.contextPath}/therm-b">2nd Law - Losses</a></li>
-	                        <li><a href="${pageContext.request.contextPath}/therm-c">Boiling Point: The Hand Boiler</a></li>
-	                        <li><a href="${pageContext.request.contextPath}/therm-d">Boiling Properties</a></li>
-	                        <li><a href="${pageContext.request.contextPath}/therm-e">Closed vs. Open Systems</a></li>
-	                        <li><a href="${pageContext.request.contextPath}/therm-f">Conservation of Mass: Molasses Madness</a></li>
-	                        <li><a href="${pageContext.request.contextPath}/therm-g">Density and Buoyancy: The Lava Lamp</a></li>
-	                        <li><a href="${pageContext.request.contextPath}/therm-h">Otto Cycle: Engine Knock</a></li>
-	                        <li><a href="${pageContext.request.contextPath}/therm-i">Psychrometry</a></li>
-	                        <li><a href="${pageContext.request.contextPath}/therm-j">Total Energy - Fan Box</a></li>
-	                        <li><a href="${pageContext.request.contextPath}/therm-k">Total Energy</a></li>
-	                        <li><a href="${pageContext.request.contextPath}/therm-l">Vapor Power Cycle: The Little Engine That Could</a></li>
+	                        <c:forEach items="${thermResults}" var="Projects">						
+                            	<li><a href="${Projects.fileName}">${Projects.projectName}</a></li>
+                            </c:forEach>
 	                    </ul>
 	                </div>
 	            </section>

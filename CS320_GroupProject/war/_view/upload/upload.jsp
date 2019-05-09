@@ -89,7 +89,7 @@
               <strong><label class="upload" for="author">Submitted By:</label></strong>
               <script src="${pageContext.request.contextPath}/_view/upload/addInput.js" language="Javascript" type="text/javascript"></script>
 			     <div id="dynamicInput">
-			          Author 1<br><input type="text" class="author gen-form-input" name="authors[]" placeholder="Author name..." value="${sessionScope.name}"required>
+			          Author 1<br><input type="text" class="author gen-form-input" name="authors[]" placeholder="Author name..." value="${sessionScope.name}" required readonly>
 			     </div>
 			     <input id="newAuthorButton" type="button" value="Add Author" onClick="addInput('dynamicInput');"><br>
 				    
@@ -179,6 +179,7 @@
               <strong><label class="upload" for="other">Other:</label></strong>
               <textarea id="other" name="other" placeholder="Any additional information..." style="height:200px"></textarea>
           
+          		<input type="file" name="uploadedFile" />
           	   
               <input type="submit" value="Submit">
          

@@ -1,70 +1,70 @@
 Crane Rigging Angles|Construction|http://localhost:8081/project/const-a|z|z|z|z|z 
 Excavation and Earthwork Pressure|Construction|http://localhost:8081/project/const-b|z|z|z|z|z 
-When Worlds Collide|Dynamics|http://localhost:8081/project/dyn-a|z|z|z|z|z 
-Armor Attack|Dynamics|http://localhost:8081/project/dyn-b|z|z|z|z|z 
-The Helicopters|Dynamics|http://localhost:8081/project/dyn-c|z|z|z|z|z 
-The Oil Rig|Dynamics|http://localhost:8081/project/dyn-d|z|z|z|z|z 
-The Slider|Dynamics|http://localhost:8081/project/dyn-e|z|z|z|z|z 
-The Tank|Dynamics|http://localhost:8081/project/dyn-f|z|z|z|z|z  
+Collision and Deformation: When Worlds Collide|Dynamics|http://localhost:8081/project/dyn-a|z|z|z|z|z 
+General Planar Motion: Armor Attack|Dynamics|http://localhost:8081/project/dyn-b|z|z|z|z|z 
+General Planar Motion: The Helicopters|Dynamics|http://localhost:8081/project/dyn-c|z|z|z|z|z 
+General Planar Motion: The Oil Rig|Dynamics|http://localhost:8081/project/dyn-d|z|z|z|z|z 
+General Planar Motion: The Slider|Dynamics|http://localhost:8081/project/dyn-e|z|z|z|z|z 
+General Planar Motion: The Tank|Dynamics|http://localhost:8081/project/dyn-f|z|z|z|z|z  
 Protectile Motion|Dynamics|http://localhost:8081/project/dyn-g|z|z|z|z|z 
 Rectilinear Motion|Dynamics|http://localhost:8081/project/dyn-h|z|z|z|z|z 
-Choo Choo Train|Dynamics|http://localhost:8081/project/dyn-i|z|z|z|z|z 
-No Slip Wheel|Dynamics|http://localhost:8081/project/dyn-j|z|z|z|z|z 
-A Day at the Races|Dynamics|http://localhost:8081/project/dyn-k|z|z|z|z|z 
-The Ferris Wheel|Dynamics|http://localhost:8081/project/dyn-l|z|z|z|z|z 
+Relative Motion: Choo Choo Train|Dynamics|http://localhost:8081/project/dyn-i|z|z|z|z|z 
+Rotation: No Slip Wheel|Dynamics|http://localhost:8081/project/dyn-j|z|z|z|z|z 
+Rotation and Moment of Inertia: A Day at the Races|Dynamics|http://localhost:8081/project/dyn-k|z|z|z|z|z 
+Rotational Kinematics: The Ferris Wheel|Dynamics|http://localhost:8081/project/dyn-l|z|z|z|z|z 
 Fluid Properties|Fluids|http://localhost:8081/project/flu-a|z|z|z|z|z 
 Head Loss|Fluids|http://localhost:8081/project/flu-b|z|z|z|z|z 
 Hydrostatics|Fluids|http://localhost:8081/project/flu-c|z|z|z|z|z 
 Internal Flow and Losses|Fluids|http://localhost:8081/project/flu-d|z|z|z|z|z 
-Smoke Tunnel|Fluids|http://localhost:8081/project/flu-e|z|z|z|z|z 
+Laminar and Turbulent Flow: Smoke Tunnel|Fluids|http://localhost:8081/project/flu-e|z|z|z|z|z 
 The Fish Tank|Fluids|http://localhost:8081/project/flu-f|z|z|z|z|z 
 Ice Melting Blocks|Heat Transfer|http://localhost:8081/project/heat-a|z|z|z|z|z 
-Parabolic Concentrator|Heat Transfer|http://localhost:8081/project/heat-b|z|z|z|z|z 
-Bending a Knife Blade|Material Science|http://localhost:8081/project/matsci-a|z|z|z|z|z 
-Shape Memory Alloys|Material Science|http://localhost:8081/project/matsci-b|z|z|z|z|z 
-Creepy Plastic|Material Science|http://localhost:8081/project/matsci-c|z|z|z|z|z 
+Radiant Energy: Parabolic Concentrator|Heat Transfer|http://localhost:8081/project/heat-b|z|z|z|z|z 
+Deformation: Bending a Knife Blade|Material Science|http://localhost:8081/project/matsci-a|z|z|z|z|z 
+Deformation: Shape Memory Alloys|Material Science|http://localhost:8081/project/matsci-b|z|z|z|z|z 
+Primary and Secondary Creep: Creepy Plastic|Material Science|http://localhost:8081/project/matsci-c|z|z|z|z|z 
 Axial Strain #1|Mechanics|http://localhost:8081/project/mech-a|z|z|z|z|z 
-Foam Beam|Mechanics|http://localhost:8081/project/mech-b|z|z|z|z|z  
+Beam Bending: Foam Beam|Mechanics|http://localhost:8081/project/mech-b|z|z|z|z|z  
 Design of Axial Members|Mechanics|http://localhost:8081/project/mech-c|z|z|z|z|z 
 Elastic VS Plastic Deformation|Mechanics|http://localhost:8081/project/mech-d|z|z|z|z|z  
-Rubber Shapes|Mechanics|http://localhost:8081/project/mech-e|z|z|z|z|z 
+Load Conditions: Rubber Shapes|Mechanics|http://localhost:8081/project/mech-e|z|z|z|z|z 
 Paper Stress Concentrations|Mechanics|http://localhost:8081/project/mech-f|z|z|z|z|z  
 Shear Demonstrator|Mechanics|http://localhost:8081/project/mech-g|z|z|z|z|z 
-A Strainge Transformation|Mechanics|http://localhost:8081/project/mech-h|z|z|z|z|z 
-The Big Book of Shear|Mechanics|http://localhost:8081/project/mech-i|z|z|z|z|z 
+Stress/String: A Strainge Transformation|Mechanics|http://localhost:8081/project/mech-h|z|z|z|z|z 
+Stress/Strain Transformation: The Big Book of Shear|Mechanics|http://localhost:8081/project/mech-i|z|z|z|z|z 
 Thermal Expansion|Mechanics|http://localhost:8081/project/mech-j|z|z|z|z|z 
 Thin Wall Pressure Vessels - Balloons!|Mechanics|http://localhost:8081/project/mech-k|z|z|z|z|z 
 Thin Wall Pressure Vessels - Hot Dogs!|Mechanics|http://localhost:8081/project/mech-l|z|z|z|z|z  
 Thin Wall Pressure Vessels|Mechanics|http://localhost:8081/project/mech-m|z|z|z|z|z 
-Tower of Torque|Mechanics|http://localhost:8081/project/mech-n|z|z|z|z|z  
-The Ski Gondola-Concentrated Cable Loads|Statics|http://localhost:8081/project/stat-a|z|z|z|z|z  
-Fun with Friction|Statics|http://localhost:8081/project/stat-b|z|z|z|z|z 
+Torsion: Tower of Torque|Mechanics|http://localhost:8081/project/mech-n|z|z|z|z|z  
+Concentrated Cable Loads: The Ski Gondola|Statics|http://localhost:8081/project/stat-a|z|z|z|z|z  
+Coulomb Friction: Fun with Friction|Statics|http://localhost:8081/project/stat-b|z|z|z|z|z 
 Amazing Weight Loss Program|Statics|http://localhost:8081/project/stat-c|z|z|z|z|z 
 Frame Demos|Statics|http://localhost:8081/project/stat-d|z|z|z|z|z 
-Belt Friction|Statics|http://localhost:8081/project/stat-e|z|z|z|z|z 
-Distributed Student Loading|Statics|http://localhost:8081/project/stat-f|z|z|z|z|z  
-Pulleys: The Equilibriator Challege!|Statics|http://localhost:8081/project/stat-g|z|z|z|z|z 
-The Torque Tester|Statics|http://localhost:8081/project/stat-h|z|z|z|z|z 
-Lug Wrench Vs. Breaker Bar|Statics|http://localhost:8081/project/stat-i|z|z|z|z|z 
-Moments and Couples|Statics|http://localhost:8081/project/stat-j|z|z|z|z|z 
-The Persuader|Statics|http://localhost:8081/project/stat-k|z|z|z|z|z 
-Varignon's I-Beam|Statics|http://localhost:8081/project/stat-l|z|z|z|z|z 
-K-NEX Trusses|Statics|http://localhost:8081/project/stat-m|z|z|z|z|z 
-Ruler Truss|Statics|http://localhost:8081/project/stat-n|z|z|z|z|z 
-Wacky Fun Noodle|Statics|http://localhost:8081/project/stat-o|z|z|z|z|z 
-Wooden Truss 2D|Statics|http://localhost:8081/project/stat-p|z|z|z|z|z 
-Wooden Truss 3D|Statics|http://localhost:8081/project/stat-q|z|z|z|z|z 
+Friction: Belt Friction|Statics|http://localhost:8081/project/stat-e|z|z|z|z|z 
+Loading: Distributed Student Loading|Statics|http://localhost:8081/project/stat-f|z|z|z|z|z  
+Mechanical Advantage: Pulleys: The Equilibriator Challege!|Statics|http://localhost:8081/project/stat-g|z|z|z|z|z 
+Mechanical Advantage: The Torque Tester|Statics|http://localhost:8081/project/stat-h|z|z|z|z|z 
+Moment: Lug Wrench Vs. Breaker Bar|Statics|http://localhost:8081/project/stat-i|z|z|z|z|z 
+Moment: Moments and Couples|Statics|http://localhost:8081/project/stat-j|z|z|z|z|z 
+Moment: The Persuader|Statics|http://localhost:8081/project/stat-k|z|z|z|z|z 
+Moment: Varignon's I-Beam|Statics|http://localhost:8081/project/stat-l|z|z|z|z|z 
+Truss Design: K-NEX Trusses|Statics|http://localhost:8081/project/stat-m|z|z|z|z|z 
+Truss Design: Ruler Truss|Statics|http://localhost:8081/project/stat-n|z|z|z|z|z 
+Truss Design: Wacky Fun Noodle|Statics|http://localhost:8081/project/stat-o|z|z|z|z|z 
+Truss Design: Wooden Truss 2D|Statics|http://localhost:8081/project/stat-p|z|z|z|z|z 
+Truss Design: Wooden Truss 3D|Statics|http://localhost:8081/project/stat-q|z|z|z|z|z 
 Uniformly Loaded Cables|Statics|http://localhost:8081/project/stat-r|z|z|z|z|z 
 Zero Force Members|Statics|http://localhost:8081/project/stat-s|z|z|z|z|z 
 Direction of the 2nd Law|Thermodynamics|http://localhost:8081/project/therm-a|z|z|z|z|z 
 Losses and the 2nd Law|Thermodynamics|http://localhost:8081/project/therm-b|z|z|z|z|z  
-The Hand Boiler|Thermodynamics|http://localhost:8081/project/therm-c|z|z|z|z|z 
+Boiling Point: The Hand Boiler|Thermodynamics|http://localhost:8081/project/therm-c|z|z|z|z|z 
 Boiling Properties|Thermodynamics|http://localhost:8081/project/therm-d|z|z|z|z|z 
 Closed VS Open Systems|Thermodynamics|http://localhost:8081/project/therm-e|z|z|z|z|z 
-Molasses Madness|Thermodynamics|http://localhost:8081/project/therm-f|z|z|z|z|z 
-The Lava Lamp-Density and Buoyancy|Thermodynamics|http://localhost:8081/project/therm-g|z|z|z|z|z 
-Engine Knock|Thermodynamics|http://localhost:8081/project/therm-h|z|z|z|z|z 
+Conservation of Mass: Molasses Madness|Thermodynamics|http://localhost:8081/project/therm-f|z|z|z|z|z 
+Density and Buoyancy: The Lava Lamp-Density and Buoyancy|Thermodynamics|http://localhost:8081/project/therm-g|z|z|z|z|z 
+Otto Cycle: Engine Knock|Thermodynamics|http://localhost:8081/project/therm-h|z|z|z|z|z 
 Psychrometry|Thermodynamics|http://localhost:8081/project/therm-i|z|z|z|z|z 
 Total Energy-Fan Box|Thermodynamics|http://localhost:8081/project/therm-j|z|z|z|z|z 
 Total Energy|Thermodynamics|http://localhost:8081/project/therm-k|z|z|z|z|z 
-The Little Engine That Could - The Vapor Power Cycle|Thermodynamics|http://localhost:8081/project/therm-l|z|z|z|z|z 
+Vapor Power Cycle: The Little Engine That Could - The Vapor Power Cycle|Thermodynamics|http://localhost:8081/project/therm-l|z|z|z|z|z 
