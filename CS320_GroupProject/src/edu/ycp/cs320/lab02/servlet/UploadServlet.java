@@ -152,8 +152,7 @@ public class UploadServlet extends HttpServlet {
 		}
 		
 //		boolean photosAdded = controller.addProjectPhotosToDatabase(projectName, path);
-
-		req.getRequestDispatcher("/_view/login/welcome.jsp").forward(req, resp);
+		resp.sendRedirect("/project/dashboard");
 		
 		
 		

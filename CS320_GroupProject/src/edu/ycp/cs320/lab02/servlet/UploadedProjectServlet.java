@@ -18,7 +18,7 @@ public class UploadedProjectServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
 		
-		System.out.println("Const_A Servlet: doGet");	
+		System.out.println("Uploaded Servlet: doGet");	
 		
 		// call JSP to generate empty form
 		req.getRequestDispatcher("/_view/upload/uploaded.jsp").forward(req, resp);
@@ -28,7 +28,7 @@ public class UploadedProjectServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
 		
-		System.out.println("Const_A Servlet: doPost");
+		System.out.println("Uploaded Servlet: doPost");
 		
 		// now call the JSP to render the new page
 		req.getRequestDispatcher("/_view/upload/uploaded.jsp").forward(req, resp);

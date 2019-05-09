@@ -57,8 +57,6 @@ public class WelcomeServlet extends HttpServlet {
 		if (dashboardReviewsFound.isEmpty()) {
 			req.setAttribute("noReviews", "Currently, you do not have any reviews written.");
 		}
-		
-		// call JSP to generate empty form
 		req.getRequestDispatcher("/_view/login/welcome.jsp").forward(req, resp);
 	}
 	
