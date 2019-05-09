@@ -78,6 +78,7 @@
 	                        </ul>
 	                    </section>
 	                </div>
+	                
 	                <div id="box-2" class="boxes">
 	                    <section id="dynamics">
 	                        <h3>Dynamics</h3>
