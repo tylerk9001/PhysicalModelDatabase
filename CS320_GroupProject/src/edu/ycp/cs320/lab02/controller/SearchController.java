@@ -34,4 +34,10 @@ public class SearchController {
 		ArrayList<CurrentProject> projects = database.getAllUploadedProjectsByCategory(category);
 		return projects;
 	}
+	
+	public CurrentProject getAllInfoForProjectGivenProjectName(String name) {
+		CurrentProject project = database.getAllInfoForProjectGivenProjectName(name);
+		return project;
+	}
+
 }	 
