@@ -176,6 +176,62 @@ public class DerbyDatabase implements IDatabase {
 		});
 	}
 	
+	public ArrayList<CurrentProject> getAllUploadedProjectsByCategory (String category) {
+		return executeTransaction(new Transaction<ArrayList<CurrentProject>>() {
+			@SuppressWarnings("resource")
+			@Override
+			public ArrayList<CurrentProject> execute(Connection conn) throws SQLException {
+				PreparedStatement stmt = null;
+				ResultSet resultSet = null;
+				
+//				System.out.print(search);
+								
+				try {
+					String lower = category.toLowerCase();
+					String upper = category.toUpperCase();
+					stmt = conn.prepareStatement("select DISTINCT project_id, projectname, category, filename, modeldescription, engineeringprinciple, beforeclass, inclass, other "
+							+ "from projects, keywords, authors, projectauthors "
+							+ "or lower(category) like ? or upper(category) like ? "
+							+ "and (keywords.project_id = projects.project_id "
+							+ "and projectauthors.project_id = projects.project_id "
+							+ "and authors.account_id = projectauthors.author_id)");	
+					stmt.setString(1, "%" + lower + "%");
+					stmt.setString(2, "%" + upper + "%");
+					stmt.setString(3, "%" + lower + "%");
+					stmt.setString(4, "%" + upper + "%");
+					stmt.setString(5, "%" + lower + "%");
+					stmt.setString(6, "%" + upper + "%");
+					stmt.setString(7, "%" + lower + "%");
+					stmt.setString(8, "%" + upper + "%");
+										
+					ArrayList<CurrentProject> list = new ArrayList<CurrentProject>();
+					
+					// initialize boolean variable
+					Boolean found = false;
+					
+					resultSet = stmt.executeQuery();
+					
+					while (resultSet.next()) {
+						found = true;
+						
+						CurrentProject project = new CurrentProject();
+						loadProject(project, resultSet, 1);
+						
+						if(project.getProjectID() > 70) {
+							list.add(project);
+						}
+					}
+					
+					return list;
+					
+				} finally {
+					DBUtil.closeQuietly(resultSet);
+					DBUtil.closeQuietly(stmt);
+				}
+			}
+		});
+	}
+	
 	public ArrayList<CurrentProject> checkForProjectsCreatedByAccount (final String name) {
 		return executeTransaction(new Transaction<ArrayList<CurrentProject>>() {
 			@SuppressWarnings("resource")
@@ -693,6 +749,19 @@ public class DerbyDatabase implements IDatabase {
 		review.setRating(Integer.parseInt(resultSet.getString(index++)));
 		review.setReview(resultSet.getString(index++));
 	} 
+	
+	private void loadProject(CurrentProject project, ResultSet resultSet, int index) throws SQLException {
+		project.setProjectID(resultSet.getInt(index++));
+		project.setEngineeringCategory(resultSet.getString(index++));
+		project.setFileName(resultSet.getString(index++));
+		project.setModelDescription(resultSet.getString(index++));
+		project.setEngineeringPrinciple(resultSet.getString(index++));
+		project.setBeforeClass(resultSet.getString(index++));
+		project.setInClass(resultSet.getString(index++));
+		project.setOther(resultSet.getString(index++));
+	}
+
+		
 	public void createTables() {
 		executeTransaction(new Transaction<Boolean>() {
 			@Override

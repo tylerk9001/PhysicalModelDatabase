@@ -3,6 +3,7 @@ package edu.ycp.cs320.lab02.model;
 import java.util.ArrayList;
 
 public class CurrentProject {
+	private int projectID;
 	private String projectName;
 	private String engineeringCategory;
 	private ArrayList<String> keywords = new ArrayList<String>();
@@ -18,6 +19,14 @@ public class CurrentProject {
 	private String fileName;
 
 	public CurrentProject() {
+	}
+	
+	public void setProjectID(int projectID) {
+		this.projectID = projectID;
+	}
+	
+	public int getProjectID() {
+		return projectID;
 	}
 	
 	public void setProjectName(String projectName) {

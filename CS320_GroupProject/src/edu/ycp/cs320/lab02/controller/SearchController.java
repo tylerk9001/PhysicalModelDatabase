@@ -30,4 +30,8 @@ public class SearchController {
 		return projects;
 	}
 
+	public ArrayList<CurrentProject> getAllUploadedProjects (String category) {
+		ArrayList<CurrentProject> projects = database.getAllUploadedProjectsByCategory(category);
+		return projects;
+	}
 }	 

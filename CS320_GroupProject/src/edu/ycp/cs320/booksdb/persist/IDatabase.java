@@ -25,6 +25,9 @@ public interface IDatabase {
 	// Return entire list of project names
 	public ArrayList<CurrentProject> retrieveAllProjectsInDatabase(String category);
 	
+	// Return entire list of uploaded projects
+	public ArrayList<CurrentProject> getAllUploadedProjectsByCategory(String category);
+	
 	// Query to add new project to database
 	public boolean addNewProjectToDatabase(String projectName, String engineeringCategory, ArrayList<String> keywords, 
 			ArrayList<String> authors, String modelDescription, String engineeringPrinciple, 
