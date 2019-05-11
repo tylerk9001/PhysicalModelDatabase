@@ -26,6 +26,8 @@ public class UploadedReviewServlet extends HttpServlet {
 		System.out.println("Uploaded Review Servlet: doGet");	
 		
 		RatingReviewController controller = new RatingReviewController();
+		RatingReviews model = new RatingReviews();
+		HttpSession session = req.getSession();
 		
 		ArrayList<CurrentProject> constructionResults = new ArrayList<CurrentProject>();
 		constructionResults = controller.retrieveAllProjectsInDatabase("Construction");
@@ -59,14 +61,21 @@ public class UploadedReviewServlet extends HttpServlet {
 		thermResults = controller.retrieveAllProjectsInDatabase("Thermodynamics");
 		req.setAttribute("thermResults", thermResults);
 		
-		String test = req.getQueryString().trim();
-		test = test.replaceAll("%20", " ");
-		RatingReviews model = new RatingReviews();
-		model.setProjectName(test);
-		controller.setModel(model);
-		
-		ArrayList<RatingReviews> reviewsForProject = controller.retrieveReviewsByProjectName(model);
-		req.setAttribute("reviewsForProject", reviewsForProject);
+		if (req.getQueryString() != null) {
+			String test = (String) session.getAttribute("projectName");
+			model.setProjectName(test);
+			controller.setModel(model);
+			
+			ArrayList<RatingReviews> reviewsForProject = controller.retrieveReviewsByProjectName(model);
+			req.setAttribute("reviewsForProject", reviewsForProject);
+			
+			if (reviewsForProject.isEmpty()) {
+				session.removeAttribute("projectName");
+				req.setAttribute("noReviews", "Oops, we weren't able to find any reviews for this project yet!");
+			}
+			
+			req.setAttribute("projectName", test + " Reviews:");
+		}
 		
 		// call JSP to generate empty form
 		req.getRequestDispatcher("/_view/ratings/uploadedReview.jsp").forward(req, resp);

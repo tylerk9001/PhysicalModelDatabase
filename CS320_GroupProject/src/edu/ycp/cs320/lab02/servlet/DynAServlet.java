@@ -21,6 +21,13 @@ public class DynAServlet extends HttpServlet {
 		
 		System.out.println("Dyn_A Servlet: doGet");	
 		
+		HttpSession session = req.getSession();
+		
+		String test = req.getQueryString().trim();
+		test = test.replaceAll("%20", " ");
+		
+		session.setAttribute("projectName", test);
+		
 		// call JSP to generate empty form
 		req.getRequestDispatcher("/_view/categories/dynamics/dyn-a.jsp").forward(req, resp);
 	}

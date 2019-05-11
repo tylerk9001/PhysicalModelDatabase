@@ -58,7 +58,8 @@
             <p class="title">Zero Force Members</p>
             <p class="eng-principle"><strong>Engineering Principle: </strong>Statics</p>
             <p class="keywords"><strong>Keywords: </strong>Force, Pin, Truss, Zero Force Member</p>
-            <p class="author"><strong>Submitted By: </strong>Ronald Welch</p><hr>
+            <p class="author"><strong>Submitted By: </strong>Ronald Welch</p>
+            <p class="button-reviews"><a class="reviewsButton" href="http://localhost:8081/project/allreviews?${test}">Browse Reviews</a><hr>
         </div>
         <div class="project-content">
             <p class="description"><strong><u>Model Description:</u></strong> This is a simple model that will demonstrate the use of zero

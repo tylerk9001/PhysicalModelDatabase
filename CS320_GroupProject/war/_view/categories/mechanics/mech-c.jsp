@@ -58,7 +58,8 @@
             <p class="title">Design of Axial Members</p>
             <p class="eng-principle"><strong>Engineering Principle: </strong>Mechanics</p>
             <p class="keywords"><strong>Keywords: </strong>Axial Load, Factor of Safety, Stress</p>
-            <p class="author"><strong>Submitted By: </strong>Matt Morris, Tom Messervey, and Led Klosky</p><hr>
+            <p class="author"><strong>Submitted By: </strong>Matt Morris, Tom Messervey, and Led Klosky</p>
+            <p class="button-reviews"><a class="reviewsButton" href="http://localhost:8081/project/allreviews?${test}">Browse Reviews</a><hr>
         </div>
         <div class="project-content">
             <p class="description"><strong><u>Model Description:</u></strong>This is a simple demonstration to introduce the basic

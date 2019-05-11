@@ -58,7 +58,8 @@
             <p class="title">Armor Attack</p>
             <p class="eng-principle"><strong>Engineering Principle: </strong>Dynamics</p>
             <p class="keywords"><strong>Keywords: </strong>Absolute Velocity, General Planar Motion</p>
-            <p class="author"><strong>Submitted By: </strong> Tom Messervey</p><hr>
+            <p class="author"><strong>Submitted By: </strong> Tom Messervey</p>
+            <p class="button-reviews"><a class="reviewsButton" href="http://localhost:8081/project/allreviews?${test}">Browse Reviews</a><hr>
         </div>
         <div class="project-content">
             <p class="description"><strong><u>Model Description:</u></strong> This training aid demonstrates a practical application of the kinematic relationship for a translating and rotating frame of reference. This demonstration should take 10-15 minutes.</p>

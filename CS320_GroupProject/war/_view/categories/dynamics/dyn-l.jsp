@@ -41,7 +41,8 @@
             <p class="title">The Ferris Wheel</p>
             <p class="eng-principle"><strong>Engineering Principle: </strong>Dynamics</p>
             <p class="keywords"><strong>Keywords: </strong>Fixed Axis, Kinematics, Rigid Body, Rotation</p>
-            <p class="author"><strong>Submitted By: </strong> Tom Messervey</p><hr>
+            <p class="author"><strong>Submitted By: </strong> Tom Messervey</p>
+            <p class="button-reviews"><a class="reviewsButton" href="http://localhost:8081/project/allreviews?${test}">Browse Reviews</a><hr>
         </div>
         <div class="project-content">
             <p class="description"><strong><u>Model Description:</u></strong>  This training aid demonstrates the rotational kinematics of a

@@ -60,7 +60,8 @@
             <p class="title">Ice Melting Blocks</p>
             <p class="eng-principle"><strong>Engineering Principle: </strong>Heat Transfer</p>
             <p class="keywords"><strong>Keywords: </strong>Conservation of Energy, Fourier's Law, Phase Change, Thermal Conductivity</p>
-            <p class="author"><strong>Submitted By: </strong> Gunnar Tamm</p><hr>
+            <p class="author"><strong>Submitted By: </strong> Gunnar Tamm</p>
+            <p class="button-reviews"><a class="reviewsButton" href="http://localhost:8081/project/allreviews?${test}">Browse Reviews</a><hr>
         </div>
         <div class="project-content">
             <p class="description"><strong><u>Model Description:</u></strong> This demonstration illustrates the material property of thermal conductivity, and how this property affects conduction heat transfer in a

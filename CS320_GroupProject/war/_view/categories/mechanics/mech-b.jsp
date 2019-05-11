@@ -58,7 +58,8 @@
             <p class="title">Foam Beam</p>
             <p class="eng-principle"><strong>Engineering Principle: </strong>Mechanics</p>
             <p class="keywords"><strong>Keywords: </strong>Beam, Bending, Compression, Deformation, Plane Sections, Tension, Torsion</p>
-            <p class="author"><strong>Submitted By: </strong>Ronald Welch</p><hr>
+            <p class="author"><strong>Submitted By: </strong>Ronald Welch</p>
+            <p class="button-reviews"><a class="reviewsButton" href="http://localhost:8081/project/allreviews?${test}">Browse Reviews</a><hr>
         </div>
         <div class="project-content">
             <p class="description"><strong><u>Model Description:</u></strong>TThis simple demonstration depicts how moments (and

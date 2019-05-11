@@ -92,6 +92,9 @@ public class ratingsAndReviewsServlet extends HttpServlet {
 			session.setAttribute("reviewCreated", "Review: " + getReviewDesc + " was successfully added.");
 			resp.sendRedirect("/project/dashboard");
 		}
+		else {
+			session.removeAttribute("reviewCreated");
+		}
 		// now call the JSP to render the new page
 	}
 }

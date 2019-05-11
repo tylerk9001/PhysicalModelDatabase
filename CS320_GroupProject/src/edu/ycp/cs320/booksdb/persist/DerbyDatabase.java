@@ -708,8 +708,7 @@ public class DerbyDatabase implements IDatabase {
 			public ArrayList<RatingReviews> execute(Connection conn) throws SQLException {
 				PreparedStatement stmt = null;
 				ResultSet resultSet = null;
-				
-//				System.out.print(name);
+
 								
 				try {
 					String lower = name.toLowerCase();

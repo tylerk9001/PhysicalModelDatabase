@@ -145,6 +145,8 @@ public class UploadServlet extends HttpServlet {
 		if (isAddedToDatabase) {
 			System.out.println("Project successfully added to database!");
 			session.setAttribute("reviewCreated", "Project: " + projectName + " was successfully added.");
+		} else {
+			session.removeAttribute("reviewCreated");
 		}
 		
 		for (int i = 0; i < allPhotos.size(); i++) {

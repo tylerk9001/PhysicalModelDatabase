@@ -41,7 +41,8 @@
             <p class="title">No Slip Wheel</p>
             <p class="eng-principle"><strong>Engineering Principle: </strong>Dynamics</p>
             <p class="keywords"><strong>Keywords: </strong>Instantaneous Center of Zero Velocity (ICZV), No-slip, Rolling</p>
-            <p class="author"><strong>Submitted By: </strong> Tom Messervey</p><hr>
+            <p class="author"><strong>Submitted By: </strong> Tom Messervey</p>
+            <p class="button-reviews"><a class="reviewsButton" href="http://localhost:8081/project/allreviews?${test}">Browse Reviews</a><hr>
         </div>
         <div class="project-content">
             <p class="description"><strong><u>Model Description:</u></strong>  A disk, remote control bulldozer, and foam inner tube are

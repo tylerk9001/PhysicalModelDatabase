@@ -58,7 +58,8 @@
             <p class="title">Wooden Truss 3D</p>
             <p class="eng-principle"><strong>Engineering Principle: </strong>Statics</p>
             <p class="keywords"><strong>Keywords: </strong>Stability, Strength, Truss</p>
-            <p class="author"><strong>Submitted By: </strong>Ronald Welch</p><hr>
+            <p class="author"><strong>Submitted By: </strong>Ronald Welch</p>
+            <p class="button-reviews"><a class="reviewsButton" href="http://localhost:8081/project/allreviews?${test}">Browse Reviews</a><hr>
         </div>
         <div class="project-content">
             <p class="description"><strong><u>Model Description:</u></strong> This 3D model of a bridge is a model that is very close to a

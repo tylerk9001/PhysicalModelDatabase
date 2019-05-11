@@ -7,6 +7,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import edu.ycp.cs320.lab02.controller.SearchController;
 import edu.ycp.cs320.lab02.model.CurrentProject;
@@ -24,8 +25,12 @@ public class UploadedProjectServlet extends HttpServlet {
 		
 		SearchController controller = new SearchController();
 		
+HttpSession session = req.getSession();
+		
 		String test = req.getQueryString().trim();
 		test = test.replaceAll("%20", " ");
+		
+		session.setAttribute("projectName", test);
 		
 		ArrayList<CurrentProject> projectInfo = controller.getAllInfoForProjectGivenProjectName(test);
 		req.setAttribute("projectInfo", projectInfo);

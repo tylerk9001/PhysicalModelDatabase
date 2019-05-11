@@ -88,6 +88,9 @@
 		<%
 			if(session.getAttribute("email") == null)
 				response.sendRedirect("/project/login");
+		
+			if(session.getAttribute("reviewCreated") == null)
+				session.removeAttribute("reviewCreated");
 		%>
 		
 	    <nav>
@@ -102,7 +105,7 @@
 		                <a href="#reviews"><i class="fas fa-pencil-alt"></i> My Reviews</a>
 		                <a href="${pageContext.request.contextPath}/upload"><i class="fas fa-file-upload"></i> Upload a Project</a>
 		                <a href="${pageContext.request.contextPath}/reviews"><i class="fas fa-edit"></i> Write a Review</a>
-		                <a href="${pageContext.request.contextPath}/reviews"><i class="fab fa-accusoft"></i> Browse Reviews</a>
+		                <a href="${pageContext.request.contextPath}/allreviews"><i class="fab fa-accusoft"></i> Browse Reviews</a>
 	             
 	             	<div class="access-btns">
 	             		<a href="${pageContext.request.contextPath}/logout">Log Out <i class="fas fa-sign-out-alt"></i>	</a>

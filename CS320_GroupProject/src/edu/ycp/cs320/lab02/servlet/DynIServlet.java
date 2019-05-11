@@ -6,6 +6,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import edu.ycp.cs320.lab02.controller.UserAccountController;
 import edu.ycp.cs320.lab02.model.UserAccount;
@@ -19,6 +20,13 @@ public class DynIServlet extends HttpServlet {
 			throws ServletException, IOException {
 		
 		System.out.println("Dyn_I Servlet: doGet");	
+		
+		HttpSession session = req.getSession();
+		
+		String test = req.getQueryString().trim();
+		test = test.replaceAll("%20", " ");
+		
+		session.setAttribute("projectName", test);
 		
 		// call JSP to generate empty form
 		req.getRequestDispatcher("/_view/categories/dynamics/dyn-i.jsp").forward(req, resp);

@@ -20,6 +20,11 @@ public class ConstBServlet extends HttpServlet {
 		
 		System.out.println("Const_B Servlet: doGet");	
 		
+		String test = req.getQueryString().trim();
+		test = test.replaceAll("%20", " ");
+		
+		req.setAttribute("projectName", test);
+		
 		// call JSP to generate empty form
 		req.getRequestDispatcher("/_view/categories/construction/const-b.jsp").forward(req, resp);
 	}

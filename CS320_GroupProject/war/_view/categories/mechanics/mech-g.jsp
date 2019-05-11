@@ -58,7 +58,8 @@
             <p class="title">Shear Demonstrator</p>
             <p class="eng-principle"><strong>Engineering Principle: </strong>Mechanics</p>
             <p class="keywords"><strong>Keywords: </strong>Rectangular Members, Shear</p>
-            <p class="author"><strong>Submitted By: </strong>Ronald Welch</p><hr>
+            <p class="author"><strong>Submitted By: </strong>Ronald Welch</p>
+            <p class="button-reviews"><a class="reviewsButton" href="http://localhost:8081/project/allreviews?${test}">Browse Reviews</a><hr>
         </div>
         <div class="project-content">
             <p class="description"><strong><u>Model Description:</u></strong> These demonstrations show the effects of shear within rectangular members. This demonstration should take 10-15 minutes.</p>

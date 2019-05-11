@@ -1,4 +1,25 @@
 
+.reviewsButton {
+	color: #ffffff;
+	border: 3px solid #86c232;
+	padding: 10px;
+	text-decoration: none;
+	background-color: #222629;
+}
+
+.reviewsButton:hover {
+	color: #ffffff;
+	border: 3px solid #86c232;
+	padding: 10px;
+	text-decoration: none;
+	background-color: #6B6E70;
+}
+
+.button-reviews {
+	margin-top: 30px;
+	margin-bottom: 30px;
+}
+
 .title-container {
     width: 100%;
 }

@@ -29,6 +29,9 @@ public class WelcomeServlet extends HttpServlet {
 		DashboardController controller = new DashboardController();
 		HttpSession session = req.getSession();
 		
+		if (session.getAttribute("reviewCreated") != null) {
+			session.removeAttribute("reviewCreated");
+		}
 		
 		String name = (String)session.getAttribute("name");
 		model.setName(name);
@@ -65,6 +68,11 @@ public class WelcomeServlet extends HttpServlet {
 			throws ServletException, IOException {
 		
 		System.out.println("Welcome Servlet: doPost");
+		HttpSession session = req.getSession();
+
+		if (session.getAttribute("reviewCreated") != null) {
+			session.removeAttribute("reviewCreated");
+		}
 		
 		req.getRequestDispatcher("/_view/login/welcome.jsp").forward(req, resp);
 	}

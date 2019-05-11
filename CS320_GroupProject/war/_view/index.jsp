@@ -85,7 +85,7 @@
 	                        <h3>Dynamics</h3>
 	                        <ul>
 	                            <c:forEach items="${dynamicsResults}" var="Projects">						
-	                            	<li><a href="${Projects.fileName}">${Projects.projectName}</a></li>
+	                            	<li><a href="${Projects.fileName}?${Projects.projectName}"><span>${Projects.projectName}</span></a></li>
 	                            </c:forEach>
 	                        </ul>
 	                    </section>
@@ -95,7 +95,7 @@
 	                    <h3>Fluids</h3>
 	                        <ul>
 	                           <c:forEach items="${fluidsResults}" var="Projects">						
-	                            	<li><a href="${Projects.fileName}">${Projects.projectName}</a></li>
+	                            	<li><a href="${Projects.fileName}?${Projects.projectName}"><span>${Projects.projectName}</span></a></li>
 	                            </c:forEach>
 	                        </ul>
 	                    </section>
@@ -105,7 +105,7 @@
 	                        <h3>Heat Transfer</h3>
 	                        <ul>
 	                            <c:forEach items="${heatTranResults}" var="Projects">						
-	                            	<li><a href="${Projects.fileName}">${Projects.projectName}</a></li>
+	                            	<li><a href="${Projects.fileName}?${Projects.projectName}"><span>${Projects.projectName}</span></a></li>
 	                            </c:forEach>
 	                        </ul>
 	                    </section>
@@ -118,7 +118,7 @@
 	                    <h3>Material Science</h3>
 	                    <ul>
 	                        <c:forEach items="${matSciResults}" var="Projects">						
-	                        	<li><a href="${Projects.fileName}">${Projects.projectName}</a></li>
+	                        	<li><a href="${Projects.fileName}?${Projects.projectName}"><span>${Projects.projectName}</span></a></li>
 	                        </c:forEach>
 	                    </ul>
 	                </section>
@@ -128,7 +128,7 @@
 	                    <h3>Mechanics</h3>
 	                    <ul>
 	                       <c:forEach items="${mechanicsResults}" var="Projects">						
-	                       		<li><a href="${Projects.fileName}">${Projects.projectName}</a></li>
+	                       		<li><a href="${Projects.fileName}?${Projects.projectName}"><span>${Projects.projectName}</span></a></li>
 	                       </c:forEach>
 	                    </ul>
 	                </section>
@@ -138,7 +138,7 @@
 	                    <h3>Statics</h3>
 	                    <ul>
 	                       <c:forEach items="${staticsResults}" var="Projects">						
-                           		<li><a href="${Projects.fileName}">${Projects.projectName}</a></li>
+                           		<li><a href="${Projects.fileName}?${Projects.projectName}"><span>${Projects.projectName}</span></a></li>
                            </c:forEach>
 	                    </ul>
 	                </section>
@@ -148,7 +148,7 @@
 	                    <h3>Thermodynamics</h3>
 	                    <ul>
 	                        <c:forEach items="${thermResults}" var="Projects">						
-                            	<li><a href="${Projects.fileName}">${Projects.projectName}</a></li>
+                            	<li><a href="${Projects.fileName}?${Projects.projectName}"><span>${Projects.projectName}</span></a></li>
                             </c:forEach>
 	                    </ul>
 	                </div>

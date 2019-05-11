@@ -69,7 +69,8 @@
 	            <p class="title">${projectInfo.projectName}</p>
 	            <p class="eng-principle"><strong>Engineering Principle: </strong>${projectInfo.engineeringCategory}</p>
 	            <p class="keywords"><strong>Keywords: </strong> ${projectInfo.keywords}</p>
-	            <p class="author"><strong>Submitted By: </strong> ${projectInfo.authors}</p><hr>
+	            <p class="author"><strong>Submitted By: </strong> ${projectInfo.authors}</p>
+            <p class="button-reviews"><a class="reviewsButton" href="http://localhost:8081/project/allreviews?${test}">Browse Reviews</a><hr>
 	        </div>
 	        <div class="project-content">
 	            <p class="description"><strong><u>Model Description:</u></strong> ${projectInfo.modelDescription}</p>
@@ -95,7 +96,7 @@
 	            
 	            <p class="application"><strong><u>In Class:</u></strong> ${projectInfo.inClass}</p><br>
 	            
-	            <p class="application"><strong><u>Other</u></strong> ${projectInfo.other}</p>
+	            <p class="application"><strong><u>Other:</u></strong> ${projectInfo.other}</p>
 	        </div>
         </c:forEach>
     </div>
