@@ -19,6 +19,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
+
 	    <nav>
 	        <div class="nav">
 	            <label for="toggle">&#9776;</label>
@@ -72,8 +73,8 @@
 	                    <section id="construction">
 	                        <h3>Construction</h3>
 	                        <ul>
-	                        	<c:forEach items="${constructionResults}" var="Projects">						
-	                            	<li><a href="${Projects.fileName}">${Projects.projectName}</a></li>
+	                        	<c:forEach items="${constructionResults}" var="Projects">		
+	                            	<li><a href="${Projects.fileName}?${Projects.projectName}"><span>${Projects.projectName}</span></a></li>
 	                            </c:forEach>
 	                        </ul>
 	                    </section>

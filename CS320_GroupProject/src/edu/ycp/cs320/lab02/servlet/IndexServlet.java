@@ -59,8 +59,6 @@ public class IndexServlet extends HttpServlet {
 		thermResults = controller.retrieveAllProjectsInDatabase("Thermodynamics");
 		req.setAttribute("thermResults", thermResults);
 		
-		String test = req.getParameter("test");
-		System.out.println(test);
 		
 		req.getRequestDispatcher("/_view/index.jsp").forward(req, resp);
 	}
