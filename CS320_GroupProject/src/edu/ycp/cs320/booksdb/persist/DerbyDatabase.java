@@ -232,19 +232,28 @@ public class DerbyDatabase implements IDatabase {
 		});
 	}
 	
-	public ArrayList<CurrentProject> getAllInfoForProjectGivenProjectName (String category) {
+	public ArrayList<CurrentProject> getAllInfoForProjectGivenProjectName (String search) {
 		return executeTransaction(new Transaction<ArrayList<CurrentProject>>() {
 			@SuppressWarnings("resource")
 			@Override
 			public ArrayList<CurrentProject> execute(Connection conn) throws SQLException {
 				PreparedStatement stmt = null;
 				ResultSet resultSet = null;
+				PreparedStatement stmt2 = null;
+				ResultSet resultSet2 = null;
+				PreparedStatement stmt3 = null;
+				ResultSet resultSet3 = null;
+				
+				ArrayList<CurrentProject> list = new ArrayList<CurrentProject>();
+				ArrayList<String> keywords = new ArrayList<String>();
+				ArrayList<String> authors = new ArrayList<String>();
+
 				
 //				System.out.print(search);
 								
 				try {
-					String lower = category.toLowerCase();
-					String upper = category.toUpperCase();
+					String lower = search.toLowerCase();
+					String upper = search.toUpperCase();
 					stmt = conn.prepareStatement("select DISTINCT projects.project_id, projectname, category, filename, modeldescription, engineeringprinciple, beforeclass, inclass, other "
 							+ "from projects, keywords, authors, projectauthors "
 							+ "where lower(projectname) like ? or upper(projectname) like ? "
@@ -253,8 +262,6 @@ public class DerbyDatabase implements IDatabase {
 							+ "and authors.account_id = projectauthors.author_id)");	
 					stmt.setString(1, "%" + lower + "%");
 					stmt.setString(2, "%" + upper + "%");
-										
-					ArrayList<CurrentProject> list = new ArrayList<CurrentProject>();
 					
 					// initialize boolean variable
 					Boolean found = false;
@@ -265,10 +272,34 @@ public class DerbyDatabase implements IDatabase {
 						found = true;
 						
 						CurrentProject project = new CurrentProject();
-						loadProject(project, resultSet, 1);
-						list.add(project);
+						loadProject(project, resultSet, 1);						
+					
+						stmt2 = conn.prepareStatement("select keyword from keywords, projects "
+								+ "where projectName = ? "
+								+ "and projects.project_id = keywords.project_id");
+						stmt2.setString(1, search);
+						resultSet2 = stmt2.executeQuery();
+						int index = 1;
+						while (resultSet2.next()) {
+							keywords.add(resultSet2.getString(index++));
+						}
+						project.setKeywords(keywords);
 						
+						stmt3 = conn.prepareStatement("select name from authors, projects, projectAuthors "
+								+ "where projectName = ? "
+								+ "and projects.project_id = projectAuthors.project_id "
+								+ "and authors.account_id = projectAuthors.author_id ");
+						stmt3.setString(1, search);
+						resultSet3 = stmt3.executeQuery();
+						index = 1;
+						while (resultSet3.next()) {
+							authors.add(resultSet3.getString(index++));
+						}
+						project.setAuthors(authors);
+						
+						list.add(project);
 					}
+										
 					
 					return list;
 				
