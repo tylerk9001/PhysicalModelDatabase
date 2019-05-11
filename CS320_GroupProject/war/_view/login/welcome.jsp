@@ -102,6 +102,7 @@
 		                <a href="#reviews"><i class="fas fa-pencil-alt"></i> My Reviews</a>
 		                <a href="${pageContext.request.contextPath}/upload"><i class="fas fa-file-upload"></i> Upload a Project</a>
 		                <a href="${pageContext.request.contextPath}/reviews"><i class="fas fa-edit"></i> Write a Review</a>
+		                <a href="${pageContext.request.contextPath}/reviews"><i class="fab fa-accusoft"></i> Browse Reviews</a>
 	             
 	             	<div class="access-btns">
 	             		<a href="${pageContext.request.contextPath}/logout">Log Out <i class="fas fa-sign-out-alt"></i>	</a>
@@ -145,7 +146,7 @@
 								<p><i>${noProjects}</i></p><br>
 							</form>
 							<c:forEach items="${sessionScope.results}" var="dashboardProjects">
-								<a class="linkResult" href="${dashboardProjects.fileName}"><c:out value="${dashboardProjects.projectName}"></c:out></a>
+								<a class="linkResult" href="${dashboardProjects.fileName}?${dashboardProjects.projectName}"><c:out value="${dashboardProjects.projectName}"></c:out></a>
 							</c:forEach>		
 						</div>
 	                </div>
@@ -170,7 +171,7 @@
 								    <td><c:out value="${dashboardReviews.reviewTitle}"></c:out></td>
 								    <td><c:out value="${dashboardReviews.rating}"></c:out></td>
 								    <td><c:out value="${dashboardReviews.review}"></c:out></td>
-								    <td><a class="linkResult" href="${dashboardReviews.fileName}">View More</a></td>
+								    <td><a class="linkResult" href="${dashboardReviews.fileName}?${dashboardReviews.projectName}">View More</a></td>
 								  </tr>
 							</c:forEach>
 							</table>		

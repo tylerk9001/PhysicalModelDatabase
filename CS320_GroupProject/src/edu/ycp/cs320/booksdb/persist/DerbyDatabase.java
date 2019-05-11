@@ -256,12 +256,12 @@ public class DerbyDatabase implements IDatabase {
 					String upper = search.toUpperCase();
 					stmt = conn.prepareStatement("select DISTINCT projects.project_id, projectname, category, filename, modeldescription, engineeringprinciple, beforeclass, inclass, other "
 							+ "from projects, keywords, authors, projectauthors "
-							+ "where lower(projectname) like ? or upper(projectname) like ? "
+							+ "where ((lower(projectname) = ? or upper(projectname) = ?) and (projects.project_id > 70))"
 							+ "and (keywords.project_id = projects.project_id "
 							+ "and projectauthors.project_id = projects.project_id "
 							+ "and authors.account_id = projectauthors.author_id)");	
-					stmt.setString(1, "%" + lower + "%");
-					stmt.setString(2, "%" + upper + "%");
+					stmt.setString(1, lower);
+					stmt.setString(2, upper);
 					
 					// initialize boolean variable
 					Boolean found = false;
@@ -637,7 +637,7 @@ public class DerbyDatabase implements IDatabase {
 				ResultSet resultSet4 = null;
 				PreparedStatement stmt5 = null;
 				PreparedStatement stmt6 = null;
-				String filePath = "http://locahost:8081/project/allreviews";
+				String filePath = "http://localhost:8081/project/allreviews";
 				int project_id;
 				int review_id;
 				int author_id;

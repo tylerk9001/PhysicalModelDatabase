@@ -59,6 +59,14 @@ public class UploadedReviewServlet extends HttpServlet {
 		thermResults = controller.retrieveAllProjectsInDatabase("Thermodynamics");
 		req.setAttribute("thermResults", thermResults);
 		
+		String test = req.getQueryString().trim();
+		test = test.replaceAll("%20", " ");
+		RatingReviews model = new RatingReviews();
+		model.setProjectName(test);
+		controller.setModel(model);
+		
+		ArrayList<RatingReviews> reviewsForProject = controller.retrieveReviewsByProjectName(model);
+		req.setAttribute("reviewsForProject", reviewsForProject);
 		
 		// call JSP to generate empty form
 		req.getRequestDispatcher("/_view/ratings/uploadedReview.jsp").forward(req, resp);

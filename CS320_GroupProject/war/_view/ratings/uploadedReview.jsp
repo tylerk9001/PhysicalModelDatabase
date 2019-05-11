@@ -124,6 +124,17 @@
 		
 		<p style="text-align: center">${noReviews}</p>
 		
+		<c:forEach items="${reviewsForProject}" var="Reviews">
+			<p><span><strong>Review Title: </strong></span>${Reviews.reviewTitle}</p>
+			<p><span><strong>Rating: </strong></span>
+				<c:forEach var = "i" begin = "1" end = "${Reviews.rating}">
+			         <i class="fas fa-star" style="color:#86c232"> </i>
+			      </c:forEach>
+			</p>
+			<p><span><strong>Review: </strong></span>${Reviews.review}</p>
+			<hr>
+		</c:forEach>
+		
 		
 		
 		<c:forEach items="${listOfReviews}" var="Reviews">

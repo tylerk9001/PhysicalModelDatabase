@@ -74,7 +74,7 @@
 	        <div class="project-content">
 	            <p class="description"><strong><u>Model Description:</u></strong> ${projectInfo.modelDescription}</p>
 	            
-	            <p class="principle"><strong><u>Engineering Principle:</u></strong> </p>
+	            <p class="principle"><strong><u>Engineering Principle:</u></strong> ${projectInfo.engineeringPrinciple}</p>
 	            
 	            <br><p class="title">Required Items</p><br>
 	            
@@ -91,11 +91,11 @@
 	            
 	            <p class="title">Application</p>
 	            
-	            <p class="application"><strong><u>Before Class:</u></strong></p><br>
+	            <p class="application"><strong><u>Before Class:</u></strong> ${projectInfo.beforeClass}</p><br>
 	            
-	            <p class="application"><strong><u>In Class:</u></strong> </p><br>
+	            <p class="application"><strong><u>In Class:</u></strong> ${projectInfo.inClass}</p><br>
 	            
-	            <p class="application"><strong><u>Other</u></strong></p>
+	            <p class="application"><strong><u>Other</u></strong> ${projectInfo.other}</p>
 	        </div>
         </c:forEach>
     </div>
