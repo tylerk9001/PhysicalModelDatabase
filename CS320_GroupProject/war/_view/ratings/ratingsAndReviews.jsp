@@ -163,7 +163,7 @@ input.star:checked ~ .rev-box{
 					
 					
 				<p id="review-title">Write Your Review :</p>
-				<textarea rows="20" maxlength="500" name="review" placeholder="What did you like or dislike about this project? What could be improved?" required></textarea><br>
+				<textarea rows="20" maxlength="10000" name="review" placeholder="What did you like or dislike about this project? What could be improved?" required></textarea><br>
 				
 				<input id="submit" type="submit" value="Submit Review">
 			</form>

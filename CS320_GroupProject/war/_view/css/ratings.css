@@ -70,6 +70,7 @@ textarea {
 }
 
 #submit {
+  padding-top: 20px;
   background-color: #4CAF50;
   color: white;
   padding: 12px 20px;

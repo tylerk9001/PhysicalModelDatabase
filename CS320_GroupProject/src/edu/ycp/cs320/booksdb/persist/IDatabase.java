@@ -42,4 +42,6 @@ public interface IDatabase {
 	
 	// Add review
 	public boolean addReview (int rating, String projectName, String authorName, String review, String title);
+	
+	public ArrayList<RatingReviews> retrieveReviewsByProjectName (String name);
 }

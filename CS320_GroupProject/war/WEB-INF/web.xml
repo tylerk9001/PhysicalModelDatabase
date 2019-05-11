@@ -10,10 +10,18 @@
     <servlet-name>IndexServlet</servlet-name>
     <servlet-class>edu.ycp.cs320.lab02.servlet.IndexServlet</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>UploadFilesServlet</servlet-name>
+    <servlet-class>edu.ycp.cs320.lab02.servlet.UploadFilesServlet</servlet-class>
+  </servlet>
   
   <servlet>
     <servlet-name>ratingsAndReviewsServlet</servlet-name>
     <servlet-class>edu.ycp.cs320.lab02.servlet.ratingsAndReviewsServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>UploadedReviewServlet</servlet-name>
+    <servlet-class>edu.ycp.cs320.lab02.servlet.UploadedReviewServlet</servlet-class>
   </servlet>
   <servlet>
   <servlet-name>SearchServlet</servlet-name>
@@ -46,10 +54,6 @@
   <servlet>
   	<servlet-name>UploadedProjectServlet</servlet-name>
     <servlet-class>edu.ycp.cs320.lab02.servlet.UploadedProjectServlet</servlet-class>
-  </servlet>
-  <servlet>
-  	<servlet-name>UploadConfirmServlet</servlet-name>
-    <servlet-class>edu.ycp.cs320.lab02.servlet.UploadConfirmServlet</servlet-class>
   </servlet>
   
   
@@ -392,13 +396,17 @@
     <servlet-name>UploadServlet</servlet-name>
     <url-pattern>/upload</url-pattern>
   </servlet-mapping>
+   <servlet-mapping>
+    <servlet-name>UploadedReviewServlet</servlet-name>
+    <url-pattern>/allreviews</url-pattern>
+  </servlet-mapping>
   <servlet-mapping>
     <servlet-name>UploadedProjectServlet</servlet-name>
     <url-pattern>/useruploaded</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
-    <servlet-name>UploadConfirmServlet</servlet-name>
-    <url-pattern>/uploadConfirm</url-pattern>
+    <servlet-name>UploadFilesServlet</servlet-name>
+    <url-pattern>/uploadFiles</url-pattern>
   </servlet-mapping>
   
   <servlet-mapping>

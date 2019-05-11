@@ -15,7 +15,7 @@ import edu.ycp.cs320.lab02.model.CurrentProject;
 import edu.ycp.cs320.lab02.model.RatingReviews;
 import edu.ycp.cs320.lab02.model.UserAccount;
 
-public class ratingsAndReviewsServlet extends HttpServlet {
+public class UploadedReviewServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
 	
@@ -23,10 +23,9 @@ public class ratingsAndReviewsServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
 		
-		System.out.println("Ratings And Reviews Servlet: doGet");	
+		System.out.println("Uploaded Review Servlet: doGet");	
 		
 		RatingReviewController controller = new RatingReviewController();
-		
 		
 		ArrayList<CurrentProject> constructionResults = new ArrayList<CurrentProject>();
 		constructionResults = controller.retrieveAllProjectsInDatabase("Construction");
@@ -60,38 +59,40 @@ public class ratingsAndReviewsServlet extends HttpServlet {
 		thermResults = controller.retrieveAllProjectsInDatabase("Thermodynamics");
 		req.setAttribute("thermResults", thermResults);
 		
+		
 		// call JSP to generate empty form
-		req.getRequestDispatcher("/_view/ratings/ratingsAndReviews.jsp").forward(req, resp);
+		req.getRequestDispatcher("/_view/ratings/uploadedReview.jsp").forward(req, resp);
 	}
 	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
 		
-		System.out.println("Ratings And Reviews Servlet: doPost");
+		System.out.println("Uploaded Review Servlet: doPost");
 		
 		RatingReviews model = new RatingReviews();
 		RatingReviewController controller = new RatingReviewController();
 		HttpSession session = req.getSession();
 		
-		String getProjectTitle = req.getParameter("projectTitle");
-		String getReviewDesc = req.getParameter("reviewDesc");
-		String getRatingStar = req.getParameter("star");
-		String getReview = req.getParameter("review");
+		String name = req.getParameter("projectTitleForReviews");
 		
-		model.setProjectName(getProjectTitle);
-		model.setReviewTitle(getReviewDesc);
-		model.setRating(Integer.parseInt(getRatingStar));
-		model.setReview(getReview);
-		model.setAuthorName(session.getAttribute("name").toString());
-		
+		model.setProjectName(name);
 		controller.setModel(model);
-		boolean reviewAdd = controller.addReview(model);
 		
-		if (reviewAdd) {
-			session.setAttribute("reviewCreated", "Review: " + getReviewDesc + " was successfully added.");
-			resp.sendRedirect("/project/dashboard");
+		ArrayList<RatingReviews> listOfReviews = controller.retrieveReviewsByProjectName(model);
+		
+		
+		if (listOfReviews.isEmpty()) {
+			req.setAttribute("noReviews", "Oops, we weren't able to find any reviews for this project yet!");
 		}
+		else {
+			req.setAttribute("listOfReviews", listOfReviews);
+		}
+		
+		req.setAttribute("projectName", name + " Reviews:");
+		
+		
 		// now call the JSP to render the new page
+		req.getRequestDispatcher("/_view/ratings/uploadedReview.jsp").forward(req, resp);
 	}
 }

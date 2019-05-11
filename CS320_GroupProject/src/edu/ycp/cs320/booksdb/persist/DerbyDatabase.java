@@ -502,7 +502,7 @@ public class DerbyDatabase implements IDatabase {
 				ResultSet resultSet4 = null;
 				PreparedStatement stmt5 = null;
 				PreparedStatement stmt6 = null;
-				String filePath = "http://locahost:8081/project/review";
+				String filePath = "http://locahost:8081/project/allreviews";
 				int project_id;
 				int review_id;
 				int author_id;
@@ -561,6 +561,54 @@ public class DerbyDatabase implements IDatabase {
 					return true;
 				} else {
 					return false;
+				}
+			}
+		});
+	}
+	
+	public ArrayList<RatingReviews> retrieveReviewsByProjectName (final String name) {
+		return executeTransaction(new Transaction<ArrayList<RatingReviews>>() {
+			@SuppressWarnings("resource")
+			@Override
+			public ArrayList<RatingReviews> execute(Connection conn) throws SQLException {
+				PreparedStatement stmt = null;
+				ResultSet resultSet = null;
+				
+//				System.out.print(name);
+								
+				try {
+					String lower = name.toLowerCase();
+					String upper = name.toUpperCase();
+					stmt = conn.prepareStatement("select DISTINCT title, rating, review "
+							+ "from projects, reviews, authors, authorReviews, projectReviews "
+							+ "where ((lower(projectname) like ? or upper(projectname) like ?) "
+							+ "and (reviews.review_id = projectReviews.review_id "
+							+ "and reviews.review_id = authorReviews.review_id "
+							+ "and projects.project_id = projectReviews.project_id "
+							+ "and authors.account_id = authorReviews.author_id))");	
+					stmt.setString(1, "%" + lower + "%");
+					stmt.setString(2, "%" + upper + "%");
+										
+					ArrayList<RatingReviews> list = new ArrayList<RatingReviews>();
+					
+					// initialize boolean variable
+					Boolean found = false;
+					
+					resultSet = stmt.executeQuery();
+					
+					while (resultSet.next()) {
+						found = true;
+						
+						RatingReviews review = new RatingReviews();
+						loadReviews(review, resultSet, 1);
+						list.add(review);
+					}
+					
+					return list;
+					
+				} finally {
+					DBUtil.closeQuietly(resultSet);
+					DBUtil.closeQuietly(stmt);
 				}
 			}
 		});
@@ -640,7 +688,11 @@ public class DerbyDatabase implements IDatabase {
 		review.setProjectName(resultSet.getString(index++));
 	}
 	
-	
+	private void loadReviews(RatingReviews review, ResultSet resultSet, int index) throws SQLException {
+		review.setReviewTitle(resultSet.getString(index++));
+		review.setRating(Integer.parseInt(resultSet.getString(index++)));
+		review.setReview(resultSet.getString(index++));
+	} 
 	public void createTables() {
 		executeTransaction(new Transaction<Boolean>() {
 			@Override

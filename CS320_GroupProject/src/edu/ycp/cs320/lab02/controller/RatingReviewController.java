@@ -46,4 +46,9 @@ public class RatingReviewController {
 		ArrayList<CurrentProject> projects = database.retrieveAllProjectsInDatabase(category);
 		return projects;
 	}
+	
+	public ArrayList<RatingReviews> retrieveReviewsByProjectName (RatingReviews model) {
+		ArrayList<RatingReviews> results = database.retrieveReviewsByProjectName(model.getProjectName());
+		return results;
+	}
 }	 
