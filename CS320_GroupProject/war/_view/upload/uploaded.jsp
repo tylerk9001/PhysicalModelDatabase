@@ -64,38 +64,40 @@
 <content>
 
     <div class="content">
-        <div class="header-container" align="center">
-            <p class="title">Title</p>
-            <p class="eng-principle"><strong>Engineering Principle: </strong></p>
-            <p class="keywords"><strong>Keywords: </strong></p>
-            <p class="author"><strong>Submitted By: </strong> </p><hr>
-        </div>
-        <div class="project-content">
-            <p class="description"><strong><u>Model Description:</u></strong></p>
-            
-            <p class="principle"><strong><u>Engineering Principle:</u></strong> </p>
-            
-            <br><p class="title">Required Items</p><br>
-            
-            <div style="overflow-x: auto;">
-                <table>
-                  <tr>
-                    <th>Item</th>
-                    <th>Qty</th>
-                    <th>Cost and Build Time</th>
-                    <th>Description/Details</th>
-                  </tr>
-                </table><br>
-            </div>
-            
-            <p class="title">Application</p>
-            
-            <p class="application"><strong><u>Before Class:</u></strong></p><br>
-            
-            <p class="application"><strong><u>In Class:</u></strong> </p><br>
-            
-            <p class="application"><strong><u>Other</u></strong></p>
-        </div>
+    	<c:forEach items="${projectInfo}" var="projectInfo">
+	        <div class="header-container" align="center">
+	            <p class="title">${projectInfo.projectName}</p>
+	            <p class="eng-principle"><strong>Engineering Principle: </strong>${projectInfo.engineeringCategory}</p>
+	            <p class="keywords"><strong>Keywords: </strong> ${projectInfo.keywords}</p>
+	            <p class="author"><strong>Submitted By: </strong> ${projectInfo.authors}</p><hr>
+	        </div>
+	        <div class="project-content">
+	            <p class="description"><strong><u>Model Description:</u></strong> ${projectInfo.modelDescription}</p>
+	            
+	            <p class="principle"><strong><u>Engineering Principle:</u></strong> </p>
+	            
+	            <br><p class="title">Required Items</p><br>
+	            
+	            <div style="overflow-x: auto;">
+	                <table>
+	                  <tr>
+	                    <th>Item</th>
+	                    <th>Qty</th>
+	                    <th>Cost and Build Time</th>
+	                    <th>Description/Details</th>
+	                  </tr>
+	                </table><br>
+	            </div>
+	            
+	            <p class="title">Application</p>
+	            
+	            <p class="application"><strong><u>Before Class:</u></strong></p><br>
+	            
+	            <p class="application"><strong><u>In Class:</u></strong> </p><br>
+	            
+	            <p class="application"><strong><u>Other</u></strong></p>
+	        </div>
+        </c:forEach>
     </div>
 </content>
 

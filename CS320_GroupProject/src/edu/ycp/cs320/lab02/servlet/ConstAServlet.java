@@ -21,10 +21,6 @@ public class ConstAServlet extends HttpServlet {
 		
 		System.out.println("Const_A Servlet: doGet");	
 		
-		String test = req.getQueryString().trim();
-		test = test.replaceAll("%20", " ");
-		System.out.println(test);
-		
 		// call JSP to generate empty form
 		req.getRequestDispatcher("/_view/categories/construction/const-a.jsp").forward(req, resp);
 	}

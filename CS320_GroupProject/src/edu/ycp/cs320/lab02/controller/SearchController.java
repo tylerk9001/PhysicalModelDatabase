@@ -35,8 +35,8 @@ public class SearchController {
 		return projects;
 	}
 	
-	public CurrentProject getAllInfoForProjectGivenProjectName(String name) {
-		CurrentProject project = database.getAllInfoForProjectGivenProjectName(name);
+	public ArrayList<CurrentProject> getAllInfoForProjectGivenProjectName(String name) {
+		ArrayList<CurrentProject> project = database.getAllInfoForProjectGivenProjectName(name);
 		return project;
 	}
 

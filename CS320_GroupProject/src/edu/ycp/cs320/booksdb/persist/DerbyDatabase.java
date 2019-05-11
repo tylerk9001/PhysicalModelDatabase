@@ -232,11 +232,11 @@ public class DerbyDatabase implements IDatabase {
 		});
 	}
 	
-	public CurrentProject getAllInfoForProjectGivenProjectName (String category) {
-		return executeTransaction(new Transaction<CurrentProject>() {
+	public ArrayList<CurrentProject> getAllInfoForProjectGivenProjectName (String category) {
+		return executeTransaction(new Transaction<ArrayList<CurrentProject>>() {
 			@SuppressWarnings("resource")
 			@Override
-			public CurrentProject execute(Connection conn) throws SQLException {
+			public ArrayList<CurrentProject> execute(Connection conn) throws SQLException {
 				PreparedStatement stmt = null;
 				ResultSet resultSet = null;
 				
@@ -245,7 +245,7 @@ public class DerbyDatabase implements IDatabase {
 				try {
 					String lower = category.toLowerCase();
 					String upper = category.toUpperCase();
-					stmt = conn.prepareStatement("select DISTINCT project_id, projectname, category, filename, modeldescription, engineeringprinciple, beforeclass, inclass, other "
+					stmt = conn.prepareStatement("select DISTINCT projects.project_id, projectname, category, filename, modeldescription, engineeringprinciple, beforeclass, inclass, other "
 							+ "from projects, keywords, authors, projectauthors "
 							+ "where lower(projectname) like ? or upper(projectname) like ? "
 							+ "and (keywords.project_id = projects.project_id "
@@ -253,12 +253,6 @@ public class DerbyDatabase implements IDatabase {
 							+ "and authors.account_id = projectauthors.author_id)");	
 					stmt.setString(1, "%" + lower + "%");
 					stmt.setString(2, "%" + upper + "%");
-					stmt.setString(3, "%" + lower + "%");
-					stmt.setString(4, "%" + upper + "%");
-					stmt.setString(5, "%" + lower + "%");
-					stmt.setString(6, "%" + upper + "%");
-					stmt.setString(7, "%" + lower + "%");
-					stmt.setString(8, "%" + upper + "%");
 										
 					ArrayList<CurrentProject> list = new ArrayList<CurrentProject>();
 					
@@ -267,11 +261,16 @@ public class DerbyDatabase implements IDatabase {
 					
 					resultSet = stmt.executeQuery();
 					
-					found = true;
+					while (resultSet.next()) {
+						found = true;
+						
+						CurrentProject project = new CurrentProject();
+						loadProject(project, resultSet, 1);
+						list.add(project);
+						
+					}
 					
-					CurrentProject project = new CurrentProject();
-					loadProject(project, resultSet, 1);
-					return project;
+					return list;
 				
 				} finally {
 					DBUtil.closeQuietly(resultSet);
@@ -801,6 +800,7 @@ public class DerbyDatabase implements IDatabase {
 	
 	private void loadProject(CurrentProject project, ResultSet resultSet, int index) throws SQLException {
 		project.setProjectID(resultSet.getInt(index++));
+		project.setProjectName(resultSet.getString(index++));
 		project.setEngineeringCategory(resultSet.getString(index++));
 		project.setFileName(resultSet.getString(index++));
 		project.setModelDescription(resultSet.getString(index++));

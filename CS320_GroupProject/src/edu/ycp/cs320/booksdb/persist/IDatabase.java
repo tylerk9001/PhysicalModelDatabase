@@ -29,7 +29,7 @@ public interface IDatabase {
 	public ArrayList<CurrentProject> getAllUploadedProjectsByCategory(String category);
 	
 	// Return project info for single project given the project name
-	public CurrentProject getAllInfoForProjectGivenProjectName(String name);
+	public ArrayList<CurrentProject> getAllInfoForProjectGivenProjectName(String name);
 	
 	// Query to add new project to database
 	public boolean addNewProjectToDatabase(String projectName, String engineeringCategory, ArrayList<String> keywords, 

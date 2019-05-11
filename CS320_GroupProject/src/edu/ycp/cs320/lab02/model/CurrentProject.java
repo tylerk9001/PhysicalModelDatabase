@@ -12,7 +12,6 @@ public class CurrentProject {
 	private String modelDescription;
 	private String engineeringPrinciple;
 	private ArrayList<String[]> requiredItems = new ArrayList<String[]>();
-	private ArrayList<String> items = new ArrayList<String>();
 	private String beforeClass;
 	private String inClass;
 	private String other;
