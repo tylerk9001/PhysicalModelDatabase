@@ -61,7 +61,13 @@ public class UploadedReviewServlet extends HttpServlet {
 		thermResults = controller.retrieveAllProjectsInDatabase("Thermodynamics");
 		req.setAttribute("thermResults", thermResults);
 		
+		
+		
 		if (req.getQueryString() != null) {
+			String test1 = req.getQueryString().trim();
+			test1 = test1.replaceAll("%20", " ");
+			session.setAttribute("projectName", test1);
+			
 			String test = (String) session.getAttribute("projectName");
 			model.setProjectName(test);
 			controller.setModel(model);
@@ -106,7 +112,7 @@ public class UploadedReviewServlet extends HttpServlet {
 			req.setAttribute("listOfReviews", listOfReviews);
 		}
 		
-		req.setAttribute("projectName", name + " Reviews:");
+		req.setAttribute("projectNames", name + " Reviews:");
 		
 		
 		// now call the JSP to render the new page
