@@ -25,7 +25,7 @@ public class UploadedProjectServlet extends HttpServlet {
 		
 		SearchController controller = new SearchController();
 		
-HttpSession session = req.getSession();
+		HttpSession session = req.getSession();
 		
 		String test = req.getQueryString().trim();
 		test = test.replaceAll("%20", " ");
