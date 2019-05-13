@@ -5,8 +5,8 @@
 
 <style>
 	.login-footer {
-    position: absolute;
-    top: 95%;
+    position: fixed;
+    bottom: 0;
 }
 	
 </style>
@@ -70,7 +70,7 @@
 	            <p class="eng-principle"><strong>Engineering Principle: </strong>${projectInfo.engineeringCategory}</p>
 	            <p class="keywords"><strong>Keywords: </strong> ${projectInfo.keywords}</p>
 	            <p class="author"><strong>Submitted By: </strong> ${projectInfo.authors}</p>
-            <p class="button-reviews"><a class="reviewsButton" href="http://localhost:8081/project/allreviews?${test}">Browse Reviews</a><hr>
+            <p class="button-reviews"><a class="reviewsButton" href="http://localhost:8081/project/allreviews?${projectName}">Browse Reviews</a><hr>
 	        </div>
 	        <div class="project-content">
 	            <p class="description"><strong><u>Model Description:</u></strong> ${projectInfo.modelDescription}</p>
@@ -87,6 +87,17 @@
 	                    <th>Cost and Build Time</th>
 	                    <th>Description/Details</th>
 	                  </tr>
+	                  
+	                 
+                  	<c:forEach items="${allItems}" var="item">
+                  		<tr>
+	                    	<td>${item[0]}</td>
+	                    	<td>${item[1]}</td>
+	                    	<td>${item[2]}</td>
+	                    	<td>${item[3]}</td>
+                    	</tr>
+                    </c:forEach>
+	                  
 	                </table><br>
 	            </div>
 	            

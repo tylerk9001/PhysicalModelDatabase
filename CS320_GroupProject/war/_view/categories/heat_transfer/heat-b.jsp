@@ -63,7 +63,7 @@
             <p class="eng-principle"><strong>Engineering Principle: </strong>Heat Transfer</p>
             <p class="keywords"><strong>Keywords: </strong>Concentration, Energy, Heat Flux, Radiant, Reflection</p>
             <p class="author"><strong>Submitted By: </strong> Gunnar Tamm</p>
-            <p class="button-reviews"><a class="reviewsButton" href="http://localhost:8081/project/allreviews?${test}">Browse Reviews</a><hr>
+            <p class="button-reviews"><a class="reviewsButton" href="http://localhost:8081/project/allreviews?${projectName}">Browse Reviews</a><hr>
         </div>
         <div class="project-content">
             <p class="description"><strong><u>Model Description:</u></strong> This demonstration illustrates how to concentrate radiant

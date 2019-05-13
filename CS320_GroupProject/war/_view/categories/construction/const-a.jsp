@@ -60,7 +60,7 @@
             <p class="eng-principle"><strong>Engineering Principle: </strong>Construction</p>
             <p class="keywords"><strong>Keywords: </strong>Angle, Crane Pick, Force, Lift, Load, Vector</p>
             <p class="author"><strong>Submitted By: </strong> David Flaherty and Matt Morris</p>
-            <p class="button-reviews"><a class="reviewsButton" href="http://localhost:8081/project/allreviews?${test}">Browse Reviews</a><hr>
+            <p class="button-reviews"><a class="reviewsButton" href="http://localhost:8081/project/allreviews?${projectName}">Browse Reviews</a><hr>
         </div>
         <div class="project-content">
             <p class="description"><strong><u>Model Description:</u></strong> This demonstration depicts the importance of rigging angles during crane lift operations on a construction site. Reducing rigging angles results in a significant amplification of forces in the rigging, potentially <strong>leading to failure</strong>. By varying the connection points and sling length, students will be able to calculate the predicted forces and analyze the best combination of connection points and sling lengths to successfully complete the critical lift. The demonstration should take 15-20 minutes.</p>

@@ -60,7 +60,7 @@
             <p class="eng-principle"><strong>Engineering Principle: </strong>Construction</p>
             <p class="keywords"><strong>Keywords: </strong>Equilibrium, Pressure, Shoring, Soil</p>
             <p class="author"><strong>Submitted By: </strong> Dr. Matthew Hallowell</p>
-            <p class="button-reviews"><a class="reviewsButton" href="http://localhost:8081/project/allreviews?${test}">Browse Reviews</a><hr>
+            <p class="button-reviews"><a class="reviewsButton" href="http://localhost:8081/project/allreviews?${projectName}">Browse Reviews</a><hr>
         </div>
         <div class="project-content">
             <p class="description"><strong><u>Model Description:</u></strong> This in-class activity provides students the opportunity to participate in an interactive demonstration to visualize the concepts of soil pressure and potential effects on construction excavation support systems. In this demo, students are able to interact directly with small-scale models to exhibit the concepts of at rest (equilibrium) soil conditions, active soil pressure, and passive soil pressure. This demonstration should take 10 minutes.</p>

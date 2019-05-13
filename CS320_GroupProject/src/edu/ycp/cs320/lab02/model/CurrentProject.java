@@ -12,12 +12,21 @@ public class CurrentProject {
 	private String modelDescription;
 	private String engineeringPrinciple;
 	private ArrayList<String[]> requiredItems = new ArrayList<String[]>();
+	private ArrayList<String> returnItems = new ArrayList<String>();
 	private String beforeClass;
 	private String inClass;
 	private String other;
 	private String fileName;
 
 	public CurrentProject() {
+	}
+	
+	public void setReturnItems(ArrayList<String> items) {
+		this.returnItems = items;
+	}
+	
+	public ArrayList<String> getReturnItems(){
+		return returnItems;
 	}
 	
 	public void setProjectID(int projectID) {

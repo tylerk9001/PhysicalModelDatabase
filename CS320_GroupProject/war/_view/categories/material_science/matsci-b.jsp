@@ -63,7 +63,7 @@
             <p class="eng-principle"><strong>Engineering Principle: </strong>Material Science</p>
             <p class="keywords"><strong>Keywords: </strong>Deformation, Martensite, Nitinol, Superelastic, Undeformed</p>
             <p class="author"><strong>Submitted By: </strong>Victor Yu and Lanny Griffin</p>
-            <p class="button-reviews"><a class="reviewsButton" href="http://localhost:8081/project/allreviews?${test}">Browse Reviews</a><hr>
+            <p class="button-reviews"><a class="reviewsButton" href="http://localhost:8081/project/allreviews?${projectName}">Browse Reviews</a><hr>
         </div>
         <div class="project-content">
             <p class="description"><strong><u>Model Description:</u></strong> These movie clips demonstrate the two phases of a shape

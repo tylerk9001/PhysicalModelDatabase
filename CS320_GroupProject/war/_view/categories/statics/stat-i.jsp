@@ -59,7 +59,7 @@
             <p class="eng-principle"><strong>Engineering Principle: </strong>Statics</p>
             <p class="keywords"><strong>Keywords: </strong>Free Vector, Moment, Varignon's Theorem</p>
             <p class="author"><strong>Submitted By: </strong>Jason Evers</p>
-            <p class="button-reviews"><a class="reviewsButton" href="http://localhost:8081/project/allreviews?${test}">Browse Reviews</a><hr>>
+            <p class="button-reviews"><a class="reviewsButton" href="http://localhost:8081/project/allreviews?${projectName}">Browse Reviews</a><hr>>
         </div>
         <div class="project-content">
             <p class="description"><strong><u>Model Description:</u></strong> Introduce Varignon’s theorem to students as one way to

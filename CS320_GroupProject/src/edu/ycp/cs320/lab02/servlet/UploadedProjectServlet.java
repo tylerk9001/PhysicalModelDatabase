@@ -17,6 +17,7 @@ public class UploadedProjectServlet extends HttpServlet {
 	
 	CurrentProject project = new CurrentProject();
 	
+	@SuppressWarnings("null")
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
@@ -34,6 +35,43 @@ public class UploadedProjectServlet extends HttpServlet {
 		
 		ArrayList<CurrentProject> projectInfo = controller.getAllInfoForProjectGivenProjectName(test);
 		req.setAttribute("projectInfo", projectInfo);
+		
+		ArrayList<String> requiredItems = projectInfo.get(0).getReturnItems();
+		ArrayList<String> item = new ArrayList<String>();
+		ArrayList<String> quantity = new ArrayList<String>();
+		ArrayList<String> cost = new ArrayList<String>();
+		ArrayList<String> description = new ArrayList<String>();
+		
+		for (int i = 0; i < requiredItems.size(); i=i+4) {
+			item.add(requiredItems.get(i));
+		}
+		for (int i = 1; i < requiredItems.size(); i=i+4) {
+			quantity.add(requiredItems.get(i));
+		}
+		for (int i = 2; i < requiredItems.size(); i=i+4) {
+			cost.add(requiredItems.get(i));
+		}
+		for (int i = 3; i < requiredItems.size(); i=i+4) {
+			description.add(requiredItems.get(i));
+		}
+		int num = requiredItems.size()/4;
+		
+		ArrayList<String[]> allItems = new ArrayList<String[]>();
+
+		for (int i = 0; i < num; i++) {
+			String[] row = new String[4];
+			row[0] = item.get(i);
+			row[1] = quantity.get(i);
+			row[2] = cost.get(i);
+			row[3] = description.get(i);
+			allItems.add(row);
+		}
+
+
+		req.setAttribute("allItems", allItems);
+
+		
+
 		
 		
 		// call JSP to generate empty form

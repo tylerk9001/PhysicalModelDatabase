@@ -59,7 +59,7 @@
             <p class="eng-principle"><strong>Engineering Principle: </strong>Statics</p>
             <p class="keywords"><strong>Keywords: </strong>3-D, Equilibrium, Force, Magnitude, Moment, Vector</p>
             <p class="author"><strong>Submitted By: </strong>Jason Evers</p>
-            <p class="button-reviews"><a class="reviewsButton" href="http://localhost:8081/project/allreviews?${test}">Browse Reviews</a><hr>
+            <p class="button-reviews"><a class="reviewsButton" href="http://localhost:8081/project/allreviews?${projectName}">Browse Reviews</a><hr>
         </div>
         <div class="project-content">
             <p class="description"><strong><u>Model Description:</u></strong> : Use this daunting looking model to set the stage for a lesson

@@ -69,7 +69,7 @@ public class UploadedReviewServlet extends HttpServlet {
 			session.setAttribute("projectName", test1);
 			
 			String test = (String) session.getAttribute("projectName");
-			model.setProjectName(test);
+			model.setProjectName(test1);
 			controller.setModel(model);
 			
 			ArrayList<RatingReviews> reviewsForProject = controller.retrieveReviewsByProjectName(model);
@@ -80,7 +80,7 @@ public class UploadedReviewServlet extends HttpServlet {
 				req.setAttribute("noReviews", "Oops, we weren't able to find any reviews for this project yet!");
 			}
 			
-			req.setAttribute("projectName", test + " Reviews:");
+			req.setAttribute("projectName", test1 + " Reviews:");
 		}
 		
 		// call JSP to generate empty form
@@ -112,7 +112,7 @@ public class UploadedReviewServlet extends HttpServlet {
 			req.setAttribute("listOfReviews", listOfReviews);
 		}
 		
-		req.setAttribute("projectNames", name + " Reviews:");
+		req.setAttribute("projectName", name + " Reviews:");
 		
 		
 		// now call the JSP to render the new page

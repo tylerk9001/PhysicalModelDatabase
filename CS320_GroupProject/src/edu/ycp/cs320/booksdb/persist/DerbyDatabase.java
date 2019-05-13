@@ -234,7 +234,7 @@ public class DerbyDatabase implements IDatabase {
 	
 	public ArrayList<CurrentProject> getAllInfoForProjectGivenProjectName (String search) {
 		return executeTransaction(new Transaction<ArrayList<CurrentProject>>() {
-			@SuppressWarnings("resource")
+			@SuppressWarnings({ "resource", "null" })
 			@Override
 			public ArrayList<CurrentProject> execute(Connection conn) throws SQLException {
 				PreparedStatement stmt = null;
@@ -243,6 +243,8 @@ public class DerbyDatabase implements IDatabase {
 				ResultSet resultSet2 = null;
 				PreparedStatement stmt3 = null;
 				ResultSet resultSet3 = null;
+				PreparedStatement stmt4 = null;
+				ResultSet resultSet4 = null;
 				
 				ArrayList<CurrentProject> list = new ArrayList<CurrentProject>();
 				ArrayList<String> keywords = new ArrayList<String>();
@@ -296,6 +298,26 @@ public class DerbyDatabase implements IDatabase {
 							authors.add(resultSet3.getString(index++));
 						}
 						project.setAuthors(authors);
+						
+						stmt4 = conn.prepareStatement("select item, quantity, cost, description from projects, requiredItems "
+								+ "where projectName = ? "
+								+ "and projects.project_id = requiredItems.project_id ");
+						stmt4.setString(1, search);
+						resultSet4 = stmt4.executeQuery();
+						
+						ArrayList<String> requiredItemList = new ArrayList<String>();
+						while (resultSet4.next()) {
+//							System.out.println(resultSet4.getString("item"));
+//							System.out.println(resultSet4.getString("quantity"));
+//							System.out.println(resultSet4.getString("cost"));
+//							System.out.println(resultSet4.getString("description"));
+							
+							requiredItemList.add(resultSet4.getString("item"));
+							requiredItemList.add(resultSet4.getString("quantity"));
+							requiredItemList.add(resultSet4.getString("cost"));
+							requiredItemList.add(resultSet4.getString("description"));
+						}
+						project.setReturnItems(requiredItemList);
 						
 						list.add(project);
 					}

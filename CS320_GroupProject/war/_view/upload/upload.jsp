@@ -67,7 +67,7 @@
             
               <strong><label class="upload" for="engPrinciple">Engineering Principle:</label></strong>
               <select id="engPrinciple" name="categories" required>
-                <option selected disabled>Select Principle...</option>
+                <option value="" selected disabled>Select Principle...</option>
                 <option value="Construction">Construction</option>
                 <option value="Dynamics">Dynamics</option>
                 <option value="Fluids">Fluids</option>
@@ -178,8 +178,6 @@
           
               <strong><label class="upload" for="other">Other:</label></strong>
               <textarea id="other" name="other" placeholder="Any additional information..." style="height:200px"></textarea>
-          
-          		<input type="file" name="uploadedFile" />
           	   
               <input type="submit" value="Submit">
          

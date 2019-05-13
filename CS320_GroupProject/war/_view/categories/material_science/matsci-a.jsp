@@ -62,7 +62,7 @@
             <p class="eng-principle"><strong>Engineering Principle: </strong>Material Science</p>
             <p class="keywords"><strong>Keywords: </strong>Annealing, Bending, Brittle, Deformation, Fracture, Rupture, Strength</p>
             <p class="author"><strong>Submitted By: </strong>Led Klosky</p>
-            <p class="button-reviews"><a class="reviewsButton" href="http://localhost:8081/project/allreviews?${test}">Browse Reviews</a><hr>
+            <p class="button-reviews"><a class="reviewsButton" href="http://localhost:8081/project/allreviews?${projectName}">Browse Reviews</a><hr>
         </div>
         <div class="project-content">
             <p class="description"><strong><u>Model Description:</u></strong> Knife blades are typically very hard and brittle. In this rapid

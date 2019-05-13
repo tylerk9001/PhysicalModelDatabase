@@ -59,7 +59,7 @@
             <p class="eng-principle"><strong>Engineering Principle: </strong>Mechanics</p>
             <p class="keywords"><strong>Keywords: </strong>Axial, Deformation, Elastic, Plastic, Strain, Stress</p>
             <p class="author"><strong>Submitted By: </strong>John Richards</p>
-            <p class="button-reviews"><a class="reviewsButton" href="http://localhost:8081/project/allreviews?${test}">Browse Reviews</a><hr>
+            <p class="button-reviews"><a class="reviewsButton" href="http://localhost:8081/project/allreviews?${projectName}">Browse Reviews</a><hr>
         </div>
         <div class="project-content">
             <p class="description"><strong><u>Model Description:</u></strong>This is a simple demonstration of the basic principles
