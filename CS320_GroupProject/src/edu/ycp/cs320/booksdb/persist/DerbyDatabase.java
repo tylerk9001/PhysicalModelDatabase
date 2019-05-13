@@ -293,9 +293,8 @@ public class DerbyDatabase implements IDatabase {
 								+ "and authors.account_id = projectAuthors.author_id ");
 						stmt3.setString(1, search);
 						resultSet3 = stmt3.executeQuery();
-						index = 1;
 						while (resultSet3.next()) {
-							authors.add(resultSet3.getString(index++));
+							authors.add(resultSet3.getString(1));
 						}
 						project.setAuthors(authors);
 						
