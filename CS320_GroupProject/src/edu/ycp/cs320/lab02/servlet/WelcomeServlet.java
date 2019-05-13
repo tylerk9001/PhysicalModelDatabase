@@ -39,12 +39,14 @@ public class WelcomeServlet extends HttpServlet {
 		
 		ArrayList<CurrentProject> dashboardProjectsFound = new ArrayList<CurrentProject>();
 		
-		dashboardProjectsFound = controller.checkForAuthorsProjects(name);
-		session.setAttribute("results", dashboardProjectsFound);
+		if (name != null) {
+			dashboardProjectsFound = controller.checkForAuthorsProjects(name);
+			session.setAttribute("results", dashboardProjectsFound);
+		} 
+			if (dashboardProjectsFound.isEmpty()) {
+				req.setAttribute("noProjects", "Currently, you do not have any projects uploaded.");
+			}
 		
-		if (dashboardProjectsFound.isEmpty()) {
-			req.setAttribute("noProjects", "Currently, you do not have any projects uploaded.");
-		}
 		
 		RatingReviews model2 = new RatingReviews();
 		RatingReviewController controller2 = new RatingReviewController();		
@@ -54,12 +56,14 @@ public class WelcomeServlet extends HttpServlet {
 		
 		ArrayList<RatingReviews> dashboardReviewsFound = new ArrayList<RatingReviews>();
 		
-		dashboardReviewsFound = controller2.retrieveReviewByAuthorName(model2);
-		session.setAttribute("results2", dashboardReviewsFound);
+		if (name != null) {
+			dashboardReviewsFound = controller2.retrieveReviewByAuthorName(model2);
+			session.setAttribute("results2", dashboardReviewsFound);
+		} 
+			if (dashboardReviewsFound.isEmpty()) {
+				req.setAttribute("noReviews", "Currently, you do not have any reviews written.");
+			}
 		
-		if (dashboardReviewsFound.isEmpty()) {
-			req.setAttribute("noReviews", "Currently, you do not have any reviews written.");
-		}
 		req.getRequestDispatcher("/_view/login/welcome.jsp").forward(req, resp);
 	}
 	
