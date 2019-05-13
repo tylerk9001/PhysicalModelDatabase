@@ -4,7 +4,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 
 <style>
-	.login-footer {
+	.login-footer {=
     position: fixed;
     bottom: 0;
 }
@@ -12,7 +12,9 @@
 </style>
 
 <head>
-    <title>Principle | Physical Model </title>
+	<c:forEach items="${projectInfo}" var="projectInfo">
+    	<title>${projectInfo.engineeringCategory} | Physical Model </title>
+    </c:forEach>
     <!--Website CSS-->
     <link rel="icon" href="${pageContext.request.contextPath}/_view/img/tab.png">
     <link href="${pageContext.request.contextPath}/_view/css/collapse-1.css" type="text/css" rel="stylesheet">
@@ -67,25 +69,25 @@
     	<c:forEach items="${projectInfo}" var="projectInfo">
 	        <div class="header-container" align="center">
 	            <p class="title">${projectInfo.projectName}</p>
-	            <p class="eng-principle"><strong>Engineering Principle: </strong>${projectInfo.engineeringCategory}</p>
-	            <p class="keywords"><strong>Keywords: </strong> ${projectInfo.keywords}</p>
-	            <p class="author"><strong>Submitted By: </strong> ${projectInfo.authors}</p>
+	            <p style="font-weight: bold;" class="eng-principle"><strong><u>Engineering Principle:</u></strong> ${projectInfo.engineeringCategory}</p>
+	            <p class="keywords"><strong><u>Keywords:</u></strong> ${projectInfo.keywords}</p>
+	            <p class="author"><strong><u>Submitted By:</u></strong> ${projectInfo.authors}</p>
             <p class="button-reviews"><a class="reviewsButton" href="http://localhost:8081/project/allreviews?${projectName}">Browse Reviews</a><hr>
 	        </div>
 	        <div class="project-content">
-	            <p class="description"><strong><u>Model Description:</u></strong> ${projectInfo.modelDescription}</p>
+	            <p class="description"><b><u>Model Description:</u></b> ${projectInfo.modelDescription}</p>
 	            
-	            <p class="principle"><strong><u>Engineering Principle:</u></strong> ${projectInfo.engineeringPrinciple}</p>
+	            <p class="principle"><b><u>Engineering Principle:</u></b> ${projectInfo.engineeringPrinciple}</p>
 	            
 	            <br><p class="title">Required Items</p><br>
 	            
 	            <div style="overflow-x: auto;">
 	                <table>
 	                  <tr>
-	                    <th>Item</th>
-	                    <th>Qty</th>
-	                    <th>Cost and Build Time</th>
-	                    <th>Description/Details</th>
+	                    <th><strong><u>Item</u></strong></th>
+	                    <th><strong><u>Qty</u></strong></th>
+	                    <th><strong><u>Cost and Build Time</u></strong></th>
+	                    <th><strong><u>Description/Details</u></strong></th>
 	                  </tr>
 	                  
 	                 
@@ -114,6 +116,7 @@
 </content>
 
 <footer>
+	<br>
     <div class="footer login-footer">
         <p>Tyler Kautz, Trevor Swann, Jacob Stambaugh. Copyright &copy; 2019. Some Rights Reserved.</p>
     </div>

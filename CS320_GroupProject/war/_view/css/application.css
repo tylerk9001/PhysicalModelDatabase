@@ -25,6 +25,7 @@
 }
 
 .title {
+	font-weight: bold;
     font-size: 24px;
     text-align: center;
 }
@@ -33,6 +34,7 @@
     padding: 0;
     margin: 0;
     font-size: 18px;
+    font-weight: bold;
 }
 
 .project-content {
@@ -50,6 +52,7 @@
 
 .description, .principle, .application {
     line-height: 30px;
+    font-weight: bold;
 }
 
 /* Required Items Table */
@@ -63,6 +66,10 @@ td, th {
   border: 1px solid #dddddd;
   text-align: left;
   padding: 8px;
+}
+
+th {
+	font-weight: bold;
 }
 
 tr:nth-child(even) {
